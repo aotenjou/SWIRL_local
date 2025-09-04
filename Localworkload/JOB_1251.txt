@@ -1,0 +1,1 @@
+SELECT company_name.name_pcode_nf, company_type.id, movie_companies.company_id FROM company_name, movie_companies, company_type WHERE company_name.name_pcode_nf < 'U5162' AND company_name.name = 'Five International' AND movie_companies.company_type_id >= 1 AND company_name.country_code <= '[in]';

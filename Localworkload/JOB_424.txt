@@ -1,0 +1,1 @@
+SELECT movie_info.note, title.season_nr, kind_type.id FROM movie_info, title, kind_type WHERE title.md5sum <= 'bbb03311ac842f628147975d1b093de0' AND movie_info.id = 12224486 AND title.title <= 'Fuyuki nontoruma no shisha de arimasu' ORDER BY kind_type.id DESC, title.season_nr ASC, movie_info.note DESC;

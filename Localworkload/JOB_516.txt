@@ -1,0 +1,1 @@
+SELECT cast_info.movie_id FROM cast_info WHERE cast_info.nr_order >= 5 AND cast_info.id <= 23295132 AND cast_info.note > '(as S. Barillier)' AND cast_info.movie_id <= 525353 AND cast_info.role_id = 11 AND cast_info.person_role_id >= 2263867;

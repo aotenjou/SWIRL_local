@@ -1,0 +1,1 @@
+select cast_info.role_id, title.series_years, cast_info.id from cast_info JOIN title ON title.id = cast_info.movie_id JOIN movie_keyword ON movie_keyword.movie_id = title.id where cast_info.person_role_id = 2359209 AND movie_keyword.movie_id <= 1831822 AND cast_info.note = '(written for television by)' order by cast_info.role_id DESC;

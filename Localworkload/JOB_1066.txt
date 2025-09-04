@@ -1,0 +1,1 @@
+SELECT title.imdb_index, movie_companies.movie_id FROM movie_companies, title WHERE movie_companies.movie_id = 1215660 AND title.md5sum < '923f54faa9d41a1dac963b1e4ba1b44b' AND title.imdb_index >= 'II' AND title.season_nr <> 13 AND title.phonetic_code < 'E5132' ORDER BY movie_companies.movie_id DESC;

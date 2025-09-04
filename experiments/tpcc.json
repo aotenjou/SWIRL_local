@@ -1,0 +1,30 @@
+{
+    "id": "TPCC_default",
+    "result_path": "results/tpcc_default",
+    "random_seed": 42,
+    "max_episode_steps": 500,
+    "max_steps_per_episode": 250,
+    "filter_utilized_columns": false,
+    "max_index_width": 3,
+    "observ_config": "EmbedObs",
+    "similar_workloads": false,
+    "action_manager": "BanditActMgr",
+    "reward_calculator": "SimpleCostReward",
+    "gym_version": 1,
+    "workload": {
+        "size": "small",
+        "scale_factor": 1,
+        "benchmark": "TPCC",
+        "excluded_query_classes": [],
+        "varying_frequencies": false,
+        "similar_workloads": false,
+        "query_class_change_frequency": null,
+        "training_instances": 10,
+        "validation_testing": {
+            "unknown_query_probabilities": [0.0, 0.2],
+            "validation_instances": 5,
+            "test_instances": 5
+        }
+    },
+    "column_filters": []
+} 

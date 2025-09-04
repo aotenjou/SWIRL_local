@@ -1,0 +1,1 @@
+SELECT person_info.info_type_id, info_type.info, movie_info_idx.id FROM person_info JOIN info_type ON info_type.id = person_info.info_type_id JOIN movie_info_idx ON movie_info_idx.info_type_id = info_type.id WHERE movie_info_idx.info > '25' AND person_info.person_id <> 645286 AND person_info.info_type_id = 24 ORDER BY person_info.info_type_id DESC, movie_info_idx.id DESC;

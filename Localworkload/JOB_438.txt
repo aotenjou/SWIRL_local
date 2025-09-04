@@ -1,0 +1,1 @@
+SELECT title.episode_nr, movie_keyword.keyword_id FROM movie_keyword JOIN title ON title.id = movie_keyword.movie_id WHERE title.phonetic_code > 'R2161' AND movie_keyword.id <> 3398212 AND title.imdb_index < 'II' AND movie_keyword.keyword_id < 266 AND title.production_year <> 1902 ORDER BY movie_keyword.keyword_id ASC, title.episode_nr ASC;

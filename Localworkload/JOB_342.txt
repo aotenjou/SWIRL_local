@@ -1,0 +1,1 @@
+SELECT name.imdb_index FROM name WHERE name.id > 1165813 AND name.name > 'Jimenez, Maria' AND name.name_pcode_cf <> 'W4256' AND name.name_pcode_nf > 'L616' ORDER BY name.imdb_index ASC;

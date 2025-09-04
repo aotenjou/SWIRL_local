@@ -1,0 +1,1 @@
+select name.imdb_index, name.name_pcode_cf from aka_name, name where name.name >= 'Jennings, James' AND aka_name.surname_pcode = 'M2' AND name.surname_pcode <= 'K252' AND aka_name.name_pcode_cf >= 'G3623' order by name.name_pcode_cf ASC, name.imdb_index DESC;

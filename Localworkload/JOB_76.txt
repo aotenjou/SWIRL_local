@@ -1,0 +1,1 @@
+SELECT cast_info.nr_order, name.name FROM cast_info, name WHERE cast_info.nr_order = 9 AND name.id <> 87660 AND cast_info.note <= '(head dog trainer)' AND cast_info.id = 34618692;

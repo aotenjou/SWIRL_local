@@ -1,0 +1,1 @@
+select cast_info.note, role_type.role, char_name.name from role_type JOIN cast_info ON cast_info.role_id = role_type.id JOIN char_name ON char_name.id = cast_info.person_role_id where cast_info.person_id = 2503354 AND role_type.id <= 10 AND role_type.id = 9 order by char_name.name DESC, role_type.role DESC;

@@ -1,0 +1,1 @@
+select title.md5sum, title.title from movie_link, title where movie_link.linked_movie_id > 1394139 AND title.md5sum < 'ccec0e9574e2a17d4483c561fcf74ae0' AND title.series_years = '2009-????' AND movie_link.id > 15293 AND title.imdb_index > 'I' AND movie_link.link_type_id = 15 AND title.phonetic_code > 'T6216';

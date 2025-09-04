@@ -1,0 +1,1 @@
+SELECT role_type.role, cast_info.movie_id FROM cast_info JOIN role_type ON role_type.id = cast_info.role_id WHERE role_type.id <> 9 AND cast_info.role_id > 6 AND cast_info.movie_id <> 581413 AND cast_info.person_role_id <> 2960 ORDER BY role_type.role ASC;

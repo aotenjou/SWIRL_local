@@ -1,0 +1,1 @@
+select title.imdb_index, movie_info_idx.info, kind_type.id from movie_info_idx JOIN title ON title.id = movie_info_idx.movie_id JOIN kind_type ON kind_type.id = title.kind_id where title.season_nr <= 13 AND movie_info_idx.id < 1214182 AND title.kind_id <= 2 AND title.phonetic_code = 'A1656' order by kind_type.id DESC, movie_info_idx.info ASC;

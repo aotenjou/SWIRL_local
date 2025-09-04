@@ -1,0 +1,1 @@
+SELECT title.kind_id, movie_link.linked_movie_id, movie_companies.note, link_type.id FROM link_type JOIN movie_link ON movie_link.link_type_id = link_type.id JOIN title ON title.id = movie_link.movie_id JOIN movie_companies ON movie_companies.movie_id = title.id WHERE link_type.link = 'alternate language version of' AND title.imdb_index >= 'II' AND link_type.id <> 18;

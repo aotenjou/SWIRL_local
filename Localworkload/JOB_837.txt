@@ -1,0 +1,1 @@
+SELECT title.production_year, movie_link.link_type_id, movie_keyword.keyword_id FROM movie_link JOIN title ON title.id = movie_link.movie_id JOIN movie_keyword ON movie_keyword.movie_id = title.id WHERE title.series_years < '2005-2009' AND title.episode_nr >= 237 AND title.phonetic_code > 'R2161' AND title.kind_id >= 7 AND title.episode_of_id >= 963153 AND title.id > 2199088;

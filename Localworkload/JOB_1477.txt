@@ -1,0 +1,1 @@
+SELECT name.surname_pcode, person_info.note FROM name, person_info WHERE name.surname_pcode <> 'G52' AND name.imdb_index >= 'XI' AND name.name_pcode_cf <= 'M4653' AND person_info.id <> 2785814 AND name.gender < 'f' ORDER BY person_info.note ASC;

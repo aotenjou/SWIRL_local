@@ -1,0 +1,1 @@
+SELECT title.id, movie_companies.company_type_id, company_name.name FROM title JOIN movie_companies ON movie_companies.movie_id = title.id JOIN company_name ON company_name.id = movie_companies.company_id WHERE company_name.id >= 159463 AND title.episode_nr > 54 AND company_name.country_code > '[in]' ORDER BY company_name.name ASC, movie_companies.company_type_id ASC;

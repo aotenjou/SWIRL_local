@@ -1,0 +1,1 @@
+SELECT title.kind_id, movie_info_idx.info, complete_cast.id, info_type.info FROM complete_cast JOIN title ON title.id = complete_cast.movie_id JOIN movie_info_idx ON movie_info_idx.movie_id = title.id JOIN info_type ON info_type.id = movie_info_idx.info_type_id WHERE title.title < 'A Cover of Art' AND title.episode_of_id >= 1128258 AND title.episode_nr = 48;

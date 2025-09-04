@@ -1,0 +1,1 @@
+SELECT company_name.country_code, movie_companies.id FROM company_name JOIN movie_companies ON movie_companies.company_id = company_name.id WHERE company_name.name_pcode_sf = 'A3463' AND company_name.name > 'Magnolia Stone Productions' AND company_name.name_pcode_nf > 'P1454' AND company_name.id < 159463 ORDER BY company_name.country_code DESC, movie_companies.id DESC;

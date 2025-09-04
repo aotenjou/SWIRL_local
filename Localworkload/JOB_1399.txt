@@ -1,0 +1,1 @@
+select cast_info.person_role_id, name.md5sum, name.gender, aka_name.name_pcode_cf from aka_name JOIN name ON name.id = aka_name.person_id JOIN cast_info ON cast_info.person_id = name.id JOIN role_type ON role_type.id = cast_info.role_id where name.gender = 'f' AND cast_info.person_role_id > 411789 AND cast_info.person_id <= 2221760 AND role_type.id >= 9;

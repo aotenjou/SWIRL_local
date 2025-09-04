@@ -1,0 +1,1 @@
+SELECT cast_info.note FROM cast_info WHERE cast_info.role_id <> 9 AND cast_info.nr_order = 27 AND cast_info.person_id > 3532493 AND cast_info.movie_id <= 97262 AND cast_info.id >= 34404798 AND cast_info.note <> '(technical consultant)';

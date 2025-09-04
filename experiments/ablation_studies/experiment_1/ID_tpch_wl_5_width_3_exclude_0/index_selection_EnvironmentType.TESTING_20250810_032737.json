@@ -1,0 +1,6263 @@
+{
+  "experiment_id": "tpch_wl_5_width_3_exclude_0",
+  "environment_type": "EnvironmentType.TESTING",
+  "timestamp": "20250810_032737",
+  "episodes": [
+    {
+      "episode_id": 0,
+      "workload": "Query IDs: [21, 18, 9, 5, 7] with [5865, 9116, 4361, 4243, 3261]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 46.845534875040386,
+      "storage_consumption_mb": 2860.4453125,
+      "final_indexes": [
+        "I(C customer.c_nationkey,C customer.c_custkey)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C supplier.s_name,C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C orders.o_orderkey)",
+        "I(C customer.c_custkey,C customer.c_nationkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C supplier.s_nationkey,C supplier.s_name)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1497.3046875
+        },
+        {
+          "step": 4,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1871.0234375
+        },
+        {
+          "step": 5,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2070.3984375
+        },
+        {
+          "step": 6,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2107.7734375
+        },
+        {
+          "step": 7,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2112.015625
+        },
+        {
+          "step": 8,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2485.734375
+        },
+        {
+          "step": 9,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2709.9609375
+        },
+        {
+          "step": 10,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2712.453125
+        },
+        {
+          "step": 11,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2762.28125
+        },
+        {
+          "step": 12,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2784.703125
+        },
+        {
+          "step": 13,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2822.078125
+        },
+        {
+          "step": 14,
+          "action": 6,
+          "index": "I(C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2844.5
+        },
+        {
+          "step": 15,
+          "action": 364,
+          "index": "I(C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2849.7265625
+        },
+        {
+          "step": 16,
+          "action": 2220,
+          "index": "I(C supplier.s_name,C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2851.2265625
+        },
+        {
+          "step": 17,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2853.71875
+        },
+        {
+          "step": 18,
+          "action": 294,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2856.203125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 1,
+      "workload": "Query IDs: [1, 18, 4, 5, 10] with [8674, 1414, 8883, 781, 8153]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 70.44140274425182,
+      "storage_consumption_mb": 2844.4609375,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+        "I(C customer.c_acctbal,C customer.c_phone,C customer.c_nationkey)",
+        "I(C customer.c_custkey,C customer.c_phone,C customer.c_acctbal)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2092.765625
+        },
+        {
+          "step": 5,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2466.484375
+        },
+        {
+          "step": 6,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2503.859375
+        },
+        {
+          "step": 7,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2506.34375
+        },
+        {
+          "step": 8,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2547.453125
+        },
+        {
+          "step": 9,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2592.3046875
+        },
+        {
+          "step": 10,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2629.6796875
+        },
+        {
+          "step": 11,
+          "action": 1212,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2655.84375
+        },
+        {
+          "step": 12,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2715.640625
+        },
+        {
+          "step": 13,
+          "action": 1680,
+          "index": "I(C customer.c_acctbal,C customer.c_phone,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2717.140625
+        },
+        {
+          "step": 14,
+          "action": 160,
+          "index": "I(C customer.c_custkey,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2754.515625
+        },
+        {
+          "step": 15,
+          "action": 2894,
+          "index": "I(C customer.c_custkey,C customer.c_phone,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2799.3671875
+        },
+        {
+          "step": 16,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2840.4765625
+        },
+        {
+          "step": 17,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2842.9609375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 2,
+      "workload": "Query IDs: [3, 8, 22, 19, 15] with [2428, 3532, 3925, 304, 9308]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 92.10688722358158,
+      "storage_consumption_mb": 7624.8125,
+      "final_indexes": [
+        "I(C part.p_size,C part.p_partkey)",
+        "I(C lineitem.l_partkey,C lineitem.l_shipmode,C lineitem.l_extendedprice)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C part.p_brand,C part.p_type,C part.p_container)",
+        "I(C customer.c_nationkey,C customer.c_acctbal)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey)",
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_acctbal,C customer.c_phone,C customer.c_mktsegment)",
+        "I(C orders.o_custkey)",
+        "I(C part.p_type)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_partkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3363.359375
+        },
+        {
+          "step": 5,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3400.734375
+        },
+        {
+          "step": 6,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3492.9296875
+        },
+        {
+          "step": 7,
+          "action": 221,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_shipmode)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3542.7578125
+        },
+        {
+          "step": 8,
+          "action": 977,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_shipmode,C lineitem.l_extendedprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4962.8359375
+        },
+        {
+          "step": 9,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6756.6171875
+        },
+        {
+          "step": 10,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7130.3359375
+        },
+        {
+          "step": 11,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7171.4453125
+        },
+        {
+          "step": 12,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7216.296875
+        },
+        {
+          "step": 13,
+          "action": 378,
+          "index": "I(C part.p_brand,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7283.5703125
+        },
+        {
+          "step": 14,
+          "action": 1378,
+          "index": "I(C part.p_brand,C part.p_type,C part.p_container)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7355.8359375
+        },
+        {
+          "step": 15,
+          "action": 3093,
+          "index": "I(C customer.c_acctbal,C customer.c_phone,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7423.109375
+        },
+        {
+          "step": 16,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7473.5703125
+        },
+        {
+          "step": 17,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7523.3984375
+        },
+        {
+          "step": 18,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7560.7734375
+        },
+        {
+          "step": 19,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7586.9375
+        },
+        {
+          "step": 20,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7589.421875
+        },
+        {
+          "step": 21,
+          "action": 135,
+          "index": "I(C part.p_size,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7590.921875
+        },
+        {
+          "step": 22,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7620.828125
+        },
+        {
+          "step": 23,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7623.3125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 3,
+      "workload": "Query IDs: [13, 19, 14, 18, 12] with [5819, 2418, 2900, 1271, 7270]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 90.81707012348562,
+      "storage_consumption_mb": 1415.1796875,
+      "final_indexes": [
+        "I(C orders.o_totalprice,C orders.o_orderkey)",
+        "I(C part.p_brand,C part.p_type)",
+        "I(C part.p_size)",
+        "I(C orders.o_custkey)",
+        "I(C part.p_type)",
+        "I(C part.p_partkey)",
+        "I(C customer.c_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 411.09375
+        },
+        {
+          "step": 4,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 503.2890625
+        },
+        {
+          "step": 5,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 553.1171875
+        },
+        {
+          "step": 6,
+          "action": 378,
+          "index": "I(C part.p_brand,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 620.390625
+        },
+        {
+          "step": 7,
+          "action": 29,
+          "index": "I(C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 692.65625
+        },
+        {
+          "step": 8,
+          "action": 333,
+          "index": "I(C orders.o_totalprice,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1141.1171875
+        },
+        {
+          "step": 9,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1365.3515625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 4,
+      "workload": "Query IDs: [19, 13, 12, 4, 3] with [8797, 4984, 2803, 1781, 9265]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 89.7373310966319,
+      "storage_consumption_mb": 2845.21875,
+      "final_indexes": [
+        "I(C part.p_brand,C part.p_size)",
+        "I(C part.p_partkey,C part.p_container,C part.p_brand)",
+        "I(C part.p_size,C part.p_partkey)",
+        "I(C orders.o_custkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey)",
+        "I(C orders.o_orderkey,C orders.o_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1905.9140625
+        },
+        {
+          "step": 5,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1955.7421875
+        },
+        {
+          "step": 6,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2023.015625
+        },
+        {
+          "step": 7,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2396.734375
+        },
+        {
+          "step": 8,
+          "action": 184,
+          "index": "I(C part.p_partkey,C part.p_container)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2446.5625
+        },
+        {
+          "step": 9,
+          "action": 2057,
+          "index": "I(C part.p_partkey,C part.p_container,C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2493.90625
+        },
+        {
+          "step": 10,
+          "action": 135,
+          "index": "I(C part.p_size,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2561.1875
+        },
+        {
+          "step": 11,
+          "action": 60,
+          "index": "I(C orders.o_orderkey,C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2591.09375
+        },
+        {
+          "step": 12,
+          "action": 169,
+          "index": "I(C part.p_brand,C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2815.3203125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 5,
+      "workload": "Query IDs: [7, 6, 12, 19, 22] with [6847, 3275, 4716, 9860, 2172]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 97.91661799626988,
+      "storage_consumption_mb": 1430.1171875,
+      "final_indexes": [
+        "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+        "I(C customer.c_custkey,C customer.c_phone)",
+        "I(C part.p_brand)",
+        "I(C part.p_size)",
+        "I(C customer.c_acctbal,C customer.c_phone)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_partkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 597.9453125
+        },
+        {
+          "step": 4,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 635.3203125
+        },
+        {
+          "step": 5,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 685.1484375
+        },
+        {
+          "step": 6,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1058.8671875
+        },
+        {
+          "step": 7,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1099.9765625
+        },
+        {
+          "step": 8,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1144.828125
+        },
+        {
+          "step": 9,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1182.203125
+        },
+        {
+          "step": 10,
+          "action": 1212,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1208.3671875
+        },
+        {
+          "step": 11,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1268.1640625
+        },
+        {
+          "step": 12,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1317.9921875
+        },
+        {
+          "step": 13,
+          "action": 160,
+          "index": "I(C customer.c_custkey,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1385.265625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 6,
+      "workload": "Query IDs: [5, 12, 3, 21, 8] with [7163, 1807, 6653, 2503, 9690]. Contains 0 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 84.07330354336776,
+      "storage_consumption_mb": 4752.609375,
+      "final_indexes": [
+        "I(C part.p_partkey,C part.p_type)",
+        "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+        "I(C lineitem.l_partkey,C lineitem.l_commitdate)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C customer.c_custkey,C customer.c_mktsegment,C customer.c_nationkey)",
+        "I(C supplier.s_name,C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_nationkey,C customer.c_custkey,C customer.c_mktsegment)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 202,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_commitdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3363.359375
+        },
+        {
+          "step": 5,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4260.25
+        },
+        {
+          "step": 6,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4262.734375
+        },
+        {
+          "step": 7,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4354.9296875
+        },
+        {
+          "step": 8,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4384.828125
+        },
+        {
+          "step": 9,
+          "action": 78,
+          "index": "I(C part.p_partkey,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4434.65625
+        },
+        {
+          "step": 10,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4506.921875
+        },
+        {
+          "step": 11,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4511.1640625
+        },
+        {
+          "step": 12,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4513.65625
+        },
+        {
+          "step": 13,
+          "action": 280,
+          "index": "I(C customer.c_custkey,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4551.03125
+        },
+        {
+          "step": 14,
+          "action": 2872,
+          "index": "I(C customer.c_custkey,C customer.c_mktsegment,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4586.5390625
+        },
+        {
+          "step": 15,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4623.9140625
+        },
+        {
+          "step": 16,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4661.2890625
+        },
+        {
+          "step": 17,
+          "action": 1923,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4683.7109375
+        },
+        {
+          "step": 18,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4734.171875
+        },
+        {
+          "step": 19,
+          "action": 294,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4736.65625
+        },
+        {
+          "step": 20,
+          "action": 1439,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4740.8984375
+        },
+        {
+          "step": 21,
+          "action": 6,
+          "index": "I(C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4743.390625
+        },
+        {
+          "step": 22,
+          "action": 304,
+          "index": "I(C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4748.6171875
+        },
+        {
+          "step": 23,
+          "action": 725,
+          "index": "I(C supplier.s_name,C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4750.1171875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 7,
+      "workload": "Query IDs: [3, 15, 22, 1, 13] with [3536, 7231, 9718, 3128, 8251]. Contains 0 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 84.9792081015464,
+      "storage_consumption_mb": 4744.234375,
+      "final_indexes": [
+        "I(C customer.c_custkey,C customer.c_phone,C customer.c_acctbal)",
+        "I(C customer.c_acctbal,C customer.c_phone,C customer.c_mktsegment)",
+        "I(C lineitem.l_orderkey)",
+        "I(C lineitem.l_tax,C lineitem.l_discount)",
+        "I(C orders.o_custkey,C orders.o_shippriority)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1905.9140625
+        },
+        {
+          "step": 5,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1947.0234375
+        },
+        {
+          "step": 6,
+          "action": 3093,
+          "index": "I(C customer.c_acctbal,C customer.c_phone,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1991.875
+        },
+        {
+          "step": 7,
+          "action": 13,
+          "index": "I(C lineitem.l_tax)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2042.3359375
+        },
+        {
+          "step": 8,
+          "action": 125,
+          "index": "I(C lineitem.l_tax,C lineitem.l_discount)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3537.15625
+        },
+        {
+          "step": 9,
+          "action": 210,
+          "index": "I(C orders.o_custkey,C orders.o_shippriority)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4434.046875
+        },
+        {
+          "step": 10,
+          "action": 160,
+          "index": "I(C customer.c_custkey,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4658.2734375
+        },
+        {
+          "step": 11,
+          "action": 2894,
+          "index": "I(C customer.c_custkey,C customer.c_phone,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4703.125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 8,
+      "workload": "Query IDs: [15, 3, 12, 1, 18] with [2654, 3503, 5072, 949, 71]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 98.12794228223542,
+      "storage_consumption_mb": 2829.0078125,
+      "final_indexes": [
+        "I(C orders.o_totalprice)",
+        "I(C orders.o_orderkey)",
+        "I(C orders.o_custkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey,C customer.c_name,C customer.c_mktsegment)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2242.2578125
+        },
+        {
+          "step": 5,
+          "action": 29,
+          "index": "I(C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2279.6328125
+        },
+        {
+          "step": 6,
+          "action": 55,
+          "index": "I(C customer.c_custkey,C customer.c_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2728.09375
+        },
+        {
+          "step": 7,
+          "action": 2162,
+          "index": "I(C customer.c_custkey,C customer.c_name,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2778.546875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 9,
+      "workload": "Query IDs: [18, 8, 9, 13, 12] with [381, 8231, 8044, 295, 5868]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 94.78800101578865,
+      "storage_consumption_mb": 473.8828125,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_type)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.484375
+        },
+        {
+          "step": 3,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 468.3984375
+        },
+        {
+          "step": 5,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 469.8984375
+        },
+        {
+          "step": 6,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 472.3828125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 10,
+      "workload": "Query IDs: [14, 16, 13, 21, 10] with [6582, 7170, 9081, 8470, 9906]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 91.7245894230747,
+      "storage_consumption_mb": 474.125,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C part.p_size)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C orders.o_custkey)",
+        "I(C customer.c_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 411.09375
+        },
+        {
+          "step": 4,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 460.921875
+        },
+        {
+          "step": 5,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 463.40625
+        },
+        {
+          "step": 6,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 467.6484375
+        },
+        {
+          "step": 7,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 470.140625
+        },
+        {
+          "step": 8,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 472.625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 11,
+      "workload": "Query IDs: [13, 11, 18, 12, 9] with [5417, 1555, 5293, 8525, 7653]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 93.74382576393072,
+      "storage_consumption_mb": 1418.203125,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_name,C part.p_partkey)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C customer.c_custkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.484375
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 749.921875
+        },
+        {
+          "step": 5,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 787.296875
+        },
+        {
+          "step": 6,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 986.671875
+        },
+        {
+          "step": 7,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1210.8984375
+        },
+        {
+          "step": 8,
+          "action": 2,
+          "index": "I(C part.p_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1260.7265625
+        },
+        {
+          "step": 9,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1382.8203125
+        },
+        {
+          "step": 10,
+          "action": 252,
+          "index": "I(C part.p_name,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1384.3203125
+        },
+        {
+          "step": 11,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1414.21875
+        },
+        {
+          "step": 12,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1416.703125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 12,
+      "workload": "Query IDs: [6, 22, 9, 11, 14] with [1735, 6777, 8992, 7886, 786]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 75.65212075487165,
+      "storage_consumption_mb": 1429.171875,
+      "final_indexes": [
+        "I(C customer.c_custkey,C customer.c_phone)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.484375
+        },
+        {
+          "step": 3,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 575.578125
+        },
+        {
+          "step": 5,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 949.296875
+        },
+        {
+          "step": 6,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1173.5234375
+        },
+        {
+          "step": 7,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1210.8984375
+        },
+        {
+          "step": 8,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1303.09375
+        },
+        {
+          "step": 9,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1332.9921875
+        },
+        {
+          "step": 10,
+          "action": 160,
+          "index": "I(C customer.c_custkey,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1382.8203125
+        },
+        {
+          "step": 11,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1427.671875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 13,
+      "workload": "Query IDs: [8, 3, 4, 6, 11] with [1248, 4893, 1052, 6183, 3093]. Contains 0 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 89.87820447478008,
+      "storage_consumption_mb": 4768.3359375,
+      "final_indexes": [
+        "I(C lineitem.l_partkey)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C customer.c_nationkey,C customer.c_mktsegment)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C partsupp.ps_availqty,C partsupp.ps_partkey)",
+        "I(C orders.o_orderkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C customer.c_custkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)",
+        "I(C supplier.s_nationkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 573.09375
+        },
+        {
+          "step": 4,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 946.8125
+        },
+        {
+          "step": 5,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2441.6328125
+        },
+        {
+          "step": 6,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2533.828125
+        },
+        {
+          "step": 7,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2571.203125
+        },
+        {
+          "step": 8,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4066.0234375
+        },
+        {
+          "step": 9,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4068.5078125
+        },
+        {
+          "step": 10,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4098.40625
+        },
+        {
+          "step": 11,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4148.234375
+        },
+        {
+          "step": 12,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4185.609375
+        },
+        {
+          "step": 13,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4187.109375
+        },
+        {
+          "step": 14,
+          "action": 12,
+          "index": "I(C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4411.3359375
+        },
+        {
+          "step": 15,
+          "action": 139,
+          "index": "I(C partsupp.ps_availqty,C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4610.7109375
+        },
+        {
+          "step": 16,
+          "action": 82,
+          "index": "I(C customer.c_nationkey,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4730.34375
+        },
+        {
+          "step": 17,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4765.8515625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 14,
+      "workload": "Query IDs: [1, 7, 3, 4, 12] with [6492, 7960, 4813, 1772, 4426]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 99.8298913863021,
+      "storage_consumption_mb": 474.875,
+      "final_indexes": [
+        "I(C customer.c_nationkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C customer.c_custkey,C customer.c_nationkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 413.578125
+        },
+        {
+          "step": 5,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 436.0
+        },
+        {
+          "step": 6,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 473.375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 15,
+      "workload": "Query IDs: [15, 9, 6, 18, 3] with [7277, 7733, 9632, 1743, 3274]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 97.31935502884758,
+      "storage_consumption_mb": 1425.6796875,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C orders.o_totalprice,C orders.o_orderkey)",
+        "I(C part.p_name)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.484375
+        },
+        {
+          "step": 3,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 2,
+          "index": "I(C part.p_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 575.578125
+        },
+        {
+          "step": 5,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 697.671875
+        },
+        {
+          "step": 6,
+          "action": 29,
+          "index": "I(C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 747.5
+        },
+        {
+          "step": 7,
+          "action": 333,
+          "index": "I(C orders.o_totalprice,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1195.9609375
+        },
+        {
+          "step": 8,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1420.1953125
+        },
+        {
+          "step": 9,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1421.6953125
+        },
+        {
+          "step": 10,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1424.1796875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 16,
+      "workload": "Query IDs: [13, 19, 12, 11, 10] with [1099, 9607, 5162, 267, 472]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 99.65184657210108,
+      "storage_consumption_mb": 456.5,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_custkey,C customer.c_phone)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C part.p_brand)",
+        "I(C part.p_size)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 236.75
+        },
+        {
+          "step": 4,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 239.234375
+        },
+        {
+          "step": 5,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 289.0625
+        },
+        {
+          "step": 6,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 356.3359375
+        },
+        {
+          "step": 7,
+          "action": 160,
+          "index": "I(C customer.c_custkey,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 406.1640625
+        },
+        {
+          "step": 8,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 451.015625
+        },
+        {
+          "step": 9,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 452.515625
+        },
+        {
+          "step": 10,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 455.0
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 17,
+      "workload": "Query IDs: [10, 8, 13, 15, 3] with [3149, 7836, 2442, 2380, 2646]. Contains 0 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 87.73647834105802,
+      "storage_consumption_mb": 4767.5234375,
+      "final_indexes": [
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+        "I(C orders.o_custkey)",
+        "I(C part.p_type)",
+        "I(C lineitem.l_orderkey)",
+        "I(C orders.o_orderkey)",
+        "I(C customer.c_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1905.9140625
+        },
+        {
+          "step": 5,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3400.734375
+        },
+        {
+          "step": 6,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3492.9296875
+        },
+        {
+          "step": 7,
+          "action": 121,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3866.6484375
+        },
+        {
+          "step": 8,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4763.5390625
+        },
+        {
+          "step": 9,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4766.0234375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 18,
+      "workload": "Query IDs: [5, 18, 10, 1, 4] with [6574, 2406, 8026, 4653, 6890]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 100.17130351484195,
+      "storage_consumption_mb": 1430.1015625,
+      "final_indexes": [
+        "I(C orders.o_custkey,C orders.o_orderkey,C orders.o_orderdate)",
+        "I(C customer.c_custkey,C customer.c_phone)",
+        "I(C supplier.s_suppkey)",
+        "I(C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 747.4375
+        },
+        {
+          "step": 4,
+          "action": 847,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey,C orders.o_orderdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 971.6640625
+        },
+        {
+          "step": 5,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1345.390625
+        },
+        {
+          "step": 6,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1347.875
+        },
+        {
+          "step": 7,
+          "action": 160,
+          "index": "I(C customer.c_custkey,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1385.25
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 19,
+      "workload": "Query IDs: [7, 12, 1, 9, 3] with [1227, 2454, 9958, 1479, 9813]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 99.2164395488528,
+      "storage_consumption_mb": 1398.890625,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_custkey,C customer.c_mktsegment,C customer.c_nationkey)",
+        "I(C customer.c_nationkey,C customer.c_custkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 201.859375
+        },
+        {
+          "step": 4,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 575.578125
+        },
+        {
+          "step": 5,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 949.296875
+        },
+        {
+          "step": 6,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1173.5234375
+        },
+        {
+          "step": 7,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1223.3515625
+        },
+        {
+          "step": 8,
+          "action": 280,
+          "index": "I(C customer.c_custkey,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1260.7265625
+        },
+        {
+          "step": 9,
+          "action": 2872,
+          "index": "I(C customer.c_custkey,C customer.c_mktsegment,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1296.234375
+        },
+        {
+          "step": 10,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1333.609375
+        },
+        {
+          "step": 11,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1370.984375
+        },
+        {
+          "step": 12,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1393.40625
+        },
+        {
+          "step": 13,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1394.90625
+        },
+        {
+          "step": 14,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1397.390625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 20,
+      "workload": "Query IDs: [12, 6, 13, 22, 7] with [4898, 2658, 7583, 7862, 67]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 73.28795837517137,
+      "storage_consumption_mb": 2840.7265625,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+        "I(C customer.c_acctbal,C customer.c_phone,C customer.c_nationkey)",
+        "I(C customer.c_phone,C customer.c_nationkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_custkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey)",
+        "I(C orders.o_orderkey,C orders.o_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1905.9140625
+        },
+        {
+          "step": 5,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1947.0234375
+        },
+        {
+          "step": 6,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1991.875
+        },
+        {
+          "step": 7,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2365.59375
+        },
+        {
+          "step": 8,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2402.96875
+        },
+        {
+          "step": 9,
+          "action": 1212,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2429.1328125
+        },
+        {
+          "step": 10,
+          "action": 1680,
+          "index": "I(C customer.c_acctbal,C customer.c_phone,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2488.9296875
+        },
+        {
+          "step": 11,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2526.3046875
+        },
+        {
+          "step": 12,
+          "action": 60,
+          "index": "I(C orders.o_orderkey,C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2528.7890625
+        },
+        {
+          "step": 13,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2753.015625
+        },
+        {
+          "step": 14,
+          "action": 22,
+          "index": "I(C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2754.515625
+        },
+        {
+          "step": 15,
+          "action": 154,
+          "index": "I(C customer.c_phone,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2814.3125
+        },
+        {
+          "step": 16,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2836.7421875
+        },
+        {
+          "step": 17,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2839.2265625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 21,
+      "workload": "Query IDs: [15, 13, 4, 14, 8] with [2212, 3952, 4892, 9492, 6592]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 75.34406034323821,
+      "storage_consumption_mb": 7621.65625,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C part.p_partkey,C part.p_type)",
+        "I(C lineitem.l_receiptdate,C lineitem.l_shipdate)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C customer.c_nationkey,C customer.c_custkey)",
+        "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+        "I(C orders.o_custkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey,C customer.c_nationkey)",
+        "I(C orders.o_orderkey,C orders.o_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1905.9140625
+        },
+        {
+          "step": 5,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1998.109375
+        },
+        {
+          "step": 6,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3492.9296875
+        },
+        {
+          "step": 7,
+          "action": 121,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3866.6484375
+        },
+        {
+          "step": 8,
+          "action": 39,
+          "index": "I(C lineitem.l_receiptdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4763.5390625
+        },
+        {
+          "step": 9,
+          "action": 70,
+          "index": "I(C lineitem.l_receiptdate,C lineitem.l_shipdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6258.359375
+        },
+        {
+          "step": 10,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7155.25
+        },
+        {
+          "step": 11,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7205.078125
+        },
+        {
+          "step": 12,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7242.453125
+        },
+        {
+          "step": 13,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7244.9375
+        },
+        {
+          "step": 14,
+          "action": 60,
+          "index": "I(C orders.o_orderkey,C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7246.4375
+        },
+        {
+          "step": 15,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7470.6640625
+        },
+        {
+          "step": 16,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7473.1484375
+        },
+        {
+          "step": 17,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7474.6484375
+        },
+        {
+          "step": 18,
+          "action": 78,
+          "index": "I(C part.p_partkey,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7497.0703125
+        },
+        {
+          "step": 19,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7569.3359375
+        },
+        {
+          "step": 20,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7599.234375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 22,
+      "workload": "Query IDs: [4, 3, 7, 1, 22] with [4919, 2326, 6302, 6340, 263]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 99.7517188003179,
+      "storage_consumption_mb": 1413.1796875,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+        "I(C customer.c_custkey,C customer.c_phone,C customer.c_acctbal)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C customer.c_acctbal,C customer.c_phone,C customer.c_mktsegment)",
+        "I(C customer.c_mktsegment)",
+        "I(C orders.o_orderkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 747.4375
+        },
+        {
+          "step": 4,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 971.6640625
+        },
+        {
+          "step": 5,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 974.1484375
+        },
+        {
+          "step": 6,
+          "action": 160,
+          "index": "I(C customer.c_custkey,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1011.5234375
+        },
+        {
+          "step": 7,
+          "action": 2894,
+          "index": "I(C customer.c_custkey,C customer.c_phone,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1056.375
+        },
+        {
+          "step": 8,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1097.484375
+        },
+        {
+          "step": 9,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1138.59375
+        },
+        {
+          "step": 10,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1183.4453125
+        },
+        {
+          "step": 11,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1220.8203125
+        },
+        {
+          "step": 12,
+          "action": 1212,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1246.984375
+        },
+        {
+          "step": 13,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1306.78125
+        },
+        {
+          "step": 14,
+          "action": 3093,
+          "index": "I(C customer.c_acctbal,C customer.c_phone,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1308.28125
+        },
+        {
+          "step": 15,
+          "action": 33,
+          "index": "I(C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1358.7421875
+        },
+        {
+          "step": 16,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1409.1953125
+        },
+        {
+          "step": 17,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1411.6796875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 23,
+      "workload": "Query IDs: [12, 4, 5, 13, 9] with [4340, 8653, 3399, 8542, 9330]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 63.16677649851719,
+      "storage_consumption_mb": 7614.4296875,
+      "final_indexes": [
+        "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_receiptdate)",
+        "I(C orders.o_orderkey,C orders.o_orderpriority)",
+        "I(C part.p_name)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_nationkey,C customer.c_custkey)",
+        "I(C partsupp.ps_partkey,C partsupp.ps_supplycost,C partsupp.ps_suppkey)",
+        "I(C customer.c_custkey,C customer.c_nationkey)",
+        "I(C orders.o_custkey)",
+        "I(C part.p_partkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1497.3046875
+        },
+        {
+          "step": 4,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1871.0234375
+        },
+        {
+          "step": 5,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2244.7421875
+        },
+        {
+          "step": 6,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2282.1171875
+        },
+        {
+          "step": 7,
+          "action": 121,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3776.9375
+        },
+        {
+          "step": 8,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4673.828125
+        },
+        {
+          "step": 9,
+          "action": 2861,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_receiptdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4873.203125
+        },
+        {
+          "step": 10,
+          "action": 191,
+          "index": "I(C orders.o_orderkey,C orders.o_orderpriority)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6368.0234375
+        },
+        {
+          "step": 11,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6816.484375
+        },
+        {
+          "step": 12,
+          "action": 37,
+          "index": "I(C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6866.3125
+        },
+        {
+          "step": 13,
+          "action": 75,
+          "index": "I(C partsupp.ps_partkey,C partsupp.ps_supplycost)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7065.6875
+        },
+        {
+          "step": 14,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7205.2578125
+        },
+        {
+          "step": 15,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7206.7578125
+        },
+        {
+          "step": 16,
+          "action": 867,
+          "index": "I(C partsupp.ps_partkey,C partsupp.ps_supplycost,C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7244.1328125
+        },
+        {
+          "step": 17,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7443.5078125
+        },
+        {
+          "step": 18,
+          "action": 2,
+          "index": "I(C part.p_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7465.9296875
+        },
+        {
+          "step": 19,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7588.0234375
+        },
+        {
+          "step": 20,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7610.4453125
+        },
+        {
+          "step": 21,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7612.9296875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 24,
+      "workload": "Query IDs: [21, 16, 9, 11, 3] with [1818, 6913, 422, 1008, 174]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 55.290012143698675,
+      "storage_consumption_mb": 7626.9453125,
+      "final_indexes": [
+        "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_receiptdate)",
+        "I(C part.p_brand,C part.p_type)",
+        "I(C part.p_size,C part.p_partkey)",
+        "I(C orders.o_orderstatus,C orders.o_shippriority)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C partsupp.ps_suppkey,C partsupp.ps_availqty)",
+        "I(C lineitem.l_orderkey)",
+        "I(C part.p_partkey,C part.p_brand,C part.p_name)",
+        "I(C customer.c_custkey)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C orders.o_orderkey)",
+        "I(C orders.o_custkey)",
+        "I(C supplier.s_comment,C supplier.s_nationkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2242.2578125
+        },
+        {
+          "step": 5,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2279.6328125
+        },
+        {
+          "step": 6,
+          "action": 121,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3774.453125
+        },
+        {
+          "step": 7,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4671.34375
+        },
+        {
+          "step": 8,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4673.828125
+        },
+        {
+          "step": 9,
+          "action": 378,
+          "index": "I(C part.p_brand,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4741.1015625
+        },
+        {
+          "step": 10,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4813.3671875
+        },
+        {
+          "step": 11,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5012.7421875
+        },
+        {
+          "step": 12,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5104.9375
+        },
+        {
+          "step": 13,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5109.1796875
+        },
+        {
+          "step": 14,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5159.0078125
+        },
+        {
+          "step": 15,
+          "action": 2861,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_receiptdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5208.8359375
+        },
+        {
+          "step": 16,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6703.65625
+        },
+        {
+          "step": 17,
+          "action": 17,
+          "index": "I(C orders.o_orderstatus)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6706.1484375
+        },
+        {
+          "step": 18,
+          "action": 215,
+          "index": "I(C orders.o_orderstatus,C orders.o_shippriority)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7042.4921875
+        },
+        {
+          "step": 19,
+          "action": 366,
+          "index": "I(C part.p_partkey,C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7266.7265625
+        },
+        {
+          "step": 20,
+          "action": 902,
+          "index": "I(C part.p_partkey,C part.p_brand,C part.p_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7314.0703125
+        },
+        {
+          "step": 21,
+          "action": 135,
+          "index": "I(C part.p_size,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7436.171875
+        },
+        {
+          "step": 22,
+          "action": 122,
+          "index": "I(C partsupp.ps_suppkey,C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7466.078125
+        },
+        {
+          "step": 23,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7585.7109375
+        },
+        {
+          "step": 24,
+          "action": 18,
+          "index": "I(C supplier.s_comment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7615.609375
+        },
+        {
+          "step": 25,
+          "action": 227,
+          "index": "I(C supplier.s_comment,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7625.4453125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 25,
+      "workload": "Query IDs: [6, 11, 18, 19, 13] with [7419, 4724, 3511, 2004, 1361]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 48.24662778537557,
+      "storage_consumption_mb": 7609.609375,
+      "final_indexes": [
+        "I(C part.p_partkey,C part.p_container,C part.p_brand)",
+        "I(C part.p_size,C part.p_partkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C part.p_brand)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey)",
+        "I(C lineitem.l_partkey,C lineitem.l_shipmode)",
+        "I(C orders.o_totalprice,C orders.o_orderkey)",
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C orders.o_orderkey,C orders.o_totalprice)",
+        "I(C part.p_container)",
+        "I(C partsupp.ps_suppkey,C partsupp.ps_availqty,C partsupp.ps_partkey)",
+        "I(C orders.o_custkey)",
+        "I(C partsupp.ps_partkey,C partsupp.ps_availqty,C partsupp.ps_supplycost)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1694.1953125
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2067.9140625
+        },
+        {
+          "step": 5,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2105.2890625
+        },
+        {
+          "step": 6,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3600.109375
+        },
+        {
+          "step": 7,
+          "action": 29,
+          "index": "I(C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3973.828125
+        },
+        {
+          "step": 8,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4422.2890625
+        },
+        {
+          "step": 9,
+          "action": 333,
+          "index": "I(C orders.o_totalprice,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4489.5625
+        },
+        {
+          "step": 10,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4713.796875
+        },
+        {
+          "step": 11,
+          "action": 221,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_shipmode)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4763.625
+        },
+        {
+          "step": 12,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6183.703125
+        },
+        {
+          "step": 13,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6186.1875
+        },
+        {
+          "step": 14,
+          "action": 362,
+          "index": "I(C orders.o_orderkey,C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6187.6875
+        },
+        {
+          "step": 15,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6486.6640625
+        },
+        {
+          "step": 16,
+          "action": 184,
+          "index": "I(C part.p_partkey,C part.p_container)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6536.4921875
+        },
+        {
+          "step": 17,
+          "action": 2057,
+          "index": "I(C part.p_partkey,C part.p_container,C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6583.8359375
+        },
+        {
+          "step": 18,
+          "action": 37,
+          "index": "I(C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6651.1171875
+        },
+        {
+          "step": 19,
+          "action": 61,
+          "index": "I(C partsupp.ps_partkey,C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6850.4921875
+        },
+        {
+          "step": 20,
+          "action": 135,
+          "index": "I(C part.p_size,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6970.125
+        },
+        {
+          "step": 21,
+          "action": 2307,
+          "index": "I(C partsupp.ps_partkey,C partsupp.ps_availqty,C partsupp.ps_supplycost)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7000.03125
+        },
+        {
+          "step": 22,
+          "action": 122,
+          "index": "I(C partsupp.ps_suppkey,C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7219.34375
+        },
+        {
+          "step": 23,
+          "action": 2684,
+          "index": "I(C partsupp.ps_suppkey,C partsupp.ps_availqty,C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7338.9765625
+        },
+        {
+          "step": 24,
+          "action": 38,
+          "index": "I(C part.p_container)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7538.3515625
+        },
+        {
+          "step": 25,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7605.625
+        },
+        {
+          "step": 26,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7608.109375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 26,
+      "workload": "Query IDs: [5, 4, 19, 21, 7] with [4495, 6575, 1735, 3073, 5415]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 57.99081010933257,
+      "storage_consumption_mb": 7628.84375,
+      "final_indexes": [
+        "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_shipinstruct)",
+        "I(C supplier.s_name,C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C part.p_brand)",
+        "I(C part.p_size)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C supplier.s_nationkey,C supplier.s_name)",
+        "I(C lineitem.l_orderkey)",
+        "I(C part.p_partkey)",
+        "I(C customer.c_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 121,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3363.359375
+        },
+        {
+          "step": 5,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4260.25
+        },
+        {
+          "step": 6,
+          "action": 1213,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_shipinstruct)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4262.734375
+        },
+        {
+          "step": 7,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7401.859375
+        },
+        {
+          "step": 8,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7439.234375
+        },
+        {
+          "step": 9,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7443.4765625
+        },
+        {
+          "step": 10,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7510.75
+        },
+        {
+          "step": 11,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7560.578125
+        },
+        {
+          "step": 12,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7563.0703125
+        },
+        {
+          "step": 13,
+          "action": 6,
+          "index": "I(C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7612.8984375
+        },
+        {
+          "step": 14,
+          "action": 304,
+          "index": "I(C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7618.125
+        },
+        {
+          "step": 15,
+          "action": 725,
+          "index": "I(C supplier.s_name,C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7619.625
+        },
+        {
+          "step": 16,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7622.1171875
+        },
+        {
+          "step": 17,
+          "action": 294,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7624.6015625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 27,
+      "workload": "Query IDs: [9, 8, 4, 12, 3] with [2757, 2326, 1474, 1727, 1722]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 95.8134716511527,
+      "storage_consumption_mb": 473.8828125,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_type)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.484375
+        },
+        {
+          "step": 3,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 468.3984375
+        },
+        {
+          "step": 5,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 469.8984375
+        },
+        {
+          "step": 6,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 472.3828125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 28,
+      "workload": "Query IDs: [18, 12, 1, 5, 11] with [2473, 8103, 2638, 529, 1512]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 67.15728035585448,
+      "storage_consumption_mb": 7603.4140625,
+      "final_indexes": [
+        "I(C customer.c_nationkey,C customer.c_name)",
+        "I(C lineitem.l_receiptdate,C lineitem.l_shipdate)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C partsupp.ps_availqty,C partsupp.ps_partkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_name,C customer.c_nationkey)",
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C orders.o_totalprice,C orders.o_orderkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey,C orders.o_orderdate)",
+        "I(C orders.o_orderkey,C orders.o_totalprice)",
+        "I(C customer.c_custkey,C customer.c_nationkey)",
+        "I(C partsupp.ps_suppkey,C partsupp.ps_availqty,C partsupp.ps_partkey)",
+        "I(C partsupp.ps_partkey,C partsupp.ps_availqty)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1694.1953125
+        },
+        {
+          "step": 4,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1696.6796875
+        },
+        {
+          "step": 5,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2070.3984375
+        },
+        {
+          "step": 6,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2444.1171875
+        },
+        {
+          "step": 7,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2668.34375
+        },
+        {
+          "step": 8,
+          "action": 29,
+          "index": "I(C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2705.71875
+        },
+        {
+          "step": 9,
+          "action": 333,
+          "index": "I(C orders.o_totalprice,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3154.1796875
+        },
+        {
+          "step": 10,
+          "action": 847,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey,C orders.o_orderdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3378.4140625
+        },
+        {
+          "step": 11,
+          "action": 362,
+          "index": "I(C orders.o_orderkey,C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3752.140625
+        },
+        {
+          "step": 12,
+          "action": 39,
+          "index": "I(C lineitem.l_receiptdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4051.1171875
+        },
+        {
+          "step": 13,
+          "action": 70,
+          "index": "I(C lineitem.l_receiptdate,C lineitem.l_shipdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5545.9375
+        },
+        {
+          "step": 14,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6442.828125
+        },
+        {
+          "step": 15,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6444.328125
+        },
+        {
+          "step": 16,
+          "action": 37,
+          "index": "I(C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6481.703125
+        },
+        {
+          "step": 17,
+          "action": 61,
+          "index": "I(C partsupp.ps_partkey,C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6681.078125
+        },
+        {
+          "step": 18,
+          "action": 12,
+          "index": "I(C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6800.7109375
+        },
+        {
+          "step": 19,
+          "action": 139,
+          "index": "I(C partsupp.ps_availqty,C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7000.0859375
+        },
+        {
+          "step": 20,
+          "action": 122,
+          "index": "I(C partsupp.ps_suppkey,C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7119.71875
+        },
+        {
+          "step": 21,
+          "action": 2684,
+          "index": "I(C partsupp.ps_suppkey,C partsupp.ps_availqty,C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7239.3515625
+        },
+        {
+          "step": 22,
+          "action": 67,
+          "index": "I(C customer.c_nationkey,C customer.c_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7438.7265625
+        },
+        {
+          "step": 23,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7489.1796875
+        },
+        {
+          "step": 24,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7491.6640625
+        },
+        {
+          "step": 25,
+          "action": 32,
+          "index": "I(C customer.c_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7493.1640625
+        },
+        {
+          "step": 26,
+          "action": 142,
+          "index": "I(C customer.c_name,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7558.5703125
+        },
+        {
+          "step": 27,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7580.9921875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 29,
+      "workload": "Query IDs: [19, 21, 22, 5, 10] with [8277, 5259, 162, 4677, 4305]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 49.958200718393904,
+      "storage_consumption_mb": 7629.09375,
+      "final_indexes": [
+        "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_shipinstruct)",
+        "I(C customer.c_acctbal,C customer.c_nationkey)",
+        "I(C part.p_brand)",
+        "I(C part.p_size)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey)",
+        "I(C supplier.s_nationkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2989.640625
+        },
+        {
+          "step": 4,
+          "action": 121,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3363.359375
+        },
+        {
+          "step": 5,
+          "action": 1213,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_shipinstruct)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4260.25
+        },
+        {
+          "step": 6,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7399.375
+        },
+        {
+          "step": 7,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7401.859375
+        },
+        {
+          "step": 8,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7439.234375
+        },
+        {
+          "step": 9,
+          "action": 26,
+          "index": "I(C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7489.0625
+        },
+        {
+          "step": 10,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7556.3359375
+        },
+        {
+          "step": 11,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7560.578125
+        },
+        {
+          "step": 12,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7563.0703125
+        },
+        {
+          "step": 13,
+          "action": 47,
+          "index": "I(C customer.c_acctbal,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7604.1796875
+        },
+        {
+          "step": 14,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7626.609375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 30,
+      "workload": "Query IDs: [10, 4, 9, 6, 13] with [9915, 515, 3933, 5143, 3196]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 94.76471801918686,
+      "storage_consumption_mb": 463.9140625,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_custkey,C customer.c_phone)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 160,
+          "index": "I(C customer.c_custkey,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 413.578125
+        },
+        {
+          "step": 5,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 458.4296875
+        },
+        {
+          "step": 6,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 459.9296875
+        },
+        {
+          "step": 7,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 462.4140625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 31,
+      "workload": "Query IDs: [13, 18, 15, 7, 14] with [853, 5201, 4506, 7040, 8846]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 62.806358670828935,
+      "storage_consumption_mb": 2858.15625,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_totalprice)",
+        "I(C orders.o_orderkey)",
+        "I(C orders.o_custkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2242.2578125
+        },
+        {
+          "step": 5,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2279.6328125
+        },
+        {
+          "step": 6,
+          "action": 29,
+          "index": "I(C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2371.828125
+        },
+        {
+          "step": 7,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2820.2890625
+        },
+        {
+          "step": 8,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2822.7734375
+        },
+        {
+          "step": 9,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2824.2734375
+        },
+        {
+          "step": 10,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2854.171875
+        },
+        {
+          "step": 11,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2856.65625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 32,
+      "workload": "Query IDs: [6, 11, 8, 5, 3] with [7171, 5149, 6395, 8202, 4730]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 96.8438187234272,
+      "storage_consumption_mb": 1428.28125,
+      "final_indexes": [
+        "I(C part.p_partkey,C part.p_type)",
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C orders.o_orderkey,C orders.o_orderdate)",
+        "I(C customer.c_nationkey,C customer.c_custkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C partsupp.ps_suppkey,C partsupp.ps_partkey,C partsupp.ps_availqty)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 291.5703125
+        },
+        {
+          "step": 4,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 321.46875
+        },
+        {
+          "step": 5,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 695.1875
+        },
+        {
+          "step": 6,
+          "action": 48,
+          "index": "I(C orders.o_orderkey,C orders.o_orderdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 697.671875
+        },
+        {
+          "step": 7,
+          "action": 235,
+          "index": "I(C partsupp.ps_suppkey,C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 921.8984375
+        },
+        {
+          "step": 8,
+          "action": 2593,
+          "index": "I(C partsupp.ps_suppkey,C partsupp.ps_partkey,C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1041.53125
+        },
+        {
+          "step": 9,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1240.90625
+        },
+        {
+          "step": 10,
+          "action": 78,
+          "index": "I(C part.p_partkey,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1290.734375
+        },
+        {
+          "step": 11,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1363.0
+        },
+        {
+          "step": 12,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1400.375
+        },
+        {
+          "step": 13,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1422.796875
+        },
+        {
+          "step": 14,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1424.296875
+        },
+        {
+          "step": 15,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1426.78125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 33,
+      "workload": "Query IDs: [15, 4, 12, 11, 21] with [6945, 9699, 4040, 6480, 5194]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 97.13619977628666,
+      "storage_consumption_mb": 426.40625,
+      "final_indexes": [
+        "I(C partsupp.ps_partkey)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C supplier.s_name,C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 201.859375
+        },
+        {
+          "step": 4,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 206.1015625
+        },
+        {
+          "step": 5,
+          "action": 37,
+          "index": "I(C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 208.59375
+        },
+        {
+          "step": 6,
+          "action": 6,
+          "index": "I(C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 407.96875
+        },
+        {
+          "step": 7,
+          "action": 364,
+          "index": "I(C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 413.1953125
+        },
+        {
+          "step": 8,
+          "action": 2220,
+          "index": "I(C supplier.s_name,C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 414.6953125
+        },
+        {
+          "step": 9,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 417.1875
+        },
+        {
+          "step": 10,
+          "action": 294,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 419.671875
+        },
+        {
+          "step": 11,
+          "action": 1439,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.9140625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 34,
+      "workload": "Query IDs: [15, 6, 21, 22, 5] with [5607, 5273, 3923, 702, 826]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 76.63069116597977,
+      "storage_consumption_mb": 7627.15625,
+      "final_indexes": [
+        "I(C lineitem.l_receiptdate,C lineitem.l_shipdate)",
+        "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+        "I(C customer.c_acctbal,C customer.c_phone,C customer.c_nationkey)",
+        "I(C orders.o_orderkey,C orders.o_orderstatus,C orders.o_custkey)",
+        "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+        "I(C lineitem.l_extendedprice)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C orders.o_custkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C orders.o_orderstatus)",
+        "I(C customer.c_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1905.9140625
+        },
+        {
+          "step": 5,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2279.6328125
+        },
+        {
+          "step": 6,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2320.7421875
+        },
+        {
+          "step": 7,
+          "action": 39,
+          "index": "I(C lineitem.l_receiptdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2365.59375
+        },
+        {
+          "step": 8,
+          "action": 70,
+          "index": "I(C lineitem.l_receiptdate,C lineitem.l_shipdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3860.4140625
+        },
+        {
+          "step": 9,
+          "action": 17,
+          "index": "I(C orders.o_orderstatus)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4757.3046875
+        },
+        {
+          "step": 10,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5093.6484375
+        },
+        {
+          "step": 11,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5131.0234375
+        },
+        {
+          "step": 12,
+          "action": 1212,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5157.1875
+        },
+        {
+          "step": 13,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5216.984375
+        },
+        {
+          "step": 14,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5219.46875
+        },
+        {
+          "step": 15,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5223.7109375
+        },
+        {
+          "step": 16,
+          "action": 5,
+          "index": "I(C lineitem.l_extendedprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5226.203125
+        },
+        {
+          "step": 17,
+          "action": 1680,
+          "index": "I(C customer.c_acctbal,C customer.c_phone,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7019.984375
+        },
+        {
+          "step": 18,
+          "action": 375,
+          "index": "I(C orders.o_orderkey,C orders.o_orderstatus)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7057.359375
+        },
+        {
+          "step": 19,
+          "action": 586,
+          "index": "I(C orders.o_orderkey,C orders.o_orderstatus,C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7244.21875
+        },
+        {
+          "step": 20,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7617.9375
+        },
+        {
+          "step": 21,
+          "action": 294,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7620.421875
+        },
+        {
+          "step": 22,
+          "action": 1439,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7624.6640625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 35,
+      "workload": "Query IDs: [13, 5, 4, 21, 18] with [6409, 3136, 959, 6152, 5898]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 93.99308945397516,
+      "storage_consumption_mb": 1408.5546875,
+      "final_indexes": [
+        "I(C customer.c_nationkey,C customer.c_custkey,C customer.c_name)",
+        "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+        "I(C orders.o_totalprice)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C orders.o_custkey)",
+        "I(C customer.c_custkey,C customer.c_nationkey)",
+        "I(C supplier.s_name,C supplier.s_nationkey,C supplier.s_suppkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 411.09375
+        },
+        {
+          "step": 4,
+          "action": 29,
+          "index": "I(C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 784.8125
+        },
+        {
+          "step": 5,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1233.2734375
+        },
+        {
+          "step": 6,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1235.7578125
+        },
+        {
+          "step": 7,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1240.0
+        },
+        {
+          "step": 8,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1242.4921875
+        },
+        {
+          "step": 9,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1279.8671875
+        },
+        {
+          "step": 10,
+          "action": 749,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey,C customer.c_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1302.2890625
+        },
+        {
+          "step": 11,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1367.6953125
+        },
+        {
+          "step": 12,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1390.1171875
+        },
+        {
+          "step": 13,
+          "action": 294,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1392.6015625
+        },
+        {
+          "step": 14,
+          "action": 1439,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1396.84375
+        },
+        {
+          "step": 15,
+          "action": 6,
+          "index": "I(C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1399.3359375
+        },
+        {
+          "step": 16,
+          "action": 364,
+          "index": "I(C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1404.5625
+        },
+        {
+          "step": 17,
+          "action": 2220,
+          "index": "I(C supplier.s_name,C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1406.0625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 36,
+      "workload": "Query IDs: [11, 7, 3, 18, 16] with [4788, 6001, 8091, 410, 1117]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 96.10341579072164,
+      "storage_consumption_mb": 2858.8046875,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C lineitem.l_orderkey,C lineitem.l_discount)",
+        "I(C customer.c_custkey,C customer.c_name)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C part.p_size)",
+        "I(C partsupp.ps_suppkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 49,
+          "index": "I(C lineitem.l_orderkey,C lineitem.l_discount)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1694.1953125
+        },
+        {
+          "step": 4,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2591.0859375
+        },
+        {
+          "step": 5,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2593.5703125
+        },
+        {
+          "step": 6,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2685.765625
+        },
+        {
+          "step": 7,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2715.6640625
+        },
+        {
+          "step": 8,
+          "action": 55,
+          "index": "I(C customer.c_custkey,C customer.c_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2753.0390625
+        },
+        {
+          "step": 9,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2803.4921875
+        },
+        {
+          "step": 10,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2853.3203125
+        },
+        {
+          "step": 11,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2854.8203125
+        },
+        {
+          "step": 12,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2857.3046875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 37,
+      "workload": "Query IDs: [22, 11, 14, 4, 15] with [6641, 1015, 6792, 9431, 6415]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 93.88067692634556,
+      "storage_consumption_mb": 1424.4453125,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey,C orders.o_orderdate)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C customer.c_acctbal,C customer.c_phone)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C customer.c_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 573.09375
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 665.2890625
+        },
+        {
+          "step": 5,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 702.6640625
+        },
+        {
+          "step": 6,
+          "action": 847,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey,C orders.o_orderdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 926.890625
+        },
+        {
+          "step": 7,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1300.6171875
+        },
+        {
+          "step": 8,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1341.7265625
+        },
+        {
+          "step": 9,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1386.578125
+        },
+        {
+          "step": 10,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1389.0625
+        },
+        {
+          "step": 11,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1390.5625
+        },
+        {
+          "step": 12,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1420.4609375
+        },
+        {
+          "step": 13,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1422.9453125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 38,
+      "workload": "Query IDs: [12, 1, 10, 3, 18] with [4082, 3356, 1034, 5361, 9532]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 52.30443417765589,
+      "storage_consumption_mb": 7610.6015625,
+      "final_indexes": [
+        "I(C customer.c_nationkey)",
+        "I(C lineitem.l_receiptdate,C lineitem.l_shipdate)",
+        "I(C lineitem.l_tax)",
+        "I(C orders.o_totalprice,C orders.o_orderkey,C orders.o_shippriority)",
+        "I(C customer.c_acctbal,C customer.c_phone,C customer.c_mktsegment)",
+        "I(C orders.o_orderkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C customer.c_custkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2242.2578125
+        },
+        {
+          "step": 5,
+          "action": 29,
+          "index": "I(C orders.o_totalprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2279.6328125
+        },
+        {
+          "step": 6,
+          "action": 333,
+          "index": "I(C orders.o_totalprice,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2728.09375
+        },
+        {
+          "step": 7,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2952.328125
+        },
+        {
+          "step": 8,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2993.4375
+        },
+        {
+          "step": 9,
+          "action": 39,
+          "index": "I(C lineitem.l_receiptdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3038.2890625
+        },
+        {
+          "step": 10,
+          "action": 70,
+          "index": "I(C lineitem.l_receiptdate,C lineitem.l_shipdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4533.109375
+        },
+        {
+          "step": 11,
+          "action": 1760,
+          "index": "I(C orders.o_totalprice,C orders.o_orderkey,C orders.o_shippriority)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5430.0
+        },
+        {
+          "step": 12,
+          "action": 13,
+          "index": "I(C lineitem.l_tax)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5803.71875
+        },
+        {
+          "step": 13,
+          "action": 3093,
+          "index": "I(C customer.c_acctbal,C customer.c_phone,C customer.c_mktsegment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7298.5390625
+        },
+        {
+          "step": 14,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7349.0
+        },
+        {
+          "step": 15,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7573.2265625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 39,
+      "workload": "Query IDs: [3, 21, 9, 7, 14] with [6178, 4440, 4938, 5782, 9988]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 82.1061957917022,
+      "storage_consumption_mb": 2860.953125,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C customer.c_custkey,C customer.c_nationkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.484375
+        },
+        {
+          "step": 3,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 575.578125
+        },
+        {
+          "step": 5,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2070.3984375
+        },
+        {
+          "step": 6,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2162.59375
+        },
+        {
+          "step": 7,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2192.4921875
+        },
+        {
+          "step": 8,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2566.2109375
+        },
+        {
+          "step": 9,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2790.4375
+        },
+        {
+          "step": 10,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2827.8125
+        },
+        {
+          "step": 11,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2832.0546875
+        },
+        {
+          "step": 12,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2834.546875
+        },
+        {
+          "step": 13,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2856.96875
+        },
+        {
+          "step": 14,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2859.453125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 40,
+      "workload": "Query IDs: [19, 21, 16, 4, 15] with [8086, 8445, 7428, 1218, 1149]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 100.0,
+      "storage_consumption_mb": 476.8125,
+      "final_indexes": [
+        "I(C supplier.s_comment,C supplier.s_suppkey,C supplier.s_name)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C part.p_size,C part.p_partkey)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 201.859375
+        },
+        {
+          "step": 4,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 294.0546875
+        },
+        {
+          "step": 5,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 298.296875
+        },
+        {
+          "step": 6,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 328.1953125
+        },
+        {
+          "step": 7,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 330.6875
+        },
+        {
+          "step": 8,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 380.515625
+        },
+        {
+          "step": 9,
+          "action": 135,
+          "index": "I(C part.p_size,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 430.34375
+        },
+        {
+          "step": 10,
+          "action": 18,
+          "index": "I(C supplier.s_comment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 460.25
+        },
+        {
+          "step": 11,
+          "action": 283,
+          "index": "I(C supplier.s_comment,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 470.0859375
+        },
+        {
+          "step": 12,
+          "action": 2183,
+          "index": "I(C supplier.s_comment,C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 471.5859375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 41,
+      "workload": "Query IDs: [16, 8, 12, 7, 5] with [465, 3374, 4695, 8173, 7903]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 99.68511400675398,
+      "storage_consumption_mb": 1430.453125,
+      "final_indexes": [
+        "I(C part.p_size,C part.p_partkey,C part.p_brand)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C part.p_partkey,C part.p_type,C part.p_brand)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey,C supplier.s_comment)",
+        "I(C orders.o_orderkey)",
+        "I(C orders.o_custkey)",
+        "I(C supplier.s_comment,C supplier.s_suppkey)",
+        "I(C partsupp.ps_suppkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 573.09375
+        },
+        {
+          "step": 4,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 575.578125
+        },
+        {
+          "step": 5,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 667.7734375
+        },
+        {
+          "step": 6,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 697.671875
+        },
+        {
+          "step": 7,
+          "action": 78,
+          "index": "I(C part.p_partkey,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 747.5
+        },
+        {
+          "step": 8,
+          "action": 1419,
+          "index": "I(C part.p_partkey,C part.p_type,C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 819.765625
+        },
+        {
+          "step": 9,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 887.046875
+        },
+        {
+          "step": 10,
+          "action": 135,
+          "index": "I(C part.p_size,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 936.875
+        },
+        {
+          "step": 11,
+          "action": 541,
+          "index": "I(C part.p_size,C part.p_partkey,C part.p_brand)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 966.78125
+        },
+        {
+          "step": 12,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1034.0546875
+        },
+        {
+          "step": 13,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1407.7734375
+        },
+        {
+          "step": 14,
+          "action": 1848,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey,C supplier.s_comment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1409.2734375
+        },
+        {
+          "step": 15,
+          "action": 18,
+          "index": "I(C supplier.s_comment)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1419.1171875
+        },
+        {
+          "step": 16,
+          "action": 283,
+          "index": "I(C supplier.s_comment,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1428.953125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 42,
+      "workload": "Query IDs: [11, 10, 4, 18, 15] with [1600, 3439, 8430, 359, 9464]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 99.121918534999,
+      "storage_consumption_mb": 1425.6796875,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C customer.c_acctbal,C customer.c_phone)",
+        "I(C orders.o_orderkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C customer.c_custkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 199.375
+        },
+        {
+          "step": 3,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 573.09375
+        },
+        {
+          "step": 4,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 797.3203125
+        },
+        {
+          "step": 5,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1171.0390625
+        },
+        {
+          "step": 6,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1208.4140625
+        },
+        {
+          "step": 7,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1249.5234375
+        },
+        {
+          "step": 8,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1294.375
+        },
+        {
+          "step": 9,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1296.859375
+        },
+        {
+          "step": 10,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1298.359375
+        },
+        {
+          "step": 11,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1335.734375
+        },
+        {
+          "step": 12,
+          "action": 1212,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1361.8984375
+        },
+        {
+          "step": 13,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1421.6953125
+        },
+        {
+          "step": 14,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1424.1796875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 43,
+      "workload": "Query IDs: [6, 22, 7, 4, 9] with [2524, 8284, 4043, 7264, 8918]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 68.94380700257726,
+      "storage_consumption_mb": 2860.1953125,
+      "final_indexes": [
+        "I(C supplier.s_suppkey)",
+        "I(C customer.c_acctbal)",
+        "I(C customer.c_nationkey,C customer.c_acctbal)",
+        "I(C orders.o_orderkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C customer.c_custkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.484375
+        },
+        {
+          "step": 3,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 749.921875
+        },
+        {
+          "step": 5,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2244.7421875
+        },
+        {
+          "step": 6,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2468.96875
+        },
+        {
+          "step": 7,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2506.34375
+        },
+        {
+          "step": 8,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2556.171875
+        },
+        {
+          "step": 9,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2755.546875
+        },
+        {
+          "step": 10,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2792.921875
+        },
+        {
+          "step": 11,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2819.0859375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 44,
+      "workload": "Query IDs: [5, 7, 19, 22, 16] with [9004, 2198, 7900, 7340, 4458]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 92.90573492178373,
+      "storage_consumption_mb": 1426.953125,
+      "final_indexes": [
+        "I(C part.p_partkey,C part.p_type)",
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C customer.c_nationkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C part.p_size)",
+        "I(C customer.c_acctbal,C customer.c_phone)",
+        "I(C part.p_type,C part.p_container)",
+        "I(C orders.o_custkey)",
+        "I(C orders.o_orderkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C customer.c_custkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 573.09375
+        },
+        {
+          "step": 4,
+          "action": 27,
+          "index": "I(C part.p_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 665.2890625
+        },
+        {
+          "step": 5,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 715.1171875
+        },
+        {
+          "step": 6,
+          "action": 326,
+          "index": "I(C part.p_type,C part.p_container)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 752.4921875
+        },
+        {
+          "step": 7,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 799.8359375
+        },
+        {
+          "step": 8,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1173.5546875
+        },
+        {
+          "step": 9,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1223.3828125
+        },
+        {
+          "step": 10,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1260.7578125
+        },
+        {
+          "step": 11,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1301.8671875
+        },
+        {
+          "step": 12,
+          "action": 78,
+          "index": "I(C part.p_partkey,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1346.71875
+        },
+        {
+          "step": 13,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1418.984375
+        },
+        {
+          "step": 14,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1421.46875
+        },
+        {
+          "step": 15,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1422.96875
+        },
+        {
+          "step": 16,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1425.453125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 45,
+      "workload": "Query IDs: [8, 9, 22, 7, 11] with [6018, 1019, 6779, 8375, 2308]. Contains 0 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 88.06165392466724,
+      "storage_consumption_mb": 1430.4140625,
+      "final_indexes": [
+        "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_type)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C customer.c_custkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)",
+        "I(C supplier.s_nationkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 573.09375
+        },
+        {
+          "step": 4,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 665.2890625
+        },
+        {
+          "step": 5,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 889.515625
+        },
+        {
+          "step": 6,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1263.234375
+        },
+        {
+          "step": 7,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1300.609375
+        },
+        {
+          "step": 8,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1337.984375
+        },
+        {
+          "step": 9,
+          "action": 1212,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1364.1484375
+        },
+        {
+          "step": 10,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1423.9453125
+        },
+        {
+          "step": 11,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1426.4296875
+        },
+        {
+          "step": 12,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1427.9296875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 46,
+      "workload": "Query IDs: [11, 15, 9, 12, 8] with [2766, 6999, 6480, 7266, 7220]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 85.85571775599774,
+      "storage_consumption_mb": 7579.6171875,
+      "final_indexes": [
+        "I(C orders.o_orderkey,C orders.o_orderpriority)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C partsupp.ps_availqty,C partsupp.ps_partkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey,C orders.o_orderpriority)",
+        "I(C partsupp.ps_suppkey,C partsupp.ps_availqty)",
+        "I(C part.p_name,C part.p_type,C part.p_partkey)",
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C part.p_partkey,C part.p_type,C part.p_name)",
+        "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_extendedprice)",
+        "I(C part.p_type,C part.p_partkey)",
+        "I(C customer.c_nationkey,C customer.c_custkey)",
+        "I(C customer.c_custkey,C customer.c_nationkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.484375
+        },
+        {
+          "step": 3,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 575.578125
+        },
+        {
+          "step": 5,
+          "action": 121,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2070.3984375
+        },
+        {
+          "step": 6,
+          "action": 2149,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_extendedprice)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2967.2890625
+        },
+        {
+          "step": 7,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4761.0703125
+        },
+        {
+          "step": 8,
+          "action": 80,
+          "index": "I(C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4853.265625
+        },
+        {
+          "step": 9,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4883.1640625
+        },
+        {
+          "step": 10,
+          "action": 78,
+          "index": "I(C part.p_partkey,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4932.9921875
+        },
+        {
+          "step": 11,
+          "action": 2,
+          "index": "I(C part.p_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5005.2578125
+        },
+        {
+          "step": 12,
+          "action": 2600,
+          "index": "I(C part.p_partkey,C part.p_type,C part.p_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5127.3515625
+        },
+        {
+          "step": 13,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5249.4453125
+        },
+        {
+          "step": 14,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5286.8203125
+        },
+        {
+          "step": 15,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5309.2421875
+        },
+        {
+          "step": 16,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5682.9609375
+        },
+        {
+          "step": 17,
+          "action": 510,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey,C orders.o_orderpriority)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5907.1875
+        },
+        {
+          "step": 18,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6505.140625
+        },
+        {
+          "step": 19,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6542.515625
+        },
+        {
+          "step": 20,
+          "action": 307,
+          "index": "I(C part.p_name,C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6564.9375
+        },
+        {
+          "step": 21,
+          "action": 191,
+          "index": "I(C orders.o_orderkey,C orders.o_orderpriority)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6637.1953125
+        },
+        {
+          "step": 22,
+          "action": 122,
+          "index": "I(C partsupp.ps_suppkey,C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7085.65625
+        },
+        {
+          "step": 23,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7205.2890625
+        },
+        {
+          "step": 24,
+          "action": 2292,
+          "index": "I(C part.p_name,C part.p_type,C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7206.7890625
+        },
+        {
+          "step": 25,
+          "action": 12,
+          "index": "I(C partsupp.ps_availqty)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7256.625
+        },
+        {
+          "step": 26,
+          "action": 139,
+          "index": "I(C partsupp.ps_availqty,C partsupp.ps_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7456.0
+        },
+        {
+          "step": 27,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7575.6328125
+        },
+        {
+          "step": 28,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7578.1171875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 47,
+      "workload": "Query IDs: [12, 14, 5, 19, 4] with [9348, 6050, 5734, 1135, 4824]. Contains 0 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 99.58917718868612,
+      "storage_consumption_mb": 473.8828125,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+        "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C part.p_type)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 373.71875
+        },
+        {
+          "step": 3,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 376.203125
+        },
+        {
+          "step": 4,
+          "action": 118,
+          "index": "I(C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 468.3984375
+        },
+        {
+          "step": 5,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 469.8984375
+        },
+        {
+          "step": 6,
+          "action": 158,
+          "index": "I(C supplier.s_nationkey,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 472.3828125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 48,
+      "workload": "Query IDs: [14, 22, 21, 7, 8] with [4809, 1774, 3348, 4804, 2065]. Contains 0 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 70.61185905249991,
+      "storage_consumption_mb": 7628.9375,
+      "final_indexes": [
+        "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_receiptdate)",
+        "I(C customer.c_custkey,C customer.c_acctbal)",
+        "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+        "I(C supplier.s_name,C supplier.s_suppkey,C supplier.s_nationkey)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C customer.c_acctbal,C customer.c_phone,C customer.c_nationkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C orders.o_orderstatus)",
+        "I(C orders.o_orderkey,C orders.o_orderstatus,C orders.o_custkey)",
+        "I(C customer.c_phone,C customer.c_acctbal,C customer.c_custkey)",
+        "I(C orders.o_custkey)",
+        "I(C part.p_type)",
+        "I(C part.p_partkey)",
+        "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1868.5390625
+        },
+        {
+          "step": 4,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2242.2578125
+        },
+        {
+          "step": 5,
+          "action": 19,
+          "index": "I(C lineitem.l_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2279.6328125
+        },
+        {
+          "step": 6,
+          "action": 121,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3774.453125
+        },
+        {
+          "step": 7,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4671.34375
+        },
+        {
+          "step": 8,
+          "action": 41,
+          "index": "I(C part.p_type)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4673.828125
+        },
+        {
+          "step": 9,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4766.0234375
+        },
+        {
+          "step": 10,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4770.265625
+        },
+        {
+          "step": 11,
+          "action": 2861,
+          "index": "I(C lineitem.l_partkey,C lineitem.l_suppkey,C lineitem.l_receiptdate)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4820.09375
+        },
+        {
+          "step": 12,
+          "action": 14,
+          "index": "I(C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6314.9140625
+        },
+        {
+          "step": 13,
+          "action": 108,
+          "index": "I(C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6356.0234375
+        },
+        {
+          "step": 14,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6400.875
+        },
+        {
+          "step": 15,
+          "action": 99,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6438.25
+        },
+        {
+          "step": 16,
+          "action": 1212,
+          "index": "I(C customer.c_nationkey,C customer.c_acctbal,C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6464.4140625
+        },
+        {
+          "step": 17,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6524.2109375
+        },
+        {
+          "step": 18,
+          "action": 17,
+          "index": "I(C orders.o_orderstatus)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6526.703125
+        },
+        {
+          "step": 19,
+          "action": 1680,
+          "index": "I(C customer.c_acctbal,C customer.c_phone,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6863.046875
+        },
+        {
+          "step": 20,
+          "action": 375,
+          "index": "I(C orders.o_orderkey,C orders.o_orderstatus)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6900.421875
+        },
+        {
+          "step": 21,
+          "action": 586,
+          "index": "I(C orders.o_orderkey,C orders.o_orderstatus,C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7087.28125
+        },
+        {
+          "step": 22,
+          "action": 22,
+          "index": "I(C customer.c_phone)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7461.0
+        },
+        {
+          "step": 23,
+          "action": 335,
+          "index": "I(C customer.c_phone,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7520.796875
+        },
+        {
+          "step": 24,
+          "action": 1459,
+          "index": "I(C customer.c_phone,C customer.c_acctbal,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7546.9609375
+        },
+        {
+          "step": 25,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7584.3359375
+        },
+        {
+          "step": 26,
+          "action": 294,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7586.8203125
+        },
+        {
+          "step": 27,
+          "action": 1439,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7591.0625
+        },
+        {
+          "step": 28,
+          "action": 6,
+          "index": "I(C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7593.5546875
+        },
+        {
+          "step": 29,
+          "action": 304,
+          "index": "I(C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7598.78125
+        },
+        {
+          "step": 30,
+          "action": 725,
+          "index": "I(C supplier.s_name,C supplier.s_suppkey,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7600.28125
+        },
+        {
+          "step": 31,
+          "action": 150,
+          "index": "I(C customer.c_custkey,C customer.c_acctbal)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7602.7734375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 49,
+      "workload": "Query IDs: [15, 7, 12, 21, 9] with [9113, 5979, 3822, 8411, 2520]. Contains 0 previously unseen queries. Budget: 3000",
+      "budget_mb": 3000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 74.8551955507819,
+      "storage_consumption_mb": 2860.4453125,
+      "final_indexes": [
+        "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+        "I(C customer.c_nationkey,C customer.c_custkey)",
+        "I(C supplier.s_name,C supplier.s_nationkey)",
+        "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+        "I(C orders.o_orderkey)",
+        "I(C customer.c_custkey,C customer.c_nationkey)",
+        "I(C lineitem.l_orderkey)",
+        "I(C part.p_partkey)",
+        "I(C partsupp.ps_suppkey)",
+        "I(C orders.o_custkey,C orders.o_orderkey)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 30,
+          "index": "I(C lineitem.l_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 31,
+          "index": "I(C partsupp.ps_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1494.8203125
+        },
+        {
+          "step": 3,
+          "action": 16,
+          "index": "I(C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1694.1953125
+        },
+        {
+          "step": 4,
+          "action": 11,
+          "index": "I(C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2067.9140625
+        },
+        {
+          "step": 5,
+          "action": 9,
+          "index": "I(C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2070.3984375
+        },
+        {
+          "step": 6,
+          "action": 204,
+          "index": "I(C customer.c_custkey,C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2107.7734375
+        },
+        {
+          "step": 7,
+          "action": 40,
+          "index": "I(C orders.o_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2130.1953125
+        },
+        {
+          "step": 8,
+          "action": 367,
+          "index": "I(C orders.o_custkey,C orders.o_orderkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2503.9140625
+        },
+        {
+          "step": 9,
+          "action": 58,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2728.140625
+        },
+        {
+          "step": 10,
+          "action": 2442,
+          "index": "I(C supplier.s_suppkey,C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2732.3828125
+        },
+        {
+          "step": 11,
+          "action": 42,
+          "index": "I(C part.p_partkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2734.875
+        },
+        {
+          "step": 12,
+          "action": 0,
+          "index": "I(C customer.c_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2784.703125
+        },
+        {
+          "step": 13,
+          "action": 337,
+          "index": "I(C customer.c_nationkey,C customer.c_custkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2822.078125
+        },
+        {
+          "step": 14,
+          "action": 34,
+          "index": "I(C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2844.5
+        },
+        {
+          "step": 15,
+          "action": 294,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2846.984375
+        },
+        {
+          "step": 16,
+          "action": 1439,
+          "index": "I(C supplier.s_nationkey,C supplier.s_name,C supplier.s_suppkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2851.2265625
+        },
+        {
+          "step": 17,
+          "action": 6,
+          "index": "I(C supplier.s_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2853.71875
+        },
+        {
+          "step": 18,
+          "action": 364,
+          "index": "I(C supplier.s_name,C supplier.s_nationkey)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2858.9453125
+        }
+      ],
+      "index_selection_time": 0.0
+    }
+  ],
+  "time_statistics": {
+    "total_episodes": 50,
+    "average_selection_time": 0.0,
+    "total_selection_time": 0.0
+  }
+}

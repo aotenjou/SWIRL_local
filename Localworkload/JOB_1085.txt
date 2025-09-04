@@ -1,0 +1,1 @@
+SELECT name.surname_pcode, aka_name.name FROM name JOIN aka_name ON aka_name.person_id = name.id WHERE aka_name.surname_pcode <= 'F2' AND aka_name.id <> 171388 AND name.id > 7741 AND aka_name.name <> 'Dela Cruz, Dhary' AND name.name_pcode_nf = 'V2362' AND name.surname_pcode < 'D412';

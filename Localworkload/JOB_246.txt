@@ -1,0 +1,1 @@
+SELECT movie_companies.company_id, title.kind_id FROM movie_companies, title WHERE title.production_year <> 1903 AND title.series_years > '2009-????' AND movie_companies.note = '(2005) (USA) (TV) (re-runs)' AND title.season_nr >= 13 AND movie_companies.company_type_id < 2 ORDER BY movie_companies.company_id ASC;

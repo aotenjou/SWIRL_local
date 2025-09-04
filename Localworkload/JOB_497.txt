@@ -1,0 +1,1 @@
+SELECT title.episode_of_id, movie_info.note FROM movie_info, title WHERE movie_info.id <> 2832928 AND title.phonetic_code > 'I243' AND title.episode_nr <> 48 AND title.md5sum = '923f54faa9d41a1dac963b1e4ba1b44b' AND title.title = 'A Cover of Art' AND movie_info.movie_id <> 604530 ORDER BY title.episode_of_id ASC, movie_info.note ASC;

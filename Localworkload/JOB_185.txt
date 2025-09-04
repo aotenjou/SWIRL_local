@@ -1,0 +1,1 @@
+select movie_link.id, title.production_year from movie_link, title where movie_link.link_type_id > 1 AND title.episode_nr < 29 AND title.season_nr = 13 AND title.series_years > '2005-2009' AND movie_link.linked_movie_id > 1394139 AND title.imdb_index = 'I' AND title.phonetic_code > 'T6216';

@@ -1,0 +1,1 @@
+select title.phonetic_code, title.production_year, title.id, movie_link.id from movie_info JOIN title ON title.id = movie_info.movie_id JOIN movie_link ON movie_link.movie_id = title.id JOIN link_type ON link_type.id = movie_link.link_type_id where title.imdb_index = 'II' AND title.id >= 1103840 AND title.production_year < 1970 order by title.id ASC;

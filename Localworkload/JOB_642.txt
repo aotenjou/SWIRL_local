@@ -1,0 +1,1 @@
+SELECT name.name, cast_info.person_role_id, char_name.id FROM char_name JOIN cast_info ON cast_info.person_role_id = char_name.id JOIN name ON name.id = cast_info.person_id WHERE name.name_pcode_nf < 'J2141' AND char_name.surname_pcode <= 'M2526' AND char_name.md5sum <> '0a445a911eeb01c2a1f7181b3bdb58af' ORDER BY name.name DESC, char_name.id ASC, cast_info.person_role_id ASC;

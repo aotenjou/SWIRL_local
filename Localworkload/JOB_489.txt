@@ -1,0 +1,1 @@
+SELECT movie_companies.note, title.id, movie_keyword.movie_id FROM movie_keyword JOIN title ON title.id = movie_keyword.movie_id JOIN movie_companies ON movie_companies.movie_id = title.id WHERE movie_companies.company_type_id <= 1 AND movie_keyword.movie_id < 2075276 AND movie_keyword.keyword_id <= 520 ORDER BY movie_keyword.movie_id DESC;

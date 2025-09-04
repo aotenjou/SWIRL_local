@@ -1,0 +1,1 @@
+SELECT aka_title.episode_nr, title.kind_id FROM title JOIN aka_title ON aka_title.movie_id = title.id WHERE title.production_year <> 1902 AND aka_title.kind_id <= 7 AND title.title >= 'Fuyuki nontoruma no shisha de arimasu' AND title.episode_nr = 48 ORDER BY aka_title.episode_nr DESC, title.kind_id DESC;

@@ -1,0 +1,1 @@
+select complete_cast.movie_id, movie_keyword.keyword_id, comp_cast_type.kind, comp_cast_type.id from movie_keyword JOIN title ON title.id = movie_keyword.movie_id JOIN complete_cast ON complete_cast.movie_id = title.id JOIN comp_cast_type ON comp_cast_type.id = complete_cast.status_id where comp_cast_type.id >= 2 AND title.episode_nr > 48 AND title.episode_nr <= 29;

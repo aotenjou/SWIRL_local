@@ -1,0 +1,1 @@
+select movie_keyword.id, keyword.id from movie_keyword JOIN keyword ON keyword.id = movie_keyword.keyword_id where movie_keyword.id >= 2561937 AND movie_keyword.keyword_id = 2987 AND movie_keyword.movie_id >= 769327 AND keyword.keyword = 'fiber-optic-scope' order by movie_keyword.id DESC, keyword.id DESC;

@@ -1,0 +1,290 @@
+##### Report for Experiment with ID: tpch_wl_5_width_3_exclude_0 #####
+Description: The experiment configuration for experiment 1 of the ablation studies
+
+Start:                         2025-08-10 03:17:58.769127
+End:                           2025-08-10 03:17:58.769127
+Duration:                      0:09:36.822258
+
+Start Training:                2025-08-10 03:19:18.740869
+End Training:                  2025-08-10 03:27:13.468933
+Duration Training:             0:07:54.728064
+Moving Average model at step:  96000
+Mean reward model at step:     96000
+Git Hash:                      No commits yet
+Number of features:            70
+Number of actions:             3416
+
+##### 索引选择信息 #####
+注意: 详细的索引选择信息已保存到单独的JSON文件中
+文件命名格式: index_selection_{environment_type}_{timestamp}.json
+包含信息: 索引选择顺序、存储消耗、成本改进等
+
+Unknown query probability: 0.0:
+    Final mean performance test:
+        Final model:               83.94 ([46.85, 70.44, 92.11, 90.82, 89.74, 97.92, 84.07, 84.98, 98.13, 94.79, 91.72, 93.74, 75.65, 89.88, 99.83, 97.32, 99.65, 87.74, 100.17, 99.22, 73.29, 75.34, 99.75, 63.17, 55.29, 48.25, 57.99, 95.81, 67.16, 49.96, 94.76, 62.81, 96.84, 97.14, 76.63, 93.99, 96.1, 93.88, 52.3, 82.11, 100.0, 99.69, 99.12, 68.94, 92.91, 88.06, 85.86, 99.59, 70.61, 74.86])
+        Moving Average model:      83.69 ([46.85, 70.44, 92.11, 90.64, 89.74, 97.92, 84.07, 83.22, 98.13, 94.79, 91.72, 93.83, 75.65, 89.88, 99.83, 97.32, 97.42, 87.74, 100.17, 99.22, 73.29, 75.31, 99.75, 62.63, 55.29, 48.22, 58.88, 95.81, 66.79, 53.39, 94.44, 62.81, 96.78, 97.14, 76.63, 94.95, 89.05, 93.88, 52.3, 82.11, 95.09, 99.69, 99.12, 68.94, 92.91, 88.06, 85.52, 99.59, 70.61, 74.86])
+        Moving Average 3 model:    83.69 ([46.85, 70.44, 92.11, 90.64, 89.74, 97.92, 84.07, 83.22, 98.13, 94.79, 91.72, 93.83, 75.65, 89.88, 99.83, 97.32, 97.42, 87.74, 100.17, 99.22, 73.29, 75.31, 99.75, 62.63, 55.29, 48.22, 58.88, 95.81, 66.79, 53.39, 94.44, 62.81, 96.78, 97.14, 76.63, 94.95, 89.05, 93.88, 52.3, 82.11, 95.09, 99.69, 99.12, 68.94, 92.91, 88.06, 85.52, 99.59, 70.61, 74.86])
+        Best mean reward model:    83.69 ([46.85, 70.44, 92.11, 90.64, 89.74, 97.92, 84.07, 83.22, 98.13, 94.79, 91.72, 93.83, 75.65, 89.88, 99.83, 97.32, 97.42, 87.74, 100.17, 99.22, 73.29, 75.31, 99.75, 62.63, 55.29, 48.22, 58.88, 95.81, 66.79, 53.39, 94.44, 62.81, 96.78, 97.14, 76.63, 94.95, 89.05, 93.88, 52.3, 82.11, 95.09, 99.69, 99.12, 68.94, 92.91, 88.06, 85.52, 99.59, 70.61, 74.86])
+        Extend:                    83.49 ([46.85, 70.44, 92.39, 90.82, 71.38, 98.13, 84.27, 83.22, 98.13, 95.04, 91.72, 93.38, 75.73, 89.93, 100.0, 97.35, 99.65, 87.99, 100.0, 99.22, 72.97, 75.21, 100.0, 70.48, 57.4, 48.19, 57.86, 95.99, 66.79, 49.44, 94.47, 63.5, 96.93, 97.14, 76.73, 93.47, 89.05, 93.88, 52.37, 82.13, 95.09, 100.0, 99.09, 68.99, 92.91, 88.3, 85.37, 99.59, 70.69, 74.86])
+        DB2Adv:                    84.67 ([46.85, 70.44, 92.28, 90.64, 89.64, 97.92, 84.07, 83.22, 98.13, 99.71, 95.77, 93.36, 75.65, 89.88, 99.83, 97.32, 99.41, 87.73, 100.0, 99.22, 72.97, 75.03, 99.75, 62.04, 55.12, 54.53, 64.58, 99.83, 66.79, 76.03, 96.82, 62.81, 96.78, 97.36, 76.73, 93.77, 89.05, 93.88, 52.3, 82.11, 95.09, 99.69, 99.09, 68.94, 92.91, 88.06, 85.12, 99.59, 70.61, 74.86])
+
+        Budgets:                   [3000, 3000, 8000, 1500, 3000, 1500, 5000, 5000, 3000, 500, 500, 1500, 1500, 5000, 500, 1500, 500, 5000, 1500, 1500, 3000, 8000, 1500, 8000, 8000, 8000, 8000, 500, 8000, 8000, 500, 3000, 1500, 500, 8000, 1500, 3000, 1500, 8000, 3000, 500, 1500, 1500, 3000, 1500, 1500, 8000, 500, 8000, 3000]
+
+    Final mean performance validation:
+        Final model:               80.73 ([50.78, 60.45, 43.21, 95.72, 54.17, 100.0, 97.1, 99.99, 37.18, 86.24, 92.5, 100.39, 100.0, 64.7, 89.31, 77.09, 49.86, 70.42, 60.56, 95.59, 59.35, 93.85, 67.54, 87.0, 91.06, 75.91, 61.91, 96.17, 97.74, 69.64, 79.03, 91.54, 93.98, 96.72, 37.26, 69.36, 95.75, 86.07, 94.22, 90.35, 53.57, 83.57, 100.0, 78.23, 100.0, 93.89, 79.33, 100.23, 97.05, 90.94])
+        Moving Average model:      80.63 ([50.94, 60.45, 43.21, 95.72, 54.12, 100.0, 97.1, 99.99, 39.06, 86.24, 89.96, 100.39, 100.0, 64.7, 90.32, 77.09, 49.81, 70.11, 60.74, 95.59, 59.35, 93.85, 67.54, 87.0, 91.04, 75.91, 61.91, 96.17, 94.77, 69.64, 79.03, 91.54, 93.98, 96.72, 37.26, 69.36, 95.54, 86.19, 92.5, 90.69, 53.57, 83.57, 100.0, 78.23, 99.51, 93.58, 79.33, 100.23, 97.05, 90.94])
+        Moving Average 3 model:    80.63 ([50.94, 60.45, 43.21, 95.72, 54.12, 100.0, 97.1, 99.99, 39.06, 86.24, 89.96, 100.39, 100.0, 64.7, 90.32, 77.09, 49.81, 70.11, 60.74, 95.59, 59.35, 93.85, 67.54, 87.0, 91.04, 75.91, 61.91, 96.17, 94.77, 69.64, 79.03, 91.54, 93.98, 96.72, 37.26, 69.36, 95.54, 86.19, 92.5, 90.69, 53.57, 83.57, 100.0, 78.23, 99.51, 93.58, 79.33, 100.23, 97.05, 90.94])
+        Best mean reward model:    80.63 ([50.94, 60.45, 43.21, 95.72, 54.12, 100.0, 97.1, 99.99, 39.06, 86.24, 89.96, 100.39, 100.0, 64.7, 90.32, 77.09, 49.81, 70.11, 60.74, 95.59, 59.35, 93.85, 67.54, 87.0, 91.04, 75.91, 61.91, 96.17, 94.77, 69.64, 79.03, 91.54, 93.98, 96.72, 37.26, 69.36, 95.54, 86.19, 92.5, 90.69, 53.57, 83.57, 100.0, 78.23, 99.51, 93.58, 79.33, 100.23, 97.05, 90.94])
+        Extend:                    80.77 ([50.76, 60.45, 43.21, 95.77, 54.12, 98.44, 96.21, 99.38, 37.28, 86.25, 92.61, 100.0, 96.74, 64.77, 89.15, 77.09, 49.86, 65.83, 55.92, 95.59, 59.48, 93.85, 67.54, 87.0, 91.04, 75.91, 62.81, 96.13, 98.61, 69.68, 79.06, 91.57, 93.98, 96.72, 37.26, 77.1, 95.54, 86.07, 92.61, 90.35, 53.57, 83.65, 100.0, 77.95, 99.51, 93.6, 90.46, 100.0, 97.02, 90.97])
+        DB2Adv:                    82.06 ([50.76, 60.45, 43.21, 95.72, 54.11, 98.44, 97.1, 99.37, 39.06, 98.49, 92.5, 100.0, 96.62, 88.39, 88.99, 77.08, 49.81, 93.91, 60.55, 95.59, 59.35, 93.85, 67.54, 95.75, 91.04, 75.91, 61.91, 96.13, 94.77, 69.64, 79.06, 91.54, 93.98, 96.72, 37.26, 68.83, 95.54, 86.06, 92.49, 95.32, 53.57, 83.57, 100.0, 77.95, 99.51, 99.28, 78.21, 100.23, 97.02, 90.94])
+
+        Budgets:                   [5000, 3000, 5000, 500, 8000, 500, 500, 500, 8000, 500, 500, 1500, 5000, 3000, 8000, 8000, 5000, 5000, 8000, 1500, 3000, 3000, 5000, 500, 8000, 8000, 5000, 500, 5000, 3000, 8000, 1500, 500, 1500, 5000, 8000, 500, 8000, 5000, 500, 8000, 5000, 500, 5000, 500, 500, 8000, 1500, 500, 1500]
+
+
+Overall Test:
+        Final model:               83.94
+        Moving Average model:      83.69
+        Moving Average 3 model:    83.69
+        Best mean reward model:    83.69
+        Extend:                    83.49
+        DB2Adv:                    84.67
+
+##### 时间统计信息 #####
+索引选择算法执行时间对比:
+
+Test环境时间统计:
+    SWIRL平均时间:              1.6928 秒
+    Extend平均时间:             0.0788 秒
+    DB2Advis平均时间:           0.1295 秒
+Validation环境时间统计:
+    SWIRL平均时间:              1.6202 秒
+    Extend平均时间:             0.0869 秒
+    DB2Advis平均时间:           0.1224 秒
+
+Overall Validation:
+        Final model:               80.73
+        Moving Average model:      80.63
+        Moving Average 3 model:    80.63
+        Best mean reward model:    80.63
+        Extend:                    80.77
+        DB2Adv:                    82.06
+
+
+##### 总体时间统计 #####
+SWIRL总体平均时间:            1.6565 秒 (共12个workload)
+Extend总体平均时间:           0.0829 秒 (共100个workload)
+DB2Advis总体平均时间:         0.1259 秒 (共100个workload)
+
+Evaluated episodes:            1371
+Total steps taken:             99964
+CostEval cache hit ratio:      60.84 (308284 of 506700)
+Cost eval time (% of total):   0:02:58.507063 (37.60%)
+
+
+Used configuration:
+{"id": "tpch_wl_5_width_3_exclude_0", "description": "The experiment configuration for experiment 1 of the ablation studies", "gym_version": 1, "timesteps": 100000, "random_seed": 60, "parallel_environments": 1, "pickle_cost_estimation_caches": true, "action_manager": "MultiColumnIndexActionManager", "observation_manager": "SingleColumnIndexObservationManager", "reward_calculator": "RelativeDifferenceRelativeToStorageReward", "max_steps_per_episode": 200, "validation_frequency": 4000, "filter_utilized_columns": false, "max_index_width": 3, "reenable_indexes": false, "result_path": "experiments/ablation_studies/experiment_1", "workload_embedder": {"type": "PlanEmbedderLSIBOW", "representation_size": 50}, "rl_algorithm": {"algorithm": "PPO2", "stable_baselines_version": 2, "gamma": 0.5, "policy": "MlpPolicy", "model_architecture": {"net_arch": [{"vf": [256, 256], "pi": [256, 256]}]}, "args": {"n_steps": 64}}, "workload": {"benchmark": "TPCH", "scale_factor": 10, "size": 5, "varying_frequencies": true, "training_instances": 2000, "validation_testing": {"number_of_workloads": 50, "unknown_query_probabilities": [0.0]}, "similar_workloads": false, "excluded_query_classes": [2, 17, 20], "unknown_queries": 0}, "comparison_algorithms": ["extend", "db2advis"], "budgets": {"training": null, "validation_and_testing": [500, 1500, 3000, 5000, 8000]}, "column_filters": {"TableNumRowsFilter": 10000}}
+
+Evaluated test workloads:
+Query IDs: [21, 18, 9, 5, 7] with [5865, 9116, 4361, 4243, 3261]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [1, 18, 4, 5, 10] with [8674, 1414, 8883, 781, 8153]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [3, 8, 22, 19, 15] with [2428, 3532, 3925, 304, 9308]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [13, 19, 14, 18, 12] with [5819, 2418, 2900, 1271, 7270]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [19, 13, 12, 4, 3] with [8797, 4984, 2803, 1781, 9265]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [7, 6, 12, 19, 22] with [6847, 3275, 4716, 9860, 2172]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [5, 12, 3, 21, 8] with [7163, 1807, 6653, 2503, 9690]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [3, 15, 22, 1, 13] with [3536, 7231, 9718, 3128, 8251]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [15, 3, 12, 1, 18] with [2654, 3503, 5072, 949, 71]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [18, 8, 9, 13, 12] with [381, 8231, 8044, 295, 5868]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [14, 16, 13, 21, 10] with [6582, 7170, 9081, 8470, 9906]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [13, 11, 18, 12, 9] with [5417, 1555, 5293, 8525, 7653]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [6, 22, 9, 11, 14] with [1735, 6777, 8992, 7886, 786]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [8, 3, 4, 6, 11] with [1248, 4893, 1052, 6183, 3093]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [1, 7, 3, 4, 12] with [6492, 7960, 4813, 1772, 4426]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [15, 9, 6, 18, 3] with [7277, 7733, 9632, 1743, 3274]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [13, 19, 12, 11, 10] with [1099, 9607, 5162, 267, 472]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [10, 8, 13, 15, 3] with [3149, 7836, 2442, 2380, 2646]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [5, 18, 10, 1, 4] with [6574, 2406, 8026, 4653, 6890]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [7, 12, 1, 9, 3] with [1227, 2454, 9958, 1479, 9813]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [12, 6, 13, 22, 7] with [4898, 2658, 7583, 7862, 67]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [15, 13, 4, 14, 8] with [2212, 3952, 4892, 9492, 6592]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [4, 3, 7, 1, 22] with [4919, 2326, 6302, 6340, 263]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [12, 4, 5, 13, 9] with [4340, 8653, 3399, 8542, 9330]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [21, 16, 9, 11, 3] with [1818, 6913, 422, 1008, 174]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [6, 11, 18, 19, 13] with [7419, 4724, 3511, 2004, 1361]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [5, 4, 19, 21, 7] with [4495, 6575, 1735, 3073, 5415]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [9, 8, 4, 12, 3] with [2757, 2326, 1474, 1727, 1722]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [18, 12, 1, 5, 11] with [2473, 8103, 2638, 529, 1512]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [19, 21, 22, 5, 10] with [8277, 5259, 162, 4677, 4305]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [10, 4, 9, 6, 13] with [9915, 515, 3933, 5143, 3196]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [13, 18, 15, 7, 14] with [853, 5201, 4506, 7040, 8846]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [6, 11, 8, 5, 3] with [7171, 5149, 6395, 8202, 4730]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [15, 4, 12, 11, 21] with [6945, 9699, 4040, 6480, 5194]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [15, 6, 21, 22, 5] with [5607, 5273, 3923, 702, 826]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [13, 5, 4, 21, 18] with [6409, 3136, 959, 6152, 5898]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [11, 7, 3, 18, 16] with [4788, 6001, 8091, 410, 1117]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [22, 11, 14, 4, 15] with [6641, 1015, 6792, 9431, 6415]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [12, 1, 10, 3, 18] with [4082, 3356, 1034, 5361, 9532]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [3, 21, 9, 7, 14] with [6178, 4440, 4938, 5782, 9988]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [19, 21, 16, 4, 15] with [8086, 8445, 7428, 1218, 1149]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [16, 8, 12, 7, 5] with [465, 3374, 4695, 8173, 7903]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [11, 10, 4, 18, 15] with [1600, 3439, 8430, 359, 9464]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [6, 22, 7, 4, 9] with [2524, 8284, 4043, 7264, 8918]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [5, 7, 19, 22, 16] with [9004, 2198, 7900, 7340, 4458]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [8, 9, 22, 7, 11] with [6018, 1019, 6779, 8375, 2308]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [11, 15, 9, 12, 8] with [2766, 6999, 6480, 7266, 7220]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [12, 14, 5, 19, 4] with [9348, 6050, 5734, 1135, 4824]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [14, 22, 21, 7, 8] with [4809, 1774, 3348, 4804, 2065]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [15, 7, 12, 21, 9] with [9113, 5979, 3822, 8411, 2520]. Contains 0 previously unseen queries. Budget: 3000
+
+Evaluated validation workloads:
+Query IDs: [21, 4, 13, 11, 12] with [5266, 3516, 3797, 3026, 3612]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [18, 3, 13, 15, 19] with [5499, 7125, 8076, 3103, 3410]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [18, 7, 4, 1, 6] with [7507, 3511, 3375, 239, 2807]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [15, 4, 14, 6, 9] with [5449, 7277, 4575, 5244, 9624]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [14, 11, 15, 21, 8] with [2274, 6766, 327, 6059, 6380]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [16, 18, 21, 15, 1] with [89, 9435, 9223, 5781, 5541]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [14, 9, 5, 10, 22] with [4700, 4863, 6407, 8671, 4643]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [16, 19, 9, 10, 7] with [6509, 4430, 623, 8934, 28]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [19, 8, 4, 22, 18] with [6787, 7800, 2448, 8152, 6106]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [8, 13, 9, 5, 6] with [4324, 4550, 1257, 2604, 549]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [8, 3, 13, 19, 11] with [3953, 6710, 6218, 3564, 9763]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [7, 5, 4, 18, 16] with [2853, 7910, 3927, 7526, 1360]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [1, 12, 4, 5, 6] with [6746, 2760, 1231, 9605, 3060]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [4, 15, 1, 9, 19] with [2789, 2482, 4114, 7388, 9293]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [7, 8, 9, 6, 22] with [8229, 5175, 2912, 9299, 1138]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [13, 1, 8, 16, 7] with [8001, 2770, 8562, 6358, 160]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [12, 8, 21, 18, 10] with [5804, 4267, 3062, 7081, 3359]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [3, 13, 10, 6, 19] with [682, 4286, 7834, 7576, 8438]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [1, 11, 8, 14, 19] with [130, 9561, 7311, 5785, 5425]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [10, 15, 5, 11, 3] with [43, 3492, 3813, 4487, 4551]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [7, 16, 9, 3, 18] with [4199, 4128, 427, 9860, 5991]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [15, 16, 10, 5, 4] with [8061, 2899, 1312, 9721, 2398]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [14, 21, 18, 3, 5] with [3381, 2639, 2338, 5882, 6646]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [16, 13, 14, 21, 12] with [6645, 9523, 760, 4497, 7353]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [5, 11, 21, 14, 16] with [5506, 1008, 493, 1887, 4710]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [21, 5, 16, 11, 4] with [1786, 8395, 8305, 4510, 1055]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [18, 7, 3, 9, 10] with [4852, 9490, 5389, 1241, 1448]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [18, 11, 6, 15, 21] with [3504, 7403, 211, 5686, 696]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [16, 9, 13, 6, 3] with [9471, 967, 231, 8412, 530]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [6, 9, 4, 22, 14] with [8388, 5842, 7212, 6279, 1392]. Contains 0 previously unseen queries. Budget: 3000
+
+Query IDs: [16, 7, 15, 6, 4] with [9124, 6952, 1727, 9967, 8099]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [5, 11, 9, 21, 7] with [300, 484, 3779, 5504, 2585]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [14, 11, 18, 16, 13] with [6583, 4957, 6864, 2922, 7769]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [10, 13, 14, 6, 19] with [9731, 1612, 1841, 1279, 5586]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [4, 18, 21, 16, 7] with [8421, 6116, 2333, 2298, 1501]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [1, 9, 22, 10, 21] with [8289, 9355, 1491, 2302, 5212]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [3, 18, 7, 13, 6] with [5616, 9664, 4826, 8612, 4332]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [16, 12, 11, 14, 8] with [9684, 6036, 7586, 4973, 8580]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [8, 1, 3, 21, 12] with [5402, 6237, 8862, 943, 2655]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [3, 22, 11, 21, 8] with [2770, 6864, 4185, 827, 8282]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [22, 7, 3, 18, 16] with [7605, 3163, 4065, 4213, 7547]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [15, 13, 16, 21, 10] with [5139, 7995, 9778, 189, 2356]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [16, 1, 10, 18, 6] with [5098, 5272, 8487, 1238, 2790]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [13, 12, 1, 5, 4] with [2982, 8714, 828, 2515, 4736]. Contains 0 previously unseen queries. Budget: 5000
+
+Query IDs: [9, 10, 15, 16, 5] with [668, 9171, 313, 8601, 8769]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [13, 7, 8, 4, 9] with [3523, 6318, 3548, 5972, 2964]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [5, 10, 9, 22, 11] with [7609, 695, 6275, 175, 4183]. Contains 0 previously unseen queries. Budget: 8000
+
+Query IDs: [18, 19, 3, 12, 8] with [7509, 2873, 2354, 2244, 9286]. Contains 0 previously unseen queries. Budget: 1500
+
+Query IDs: [18, 7, 1, 11, 6] with [4754, 2756, 7387, 8876, 9807]. Contains 0 previously unseen queries. Budget: 500
+
+Query IDs: [15, 5, 22, 21, 9] with [1957, 8713, 4923, 7776, 7125]. Contains 0 previously unseen queries. Budget: 1500
+
+
+

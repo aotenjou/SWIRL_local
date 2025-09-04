@@ -1,0 +1,1 @@
+SELECT cast_info.note, name.name_pcode_nf, COUNT(cast_info.movie_id) FROM cast_info, name WHERE name.gender = 'm' AND cast_info.id = 3774382 AND cast_info.nr_order = 111 GROUP BY cast_info.note, name.name_pcode_nf ORDER BY COUNT(cast_info.movie_id) ASC;

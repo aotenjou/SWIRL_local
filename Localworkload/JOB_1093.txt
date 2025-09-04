@@ -1,0 +1,1 @@
+SELECT cast_info.person_role_id, char_name.name, COUNT(cast_info.nr_order) FROM cast_info JOIN char_name ON char_name.id = cast_info.person_role_id WHERE char_name.surname_pcode <= 'D2' AND char_name.name_pcode_nf > 'R2636' AND cast_info.id > 1215028 AND cast_info.nr_order > 111 GROUP BY cast_info.person_role_id, char_name.name;

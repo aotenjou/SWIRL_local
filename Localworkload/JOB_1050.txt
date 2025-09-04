@@ -1,0 +1,1 @@
+SELECT movie_link.linked_movie_id, movie_keyword.id, title.series_years FROM movie_keyword JOIN title ON title.id = movie_keyword.movie_id JOIN movie_link ON movie_link.movie_id = title.id WHERE title.production_year >= 1902 AND title.id <= 724807 AND title.episode_of_id <= 509834 AND title.md5sum <= '94a7ef96e356bf404df375d3d184a246';

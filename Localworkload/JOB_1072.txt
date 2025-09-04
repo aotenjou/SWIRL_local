@@ -1,0 +1,1 @@
+select movie_link.movie_id, title.season_nr, title.production_year, avg(movie_link.id), max(movie_link.movie_id) from link_type, movie_link, title where movie_link.id <= 15293 AND link_type.link > 'alternate language version of' AND title.imdb_index = 'II' group by title.production_year, title.season_nr, movie_link.movie_id order by movie_link.movie_id DESC;

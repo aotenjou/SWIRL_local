@@ -1,0 +1,1 @@
+SELECT cast_info.nr_order, role_type.role, MAX(cast_info.person_id) FROM role_type JOIN cast_info ON cast_info.role_id = role_type.id WHERE cast_info.movie_id <= 2332848 AND cast_info.person_role_id < 2254369 AND role_type.role < 'cinematographer' GROUP BY cast_info.nr_order, role_type.role HAVING MAX(cast_info.person_id) < 880349 ORDER BY MAX(cast_info.person_id) ASC;

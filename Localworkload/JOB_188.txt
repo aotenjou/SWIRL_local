@@ -1,0 +1,1 @@
+SELECT name.surname_pcode, role_type.role, cast_info.nr_order FROM name JOIN cast_info ON cast_info.person_id = name.id JOIN role_type ON role_type.id = cast_info.role_id WHERE cast_info.nr_order <> 27 AND cast_info.id > 13567206 AND cast_info.movie_id >= 2090612 AND name.imdb_index < 'XI';

@@ -1,0 +1,1 @@
+SELECT title.md5sum, movie_companies.company_type_id, MIN(movie_companies.id) FROM movie_companies JOIN title ON title.id = movie_companies.movie_id WHERE title.md5sum < 'd0433eff32fba157a56109080385abcf' AND title.id < 123246 AND title.kind_id >= 2 GROUP BY title.md5sum, movie_companies.company_type_id ORDER BY title.md5sum DESC, movie_companies.company_type_id DESC;

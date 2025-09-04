@@ -1,0 +1,1 @@
+select movie_link.id, title.md5sum from movie_link, title where movie_link.link_type_id > 4 AND title.title < 'Neprikayannyy' AND title.md5sum = '767e43196d958c208b1335330d77ac21' AND title.series_years > '2005-2009' AND movie_link.linked_movie_id > 1394139 AND title.imdb_index = 'I' AND title.phonetic_code > 'J5263';

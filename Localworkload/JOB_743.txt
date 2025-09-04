@@ -1,0 +1,1 @@
+SELECT cast_info.person_id, char_name.surname_pcode, title.title FROM title JOIN cast_info ON cast_info.movie_id = title.id JOIN char_name ON char_name.id = cast_info.person_role_id WHERE title.production_year >= 1970 AND char_name.surname_pcode > 'O42' AND title.id <> 96842 ORDER BY cast_info.person_id ASC, title.title ASC, char_name.surname_pcode ASC;

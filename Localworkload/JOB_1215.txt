@@ -1,0 +1,1 @@
+SELECT movie_info_idx.info_type_id, info_type.info FROM info_type JOIN movie_info_idx ON movie_info_idx.info_type_id = info_type.id WHERE movie_info_idx.id < 412529 AND movie_info_idx.info_type_id <= 100 AND info_type.info > 'death date' AND movie_info_idx.movie_id <> 2241302 ORDER BY movie_info_idx.info_type_id DESC, info_type.info DESC;

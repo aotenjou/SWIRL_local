@@ -1,0 +1,1 @@
+SELECT movie_info_idx.id, info_type.info, MIN(movie_info_idx.info) FROM movie_info_idx, info_type WHERE movie_info_idx.id <> 1214182 AND info_type.id > 59 AND movie_info_idx.info >= '25' AND movie_info_idx.movie_id > 2300150 AND movie_info_idx.info_type_id = 100 GROUP BY movie_info_idx.id, info_type.info;

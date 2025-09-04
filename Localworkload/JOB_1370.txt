@@ -1,0 +1,1 @@
+SELECT movie_info_idx.movie_id, info_type.id FROM info_type, movie_info_idx WHERE info_type.info < 'LD certification' AND movie_info_idx.info <= '7.0' AND info_type.id <> 62 AND movie_info_idx.movie_id <= 2104256;

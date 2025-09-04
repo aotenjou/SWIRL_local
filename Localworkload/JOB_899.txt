@@ -1,0 +1,1 @@
+select title.episode_nr, movie_info.info, title.series_years from movie_link JOIN title ON title.id = movie_link.movie_id JOIN movie_info ON movie_info.movie_id = title.id where title.md5sum <= '05b0479cac0b762d64a8fbab8106e2e3' AND title.season_nr >= 3 AND movie_link.id >= 15293 AND title.phonetic_code < 'I243' AND movie_info.info_type_id = 43;

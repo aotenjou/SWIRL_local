@@ -1,0 +1,1 @@
+select aka_name.id, name.gender from aka_name, name where name.name = 'Gokken, Amber' AND aka_name.surname_pcode >= 'L2' AND name.name_pcode_cf < 'R2562' AND aka_name.name_pcode_cf >= 'H1651' order by aka_name.id ASC, name.gender DESC;

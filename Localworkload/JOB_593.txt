@@ -1,0 +1,1 @@
+SELECT cast_info.person_role_id, movie_link.linked_movie_id, title.series_years FROM movie_link JOIN title ON title.id = movie_link.movie_id JOIN cast_info ON cast_info.movie_id = title.id WHERE title.episode_nr = 29 AND title.title <= 'Een jaar later' AND cast_info.movie_id <= 1261456 ORDER BY movie_link.linked_movie_id DESC, title.series_years ASC;

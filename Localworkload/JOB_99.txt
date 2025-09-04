@@ -1,0 +1,1 @@
+SELECT person_info.note, movie_info_idx.id, info_type.id FROM person_info JOIN info_type ON info_type.id = person_info.info_type_id JOIN movie_info_idx ON movie_info_idx.info_type_id = info_type.id WHERE person_info.info = 'Book: "I Am America (And So Can You)", 2007.' AND info_type.info > 'LD quality program' AND movie_info_idx.movie_id < 43125 AND info_type.id > 63;

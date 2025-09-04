@@ -1,0 +1,1 @@
+select cast_info.person_role_id, title.series_years, title.title from cast_info JOIN title ON title.id = cast_info.movie_id JOIN movie_keyword ON movie_keyword.movie_id = title.id where cast_info.person_role_id > 2401968 AND title.season_nr <= 5 AND cast_info.role_id = 9 order by cast_info.person_role_id DESC;

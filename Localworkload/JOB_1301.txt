@@ -1,0 +1,1 @@
+SELECT movie_info.id, movie_info_idx.id, info_type.info FROM movie_info, info_type, movie_info_idx WHERE movie_info.info > 'CHAR: When Booth was saying nothing had better happen to Bones he said her hair was black, when in fact her hair is brown.' AND movie_info_idx.id > 526904 AND movie_info.id = 11130217 AND info_type.id < 56 AND movie_info.note < 'darkknight575';

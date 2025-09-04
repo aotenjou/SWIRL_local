@@ -1,0 +1,1 @@
+select title.episode_nr, movie_info.id, title.title from movie_link JOIN title ON title.id = movie_link.movie_id JOIN movie_info ON movie_info.movie_id = title.id where movie_link.linked_movie_id <= 1808225 AND movie_info.info_type_id >= 107 AND title.phonetic_code >= 'Z2521' AND title.md5sum < '4a9e824123c74028c8236f0cc3e13667' AND title.kind_id = 2;

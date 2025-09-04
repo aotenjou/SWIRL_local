@@ -1,0 +1,1 @@
+SELECT title.id, kind_type.kind FROM kind_type JOIN title ON title.kind_id = kind_type.id WHERE title.production_year <> 1947 AND title.phonetic_code >= 'M212' AND title.id <= 1827700 AND title.kind_id >= 1 ORDER BY kind_type.kind DESC;

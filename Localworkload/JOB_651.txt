@@ -1,0 +1,1 @@
+select link_type.link, title.season_nr, movie_link.movie_id, avg(movie_link.id), max(title.series_years) from link_type, movie_link, title where title.md5sum <= '767e43196d958c208b1335330d77ac21' AND title.phonetic_code > 'J5263' AND link_type.link = 'edited into' group by link_type.link, movie_link.movie_id, title.season_nr order by movie_link.movie_id DESC;

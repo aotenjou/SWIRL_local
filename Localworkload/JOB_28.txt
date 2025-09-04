@@ -1,0 +1,3 @@
+SELECT name.surname_pcode, person_info.info_type_id, info_type.id FROM name JOIN person_info ON person_info.person_id = name.id JOIN info_type ON info_type.id = person_info.info_type_id WHERE name.name > 'Thomas, Lyndia' AND name.name_pcode_cf = 'R2562' AND name.name_pcode_nf <= 'L6126' AND info_type.id > 59 ORDER BY person_info.info_type_id DESC, info_type.id ASC;
+
+

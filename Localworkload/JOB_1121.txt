@@ -1,0 +1,1 @@
+SELECT name.gender FROM name WHERE name.gender >= 'm' AND name.id > 2315539 AND name.surname_pcode = 'L15' AND name.name <> 'Zaballero-Sanchez, Racquel' ORDER BY name.gender ASC;

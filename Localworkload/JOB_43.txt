@@ -1,0 +1,1 @@
+SELECT movie_keyword.id, title.md5sum FROM title JOIN movie_keyword ON movie_keyword.movie_id = title.id WHERE title.md5sum >= '2ee4d131cde1335cedbb41fcb5065a6a' AND title.phonetic_code >= 'M212' AND title.series_years = '2005-2009' AND title.title > 'Die Todeszeche';

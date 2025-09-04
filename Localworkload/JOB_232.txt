@@ -1,0 +1,1 @@
+SELECT name.gender, aka_name.imdb_index FROM name JOIN aka_name ON aka_name.person_id = name.id WHERE aka_name.id <= 765597 AND aka_name.name_pcode_cf < 'M2421' AND name.surname_pcode = 'B42' AND aka_name.person_id < 95736;

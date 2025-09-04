@@ -1,0 +1,1 @@
+select movie_keyword.movie_id, movie_keyword.id from movie_keyword JOIN keyword ON keyword.id = movie_keyword.keyword_id where movie_keyword.id > 1941574 AND keyword.phonetic_code > 'O1232' AND keyword.id <= 104859 AND keyword.phonetic_code = 'O1232' order by movie_keyword.id DESC, movie_keyword.movie_id DESC;

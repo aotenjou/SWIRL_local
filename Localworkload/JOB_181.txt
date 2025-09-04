@@ -1,0 +1,1 @@
+select movie_companies.company_type_id, company_type.kind, count(movie_companies.company_type_id), sum(movie_companies.id), max(movie_companies.company_id) from company_type, movie_companies where company_type.kind < 'special effects companies' AND movie_companies.id < 376282 AND movie_companies.movie_id < 1215660 group by company_type.kind, movie_companies.company_type_id;

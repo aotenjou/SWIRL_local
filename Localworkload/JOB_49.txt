@@ -1,0 +1,1 @@
+SELECT person_info.id, info_type.info FROM person_info, info_type WHERE person_info.person_id <= 804912 AND person_info.id > 1013501 AND person_info.info = '5'' 9"' AND info_type.info = 'agent address' AND info_type.id > 8;

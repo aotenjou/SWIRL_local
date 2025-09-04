@@ -1,0 +1,59 @@
+{
+  "id": "CARCINOGENESIS1",
+  "description": "",
+  "gym_version": 1,
+  "timesteps": 30000,
+  "random_seed": 60,
+  "parallel_environments": 32,
+  "pickle_cost_estimation_caches": false,
+  "action_manager": "MultiColumnIndexActionManager",
+  "observation_manager": "SingleColumnIndexPlanEmbeddingObservationManagerWithCost",
+  "reward_calculator": "RelativeDifferenceRelativeToStorageReward",
+  "max_steps_per_episode": 150,
+  "validation_frequency": 2000,
+  "filter_utilized_columns": false,
+  "max_index_width": 3,
+  "reenable_indexes": true,
+  "result_path": "experiment_results",
+  "workload_embedder": {
+    "type": "PlanEmbedderLSIBOW",
+    "representation_size": 50
+  },
+  "rl_algorithm": {
+    "algorithm": "PPO2",
+    "stable_baselines_version": 2,
+    "gamma": 0.5,
+    "policy": "MlpPolicy",
+    "model_architecture": {
+      "net_arch": [
+        {
+          "vf": [256,256],
+          "pi": [256,256]
+        }
+      ]
+    },
+    "args": {
+      "n_steps": 64
+    }
+  },
+  "workload": {
+    "benchmark": "CARCINOGENESIS",
+    "scale_factor": 1,
+    "size": 100,
+    "varying_frequencies": true,
+    "training_instances": 5000,
+    "validation_testing": {
+      "number_of_workloads": 5,
+      "unknown_query_probabilities": [0.0,0.1]
+    },
+    "similar_workloads": false,
+    "excluded_query_classes": [],
+    "unknown_queries": 10
+  },
+  "comparison_algorithms": ["db2advis"],
+  "budgets": {
+    "training": false,
+    "validation_and_testing": [500, 1000, 1500, 2500, 3500, 5000, 6500, 8000, 10000]
+  },
+  "column_filters": {}
+} 

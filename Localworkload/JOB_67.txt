@@ -1,0 +1,1 @@
+select cast_info.role_id, name.md5sum, aka_name.person_id, aka_name.md5sum from aka_name JOIN name ON name.id = aka_name.person_id JOIN cast_info ON cast_info.person_id = name.id JOIN role_type ON role_type.id = cast_info.role_id where cast_info.id >= 29266351 AND cast_info.note < '(promo producer)' AND role_type.role > 'actress' AND role_type.id >= 9;

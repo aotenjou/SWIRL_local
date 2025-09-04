@@ -1,0 +1,1 @@
+SELECT title.kind_id, info_type.id, movie_info.movie_id FROM info_type JOIN movie_info ON movie_info.info_type_id = info_type.id JOIN title ON title.id = movie_info.movie_id WHERE title.production_year = 2002 AND title.imdb_index > 'I' AND title.kind_id < 7 AND title.episode_nr > 237 ORDER BY info_type.id DESC, title.kind_id DESC, movie_info.movie_id ASC;

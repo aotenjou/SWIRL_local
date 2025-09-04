@@ -1,0 +1,1 @@
+SELECT movie_info.note, info_type.info FROM movie_info JOIN info_type ON info_type.id = movie_info.info_type_id WHERE movie_info.id < 9888928 AND movie_info.note < 'Chris James Champeau' AND movie_info.info_type_id < 65 AND movie_info.info < 'Belgium:12 November 2010' AND movie_info.movie_id > 682518 AND info_type.id = 63 ORDER BY movie_info.note ASC;

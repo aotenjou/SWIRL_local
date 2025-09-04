@@ -1,0 +1,1 @@
+SELECT cast_info.nr_order, name.surname_pcode, aka_name.person_id FROM aka_name JOIN name ON name.id = aka_name.person_id JOIN cast_info ON cast_info.person_id = name.id WHERE cast_info.note = '(credit only) (as J)' AND name.name <= 'Casale, Alessandro' AND cast_info.nr_order <= 111 AND aka_name.person_id > 143835;

@@ -1,0 +1,1 @@
+SELECT title.phonetic_code, movie_keyword.keyword_id, cast_info.movie_id, role_type.role FROM movie_keyword JOIN title ON title.id = movie_keyword.movie_id JOIN cast_info ON cast_info.movie_id = title.id JOIN role_type ON role_type.id = cast_info.role_id WHERE cast_info.id <> 28111150 AND title.id >= 1827700 AND title.phonetic_code = 'R2161';

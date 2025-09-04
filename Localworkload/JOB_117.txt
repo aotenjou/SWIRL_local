@@ -1,0 +1,1 @@
+SELECT char_name.id, cast_info.id, role_type.id FROM char_name JOIN cast_info ON cast_info.person_role_id = char_name.id JOIN role_type ON role_type.id = cast_info.role_id WHERE char_name.name_pcode_nf = 'P3624' AND cast_info.role_id <> 11 AND role_type.id <= 7 ORDER BY role_type.id ASC, cast_info.id ASC;

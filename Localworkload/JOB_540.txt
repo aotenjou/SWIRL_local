@@ -1,0 +1,1 @@
+SELECT keyword.id, movie_keyword.id FROM keyword JOIN movie_keyword ON movie_keyword.keyword_id = keyword.id WHERE movie_keyword.id <= 2467824 AND movie_keyword.movie_id < 170851 AND movie_keyword.keyword_id = 75066 AND keyword.phonetic_code <= 'N6253';

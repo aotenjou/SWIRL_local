@@ -1,0 +1,1 @@
+select complete_cast.status_id, complete_cast.id, title.kind_id from movie_info_idx JOIN title ON title.id = movie_info_idx.movie_id JOIN complete_cast ON complete_cast.movie_id = title.id where title.episode_of_id <= 1128258 AND title.production_year < 1903 AND movie_info_idx.info <= '....153...' AND title.episode_of_id >= 966231;

@@ -1,0 +1,1 @@
+SELECT char_name.name, cast_info.person_id, name.gender FROM char_name JOIN cast_info ON cast_info.person_role_id = char_name.id JOIN name ON name.id = cast_info.person_id WHERE name.id >= 180247 AND char_name.id >= 2733091 AND cast_info.role_id = 6 ORDER BY cast_info.person_id DESC;

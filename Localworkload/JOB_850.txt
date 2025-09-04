@@ -1,0 +1,1 @@
+select movie_keyword.movie_id, title.series_years, title.imdb_index from cast_info JOIN title ON title.id = cast_info.movie_id JOIN movie_keyword ON movie_keyword.movie_id = title.id where cast_info.person_role_id = 975220 AND title.kind_id <= 1 AND title.episode_nr > 29 order by movie_keyword.movie_id DESC;

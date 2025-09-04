@@ -1,0 +1,1 @@
+SELECT person_info.id, cast_info.movie_id, name.name, role_type.id FROM person_info JOIN name ON name.id = person_info.person_id JOIN cast_info ON cast_info.person_id = name.id JOIN role_type ON role_type.id = cast_info.role_id WHERE person_info.info < '20 February 2003' AND cast_info.person_id < 2959048 AND cast_info.role_id < 6 ORDER BY role_type.id DESC, person_info.id DESC;

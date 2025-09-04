@@ -1,0 +1,1 @@
+SELECT person_info.info, movie_info_idx.info, info_type.id FROM movie_info_idx JOIN info_type ON info_type.id = movie_info_idx.info_type_id JOIN person_info ON person_info.info_type_id = info_type.id WHERE movie_info_idx.id < 1330546 AND person_info.person_id <= 1249518 AND movie_info_idx.info_type_id >= 101 ORDER BY info_type.id DESC, person_info.info DESC;

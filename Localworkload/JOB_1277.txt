@@ -1,0 +1,1 @@
+SELECT name.name_pcode_cf, cast_info.movie_id, role_type.id FROM role_type JOIN cast_info ON cast_info.role_id = role_type.id JOIN name ON name.id = cast_info.person_id WHERE name.name < 'Rane, Harshvardhan' AND cast_info.note = '(script editor)' AND cast_info.person_id < 3340223 ORDER BY name.name_pcode_cf DESC;

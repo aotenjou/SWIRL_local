@@ -1,0 +1,1 @@
+SELECT title.series_years, aka_title.episode_nr, kind_type.kind FROM title, kind_type, aka_title WHERE aka_title.title = 'Eyes Wide Open' AND title.production_year <= 1903 AND aka_title.movie_id > 1853323 ORDER BY title.series_years ASC, aka_title.episode_nr ASC, kind_type.kind ASC;

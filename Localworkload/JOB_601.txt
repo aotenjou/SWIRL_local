@@ -1,0 +1,1 @@
+select aka_title.id, movie_info.movie_id, movie_info.info from movie_info JOIN title ON title.id = movie_info.movie_id JOIN aka_title ON aka_title.movie_id = title.id where aka_title.kind_id < 2 AND aka_title.title = 'Eyes Wide Open' AND title.md5sum < 'e48446153e7e52607f8b942f22f446db' AND title.season_nr <= 3 order by movie_info.info DESC, aka_title.id DESC;

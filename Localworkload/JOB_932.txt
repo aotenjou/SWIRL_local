@@ -1,0 +1,1 @@
+select role_type.role, cast_info.person_role_id, role_type.id from role_type JOIN cast_info ON cast_info.role_id = role_type.id JOIN char_name ON char_name.id = cast_info.person_role_id where cast_info.person_role_id < 3756 AND cast_info.person_id < 3693088 AND cast_info.person_id = 1430034 order by role_type.id DESC, role_type.role ASC;

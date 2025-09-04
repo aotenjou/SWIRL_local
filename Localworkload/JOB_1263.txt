@@ -1,0 +1,1 @@
+SELECT char_name.surname_pcode, cast_info.note FROM cast_info, char_name WHERE char_name.id <> 120224 AND cast_info.role_id <> 6 AND cast_info.nr_order >= 29 AND char_name.name >= 'West Wind' AND char_name.md5sum = '35db5449c4b6d409c491c8ec481d9509';

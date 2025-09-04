@@ -1,0 +1,1 @@
+SELECT cast_info.role_id, role_type.id FROM role_type, cast_info WHERE role_type.id <= 9 AND cast_info.role_id >= 11 AND cast_info.person_id = 807912 AND cast_info.id > 3774382;

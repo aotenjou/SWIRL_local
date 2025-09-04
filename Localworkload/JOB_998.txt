@@ -1,0 +1,1 @@
+select cast_info.nr_order, name.md5sum, cast_info.id, role_type.id from aka_name JOIN name ON name.id = aka_name.person_id JOIN cast_info ON cast_info.person_id = name.id JOIN role_type ON role_type.id = cast_info.role_id where role_type.id = 10 AND cast_info.note > '(set location manager)' AND cast_info.person_role_id <= 75383 AND aka_name.person_id >= 95736;

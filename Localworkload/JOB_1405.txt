@@ -1,0 +1,1 @@
+SELECT movie_info_idx.id, title.episode_nr, info_type.id FROM title JOIN movie_info_idx ON movie_info_idx.movie_id = title.id JOIN info_type ON info_type.id = movie_info_idx.info_type_id WHERE title.md5sum <= 'ba830df41cf756fd345e2b9683690c19' AND movie_info_idx.info >= '1.0.122.02' AND title.phonetic_code >= 'Z2521' ORDER BY info_type.id ASC, title.episode_nr ASC;

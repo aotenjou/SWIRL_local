@@ -1,0 +1,5839 @@
+{
+  "experiment_id": "tpcds_wl_50_width_3_ablation_s_61",
+  "environment_type": "EnvironmentType.TESTING",
+  "timestamp": "20250810_052014",
+  "episodes": [
+    {
+      "episode_id": 0,
+      "workload": "Query IDs: [55, 65, 92, 83, 47, 80, 58, 96, 12, 98, 2, 90, 46, 85, 15, 62, 66, 61, 73, 88, 22, 13, 99, 23, 51, 45, 89, 93, 97, 71, 84, 19, 43, 33, 17, 78, 24, 5, 21, 27, 60, 53, 26, 37, 40, 39, 48, 36, 52, 87] with [1024, 5829, 2580, 8765, 782, 7447, 7202, 2062, 1324, 2832, 2636, 6967, 2977, 8875, 5923, 5880, 3862, 4006, 2488, 8158, 2122, 6886, 7432, 7822, 6947, 2006, 5164, 415, 1818, 7450, 6573, 2331, 4542, 7485, 3945, 132, 3305, 7038, 6450, 6798, 2241, 9897, 9080, 4181, 436, 6893, 8551, 1289, 8609, 4389]. Contains 10 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 80.51197839082869,
+      "storage_consumption_mb": 7629.25,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C web_sales.ws_sold_date_sk,C web_sales.ws_quantity)",
+        "I(C date_dim.d_date)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk,C store_sales.ss_ext_wholesale_cost)",
+        "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C store_returns.sr_returned_date_sk,C store_returns.sr_reason_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+        "I(C customer_address.ca_state)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_quantity,C web_sales.ws_bill_addr_sk)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C web_sales.ws_order_number,C web_sales.ws_sold_time_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C item.i_manager_id,C item.i_size)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C web_returns.wr_order_number)",
+        "I(C store_sales.ss_customer_sk,C store_sales.ss_wholesale_cost)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C store_returns.sr_ticket_number)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+        "I(C item.i_item_id,C item.i_size)",
+        "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C time_dim.t_time)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 663.8515625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.359375
+        },
+        {
+          "step": 22,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2207.0546875
+        },
+        {
+          "step": 23,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2332.59375
+        },
+        {
+          "step": 24,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.5078125
+        },
+        {
+          "step": 25,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2709.3046875
+        },
+        {
+          "step": 26,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2924.5859375
+        },
+        {
+          "step": 27,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3355.203125
+        },
+        {
+          "step": 28,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4072.8984375
+        },
+        {
+          "step": 29,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4503.515625
+        },
+        {
+          "step": 30,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4507.703125
+        },
+        {
+          "step": 31,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4579.3515625
+        },
+        {
+          "step": 32,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4581.4375
+        },
+        {
+          "step": 33,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4760.7890625
+        },
+        {
+          "step": 34,
+          "action": 116,
+          "index": "I(C store_returns.sr_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4768.2890625
+        },
+        {
+          "step": 35,
+          "action": 23797,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk,C store_sales.ss_ext_wholesale_cost)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4839.9375
+        },
+        {
+          "step": 36,
+          "action": 123,
+          "index": "I(C store_sales.ss_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5629.40625
+        },
+        {
+          "step": 37,
+          "action": 511,
+          "index": "I(C store_sales.ss_customer_sk,C store_sales.ss_wholesale_cost)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6347.1015625
+        },
+        {
+          "step": 38,
+          "action": 44,
+          "index": "I(C time_dim.t_time)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6849.4921875
+        },
+        {
+          "step": 39,
+          "action": 179,
+          "index": "I(C web_sales.ws_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6851.640625
+        },
+        {
+          "step": 40,
+          "action": 29840,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7030.9921875
+        },
+        {
+          "step": 41,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7033.0859375
+        },
+        {
+          "step": 42,
+          "action": 1642,
+          "index": "I(C web_sales.ws_sold_date_sk,C web_sales.ws_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7051.0
+        },
+        {
+          "step": 43,
+          "action": 37,
+          "index": "I(C web_sales.ws_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7158.609375
+        },
+        {
+          "step": 44,
+          "action": 1848,
+          "index": "I(C web_sales.ws_quantity,C web_sales.ws_bill_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7337.9609375
+        },
+        {
+          "step": 45,
+          "action": 868,
+          "index": "I(C store_returns.sr_returned_date_sk,C store_returns.sr_reason_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7445.5703125
+        },
+        {
+          "step": 46,
+          "action": 189,
+          "index": "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7488.5546875
+        },
+        {
+          "step": 47,
+          "action": 2830,
+          "index": "I(C web_sales.ws_order_number,C web_sales.ws_sold_time_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7499.3125
+        },
+        {
+          "step": 48,
+          "action": 2,
+          "index": "I(C item.i_manager_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7606.921875
+        },
+        {
+          "step": 49,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7609.4609375
+        },
+        {
+          "step": 50,
+          "action": 454,
+          "index": "I(C item.i_manager_id,C item.i_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7617.8671875
+        },
+        {
+          "step": 51,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7621.5546875
+        },
+        {
+          "step": 52,
+          "action": 27280,
+          "index": "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7621.9296875
+        },
+        {
+          "step": 53,
+          "action": 2694,
+          "index": "I(C item.i_item_id,C item.i_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7624.46875
+        },
+        {
+          "step": 54,
+          "action": 2095,
+          "index": "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7628.15625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 1,
+      "workload": "Query IDs: [49, 91, 45, 90, 29, 56, 51, 24, 33, 62, 18, 43, 85, 74, 8, 20, 63, 13, 83, 84, 55, 75, 86, 96, 78, 1, 65, 25, 19, 30, 70, 3, 58, 72, 67, 22, 92, 27, 17, 88, 28, 39, 52, 42, 37, 26, 82, 36, 60, 53] with [6503, 6161, 6757, 1663, 3659, 447, 9403, 3769, 2291, 3520, 2892, 6878, 6970, 480, 3639, 3000, 5489, 292, 7948, 7339, 554, 80, 6716, 3138, 2852, 6981, 1015, 8142, 959, 3105, 7108, 6142, 8516, 9509, 7512, 5432, 8599, 8321, 6995, 7063, 1753, 1709, 6170, 1634, 3505, 484, 5270, 6283, 2133, 2458]. Contains 10 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 83.66871458949167,
+      "storage_consumption_mb": 1430.25,
+      "final_indexes": [
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C date_dim.d_date)",
+        "I(C customer_address.ca_zip)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C catalog_sales.cs_item_sk)",
+        "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C date_dim.d_week_seq,C date_dim.d_month_seq,C date_dim.d_moy)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C time_dim.t_hour)",
+        "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk,C web_returns.wr_returning_addr_sk)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 770.2734375
+        },
+        {
+          "step": 19,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 895.8125
+        },
+        {
+          "step": 20,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 913.7265625
+        },
+        {
+          "step": 21,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1272.5234375
+        },
+        {
+          "step": 22,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1276.7109375
+        },
+        {
+          "step": 23,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1348.359375
+        },
+        {
+          "step": 24,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1350.4453125
+        },
+        {
+          "step": 25,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1357.9453125
+        },
+        {
+          "step": 26,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1368.703125
+        },
+        {
+          "step": 27,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1386.6171875
+        },
+        {
+          "step": 28,
+          "action": 189,
+          "index": "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1395.0234375
+        },
+        {
+          "step": 29,
+          "action": 47701,
+          "index": "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1405.78125
+        },
+        {
+          "step": 30,
+          "action": 27280,
+          "index": "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1423.703125
+        },
+        {
+          "step": 31,
+          "action": 2736,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1426.2421875
+        },
+        {
+          "step": 32,
+          "action": 46002,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_month_seq,C date_dim.d_moy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1427.3359375
+        },
+        {
+          "step": 33,
+          "action": 2095,
+          "index": "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1429.15625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 2,
+      "workload": "Query IDs: [99, 27, 21, 92, 69, 12, 5, 24, 49, 85, 62, 33, 38, 86, 23, 80, 91, 73, 70, 83, 58, 56, 46, 93, 84, 55, 50, 64, 77, 94, 81, 74, 96, 63, 47, 8, 19, 59, 76, 97, 57, 37, 36, 82, 26, 48, 60, 39, 53, 40] with [4860, 8689, 9563, 2593, 959, 8968, 4135, 4916, 3408, 435, 4957, 6702, 5520, 9770, 4025, 691, 3267, 6254, 4376, 6387, 1456, 4315, 8843, 1056, 3619, 8200, 2006, 6125, 8208, 8555, 3861, 3600, 8896, 1514, 2631, 8574, 6645, 9965, 6911, 8129, 643, 8943, 7694, 6256, 3720, 4653, 1930, 2001, 7967, 9520]. Contains 10 previously unseen queries. Budget: 2500",
+      "budget_mb": 2500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 85.08590954043127,
+      "storage_consumption_mb": 2384.1171875,
+      "final_indexes": [
+        "I(C date_dim.d_date)",
+        "I(C web_returns.wr_return_quantity)",
+        "I(C item.i_item_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C store_sales.ss_item_sk)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+        "I(C web_returns.wr_order_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.359375
+        },
+        {
+          "step": 22,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1614.8984375
+        },
+        {
+          "step": 23,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2332.59375
+        },
+        {
+          "step": 24,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.5078125
+        },
+        {
+          "step": 25,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2354.6953125
+        },
+        {
+          "step": 26,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2362.1953125
+        },
+        {
+          "step": 27,
+          "action": 27280,
+          "index": "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2380.109375
+        },
+        {
+          "step": 28,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2382.6484375
+        },
+        {
+          "step": 29,
+          "action": 2095,
+          "index": "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2383.0234375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 3,
+      "workload": "Query IDs: [25, 68, 45, 76, 86, 24, 83, 33, 15, 99, 29, 50, 31, 69, 3, 80, 59, 20, 1, 19, 90, 91, 13, 92, 62, 34, 27, 96, 2, 43, 12, 81, 44, 23, 38, 98, 30, 75, 70, 71, 87, 53, 28, 40, 37, 42, 39, 57, 26, 52] with [1583, 7546, 8984, 9219, 7731, 9299, 8022, 4495, 3722, 7474, 3243, 4194, 7971, 5304, 7963, 8444, 3645, 2177, 574, 2476, 3300, 9545, 536, 8992, 2932, 9447, 7249, 9237, 553, 1662, 7415, 7973, 1520, 9358, 8168, 7875, 6600, 6663, 7587, 4740, 4389, 7085, 3266, 2317, 120, 7672, 1795, 1138, 1360, 753]. Contains 10 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 83.64480543025839,
+      "storage_consumption_mb": 4768.1015625,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C date_dim.d_date)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C item.i_item_sk)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C customer_address.ca_state)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C item.i_item_id,C item.i_category_id)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+        "I(C web_returns.wr_order_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 566.6171875
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 897.203125
+        },
+        {
+          "step": 22,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1614.8984375
+        },
+        {
+          "step": 23,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2332.59375
+        },
+        {
+          "step": 24,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.5078125
+        },
+        {
+          "step": 25,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2709.3046875
+        },
+        {
+          "step": 26,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2924.5859375
+        },
+        {
+          "step": 27,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3355.203125
+        },
+        {
+          "step": 28,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4072.8984375
+        },
+        {
+          "step": 29,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4503.515625
+        },
+        {
+          "step": 30,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4507.703125
+        },
+        {
+          "step": 31,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4579.3515625
+        },
+        {
+          "step": 32,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4758.703125
+        },
+        {
+          "step": 33,
+          "action": 2930,
+          "index": "I(C item.i_item_id,C item.i_category_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4766.203125
+        },
+        {
+          "step": 34,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4767.7265625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 4,
+      "workload": "Query IDs: [72, 50, 33, 1, 54, 17, 56, 62, 46, 25, 43, 16, 98, 94, 77, 15, 81, 84, 19, 22, 55, 61, 68, 75, 47, 34, 30, 70, 99, 89, 90, 51, 79, 83, 49, 20, 45, 31, 92, 5, 48, 82, 28, 53, 42, 37, 57, 60, 40, 39] with [7163, 6939, 1083, 4770, 4999, 3471, 749, 3268, 3755, 396, 2097, 2928, 7754, 8422, 2733, 2144, 5944, 9811, 2153, 7398, 9483, 9048, 5365, 2286, 6805, 3825, 5329, 6081, 2366, 4381, 2180, 4989, 5903, 4121, 5939, 1562, 5538, 6114, 7658, 3766, 2039, 4497, 1347, 5929, 1231, 4846, 8714, 5904, 7220, 3169]. Contains 10 previously unseen queries. Budget: 3500",
+      "budget_mb": 3500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 80.69076355868788,
+      "storage_consumption_mb": 3337.796875,
+      "final_indexes": [
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C date_dim.d_date)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_return_quantity)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C store_sales.ss_item_sk)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C store_returns.sr_ticket_number)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+        "I(C catalog_page.cp_catalog_page_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)",
+        "I(C customer.c_birth_year,C customer.c_last_name)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 663.8515625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.359375
+        },
+        {
+          "step": 22,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1614.8984375
+        },
+        {
+          "step": 23,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2332.59375
+        },
+        {
+          "step": 24,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.5078125
+        },
+        {
+          "step": 25,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2709.3046875
+        },
+        {
+          "step": 26,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2924.5859375
+        },
+        {
+          "step": 27,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2928.7734375
+        },
+        {
+          "step": 28,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3000.421875
+        },
+        {
+          "step": 29,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3002.5078125
+        },
+        {
+          "step": 30,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3181.859375
+        },
+        {
+          "step": 31,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3189.359375
+        },
+        {
+          "step": 32,
+          "action": 29840,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3200.1171875
+        },
+        {
+          "step": 33,
+          "action": 116,
+          "index": "I(C store_returns.sr_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3202.2109375
+        },
+        {
+          "step": 34,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3273.859375
+        },
+        {
+          "step": 35,
+          "action": 58,
+          "index": "I(C customer.c_birth_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3291.7734375
+        },
+        {
+          "step": 36,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3304.2265625
+        },
+        {
+          "step": 37,
+          "action": 327,
+          "index": "I(C customer.c_birth_year,C customer.c_last_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3312.6328125
+        },
+        {
+          "step": 38,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3336.9296875
+        },
+        {
+          "step": 39,
+          "action": 175,
+          "index": "I(C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3337.3046875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 5,
+      "workload": "Query IDs: [65, 44, 91, 45, 54, 92, 77, 33, 56, 1, 50, 24, 22, 20, 96, 23, 12, 8, 29, 89, 19, 49, 79, 73, 98, 62, 67, 63, 88, 43, 71, 61, 58, 99, 75, 47, 84, 76, 59, 68, 40, 39, 57, 37, 60, 53, 82, 28, 26, 42] with [9164, 4247, 6596, 5917, 6435, 7747, 8377, 2556, 7716, 9576, 1780, 1014, 592, 6249, 1966, 8555, 661, 6351, 302, 514, 6867, 8888, 7786, 8876, 9424, 1947, 8079, 1426, 4734, 4731, 8568, 6184, 2148, 4759, 5619, 3659, 2059, 6791, 5621, 1141, 20, 6947, 9425, 6394, 9511, 1347, 7820, 2453, 7018, 884]. Contains 10 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 82.81519022173724,
+      "storage_consumption_mb": 4767.4296875,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C date_dim.d_date)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C item.i_item_sk)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C customer_address.ca_state)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C item.i_item_id,C item.i_category_id)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+        "I(C web_returns.wr_order_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.3671875
+        },
+        {
+          "step": 20,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 896.90625
+        },
+        {
+          "step": 21,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1614.6015625
+        },
+        {
+          "step": 22,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2332.296875
+        },
+        {
+          "step": 23,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.2109375
+        },
+        {
+          "step": 24,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2780.828125
+        },
+        {
+          "step": 25,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3139.625
+        },
+        {
+          "step": 26,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3354.90625
+        },
+        {
+          "step": 27,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4072.6015625
+        },
+        {
+          "step": 28,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4503.21875
+        },
+        {
+          "step": 29,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4507.40625
+        },
+        {
+          "step": 30,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4579.0546875
+        },
+        {
+          "step": 31,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4758.40625
+        },
+        {
+          "step": 32,
+          "action": 2930,
+          "index": "I(C item.i_item_id,C item.i_category_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4765.90625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 6,
+      "workload": "Query IDs: [21, 8, 46, 19, 2, 68, 75, 22, 1, 76, 64, 62, 61, 79, 44, 80, 88, 99, 5, 78, 94, 7, 34, 50, 20, 59, 77, 29, 33, 43, 83, 98, 74, 96, 14, 72, 18, 16, 66, 84, 42, 60, 26, 39, 48, 52, 37, 57, 82, 40] with [6715, 9449, 1590, 7750, 155, 741, 2887, 3758, 6616, 2900, 1361, 1752, 7385, 1548, 3734, 6063, 3750, 5679, 3650, 5999, 9971, 7713, 7673, 376, 944, 2803, 7179, 5639, 9934, 7697, 762, 6917, 5671, 8154, 2484, 8698, 7024, 4444, 8762, 2452, 1334, 5382, 2488, 2069, 3069, 7273, 7432, 9207, 5095, 3321]. Contains 10 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 91.52185034621442,
+      "storage_consumption_mb": 476.4765625,
+      "final_indexes": [
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C item.i_manufact_id,C item.i_category_id)",
+        "I(C time_dim.t_time)",
+        "I(C date_dim.d_date)",
+        "I(C date_dim.d_date_sk)",
+        "I(C catalog_page.cp_catalog_page_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+        "I(C customer_address.ca_state)",
+        "I(C time_dim.t_hour)",
+        "I(C date_dim.d_year)",
+        "I(C item.i_item_sk)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_month_seq)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 429.046875
+        },
+        {
+          "step": 12,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 431.1953125
+        },
+        {
+          "step": 13,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 433.734375
+        },
+        {
+          "step": 14,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 435.546875
+        },
+        {
+          "step": 15,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 436.640625
+        },
+        {
+          "step": 16,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 436.9375
+        },
+        {
+          "step": 17,
+          "action": 2892,
+          "index": "I(C item.i_manufact_id,C item.i_category_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 472.8046875
+        },
+        {
+          "step": 18,
+          "action": 44,
+          "index": "I(C time_dim.t_time)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 474.328125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 7,
+      "workload": "Query IDs: [65, 24, 91, 88, 73, 7, 38, 94, 45, 49, 31, 30, 59, 96, 1, 13, 34, 89, 74, 2, 54, 19, 92, 93, 20, 33, 3, 14, 97, 61, 5, 21, 90, 23, 15, 64, 44, 77, 80, 17, 37, 39, 87, 26, 28, 53, 48, 60, 52, 42] with [2863, 130, 1310, 1870, 9396, 7821, 5692, 7750, 5871, 3349, 5064, 1618, 6167, 2148, 7720, 5171, 9865, 6774, 8060, 7766, 2349, 182, 8160, 4359, 1255, 8693, 6392, 6630, 4687, 9455, 2657, 8457, 9862, 6451, 9445, 3093, 6848, 3463, 8771, 8902, 5298, 5635, 6811, 3022, 1938, 436, 1434, 4261, 6745, 2151]. Contains 10 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 82.50179161555013,
+      "storage_consumption_mb": 7629.15625,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C web_sales.ws_sold_date_sk,C web_sales.ws_quantity)",
+        "I(C catalog_returns.cr_return_quantity)",
+        "I(C date_dim.d_date)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk,C store_sales.ss_ext_wholesale_cost)",
+        "I(C item.i_manager_id)",
+        "I(C store_returns.sr_returned_date_sk,C store_returns.sr_reason_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_return_quantity)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C catalog_sales.cs_item_sk)",
+        "I(C customer.c_birth_year)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C catalog_page.cp_catalog_page_id,C catalog_page.cp_catalog_page_sk)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_quantity,C web_sales.ws_bill_addr_sk)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C store_sales.ss_customer_sk,C store_sales.ss_wholesale_cost)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C store_returns.sr_ticket_number)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C web_sales.ws_ship_addr_sk,C web_sales.ws_promo_sk)",
+        "I(C web_sales.ws_order_number)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 663.8515625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.359375
+        },
+        {
+          "step": 22,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1507.2734375
+        },
+        {
+          "step": 23,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2224.96875
+        },
+        {
+          "step": 24,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.5078125
+        },
+        {
+          "step": 25,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2709.3046875
+        },
+        {
+          "step": 26,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3139.921875
+        },
+        {
+          "step": 27,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3857.6171875
+        },
+        {
+          "step": 28,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4288.234375
+        },
+        {
+          "step": 29,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4292.421875
+        },
+        {
+          "step": 30,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4364.0703125
+        },
+        {
+          "step": 31,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4366.15625
+        },
+        {
+          "step": 32,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4545.5078125
+        },
+        {
+          "step": 33,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4553.0078125
+        },
+        {
+          "step": 34,
+          "action": 23797,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk,C store_sales.ss_ext_wholesale_cost)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4563.765625
+        },
+        {
+          "step": 35,
+          "action": 123,
+          "index": "I(C store_sales.ss_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5353.234375
+        },
+        {
+          "step": 36,
+          "action": 511,
+          "index": "I(C store_sales.ss_customer_sk,C store_sales.ss_wholesale_cost)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6070.9296875
+        },
+        {
+          "step": 37,
+          "action": 116,
+          "index": "I(C store_returns.sr_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6573.3203125
+        },
+        {
+          "step": 38,
+          "action": 179,
+          "index": "I(C web_sales.ws_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6644.96875
+        },
+        {
+          "step": 39,
+          "action": 29840,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6824.3203125
+        },
+        {
+          "step": 40,
+          "action": 34,
+          "index": "I(C web_sales.ws_ship_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6826.4140625
+        },
+        {
+          "step": 41,
+          "action": 1860,
+          "index": "I(C web_sales.ws_ship_addr_sk,C web_sales.ws_promo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7005.765625
+        },
+        {
+          "step": 42,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7113.375
+        },
+        {
+          "step": 43,
+          "action": 1642,
+          "index": "I(C web_sales.ws_sold_date_sk,C web_sales.ws_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7131.2890625
+        },
+        {
+          "step": 44,
+          "action": 868,
+          "index": "I(C store_returns.sr_returned_date_sk,C store_returns.sr_reason_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7238.8984375
+        },
+        {
+          "step": 45,
+          "action": 37,
+          "index": "I(C web_sales.ws_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7281.8828125
+        },
+        {
+          "step": 46,
+          "action": 1848,
+          "index": "I(C web_sales.ws_quantity,C web_sales.ws_bill_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7461.234375
+        },
+        {
+          "step": 47,
+          "action": 58,
+          "index": "I(C customer.c_birth_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7568.84375
+        },
+        {
+          "step": 48,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7581.296875
+        },
+        {
+          "step": 49,
+          "action": 52,
+          "index": "I(C catalog_returns.cr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7589.703125
+        },
+        {
+          "step": 50,
+          "action": 2,
+          "index": "I(C item.i_manager_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7625.5703125
+        },
+        {
+          "step": 51,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7628.109375
+        },
+        {
+          "step": 52,
+          "action": 175,
+          "index": "I(C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7628.484375
+        },
+        {
+          "step": 53,
+          "action": 2440,
+          "index": "I(C catalog_page.cp_catalog_page_id,C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7628.9765625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 8,
+      "workload": "Query IDs: [24, 96, 45, 3, 91, 68, 54, 8, 50, 62, 30, 25, 43, 66, 59, 31, 16, 58, 27, 78, 56, 86, 83, 76, 67, 13, 51, 15, 12, 20, 79, 63, 5, 1, 98, 38, 49, 99, 69, 92, 40, 42, 26, 87, 48, 60, 52, 57, 37, 82] with [3674, 4799, 9879, 9129, 1245, 20, 8833, 6538, 4733, 2100, 3148, 7189, 8624, 7122, 5880, 2291, 5229, 8420, 981, 582, 2285, 4749, 5279, 9096, 8349, 870, 5859, 8286, 786, 6400, 9556, 6740, 2844, 8330, 1927, 4561, 2714, 2534, 9663, 9172, 6048, 9036, 3638, 2500, 9915, 5189, 6858, 8725, 1287, 4407]. Contains 10 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 71.36440566096579,
+      "storage_consumption_mb": 4768.3515625,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C date_dim.d_date)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C item.i_item_sk)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C catalog_page.cp_catalog_page_sk)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+        "I(C web_returns.wr_order_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C time_dim.t_time)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.359375
+        },
+        {
+          "step": 22,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1614.8984375
+        },
+        {
+          "step": 23,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2332.59375
+        },
+        {
+          "step": 24,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.5078125
+        },
+        {
+          "step": 25,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2709.3046875
+        },
+        {
+          "step": 26,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2924.5859375
+        },
+        {
+          "step": 27,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3355.203125
+        },
+        {
+          "step": 28,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4072.8984375
+        },
+        {
+          "step": 29,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4503.515625
+        },
+        {
+          "step": 30,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4507.703125
+        },
+        {
+          "step": 31,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4579.3515625
+        },
+        {
+          "step": 32,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4758.703125
+        },
+        {
+          "step": 33,
+          "action": 44,
+          "index": "I(C time_dim.t_time)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4766.203125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 9,
+      "workload": "Query IDs: [7, 56, 83, 27, 23, 49, 63, 54, 45, 96, 17, 2, 16, 38, 99, 93, 46, 71, 80, 31, 97, 84, 21, 76, 64, 69, 66, 47, 15, 88, 89, 24, 94, 44, 78, 29, 90, 1, 5, 86, 53, 40, 87, 36, 39, 57, 48, 82, 52, 42] with [2566, 2291, 7245, 2060, 8571, 5992, 8851, 6087, 6839, 453, 4660, 6142, 7482, 9997, 2888, 2362, 6829, 1105, 6712, 9917, 5513, 8085, 2096, 545, 90, 6573, 7969, 9671, 7606, 6538, 5322, 6869, 6476, 8905, 5226, 1409, 7247, 1515, 5091, 6355, 4449, 3203, 4263, 5741, 7123, 8812, 1022, 5663, 4934, 8209]. Contains 10 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 85.226846769366,
+      "storage_consumption_mb": 4768.3046875,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C customer_address.ca_street_number)",
+        "I(C date_dim.d_date)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C web_sales.ws_item_sk)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+        "I(C web_returns.wr_return_quantity)",
+        "I(C time_dim.t_time,C time_dim.t_minute)",
+        "I(C date_dim.d_month_seq)",
+        "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+        "I(C customer_address.ca_state)",
+        "I(C date_dim.d_year)",
+        "I(C date_dim.d_week_seq,C date_dim.d_month_seq,C date_dim.d_moy)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C item.i_manager_id,C item.i_size)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C web_returns.wr_order_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C store_returns.sr_ticket_number)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C item.i_item_id,C item.i_size)",
+        "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 566.6171875
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 663.0546875
+        },
+        {
+          "step": 18,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.921875
+        },
+        {
+          "step": 19,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 770.5703125
+        },
+        {
+          "step": 20,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1488.265625
+        },
+        {
+          "step": 21,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2205.9609375
+        },
+        {
+          "step": 22,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2223.875
+        },
+        {
+          "step": 23,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2654.4921875
+        },
+        {
+          "step": 24,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3013.2890625
+        },
+        {
+          "step": 25,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3228.5703125
+        },
+        {
+          "step": 26,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3232.7578125
+        },
+        {
+          "step": 27,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3950.453125
+        },
+        {
+          "step": 28,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4381.0703125
+        },
+        {
+          "step": 29,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4452.71875
+        },
+        {
+          "step": 30,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4454.8046875
+        },
+        {
+          "step": 31,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4634.15625
+        },
+        {
+          "step": 32,
+          "action": 116,
+          "index": "I(C store_returns.sr_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4641.65625
+        },
+        {
+          "step": 33,
+          "action": 44,
+          "index": "I(C time_dim.t_time)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4713.3046875
+        },
+        {
+          "step": 34,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4715.453125
+        },
+        {
+          "step": 35,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4733.3671875
+        },
+        {
+          "step": 36,
+          "action": 0,
+          "index": "I(C customer_address.ca_street_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4741.7734375
+        },
+        {
+          "step": 37,
+          "action": 27280,
+          "index": "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4750.1796875
+        },
+        {
+          "step": 38,
+          "action": 2,
+          "index": "I(C item.i_manager_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4752.71875
+        },
+        {
+          "step": 39,
+          "action": 454,
+          "index": "I(C item.i_manager_id,C item.i_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4755.2578125
+        },
+        {
+          "step": 40,
+          "action": 2736,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4758.9453125
+        },
+        {
+          "step": 41,
+          "action": 46002,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_month_seq,C date_dim.d_moy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4760.0390625
+        },
+        {
+          "step": 42,
+          "action": 2694,
+          "index": "I(C item.i_item_id,C item.i_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4761.859375
+        },
+        {
+          "step": 43,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4765.546875
+        },
+        {
+          "step": 44,
+          "action": 2095,
+          "index": "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4765.921875
+        },
+        {
+          "step": 45,
+          "action": 228,
+          "index": "I(C time_dim.t_time,C time_dim.t_minute)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4767.015625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 10,
+      "workload": "Query IDs: [30, 33, 25, 45, 19, 5, 97, 13, 16, 22, 44, 38, 20, 76, 27, 23, 75, 47, 92, 83, 18, 1, 67, 24, 73, 58, 79, 50, 89, 71, 12, 51, 68, 65, 34, 72, 63, 78, 54, 59, 60, 39, 87, 40, 37, 57, 53, 48, 36, 26] with [8101, 3025, 8539, 9331, 6341, 3764, 6650, 2989, 2570, 9014, 9471, 3651, 8192, 5234, 4199, 9303, 6220, 9632, 4377, 1700, 3343, 6904, 961, 477, 3299, 6572, 3263, 8893, 3465, 5294, 843, 3784, 3232, 4769, 5340, 6247, 1817, 5889, 9823, 103, 4836, 5491, 8443, 2983, 5339, 5119, 5891, 3520, 8286, 643]. Contains 10 previously unseen queries. Budget: 1000",
+      "budget_mb": 1000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 88.53862333509976,
+      "storage_consumption_mb": 953.6640625,
+      "final_indexes": [
+        "I(C date_dim.d_date)",
+        "I(C customer_address.ca_zip)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+        "I(C customer_address.ca_state)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C item.i_item_id,C item.i_size)",
+        "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 897.203125
+        },
+        {
+          "step": 22,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 915.1171875
+        },
+        {
+          "step": 23,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 919.3046875
+        },
+        {
+          "step": 24,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 926.8046875
+        },
+        {
+          "step": 25,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 937.5625
+        },
+        {
+          "step": 26,
+          "action": 27280,
+          "index": "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 945.96875
+        },
+        {
+          "step": 27,
+          "action": 2694,
+          "index": "I(C item.i_item_id,C item.i_size)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 948.5078125
+        },
+        {
+          "step": 28,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 952.1953125
+        },
+        {
+          "step": 29,
+          "action": 2095,
+          "index": "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 952.5703125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 11,
+      "workload": "Query IDs: [49, 18, 25, 19, 24, 72, 99, 47, 92, 66, 83, 85, 14, 77, 33, 65, 27, 13, 91, 22, 59, 30, 17, 61, 75, 70, 31, 2, 29, 7, 81, 50, 94, 98, 23, 71, 21, 89, 97, 51, 26, 28, 40, 57, 37, 82, 52, 42, 60, 39] with [3188, 3345, 8166, 5279, 9557, 3233, 8235, 3840, 7006, 2500, 9427, 4785, 6788, 5777, 6864, 8902, 7740, 1755, 1262, 9569, 5480, 6062, 3643, 3661, 9990, 408, 1158, 5070, 875, 1542, 4079, 4173, 6742, 1149, 5671, 8974, 4539, 9976, 4736, 9038, 7511, 7480, 9559, 2780, 4986, 1775, 9791, 5153, 6478, 7036]. Contains 10 previously unseen queries. Budget: 6500",
+      "budget_mb": 6500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 81.45892053471952,
+      "storage_consumption_mb": 6198.1015625,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C catalog_returns.cr_return_quantity)",
+        "I(C date_dim.d_date)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk,C store_sales.ss_ext_wholesale_cost)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C date_dim.d_week_seq)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C web_sales.ws_ship_addr_sk,C web_sales.ws_order_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C store_returns.sr_ticket_number)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C time_dim.t_time)",
+        "I(C web_sales.ws_order_number)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)",
+        "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk,C web_returns.wr_returning_addr_sk)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 770.2734375
+        },
+        {
+          "step": 19,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1487.96875
+        },
+        {
+          "step": 20,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1613.5078125
+        },
+        {
+          "step": 21,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2331.203125
+        },
+        {
+          "step": 22,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2349.1171875
+        },
+        {
+          "step": 23,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2707.9140625
+        },
+        {
+          "step": 24,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2923.1953125
+        },
+        {
+          "step": 25,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3353.8125
+        },
+        {
+          "step": 26,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4071.5078125
+        },
+        {
+          "step": 27,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4502.125
+        },
+        {
+          "step": 28,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4506.3125
+        },
+        {
+          "step": 29,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4577.9609375
+        },
+        {
+          "step": 30,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4580.046875
+        },
+        {
+          "step": 31,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4759.3984375
+        },
+        {
+          "step": 32,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4766.8984375
+        },
+        {
+          "step": 33,
+          "action": 23797,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk,C store_sales.ss_ext_wholesale_cost)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4777.65625
+        },
+        {
+          "step": 34,
+          "action": 179,
+          "index": "I(C web_sales.ws_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5567.125
+        },
+        {
+          "step": 35,
+          "action": 116,
+          "index": "I(C store_returns.sr_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5746.4765625
+        },
+        {
+          "step": 36,
+          "action": 44,
+          "index": "I(C time_dim.t_time)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5818.125
+        },
+        {
+          "step": 37,
+          "action": 34,
+          "index": "I(C web_sales.ws_ship_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5820.2734375
+        },
+        {
+          "step": 38,
+          "action": 1625,
+          "index": "I(C web_sales.ws_ship_addr_sk,C web_sales.ws_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5999.625
+        },
+        {
+          "step": 39,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6107.234375
+        },
+        {
+          "step": 40,
+          "action": 189,
+          "index": "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6125.1484375
+        },
+        {
+          "step": 41,
+          "action": 47701,
+          "index": "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6135.90625
+        },
+        {
+          "step": 42,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6153.828125
+        },
+        {
+          "step": 43,
+          "action": 52,
+          "index": "I(C catalog_returns.cr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6162.234375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 12,
+      "workload": "Query IDs: [89, 51, 75, 73, 61, 76, 47, 24, 16, 97, 17, 12, 64, 72, 67, 21, 81, 68, 79, 84, 1, 88, 23, 96, 86, 50, 83, 7, 62, 5, 80, 27, 13, 70, 92, 3, 69, 63, 30, 14, 48, 60, 42, 39, 36, 40, 52, 57, 28, 87] with [3602, 1907, 3530, 9180, 898, 7466, 590, 5261, 1343, 7861, 9522, 3554, 7469, 3933, 1228, 9739, 3902, 6569, 1066, 7315, 8221, 2939, 3675, 9134, 7206, 8663, 8250, 8040, 7957, 4535, 7915, 2216, 9481, 6527, 8919, 4550, 3573, 3409, 8896, 5002, 1837, 7112, 3058, 2709, 562, 2684, 3510, 9669, 6060, 8025]. Contains 10 previously unseen queries. Budget: 8000",
+      "budget_mb": 8000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 78.22474558479169,
+      "storage_consumption_mb": 7629.140625,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk,C web_sales.ws_quantity)",
+        "I(C date_dim.d_date)",
+        "I(C item.i_manager_id)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_return_quantity)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C customer.c_birth_year)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C catalog_page.cp_catalog_page_id,C catalog_page.cp_catalog_page_sk)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C store_sales.ss_customer_sk,C store_sales.ss_wholesale_cost)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C store_returns.sr_ticket_number)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+        "I(C store_returns.sr_cdemo_sk,C store_returns.sr_customer_sk)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C web_sales.ws_ship_addr_sk,C web_sales.ws_promo_sk)",
+        "I(C web_sales.ws_order_number)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk,C store_sales.ss_ext_list_price)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 663.8515625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.359375
+        },
+        {
+          "step": 22,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2207.0546875
+        },
+        {
+          "step": 23,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2224.96875
+        },
+        {
+          "step": 24,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.5078125
+        },
+        {
+          "step": 25,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2781.125
+        },
+        {
+          "step": 26,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3139.921875
+        },
+        {
+          "step": 27,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3355.203125
+        },
+        {
+          "step": 28,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3359.390625
+        },
+        {
+          "step": 29,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4077.0859375
+        },
+        {
+          "step": 30,
+          "action": 27727,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk,C store_sales.ss_ext_list_price)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4507.703125
+        },
+        {
+          "step": 31,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5333.0546875
+        },
+        {
+          "step": 32,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5404.703125
+        },
+        {
+          "step": 33,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5406.7890625
+        },
+        {
+          "step": 34,
+          "action": 116,
+          "index": "I(C store_returns.sr_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5586.140625
+        },
+        {
+          "step": 35,
+          "action": 123,
+          "index": "I(C store_sales.ss_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 5657.7890625
+        },
+        {
+          "step": 36,
+          "action": 511,
+          "index": "I(C store_sales.ss_customer_sk,C store_sales.ss_wholesale_cost)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6375.484375
+        },
+        {
+          "step": 37,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6877.875
+        },
+        {
+          "step": 38,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6888.6328125
+        },
+        {
+          "step": 39,
+          "action": 179,
+          "index": "I(C web_sales.ws_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6896.1328125
+        },
+        {
+          "step": 40,
+          "action": 34,
+          "index": "I(C web_sales.ws_ship_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7075.484375
+        },
+        {
+          "step": 41,
+          "action": 1860,
+          "index": "I(C web_sales.ws_ship_addr_sk,C web_sales.ws_promo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7254.8359375
+        },
+        {
+          "step": 42,
+          "action": 29840,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7362.4453125
+        },
+        {
+          "step": 43,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7364.5390625
+        },
+        {
+          "step": 44,
+          "action": 1642,
+          "index": "I(C web_sales.ws_sold_date_sk,C web_sales.ws_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7382.453125
+        },
+        {
+          "step": 45,
+          "action": 58,
+          "index": "I(C customer.c_birth_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7490.0625
+        },
+        {
+          "step": 46,
+          "action": 105,
+          "index": "I(C store_returns.sr_cdemo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7502.515625
+        },
+        {
+          "step": 47,
+          "action": 2169,
+          "index": "I(C store_returns.sr_cdemo_sk,C store_returns.sr_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7574.1640625
+        },
+        {
+          "step": 48,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7617.1484375
+        },
+        {
+          "step": 49,
+          "action": 2,
+          "index": "I(C item.i_manager_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7625.5546875
+        },
+        {
+          "step": 50,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7628.09375
+        },
+        {
+          "step": 51,
+          "action": 175,
+          "index": "I(C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7628.46875
+        },
+        {
+          "step": 52,
+          "action": 2440,
+          "index": "I(C catalog_page.cp_catalog_page_id,C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 7628.9609375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 13,
+      "workload": "Query IDs: [30, 46, 59, 73, 71, 2, 64, 1, 89, 56, 70, 91, 27, 58, 38, 74, 88, 23, 47, 75, 51, 67, 15, 44, 31, 3, 18, 33, 66, 85, 21, 17, 61, 45, 63, 99, 98, 78, 84, 93, 36, 87, 37, 26, 40, 53, 28, 60, 42, 57] with [8677, 7420, 7474, 1256, 3376, 7833, 9684, 5032, 8315, 6595, 1394, 5688, 5340, 4731, 9951, 2203, 9984, 6787, 57, 835, 9448, 3154, 6596, 7209, 1298, 2708, 1916, 5259, 2469, 4154, 1190, 8684, 2722, 3357, 8631, 6329, 6595, 7680, 9730, 4369, 9374, 5483, 9561, 5153, 7875, 8590, 2187, 2592, 2961, 9359]. Contains 10 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 84.21374821237247,
+      "storage_consumption_mb": 4767.703125,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C date_dim.d_date)",
+        "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C web_sales.ws_item_sk)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C customer_address.ca_state)",
+        "I(C date_dim.d_year)",
+        "I(C item.i_item_id,C item.i_category_id)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C store_returns.sr_ticket_number)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C time_dim.t_time)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 566.6171875
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 663.8515625
+        },
+        {
+          "step": 18,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.3671875
+        },
+        {
+          "step": 20,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.0625
+        },
+        {
+          "step": 21,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2206.7578125
+        },
+        {
+          "step": 22,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2224.671875
+        },
+        {
+          "step": 23,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2655.2890625
+        },
+        {
+          "step": 24,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3014.0859375
+        },
+        {
+          "step": 25,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3229.3671875
+        },
+        {
+          "step": 26,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3947.0625
+        },
+        {
+          "step": 27,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4377.6796875
+        },
+        {
+          "step": 28,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4381.8671875
+        },
+        {
+          "step": 29,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4383.953125
+        },
+        {
+          "step": 30,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4455.6015625
+        },
+        {
+          "step": 31,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4634.953125
+        },
+        {
+          "step": 32,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4642.453125
+        },
+        {
+          "step": 33,
+          "action": 29840,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4653.2109375
+        },
+        {
+          "step": 34,
+          "action": 116,
+          "index": "I(C store_returns.sr_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4655.3046875
+        },
+        {
+          "step": 35,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4726.953125
+        },
+        {
+          "step": 36,
+          "action": 44,
+          "index": "I(C time_dim.t_time)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4744.8671875
+        },
+        {
+          "step": 37,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4747.015625
+        },
+        {
+          "step": 38,
+          "action": 189,
+          "index": "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4755.421875
+        },
+        {
+          "step": 39,
+          "action": 2930,
+          "index": "I(C item.i_item_id,C item.i_category_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4766.1796875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 14,
+      "workload": "Query IDs: [71, 93, 45, 1, 72, 73, 34, 97, 17, 2, 38, 15, 99, 96, 56, 30, 69, 61, 20, 25, 80, 89, 98, 62, 18, 19, 55, 90, 68, 12, 50, 23, 86, 77, 79, 22, 5, 75, 47, 16, 42, 39, 82, 26, 60, 37, 87, 57, 52, 28] with [4675, 8593, 3931, 5915, 636, 8188, 5454, 287, 7119, 5181, 1820, 6191, 9592, 6874, 1994, 8646, 7172, 7891, 4359, 3291, 5837, 5013, 4361, 8207, 710, 6815, 6303, 2735, 4459, 7833, 5490, 7536, 286, 4309, 4610, 4571, 242, 6855, 991, 3762, 1487, 2665, 2605, 3308, 8947, 3432, 7644, 7777, 2505, 5885]. Contains 10 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 89.71794547698525,
+      "storage_consumption_mb": 1430.4609375,
+      "final_indexes": [
+        "I(C date_dim.d_date)",
+        "I(C item.i_manager_id)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C web_sales.ws_item_sk)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_return_quantity)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+        "I(C date_dim.d_quarter_name,C date_dim.d_date_sk)",
+        "I(C customer_address.ca_state)",
+        "I(C date_dim.d_year)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C item.i_item_id,C item.i_category_id,C item.i_manager_id)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+        "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C time_dim.t_minute)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 663.8515625
+        },
+        {
+          "step": 18,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 700.015625
+        },
+        {
+          "step": 20,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.6640625
+        },
+        {
+          "step": 21,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 789.578125
+        },
+        {
+          "step": 22,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1148.375
+        },
+        {
+          "step": 23,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1363.65625
+        },
+        {
+          "step": 24,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1367.84375
+        },
+        {
+          "step": 25,
+          "action": 29840,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1369.9296875
+        },
+        {
+          "step": 26,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1372.0234375
+        },
+        {
+          "step": 27,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1379.5234375
+        },
+        {
+          "step": 28,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1390.28125
+        },
+        {
+          "step": 29,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1408.1953125
+        },
+        {
+          "step": 30,
+          "action": 27280,
+          "index": "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1416.6015625
+        },
+        {
+          "step": 31,
+          "action": 2930,
+          "index": "I(C item.i_item_id,C item.i_category_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1419.140625
+        },
+        {
+          "step": 32,
+          "action": 10972,
+          "index": "I(C item.i_item_id,C item.i_category_id,C item.i_manager_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1420.6640625
+        },
+        {
+          "step": 33,
+          "action": 2,
+          "index": "I(C item.i_manager_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1423.2109375
+        },
+        {
+          "step": 34,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1425.75
+        },
+        {
+          "step": 35,
+          "action": 78,
+          "index": "I(C time_dim.t_minute)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1426.125
+        },
+        {
+          "step": 36,
+          "action": 2095,
+          "index": "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1428.2734375
+        },
+        {
+          "step": 37,
+          "action": 1484,
+          "index": "I(C date_dim.d_quarter_name,C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1429.3671875
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 15,
+      "workload": "Query IDs: [68, 98, 70, 62, 43, 94, 84, 15, 27, 16, 77, 64, 86, 89, 79, 21, 34, 83, 8, 24, 2, 7, 72, 19, 17, 73, 61, 75, 78, 31, 76, 18, 54, 20, 96, 46, 45, 12, 55, 85, 39, 36, 26, 53, 28, 40, 87, 48, 60, 37] with [8770, 7419, 4647, 809, 8272, 7124, 579, 7724, 4445, 5888, 7362, 2759, 4763, 9358, 8633, 8027, 3693, 2818, 7283, 8467, 212, 2885, 3715, 195, 839, 4047, 8193, 3231, 5959, 2764, 592, 3932, 8380, 7215, 715, 7006, 8502, 19, 6660, 8028, 1449, 2835, 8708, 9374, 4523, 7028, 5749, 731, 1518, 7482]. Contains 10 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 83.54454087303573,
+      "storage_consumption_mb": 4768.265625,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C date_dim.d_date)",
+        "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C web_sales.ws_item_sk)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C customer.c_birth_year)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C web_returns.wr_order_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C store_returns.sr_ticket_number)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+        "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 566.6171875
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 663.8515625
+        },
+        {
+          "step": 18,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.3671875
+        },
+        {
+          "step": 20,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.0625
+        },
+        {
+          "step": 21,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2206.7578125
+        },
+        {
+          "step": 22,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2224.671875
+        },
+        {
+          "step": 23,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2583.46875
+        },
+        {
+          "step": 24,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2798.75
+        },
+        {
+          "step": 25,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3229.3671875
+        },
+        {
+          "step": 26,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3947.0625
+        },
+        {
+          "step": 27,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4377.6796875
+        },
+        {
+          "step": 28,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4381.8671875
+        },
+        {
+          "step": 29,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4453.515625
+        },
+        {
+          "step": 30,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4455.6015625
+        },
+        {
+          "step": 31,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4634.953125
+        },
+        {
+          "step": 32,
+          "action": 29840,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom,C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4642.453125
+        },
+        {
+          "step": 33,
+          "action": 116,
+          "index": "I(C store_returns.sr_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4644.546875
+        },
+        {
+          "step": 34,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4716.1953125
+        },
+        {
+          "step": 35,
+          "action": 189,
+          "index": "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4734.109375
+        },
+        {
+          "step": 36,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4744.8671875
+        },
+        {
+          "step": 37,
+          "action": 58,
+          "index": "I(C customer.c_birth_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4753.2734375
+        },
+        {
+          "step": 38,
+          "action": 27280,
+          "index": "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4765.7265625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 16,
+      "workload": "Query IDs: [33, 72, 74, 97, 85, 21, 31, 45, 13, 69, 44, 62, 73, 50, 27, 1, 68, 67, 17, 15, 93, 14, 5, 76, 23, 99, 54, 78, 2, 83, 7, 12, 34, 16, 19, 71, 25, 47, 51, 3, 48, 82, 57, 87, 53, 40, 36, 42, 37, 39] with [2573, 3666, 2645, 3616, 8471, 660, 6868, 6238, 8180, 8690, 1377, 8837, 4666, 8839, 620, 4066, 3356, 6385, 1934, 4173, 1688, 1434, 7343, 4653, 6705, 8124, 6621, 5032, 4736, 4439, 5494, 4419, 873, 5888, 1859, 1342, 5069, 1493, 367, 5198, 2824, 5089, 8750, 1, 5632, 5223, 8112, 4756, 9021, 7246]. Contains 10 previously unseen queries. Budget: 500",
+      "budget_mb": 500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 93.04350489011026,
+      "storage_consumption_mb": 476.7890625,
+      "final_indexes": [
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C item.i_manufact_id,C item.i_category_id)",
+        "I(C date_dim.d_date)",
+        "I(C date_dim.d_date_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+        "I(C customer_address.ca_state)",
+        "I(C time_dim.t_hour)",
+        "I(C date_dim.d_year)",
+        "I(C item.i_item_sk)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C date_dim.d_month_seq)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 429.046875
+        },
+        {
+          "step": 12,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 431.1953125
+        },
+        {
+          "step": 13,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 433.734375
+        },
+        {
+          "step": 14,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 434.03125
+        },
+        {
+          "step": 15,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 435.84375
+        },
+        {
+          "step": 16,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 436.9375
+        },
+        {
+          "step": 17,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 472.8046875
+        },
+        {
+          "step": 18,
+          "action": 2892,
+          "index": "I(C item.i_manufact_id,C item.i_category_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 474.890625
+        },
+        {
+          "step": 19,
+          "action": 2065,
+          "index": "I(C catalog_page.cp_catalog_page_sk,C catalog_page.cp_catalog_page_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 476.4140625
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 17,
+      "workload": "Query IDs: [46, 51, 13, 44, 7, 72, 79, 66, 58, 38, 59, 81, 55, 45, 3, 18, 54, 94, 64, 1, 20, 8, 43, 17, 2, 91, 62, 15, 78, 49, 30, 65, 29, 67, 22, 74, 86, 92, 84, 90, 39, 53, 48, 57, 42, 28, 87, 60, 40, 36] with [307, 4823, 5260, 1568, 4943, 3249, 7469, 525, 9051, 3279, 1647, 316, 2123, 8505, 3108, 2053, 7966, 2997, 8380, 3276, 7965, 7611, 2978, 5922, 5156, 8955, 70, 2691, 7786, 6679, 435, 2723, 4361, 3953, 8482, 868, 3288, 8392, 4447, 3135, 418, 8897, 5726, 2208, 1765, 3140, 2704, 3828, 5529, 7666]. Contains 10 previously unseen queries. Budget: 1000",
+      "budget_mb": 1000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 83.91096700090831,
+      "storage_consumption_mb": 953.5390625,
+      "final_indexes": [
+        "I(C date_dim.d_date)",
+        "I(C customer_address.ca_zip)",
+        "I(C date_dim.d_quarter_name)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_week_seq,C date_dim.d_month_seq)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C time_dim.t_time)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 566.6171875
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 662.7578125
+        },
+        {
+          "step": 17,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 770.2734375
+        },
+        {
+          "step": 19,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 895.8125
+        },
+        {
+          "step": 20,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 913.7265625
+        },
+        {
+          "step": 21,
+          "action": 143,
+          "index": "I(C date_dim.d_quarter_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 917.9140625
+        },
+        {
+          "step": 22,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 920.0
+        },
+        {
+          "step": 23,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 927.5
+        },
+        {
+          "step": 24,
+          "action": 44,
+          "index": "I(C time_dim.t_time)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 938.2578125
+        },
+        {
+          "step": 25,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 940.40625
+        },
+        {
+          "step": 26,
+          "action": 27280,
+          "index": "I(C item.i_manufact_id,C item.i_product_name,C item.i_brand_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 948.8125
+        },
+        {
+          "step": 27,
+          "action": 2736,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 951.3515625
+        },
+        {
+          "step": 28,
+          "action": 2095,
+          "index": "I(C date_dim.d_date_sk,C date_dim.d_qoy)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 952.4453125
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 18,
+      "workload": "Query IDs: [18, 93, 96, 78, 88, 94, 98, 74, 84, 45, 72, 61, 30, 58, 85, 27, 49, 5, 51, 75, 99, 13, 79, 7, 15, 21, 43, 25, 70, 1, 90, 2, 91, 44, 46, 38, 55, 81, 97, 83, 82, 36, 42, 26, 39, 40, 48, 52, 87, 60] with [9639, 8618, 9252, 2959, 9514, 3645, 410, 2825, 4645, 795, 6602, 3882, 9798, 6319, 6812, 7577, 1543, 1978, 6148, 5972, 305, 8295, 7842, 4265, 5500, 1203, 2294, 7615, 9141, 5250, 4201, 1664, 1517, 7583, 6694, 5728, 9970, 3971, 2117, 9005, 3063, 4142, 3461, 2303, 4526, 688, 9901, 673, 7013, 6406]. Contains 10 previously unseen queries. Budget: 1500",
+      "budget_mb": 1500,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 91.38617524421383,
+      "storage_consumption_mb": 1430.4921875,
+      "final_indexes": [
+        "I(C customer_address.ca_street_number)",
+        "I(C date_dim.d_date)",
+        "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C customer_address.ca_zip)",
+        "I(C web_sales.ws_item_sk)",
+        "I(C item.i_item_sk)",
+        "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C catalog_page.cp_catalog_page_sk)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C customer_address.ca_state)",
+        "I(C item.i_item_id)",
+        "I(C date_dim.d_year)",
+        "I(C date_dim.d_week_seq)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 61,
+          "index": "I(C catalog_page.cp_catalog_page_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.921875
+        },
+        {
+          "step": 19,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 770.5703125
+        },
+        {
+          "step": 20,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 788.484375
+        },
+        {
+          "step": 21,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1147.28125
+        },
+        {
+          "step": 22,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1362.5625
+        },
+        {
+          "step": 23,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1366.75
+        },
+        {
+          "step": 24,
+          "action": 2289,
+          "index": "I(C web_returns.wr_order_number,C web_returns.wr_returning_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1374.25
+        },
+        {
+          "step": 25,
+          "action": 93,
+          "index": "I(C web_returns.wr_return_quantity)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1385.0078125
+        },
+        {
+          "step": 26,
+          "action": 55,
+          "index": "I(C customer_address.ca_zip)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1402.921875
+        },
+        {
+          "step": 27,
+          "action": 189,
+          "index": "I(C web_returns.wr_return_quantity,C web_returns.wr_refunded_addr_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1411.328125
+        },
+        {
+          "step": 28,
+          "action": 0,
+          "index": "I(C customer_address.ca_street_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1422.0859375
+        }
+      ],
+      "index_selection_time": 0.0
+    },
+    {
+      "episode_id": 19,
+      "workload": "Query IDs: [47, 20, 70, 16, 8, 49, 59, 64, 18, 15, 67, 77, 79, 83, 71, 92, 43, 22, 34, 58, 90, 68, 91, 98, 7, 13, 93, 96, 33, 99, 44, 86, 88, 75, 56, 46, 21, 81, 38, 94, 26, 37, 39, 82, 52, 60, 48, 42, 28, 87] with [6848, 28, 2980, 5437, 2952, 3239, 7192, 2943, 4160, 9310, 7019, 6460, 1432, 131, 960, 5347, 5281, 8640, 8921, 9198, 5370, 1219, 3131, 7352, 2689, 1783, 8712, 6255, 6306, 9873, 6584, 3240, 3399, 939, 5912, 1731, 2005, 1698, 892, 2038, 7560, 1784, 745, 2742, 4175, 5755, 9478, 1645, 5495, 1456]. Contains 10 previously unseen queries. Budget: 5000",
+      "budget_mb": 5000,
+      "initial_cost": 0,
+      "final_cost": 0,
+      "cost_improvement_percent": 81.380917462409,
+      "storage_consumption_mb": 4767.4296875,
+      "final_indexes": [
+        "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+        "I(C store_returns.sr_returned_date_sk)",
+        "I(C date_dim.d_date)",
+        "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+        "I(C item.i_item_sk)",
+        "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+        "I(C date_dim.d_month_seq)",
+        "I(C item.i_manufact_id,C item.i_product_name)",
+        "I(C customer_address.ca_state)",
+        "I(C date_dim.d_year)",
+        "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+        "I(C item.i_item_id,C item.i_category_id)",
+        "I(C catalog_sales.cs_sold_date_sk)",
+        "I(C customer.c_customer_sk)",
+        "I(C date_dim.d_date_sk)",
+        "I(C store_sales.ss_ticket_number)",
+        "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+        "I(C web_returns.wr_order_number)",
+        "I(C customer_address.ca_address_sk)",
+        "I(C catalog_returns.cr_order_number)",
+        "I(C customer_demographics.cd_demo_sk)",
+        "I(C store_returns.sr_item_sk)",
+        "I(C catalog_returns.cr_returned_date_sk)",
+        "I(C web_sales.ws_sold_date_sk)",
+        "I(C time_dim.t_hour)"
+      ],
+      "index_selection_sequence": [
+        {
+          "step": 1,
+          "action": 10,
+          "index": "I(C item.i_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 0.0
+        },
+        {
+          "step": 2,
+          "action": 103,
+          "index": "I(C date_dim.d_year)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2.5390625
+        },
+        {
+          "step": 3,
+          "action": 110,
+          "index": "I(C date_dim.d_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4.3515625
+        },
+        {
+          "step": 4,
+          "action": 69,
+          "index": "I(C customer.c_customer_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 6.1640625
+        },
+        {
+          "step": 5,
+          "action": 39,
+          "index": "I(C customer_address.ca_address_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 18.6171875
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "index": "I(C date_dim.d_date)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 24.84375
+        },
+        {
+          "step": 7,
+          "action": 107,
+          "index": "I(C catalog_sales.cs_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 26.65625
+        },
+        {
+          "step": 8,
+          "action": 144,
+          "index": "I(C date_dim.d_month_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 385.453125
+        },
+        {
+          "step": 9,
+          "action": 45,
+          "index": "I(C catalog_returns.cr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 387.265625
+        },
+        {
+          "step": 10,
+          "action": 57,
+          "index": "I(C web_sales.ws_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 423.1328125
+        },
+        {
+          "step": 11,
+          "action": 102,
+          "index": "I(C customer_address.ca_state)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 602.484375
+        },
+        {
+          "step": 12,
+          "action": 177,
+          "index": "I(C customer_demographics.cd_demo_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 608.3984375
+        },
+        {
+          "step": 13,
+          "action": 82,
+          "index": "I(C time_dim.t_hour)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 656.2578125
+        },
+        {
+          "step": 14,
+          "action": 38,
+          "index": "I(C item.i_manufact_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 658.40625
+        },
+        {
+          "step": 15,
+          "action": 117,
+          "index": "I(C catalog_returns.cr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 660.9453125
+        },
+        {
+          "step": 16,
+          "action": 104,
+          "index": "I(C date_dim.d_week_seq)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 696.8125
+        },
+        {
+          "step": 17,
+          "action": 1675,
+          "index": "I(C date_dim.d_week_seq,C date_dim.d_dom)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 698.625
+        },
+        {
+          "step": 18,
+          "action": 178,
+          "index": "I(C store_returns.sr_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 699.71875
+        },
+        {
+          "step": 19,
+          "action": 166,
+          "index": "I(C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 771.3671875
+        },
+        {
+          "step": 20,
+          "action": 350,
+          "index": "I(C web_sales.ws_item_sk,C web_sales.ws_ext_discount_amt)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1489.0625
+        },
+        {
+          "step": 21,
+          "action": 66,
+          "index": "I(C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 1614.6015625
+        },
+        {
+          "step": 22,
+          "action": 113,
+          "index": "I(C web_returns.wr_order_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2332.296875
+        },
+        {
+          "step": 23,
+          "action": 2849,
+          "index": "I(C store_sales.ss_item_sk,C store_sales.ss_ticket_number)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2350.2109375
+        },
+        {
+          "step": 24,
+          "action": 97,
+          "index": "I(C catalog_sales.cs_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 2780.828125
+        },
+        {
+          "step": 25,
+          "action": 1158,
+          "index": "I(C catalog_sales.cs_item_sk,C catalog_sales.cs_ship_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3139.625
+        },
+        {
+          "step": 26,
+          "action": 141,
+          "index": "I(C store_sales.ss_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 3354.90625
+        },
+        {
+          "step": 27,
+          "action": 1205,
+          "index": "I(C store_sales.ss_sold_date_sk,C store_sales.ss_item_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4072.6015625
+        },
+        {
+          "step": 28,
+          "action": 154,
+          "index": "I(C item.i_item_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4503.21875
+        },
+        {
+          "step": 29,
+          "action": 137,
+          "index": "I(C store_returns.sr_returned_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4507.40625
+        },
+        {
+          "step": 30,
+          "action": 182,
+          "index": "I(C web_sales.ws_sold_date_sk)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4579.0546875
+        },
+        {
+          "step": 31,
+          "action": 2377,
+          "index": "I(C item.i_manufact_id,C item.i_product_name)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4758.40625
+        },
+        {
+          "step": 32,
+          "action": 2930,
+          "index": "I(C item.i_item_id,C item.i_category_id)",
+          "index_size_mb": 0.0,
+          "current_storage_mb": 4765.90625
+        }
+      ],
+      "index_selection_time": 0.0
+    }
+  ],
+  "time_statistics": {
+    "total_episodes": 20,
+    "average_selection_time": 0.0,
+    "total_selection_time": 0.0
+  }
+}

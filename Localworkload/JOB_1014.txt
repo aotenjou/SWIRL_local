@@ -1,0 +1,1 @@
+select title.imdb_index, title.title, title.kind_id from movie_info_idx JOIN title ON title.id = movie_info_idx.movie_id JOIN kind_type ON kind_type.id = title.kind_id where title.phonetic_code <= 'J5263' AND movie_info_idx.id < 412529 AND title.kind_id <= 2 AND title.phonetic_code = 'D42' order by title.title DESC, title.imdb_index ASC;

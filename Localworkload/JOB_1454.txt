@@ -1,0 +1,1 @@
+select link_type.link, movie_link.id, movie_link.movie_id, avg(movie_link.id), max(title.production_year) from link_type, movie_link, title where movie_link.movie_id <= 138672 AND title.imdb_index > 'II' AND title.season_nr = 3 group by link_type.link, movie_link.movie_id, movie_link.id order by movie_link.movie_id DESC;

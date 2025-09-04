@@ -1,0 +1,1 @@
+SELECT movie_info.info FROM movie_info WHERE movie_info.movie_id < 1911405 AND movie_info.info >= 'Brazil:December 2008' AND movie_info.id <> 12702216 AND movie_info.note = '(season 1)' AND movie_info.info_type_id <= 65;

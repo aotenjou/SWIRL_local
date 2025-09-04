@@ -1,0 +1,1 @@
+SELECT comp_cast_type.id, title.imdb_index, complete_cast.status_id, MIN(title.title) FROM comp_cast_type, complete_cast, title WHERE title.imdb_index <= 'I' AND title.md5sum = '2ee4d131cde1335cedbb41fcb5065a6a' GROUP BY comp_cast_type.id, title.imdb_index, complete_cast.status_id HAVING MIN(title.title) <> 'Neprikayannyy' ORDER BY MIN(title.title) ASC;

@@ -1,0 +1,1 @@
+select title.phonetic_code, title.season_nr, movie_link.movie_id, avg(title.episode_nr), max(movie_link.movie_id) from link_type, movie_link, title where title.imdb_index <= 'I' AND title.production_year <= 1970 AND title.production_year >= 2002 group by movie_link.movie_id, title.season_nr, title.phonetic_code order by movie_link.movie_id DESC;

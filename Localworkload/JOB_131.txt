@@ -1,0 +1,1 @@
+SELECT person_info.person_id FROM person_info WHERE person_info.info < '(2004) Movie Trailer: "Crash" Digital Imaging: iO FILM' AND person_info.id <> 2522117 AND person_info.person_id <= 1889740 AND person_info.info_type_id < 22 ORDER BY person_info.person_id ASC;

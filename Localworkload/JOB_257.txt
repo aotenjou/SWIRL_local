@@ -1,0 +1,1 @@
+SELECT movie_keyword.movie_id, keyword.phonetic_code FROM keyword JOIN movie_keyword ON movie_keyword.keyword_id = keyword.id WHERE movie_keyword.keyword_id > 56 AND movie_keyword.id < 3238568 AND movie_keyword.movie_id < 1878374 AND keyword.keyword < 'fiber-optic-scope';

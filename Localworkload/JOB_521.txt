@@ -1,0 +1,1 @@
+SELECT role_type.role, cast_info.movie_id, char_name.surname_pcode FROM role_type, cast_info, char_name WHERE cast_info.person_id >= 2960866 AND cast_info.person_role_id > 1504506 AND char_name.md5sum <> 'f085e192eaf186c0e7ba3d9a6edc505c' AND char_name.id <= 413262 AND char_name.name = 'Samuel J. Coles';

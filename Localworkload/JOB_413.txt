@@ -1,0 +1,1 @@
+SELECT movie_info.id, title.kind_id FROM movie_info JOIN title ON title.id = movie_info.movie_id WHERE title.title <= 'A Cover of Art' AND title.season_nr < 3 AND title.id <> 443022 AND title.episode_nr > 29;

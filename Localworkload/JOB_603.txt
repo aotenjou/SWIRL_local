@@ -1,0 +1,1 @@
+select movie_info.movie_id, aka_title.id, title.season_nr from movie_info JOIN title ON title.id = movie_info.movie_id JOIN aka_title ON aka_title.movie_id = title.id where movie_info.info < 'UK:27 October 2011' AND aka_title.title = 'Minäkö isä!' AND aka_title.kind_id < 7 AND title.md5sum <= '95873621bb7f3d8f2fc2d7d21c8b9817' order by title.season_nr DESC, aka_title.id DESC;

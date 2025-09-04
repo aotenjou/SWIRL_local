@@ -1,0 +1,1 @@
+SELECT title.md5sum, movie_keyword.id FROM movie_keyword JOIN title ON title.id = movie_keyword.movie_id WHERE movie_keyword.movie_id <> 2522540 AND title.imdb_index >= 'I' AND movie_keyword.keyword_id < 3511 AND title.production_year <> 1947 AND title.season_nr < 5;

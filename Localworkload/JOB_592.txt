@@ -1,0 +1,1 @@
+SELECT person_info.info, MIN(person_info.note), MAX(person_info.person_id) FROM person_info WHERE person_info.info <> '1952' AND person_info.person_id < 1290899 AND person_info.info_type_id >= 24 GROUP BY person_info.info HAVING MIN(person_info.note) = 'Anonymous' AND MAX(person_info.person_id) < 2472041 ORDER BY MIN(person_info.note) ASC, MAX(person_info.person_id) DESC;

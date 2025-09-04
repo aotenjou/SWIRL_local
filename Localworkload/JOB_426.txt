@@ -1,0 +1,1 @@
+select cast_info.note, role_type.id from role_type, cast_info where cast_info.person_id < 614983 AND cast_info.person_role_id = 1637 AND cast_info.movie_id > 2123163 AND cast_info.note <= '(as James Lichtscheidl)';

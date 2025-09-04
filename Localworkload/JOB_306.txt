@@ -1,0 +1,1 @@
+select movie_keyword.movie_id, keyword.phonetic_code from keyword, movie_keyword where movie_keyword.keyword_id >= 7449 AND keyword.id = 22473 AND movie_keyword.movie_id >= 1762381 AND movie_keyword.id > 239156 AND keyword.phonetic_code < 'O1232' order by movie_keyword.movie_id DESC, keyword.phonetic_code DESC;

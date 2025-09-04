@@ -1,0 +1,1 @@
+SELECT name.name_pcode_nf, person_info.info_type_id, aka_name.md5sum FROM person_info JOIN name ON name.id = person_info.person_id JOIN aka_name ON aka_name.person_id = name.id WHERE name.name_pcode_cf < 'T5624' AND person_info.note >= 'Anonymous' AND name.imdb_index <> 'XI' ORDER BY name.name_pcode_nf ASC, person_info.info_type_id ASC, aka_name.md5sum DESC;

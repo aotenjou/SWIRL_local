@@ -1,0 +1,1 @@
+SELECT title.episode_nr, movie_info.id, info_type.info, movie_link.movie_id FROM movie_link JOIN title ON title.id = movie_link.movie_id JOIN movie_info ON movie_info.movie_id = title.id JOIN info_type ON info_type.id = movie_info.info_type_id WHERE info_type.id <> 8 AND title.production_year <= 1970 AND title.phonetic_code = 'D42';

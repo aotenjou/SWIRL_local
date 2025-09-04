@@ -1,0 +1,1 @@
+select link_type.link, title.production_year, movie_link.movie_id, avg(movie_link.id), max(title.season_nr) from link_type, movie_link, title where movie_link.id <= 18214 AND movie_link.id > 18214 AND title.production_year = 1947 group by link_type.link, movie_link.movie_id, title.production_year order by movie_link.movie_id DESC;

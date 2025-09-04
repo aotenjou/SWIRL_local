@@ -1,0 +1,1 @@
+select char_name.id, cast_info.person_role_id, role_type.id from role_type JOIN cast_info ON cast_info.role_id = role_type.id JOIN char_name ON char_name.id = cast_info.person_role_id where char_name.md5sum < 'd8c998ffca34fb773eb1ceb9491fd9ad' AND role_type.id >= 9 AND cast_info.person_id = 830054 order by char_name.id DESC, cast_info.person_role_id ASC;

@@ -1,0 +1,1 @@
+SELECT movie_link.linked_movie_id, title.episode_nr FROM title, movie_link WHERE title.imdb_index < 'I' AND movie_link.linked_movie_id >= 1330291 AND title.phonetic_code <= 'S5151' AND title.episode_nr > 48;

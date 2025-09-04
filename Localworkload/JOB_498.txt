@@ -1,0 +1,1 @@
+SELECT title.title, movie_info.id, info_type.id FROM info_type JOIN movie_info ON movie_info.info_type_id = info_type.id JOIN title ON title.id = movie_info.movie_id WHERE movie_info.info < 'UK:27 October 2011' AND title.series_years <> '2009-????' AND movie_info.note < '(season 1)' AND movie_info.id < 10337432 ORDER BY info_type.id ASC, title.title ASC;

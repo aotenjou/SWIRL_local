@@ -1,0 +1,1 @@
+SELECT title.imdb_index, movie_info_idx.info FROM movie_info_idx, title WHERE title.imdb_index > 'I' AND title.episode_nr > 48 AND title.kind_id < 2 AND title.id <= 1623042;

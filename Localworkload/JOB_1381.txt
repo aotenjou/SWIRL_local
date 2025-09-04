@@ -1,0 +1,1 @@
+SELECT char_name.id, cast_info.nr_order FROM cast_info, char_name WHERE char_name.name > 'Helene Minton' AND cast_info.note > '(field cashier) (as Ruby Musngi)' AND char_name.imdb_index >= 'D' AND char_name.md5sum >= '72b484fc990e3743a8d42394a48be94a' ORDER BY cast_info.nr_order DESC;

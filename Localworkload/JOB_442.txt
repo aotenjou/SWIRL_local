@@ -1,0 +1,1 @@
+SELECT title.season_nr FROM title WHERE title.production_year > 1986 AND title.phonetic_code >= 'R2161' AND title.episode_nr <= 29 AND title.episode_of_id <> 1079578 AND title.id >= 404735 AND title.title < 'Pericolo di vita' ORDER BY title.season_nr DESC;

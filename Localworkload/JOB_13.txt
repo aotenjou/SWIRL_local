@@ -1,0 +1,1 @@
+select movie_link.id, title.season_nr from movie_link, title where movie_link.movie_id < 140768 AND title.episode_of_id < 801786 AND title.md5sum = 'e043157ee7b99e4bcc2fdf290a332164' AND title.series_years > '2005-2009' AND movie_link.linked_movie_id > 1394139 AND title.imdb_index = 'I' AND title.phonetic_code > 'T6216';

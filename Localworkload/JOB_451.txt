@@ -1,0 +1,1 @@
+SELECT name.id, person_info.id FROM name JOIN person_info ON person_info.person_id = name.id WHERE name.name <= 'Thomas, Lyndia' AND name.surname_pcode >= 'C5' AND person_info.note >= 'MilleniumBabyGirl' AND name.name_pcode_cf <> 'A256' AND person_info.info >= 'Mclaughlin, Norman Anthony';

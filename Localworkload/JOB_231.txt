@@ -1,0 +1,1 @@
+SELECT name.md5sum, cast_info.person_role_id, person_info.info FROM cast_info JOIN name ON name.id = cast_info.person_id JOIN person_info ON person_info.person_id = name.id WHERE name.md5sum >= '201ce2ddf0081561d482cdc4738b2dd7' AND name.name >= 'Thilke, Paul' AND cast_info.note >= '(promo producer)' AND name.name_pcode_nf <= 'L6525';
