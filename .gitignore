@@ -136,6 +136,9 @@ tensor_log/
 old_tensorlog/
 imdb_data/
 query_files/
+!query_files/JOB/
+!query_files/TPCH/
+!query_files/TPCDS/
 datasets/
 PRICE/
 tensorlog/
