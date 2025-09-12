@@ -4,6 +4,15 @@ This repository provides some additional experimental data for the [EDBT 2022 pa
 
 If you have any questions, feel free to contact the authors, e.g., Jan Kossmann via jan.kossmann@hpi.de
 
+## Add External Workload Implementation
+
+在 `experiments/` 下面的实验配置中，添加两个额外的配置项即可：
+```
+  "ExternalWorkload": true,#布尔类型，如果为true直接采样外部输入的workload。
+  "WorkloadPath": #外部workload输入的路径。
+```
+workload size对齐逻辑：外部输入的每个workload大小与实验配置中的workload size作比较：输入小于配置时，直接跳过；输入大于配置时，在输入中随机采样到配置值；输入等于配置时，正常进行。
+
 
 ## Setup
 
