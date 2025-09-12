@@ -2,10 +2,14 @@ from .index import Index
 
 
 class Workload:
-    def __init__(self, queries, description=""):
+    def __init__(self, queries, description="", labels=None, db=None, id=None):
         self.queries = queries
         self.budget = None
         self.description = description
+        # labels for sft (supervised fine-tuning)
+        self.labels = labels if labels is not None else set()
+        self.db = db
+        self.id = id
 
     def indexable_columns(self, return_sorted=True):
         indexable_columns = set()

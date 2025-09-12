@@ -58,5 +58,7 @@
   },
   "column_filters": {
     "TableNumRowsFilter": 10000
-  }
+  },
+  "ExternalWorkload": false,
+  "WorkloadPath": null
 }

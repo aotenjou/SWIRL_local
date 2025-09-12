@@ -2,9 +2,9 @@
   "id": "BASKETBALL_newQuery48_similar",
   "description": "Basketball数据集索引选择实验",
   "gym_version": 1,
-  "timesteps": 70000,
+  "timesteps": 2000,
   "random_seed": 60,
-  "parallel_environments": 16,
+  "parallel_environments": 8,
   "pickle_cost_estimation_caches": true,
   "action_manager": "MultiColumnIndexActionManager",
   "observation_manager": "SingleColumnIndexObservationManager",
@@ -39,12 +39,12 @@
   "workload": {
     "benchmark": "BASKETBALL",
     "scale_factor": 10,
-    "size": 40,
+    "size": 20,
     "varying_frequencies": true,
     "training_instances": 5000,
     "query_class_change_frequency":10,
     "validation_testing": {
-      "number_of_workloads": 5,
+      "number_of_workloads": 20,
       "unknown_query_probabilities": [0.0]
     },
     "similar_workloads": true,
@@ -54,7 +54,9 @@
   "comparison_algorithms": ["db2advis"],
   "budgets": {
     "training": false,
-    "validation_and_testing": [500, 1000, 1500, 2500, 3500, 5000, 6500, 8000, 10000,12000]
+    "validation_and_testing": [3500, 5000, 6500, 8000, 10000,12000]
   },
-  "column_filters": {}
+  "column_filters": {},
+  "ExternalWorkload": false,
+  "WorkloadPath": null
 } 

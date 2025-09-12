@@ -193,8 +193,11 @@ class DBEnvV1(gym.Env):
 
         if self.environment_type == EnvironmentType.TRAINING:
             if self.similar_workloads:
-                # 200 is an arbitrary value
-                self.current_workload = self.workloads.pop(0 + self.env_id * 200)
+                # Calculate step size to distribute workloads across parallel environments
+                # Ensure we don't exceed the available workloads
+                step_size = max(1, len(self.workloads) // 16)  # Assume max 16 parallel envs
+                workload_idx = (self.env_id * step_size) % len(self.workloads)
+                self.current_workload = self.workloads.pop(workload_idx)
             else:
                 self.current_workload = self.rnd.choice(self.workloads)
         else:

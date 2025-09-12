@@ -1,0 +1,62 @@
+{
+  "id": "BASKETBALL_quick_test",
+  "description": "Basketball数据集快速测试",
+  "gym_version": 1,
+  "timesteps": 50,
+  "random_seed": 60,
+  "parallel_environments": 2,
+  "pickle_cost_estimation_caches": true,
+  "action_manager": "MultiColumnIndexActionManager",
+  "observation_manager": "SingleColumnIndexObservationManager",
+  "reward_calculator": "RelativeDifferenceRelativeToStorageReward",
+  "max_steps_per_episode": 10,
+  "validation_frequency": 25,
+  "filter_utilized_columns": true,
+  "max_index_width": 3,
+  "reenable_indexes": true,
+  "result_path": "experiment_results",
+  "workload_embedder": {
+    "type": "PlanEmbedderLSIBOW",
+    "representation_size": 25
+  },
+  "rl_algorithm": {
+    "algorithm": "PPO2",
+    "stable_baselines_version": 2,
+    "gamma": 0.5,
+    "policy": "MlpPolicy",
+    "model_architecture": {
+      "net_arch": [
+        {
+          "vf": [256,256],
+          "pi": [256,256]
+        }
+      ]
+    },
+    "args": {
+      "n_steps": 64
+    }
+  },
+  "workload": {
+    "benchmark": "BASKETBALL",
+    "scale_factor": 10,
+    "size": 5,
+    "varying_frequencies": true,
+    "training_instances": 10,
+    "query_class_change_frequency":10,
+    "validation_testing": {
+      "number_of_workloads": 2,
+      "unknown_query_probabilities": [0.0]
+    },
+    "similar_workloads": true,
+    "excluded_query_classes": [],
+    "unknown_queries": 0
+  },
+  "comparison_algorithms": [],
+  "budgets": {
+    "training": false,
+    "validation_and_testing": [3500]
+  },
+  "column_filters": {},
+  "ExternalWorkload": false,
+  "WorkloadPath": null
+}

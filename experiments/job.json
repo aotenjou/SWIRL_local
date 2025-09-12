@@ -1,5 +1,5 @@
 {
-  "id": "JOB_smallFreq_similar_novary",
+  "id": "JOB_unknown",
   "description": "Just a JOB Test Experiment",
   "gym_version": 1,
   "timesteps": 50000,
@@ -39,17 +39,17 @@
   "workload": {
     "benchmark": "JOB",
     "scale_factor": 10,
-    "size": 20,
+    "size": 10,
     "varying_frequencies": false,
     "training_instances": 10000,
-    "query_class_change_frequency": null,
+    "query_class_change_frequency": 0.1,
     "validation_testing": {
       "number_of_workloads": 5,
-      "unknown_query_probabilities": [0]
+      "unknown_query_probabilities": [0.1]
     },
-    "similar_workloads": false,
+    "similar_workloads": true,
     "excluded_query_classes": [],
-    "unknown_queries": 0
+    "unknown_queries": 10
   },
   "comparison_algorithms": ["db2advis"],
   "budgets": {
@@ -58,5 +58,7 @@
   },
   "column_filters": {
     "TableNumRowsFilter": 10000
-  }
+  },
+  "ExternalWorkload": false,
+  "WorkloadPath": null
 }

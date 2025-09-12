@@ -62,6 +62,8 @@ class Experiment(object):
         self.number_of_features = None
         self.number_of_actions = None
         self.evaluated_workloads_strs = []
+        # 存储workload的推荐索引labels
+        self.workload_labels = {"validation": {}, "test": {}}
 
         self.EXPERIMENT_RESULT_PATH = self.config["result_path"]
         self._create_experiment_folder()
@@ -80,9 +82,10 @@ class Experiment(object):
             database_name=self.schema.database_name,
             experiment_id=self.id,
             filter_utilized_columns=self.config["filter_utilized_columns"],
+            external_workload=self.config.get("ExternalWorkload", False),
+            workload_path=self.config.get("WorkloadPath", None),
         )
         self._assign_budgets_to_workloads()
-        self._pickle_workloads()
 
         self.globally_indexable_columns = self.workload_generator.globally_indexable_columns
 
@@ -129,12 +132,180 @@ class Experiment(object):
             for workload in workload_list:
                 workload.budget = self.rnd.choice(self.config["budgets"]["validation_and_testing"])
 
-    def _pickle_workloads(self):
-        with open(f"{self.experiment_folder_path}/testing_workloads.pickle", "wb") as handle:
-            pickle.dump(self.workload_generator.wl_testing, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    def _save_workloads_as_json(self):
+        """将workloads保存为JSON格式而不是pickle格式"""
+        import json
+        from datetime import datetime
 
-        with open(f"{self.experiment_folder_path}/validation_workloads.pickle", "wb") as handle:
-            pickle.dump(self.workload_generator.wl_validation, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        print("🔍 DEBUG: 开始保存workloads为JSON格式")
+        print(f"🔍 DEBUG: 当前workload_labels状态: test={len(self.workload_labels.get('test', {}))}, validation={len(self.workload_labels.get('validation', {}))}")
+        logging.info("开始保存workloads为JSON格式")
+        logging.info(f"当前workload_labels状态: test={len(self.workload_labels.get('test', {}))}, validation={len(self.workload_labels.get('validation', {}))}")
+
+        # 保存testing workloads
+        if self.workload_generator.wl_testing:
+            logging.info(f"处理testing workloads: {len(self.workload_generator.wl_testing)} 组")
+
+            # 优先使用更新后的workload对象（包含labels），如果没有则使用原始对象
+            if self.workload_labels.get("test"):
+                logging.info(f"使用更新后的testing workloads (包含labels)")
+                testing_workloads = self._get_updated_workloads("test")
+            else:
+                logging.info(f"使用原始testing workloads (无labels)")
+                testing_workloads = self.workload_generator.wl_testing
+
+            testing_data = self._serialize_workloads_to_json(testing_workloads)
+            testing_file = f"{self.experiment_folder_path}/testing_workloads.json"
+            with open(testing_file, "w", encoding='utf-8') as f:
+                json.dump(testing_data, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)
+            logging.info(f"✅ Testing workloads已保存到: {testing_file}")
+
+        # 保存validation workloads
+        if self.workload_generator.wl_validation:
+            logging.info(f"处理validation workloads: {len(self.workload_generator.wl_validation)} 组")
+
+            # 优先使用更新后的workload对象（包含labels），如果没有则使用原始对象
+            if self.workload_labels.get("validation"):
+                logging.info(f"使用更新后的validation workloads (包含labels)")
+                validation_workloads = self._get_updated_workloads("validation")
+            else:
+                logging.info(f"使用原始validation workloads (无labels)")
+                validation_workloads = self.workload_generator.wl_validation
+
+            validation_data = self._serialize_workloads_to_json(validation_workloads)
+            validation_file = f"{self.experiment_folder_path}/validation_workloads.json"
+            with open(validation_file, "w", encoding='utf-8') as f:
+                json.dump(validation_data, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)
+            logging.info(f"✅ Validation workloads已保存到: {validation_file}")
+
+        logging.info("JSON保存过程完成")
+
+    def _get_updated_workloads(self, run_type):
+        """从workload_labels中获取更新后的workload对象，并按原始结构组织"""
+        logging.info(f"开始获取 {run_type} 的更新后workloads")
+
+        if run_type not in self.workload_labels:
+            logging.warning(f"{run_type} 不在workload_labels中，返回空列表")
+            return []
+
+        # 获取原始workload结构
+        original_workloads = (self.workload_generator.wl_testing
+                            if run_type == "test"
+                            else self.workload_generator.wl_validation)
+
+        logging.info(f"原始 {run_type} workloads: {len(original_workloads)} 组")
+
+        # 创建更新后的workload结构
+        updated_workloads = []
+        total_original_workloads = 0
+        total_updated_workloads = 0
+
+        for i, workload_list in enumerate(original_workloads):
+            updated_workload_list = []
+            logging.info(f"处理原始组 {i}: {len(workload_list)} 个workloads")
+
+            for workload in workload_list:
+                total_original_workloads += 1
+                # 查找对应的更新后workload
+                updated_workload = self._find_updated_workload(workload, run_type)
+                if updated_workload:
+                    updated_workload_list.append(updated_workload)
+                    total_updated_workloads += 1
+                    logging.info(f"  ✅ 找到更新后的workload: {workload.description} (labels: {len(updated_workload.labels)})")
+                else:
+                    # 如果找不到更新后的workload，使用原始workload
+                    logging.warning(f"  ❌ 找不到更新后的workload: {workload.description}，使用原始workload")
+                    updated_workload_list.append(workload)
+            updated_workloads.append(updated_workload_list)
+
+        logging.info(f"✅ {run_type} workloads更新完成:")
+        logging.info(f"   原始workloads总数: {total_original_workloads}")
+        logging.info(f"   更新后workloads总数: {total_updated_workloads}")
+        logging.info(f"   更新覆盖率: {total_updated_workloads/total_original_workloads*100:.1f}%")
+
+        return updated_workloads
+
+    def _find_updated_workload(self, original_workload, run_type):
+        """在workload_labels中查找对应的更新后workload"""
+        for workload_key, data in self.workload_labels[run_type].items():
+            updated_workload = data["workload"]
+            # 通过description匹配workload（可能需要更精确的匹配逻辑）
+            if (updated_workload.description == original_workload.description and
+                updated_workload.db == original_workload.db and
+                updated_workload.id == original_workload.id):
+                return updated_workload
+        return None
+
+    def _serialize_workloads_to_json(self, workload_lists):
+        """将workload列表序列化为JSON格式"""
+        from datetime import datetime
+
+        serialized_data = {
+            "metadata": {
+                "generated_at": datetime.now().isoformat(),
+                "experiment_id": self.id,
+                "total_workload_groups": len(workload_lists)
+            },
+            "workload_groups": []
+        }
+
+        for i, workload_list in enumerate(workload_lists):
+            group_data = {
+                "group_id": i,
+                "workloads": []
+            }
+
+            for workload in workload_list:
+                workload_data = self._serialize_single_workload(workload)
+                group_data["workloads"].append(workload_data)
+
+            serialized_data["workload_groups"].append(group_data)
+
+        return serialized_data
+
+    def _serialize_single_workload(self, workload):
+        """序列化单个Workload对象"""
+        # 序列化queries
+        queries_data = []
+        for query in workload.queries:
+            query_data = {
+                "id": query.nr,
+                "text": query.text,
+                "frequency": query.frequency,
+                "columns": [
+                    {
+                        "name": column.name,
+                        "table": column.table.name if column.table else None,
+                        "global_column_id": column.global_column_id
+                    } for column in query.columns
+                ]
+            }
+            queries_data.append(query_data)
+
+        # 序列化labels (Index对象)
+        labels_data = []
+        for index in workload.labels:
+            index_data = {
+                "table": index.table().name,
+                "columns": [col.name for col in index.columns],
+                "estimated_size": index.estimated_size,
+                "hypopg_name": index.hypopg_name
+            }
+            labels_data.append(index_data)
+
+        # 构建完整的workload数据
+        workload_data = {
+            "db": workload.db,
+            "id": workload.id,
+            "description": workload.description,
+            "budget": workload.budget,
+            "queries": queries_data,
+            "labels": labels_data,
+            "labels_count": len(workload.labels),
+            "queries_count": len(workload.queries)
+        }
+
+        return workload_data
 
     def finish(self):
         self.end_time = datetime.datetime.now()
@@ -223,6 +394,12 @@ class Experiment(object):
                 self.best_mean_reward_model_mv = None
                 self.test_bm_mv = None
                 self.vali_bm_mv = None
+
+        # 保存包含labels的workloads为JSON格式
+        self._save_workloads_as_json()
+
+        # 创建包含labels的workload文件
+        self._create_workload_files_with_labels()
 
         self._write_report()
 
@@ -972,8 +1149,8 @@ class Experiment(object):
         mean_performance = np.mean(perfs)
         print(f"Mean performance: {mean_performance:.2f} ({perfs})")
 
-        # 输出索引选择信息
-        self._output_index_selection_info(episode_performances, evaluation_env)
+        # 收集推荐索引作为labels（不再生成JSON文件）
+        self._collect_index_labels(episode_performances, evaluation_env)
 
         # 统计到self.swirl_times
         env_type = evaluation_env.get_attr("environment_type")[0]
@@ -1087,6 +1264,64 @@ class Experiment(object):
         
         print("=" * 50)
 
+    def _collect_index_labels(self, episode_performances, evaluation_env):
+        """收集推荐索引作为workload的labels"""
+        env_type = evaluation_env.get_attr("environment_type")[0]
+        run_type = "test" if env_type == EnvironmentType.TESTING else "validation"
+
+        print(f"🔍 DEBUG: 开始收集 {run_type} 的workload labels，共 {len(episode_performances)} 个episodes")
+        logging.info(f"开始收集 {run_type} 的workload labels，共 {len(episode_performances)} 个episodes")
+
+        # 记录实验ID和时间戳
+        print(f"🔍 DEBUG: 实验ID: {self.id}, 当前时间: {datetime.datetime.now()}")
+        logging.info(f"实验ID: {self.id}, 当前时间: {datetime.datetime.now()}")
+
+        for i, episode_perf in enumerate(episode_performances):
+            workload = episode_perf["evaluated_workload"]
+
+            # 调试：检查episode_perf结构
+            logging.info(f"Episode {i}: 检查数据结构")
+            logging.info(f"  - episode_perf keys: {list(episode_perf.keys())}")
+            logging.info(f"  - workload description: {workload.description}")
+            logging.info(f"  - workload id: {getattr(workload, 'id', 'N/A')}")
+            logging.info(f"  - workload db: {getattr(workload, 'db', 'N/A')}")
+
+            # 检查indexes字段是否存在
+            if "indexes" in episode_perf:
+                recommended_indexes = set(episode_perf["indexes"])
+                print(f"🔍 DEBUG: Episode {i} 发现 {len(recommended_indexes)} 个推荐索引")
+                logging.info(f"  - 发现 {len(recommended_indexes)} 个推荐索引")
+
+                # 显示前几个索引
+                for j, idx in enumerate(list(recommended_indexes)[:3]):
+                    logging.info(f"    索引 {j+1}: {idx}")
+                if len(recommended_indexes) > 3:
+                    logging.info(f"    ... 还有 {len(recommended_indexes) - 3} 个索引")
+            else:
+                recommended_indexes = set()
+                logging.warning(f"  - ❌ episode_perf中没有'indexes'字段！")
+                logging.warning(f"    可用的字段: {list(episode_perf.keys())}")
+
+            # 将索引添加到workload的labels中
+            workload.labels = recommended_indexes
+            logging.info(f"  - 已将 {len(recommended_indexes)} 个索引添加到workload.labels")
+
+            # 存储到workload_labels字典中
+            workload_key = f"{workload.description}_{i}"
+            self.workload_labels[run_type][workload_key] = {
+                "workload": workload,
+                "recommended_indexes": recommended_indexes,
+                "cost_improvement": float(episode_perf["achieved_cost"])
+            }
+
+            print(f"🔍 DEBUG: Episode {i} 完成 - workload: {workload.description}, labels: {len(workload.labels)}, key: {workload_key}")
+            logging.info(f"Episode {i} 完成 - workload: {workload.description}, labels: {len(workload.labels)}, key: {workload_key}")
+
+        print(f"🔍 DEBUG: ✅ 完成收集 {run_type} 的workload labels，共处理 {len(episode_performances)} 个episodes")
+        print(f"🔍 DEBUG:    {run_type} workload_labels 中现在有 {len(self.workload_labels[run_type])} 个条目")
+        logging.info(f"✅ 完成收集 {run_type} 的workload labels，共处理 {len(episode_performances)} 个episodes")
+        logging.info(f"   {run_type} workload_labels 中现在有 {len(self.workload_labels[run_type])} 个条目")
+
     def make_env(self, env_id, environment_type=EnvironmentType.TRAINING, workloads_in=None):
         def _init():
             action_manager_class = getattr(
@@ -1185,3 +1420,92 @@ class Experiment(object):
             self.sync_envs_normalization = sync_envs_normalization_sb3
         else:
             raise ValueError("There are only versions 2 and 3 of StableBaselines.")
+
+    def _create_workload_files_with_labels(self):
+        """创建包含推荐索引labels的workload文件"""
+        import json
+        from datetime import datetime
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        # 处理validation workloads
+        if self.workload_labels["validation"]:
+            validation_output = []
+            for workload_key, data in self.workload_labels["validation"].items():
+                workload = data["workload"]
+                recommended_indexes = data["recommended_indexes"]
+
+                # 创建包含labels的workload数据结构
+                workload_data = {
+                    "db": workload.db if workload.db is not None else 'unknown',
+                    "id": workload.id if workload.id is not None else 0,
+                    "description": workload.description,
+                    "queries": [
+                        {
+                            "sql": query.text,
+                            "frequency": int(query.frequency),
+                            "tables_columns": self._extract_tables_columns(query)
+                        } for query in workload.queries
+                    ],
+                    "labels": [
+                        {
+                            "table": index.table().name,
+                            "columns": [col.name for col in index.columns]
+                        } for index in recommended_indexes
+                    ],
+                    "cost_improvement": data["cost_improvement"]
+                }
+                validation_output.append(workload_data)
+
+            # 保存validation workload文件
+            validation_file = f"{self.experiment_folder_path}/validation_workloads_with_labels_{timestamp}.json"
+            with open(validation_file, 'w', encoding='utf-8') as f:
+                json.dump(validation_output, f, indent=2, ensure_ascii=False)
+            logging.info(f"Validation workloads with labels saved to: {validation_file}")
+
+        # 处理test workloads
+        if self.workload_labels["test"]:
+            test_output = []
+            for workload_key, data in self.workload_labels["test"].items():
+                workload = data["workload"]
+                recommended_indexes = data["recommended_indexes"]
+
+                # 创建包含labels的workload数据结构
+                workload_data = {
+                    "db": workload.db if workload.db is not None else 'unknown',
+                    "id": workload.id if workload.id is not None else 0,
+                    "description": workload.description,
+                    "queries": [
+                        {
+                            "sql": query.text,
+                            "frequency": int(query.frequency),
+                            "tables_columns": self._extract_tables_columns(query)
+                        } for query in workload.queries
+                    ],
+                    "labels": [
+                        {
+                            "table": index.table().name,
+                            "columns": [col.name for col in index.columns]
+                        } for index in recommended_indexes
+                    ],
+                    "cost_improvement": data["cost_improvement"]
+                }
+                test_output.append(workload_data)
+
+            # 保存test workload文件
+            test_file = f"{self.experiment_folder_path}/test_workloads_with_labels_{timestamp}.json"
+            with open(test_file, 'w', encoding='utf-8') as f:
+                json.dump(test_output, f, indent=2, ensure_ascii=False)
+            logging.info(f"Test workloads with labels saved to: {test_file}")
+
+    def _extract_tables_columns(self, query):
+        """从query中提取tables_columns信息"""
+        tables_columns = {}
+        for column in query.columns:
+            table_name = column.table.name
+            column_name = column.name
+            if table_name not in tables_columns:
+                tables_columns[table_name] = []
+            if column_name not in tables_columns[table_name]:
+                tables_columns[table_name].append(column_name)
+        return tables_columns

@@ -42,7 +42,9 @@ class DatabaseConnector:
         self.exec_only(statement)
 
     def _prepare_query(self, query):
-        for query_statement in query.text.split(";"):
+        # Use a more robust SQL statement splitter that handles semicolons in strings
+        statements = self._split_sql_statements(query.text)
+        for query_statement in statements:
             if "create view" in query_statement:
                 try:
                     self.exec_only(query_statement)
@@ -50,6 +52,47 @@ class DatabaseConnector:
                     logging.error(e)
             elif "select" in query_statement or "SELECT" in query_statement:
                 return query_statement
+
+    def _split_sql_statements(self, sql_text):
+        """
+        Split SQL statements by semicolon, but ignore semicolons inside quoted strings.
+        """
+        statements = []
+        current_statement = []
+        in_single_quote = False
+        in_double_quote = False
+        escape_next = False
+
+        for char in sql_text:
+            if escape_next:
+                current_statement.append(char)
+                escape_next = False
+                continue
+
+            if char == '\\':
+                escape_next = True
+                current_statement.append(char)
+                continue
+
+            if char == "'" and not in_double_quote:
+                in_single_quote = not in_single_quote
+            elif char == '"' and not in_single_quote:
+                in_double_quote = not in_double_quote
+            elif char == ';' and not in_single_quote and not in_double_quote:
+                # Found semicolon outside quotes, end current statement
+                if current_statement:
+                    statements.append(''.join(current_statement).strip())
+                    current_statement = []
+                continue
+
+            current_statement.append(char)
+
+        # Add the last statement if any
+        if current_statement:
+            statements.append(''.join(current_statement).strip())
+
+        # Filter out empty statements
+        return [stmt for stmt in statements if stmt.strip()]
 
     def simulate_index(self, index):
         self.simulated_indexes += 1

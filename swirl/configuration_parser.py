@@ -25,6 +25,8 @@ class ConfigurationParser(object):
             "result_path",
             "reenable_indexes",
             "pickle_cost_estimation_caches",
+            "ExternalWorkload",
+            "WorkloadPath",
         ]
 
         self.REQUIRED_CONFIGURATION_OPTIONS_FURTHER = {
@@ -59,6 +61,7 @@ class ConfigurationParser(object):
 
         self._translate_budgets()
         self._translate_column_filters()
+        self._translate_workload_options()
         self._translate_model_architecture()
 
         self._check_dependencies()
@@ -93,6 +96,13 @@ class ConfigurationParser(object):
             return
 
         self.config["column_filters"] = {}
+
+    def _translate_workload_options(self):
+        if "ExternalWorkload" not in self.config:
+            self.config["ExternalWorkload"] = False
+
+        if "WorkloadPath" not in self.config:
+            self.config["WorkloadPath"] = None
 
     def _check_dependencies(self):
         if self.config["rl_algorithm"]["algorithm"] == "DQN":
@@ -135,3 +145,11 @@ class ConfigurationParser(object):
             assert (
                 self.config["max_index_width"] > 1
             ), "If indexes should be reenabled, the max_index_width must be > 1 to have effect"
+
+        if self.config["ExternalWorkload"] is True:
+            assert (
+                self.config["WorkloadPath"] is not None
+            ), "WorkloadPath must be specified when ExternalWorkload is enabled"
+            assert (
+                self.config["WorkloadPath"].endswith('.json')
+            ), "WorkloadPath must point to a JSON file"

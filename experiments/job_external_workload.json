@@ -1,0 +1,64 @@
+{
+  "id": "JOB_ExternalWorkload_larger2noMask",
+  "description": "Test experiment using external workload file",
+  "gym_version": 1,
+  "timesteps": 20000,
+  "random_seed": 60,
+  "parallel_environments": 1,
+  "pickle_cost_estimation_caches": false,
+  "action_manager": "MultiColumnIndexActionManager",
+  "observation_manager": "SingleColumnIndexObservationManager",
+  "reward_calculator": "RelativeDifferenceRelativeToStorageReward",
+  "max_steps_per_episode": 50,
+  "validation_frequency": 1000,
+  "filter_utilized_columns": false,
+  "max_index_width": 2,
+  "reenable_indexes": false,
+  "result_path": "experiment_results",
+  "workload_embedder": {
+    "type": "PlanEmbedderLSIBOW",
+    "representation_size": 50
+  },
+  "rl_algorithm": {
+    "algorithm": "PPO2",
+    "stable_baselines_version": 2,
+    "gamma": 0.5,
+    "policy": "MlpPolicy",
+    "model_architecture": {
+      "net_arch": [
+        {
+          "vf": [128, 64],
+          "pi": [128, 64]
+        }
+      ]
+    },
+    "args": {
+      "n_steps": 64
+    }
+  },
+  "workload": {
+    "benchmark": "JOB",
+    "scale_factor": 10,
+    "size": 15,
+    "varying_frequencies": false,
+    "training_instances": 100,
+    "validation_testing": {
+      "number_of_workloads": 5,
+      "unknown_query_probabilities": [0.0]
+    },
+    "similar_workloads": false,
+    "query_class_change_frequency": null,
+    "excluded_query_classes": [],
+    "unknown_queries": 0
+  },
+  "comparison_algorithms": [],
+  "budgets": {
+    "training": false,
+    "validation_and_testing": [1000, 2000, 3000]
+  },
+  "column_filters": {
+    "TableNumRowsFilter": 10000
+  },
+  "ExternalWorkload": true,
+  "WorkloadPath": "/home/baiyutao/SWIRL/job.1500.1000w.5-15q.workload.json"
+}
