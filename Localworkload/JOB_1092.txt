@@ -1,1 +1,0 @@
-SELECT title.episode_nr, movie_info.id, complete_cast.id FROM complete_cast JOIN title ON title.id = complete_cast.movie_id JOIN movie_info ON movie_info.movie_id = title.id WHERE title.episode_nr > 237 AND title.imdb_index > 'II' AND title.id <= 1451880 AND movie_info.movie_id <= 550743 ORDER BY complete_cast.id DESC;

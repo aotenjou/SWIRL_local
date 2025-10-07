@@ -1,1 +1,0 @@
-SELECT title.imdb_index, complete_cast.subject_id FROM complete_cast JOIN title ON title.id = complete_cast.movie_id WHERE title.imdb_index <> 'II' AND title.series_years > '1996-????' AND complete_cast.subject_id <= 2 AND complete_cast.status_id <= 4 ORDER BY title.imdb_index DESC, complete_cast.subject_id DESC;

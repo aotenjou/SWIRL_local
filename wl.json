@@ -1,0 +1,2949 @@
+[
+    {
+        "db": "dsb",
+        "id": 4999,
+        "sqls_hash": "83ad9662dc41a43255ae8d4346ec530d",
+        "queries": [
+            {
+                "sql": "SELECT s_floor_space, ss_promo_sk FROM store, store_sales WHERE s_market_manager <> 'Joseph Roberts' AND s_store_id >= 'AAAAAAAAHAAAAAAA' AND s_street_number > '127' AND ss_promo_sk >= 55 ORDER BY ss_promo_sk ASC, s_floor_space DESC",
+                "tables_columns": {
+                    "store": [
+                        "s_market_manager",
+                        "s_street_number",
+                        "s_store_id",
+                        "s_floor_space"
+                    ],
+                    "store_sales": [
+                        "ss_promo_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT inv_quantity_on_hand FROM inventory WHERE inv_item_sk <> 15436 AND inv_warehouse_sk <> 2 AND inv_quantity_on_hand >= 660 AND inv_date_sk >= 2451375 ORDER BY inv_quantity_on_hand DESC",
+                "tables_columns": {
+                    "inventory": [
+                        "inv_date_sk",
+                        "inv_warehouse_sk",
+                        "inv_quantity_on_hand",
+                        "inv_item_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "inventory",
+                        "columns": [
+                            "inv_date_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT hd_vehicle_count, wr_returned_date_sk, ss_cdemo_sk, COUNT(ss_ext_list_price) FROM store_sales JOIN household_demographics ON hd_demo_sk = ss_hdemo_sk JOIN web_returns ON wr_returning_hdemo_sk = hd_demo_sk WHERE wr_refunded_cash >= 26.71 AND ss_sold_time_sk > 36424 GROUP BY hd_vehicle_count, wr_returned_date_sk, ss_cdemo_sk HAVING COUNT(ss_ext_list_price) > 501.27 ORDER BY ss_cdemo_sk DESC",
+                "tables_columns": {
+                    "web_returns": [
+                        "wr_refunded_cash",
+                        "wr_returning_hdemo_sk",
+                        "wr_returned_date_sk"
+                    ],
+                    "store_sales": [
+                        "ss_sold_time_sk",
+                        "ss_hdemo_sk",
+                        "ss_ext_list_price",
+                        "ss_cdemo_sk"
+                    ],
+                    "household_demographics": [
+                        "hd_vehicle_count",
+                        "hd_demo_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT w_country, inv_warehouse_sk FROM warehouse, inventory WHERE w_street_number > '450' AND w_warehouse_sq_ft <> 83472 AND w_suite_number <= 'Suite I' AND w_state >= 'TN' AND inv_quantity_on_hand <> 767 AND inv_item_sk < 9719 ORDER BY w_country ASC",
+                "tables_columns": {
+                    "inventory": [
+                        "inv_warehouse_sk",
+                        "inv_quantity_on_hand",
+                        "inv_item_sk"
+                    ],
+                    "warehouse": [
+                        "w_country",
+                        "w_state",
+                        "w_warehouse_sq_ft",
+                        "w_street_number",
+                        "w_suite_number"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT sr_return_time_sk, cs_quantity, cc_employees, ca_address_id FROM store_returns JOIN customer_address ON ca_address_sk = sr_addr_sk JOIN catalog_sales ON cs_ship_addr_sk = ca_address_sk JOIN call_center ON cc_call_center_sk = cs_call_center_sk WHERE cs_ext_wholesale_cost <= 2458.26 AND cc_mkt_class > 'Rural, likely women accept. Public, final th' AND sr_return_quantity <> 6 ORDER BY cc_employees ASC, cs_quantity DESC",
+                "tables_columns": {
+                    "catalog_sales": [
+                        "cs_quantity",
+                        "cs_ship_addr_sk",
+                        "cs_call_center_sk",
+                        "cs_ext_wholesale_cost"
+                    ],
+                    "store_returns": [
+                        "sr_addr_sk",
+                        "sr_return_quantity",
+                        "sr_return_time_sk"
+                    ],
+                    "call_center": [
+                        "cc_call_center_sk",
+                        "cc_mkt_class",
+                        "cc_employees"
+                    ],
+                    "customer_address": [
+                        "ca_address_id",
+                        "ca_address_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "call_center",
+                        "columns": [
+                            "cc_call_center_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT cs_call_center_sk, ws_ship_cdemo_sk, ca_address_sk, w_suite_number, sm_ship_mode_id FROM warehouse JOIN web_sales ON ws_warehouse_sk = w_warehouse_sk JOIN customer_address ON ca_address_sk = ws_ship_addr_sk JOIN catalog_sales ON cs_ship_addr_sk = ca_address_sk JOIN ship_mode ON sm_ship_mode_sk = cs_ship_mode_sk WHERE cs_wholesale_cost <> 21.46 AND cs_ship_hdemo_sk < 6259 ORDER BY cs_call_center_sk ASC",
+                "tables_columns": {
+                    "catalog_sales": [
+                        "cs_ship_addr_sk",
+                        "cs_ship_hdemo_sk",
+                        "cs_wholesale_cost",
+                        "cs_call_center_sk",
+                        "cs_ship_mode_sk"
+                    ],
+                    "web_sales": [
+                        "ws_ship_cdemo_sk",
+                        "ws_warehouse_sk",
+                        "ws_ship_addr_sk"
+                    ],
+                    "ship_mode": [
+                        "sm_ship_mode_sk",
+                        "sm_ship_mode_id"
+                    ],
+                    "warehouse": [
+                        "w_suite_number",
+                        "w_warehouse_sk"
+                    ],
+                    "customer_address": [
+                        "ca_address_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "ship_mode",
+                        "columns": [
+                            "sm_ship_mode_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT i_manager_id, s_manager, ss_cdemo_sk, ws_bill_addr_sk, wr_returning_customer_sk, c_current_cdemo_sk FROM store JOIN store_sales ON ss_store_sk = s_store_sk JOIN customer ON c_customer_sk = ss_customer_sk JOIN web_returns ON wr_returning_customer_sk = c_customer_sk JOIN item ON i_item_sk = wr_item_sk JOIN web_sales ON ws_item_sk = i_item_sk WHERE i_category_id < 2 AND ws_sold_time_sk >= 61416 ORDER BY ss_cdemo_sk ASC",
+                "tables_columns": {
+                    "web_returns": [
+                        "wr_returning_customer_sk",
+                        "wr_item_sk"
+                    ],
+                    "customer": [
+                        "c_customer_sk",
+                        "c_current_cdemo_sk"
+                    ],
+                    "web_sales": [
+                        "ws_sold_time_sk",
+                        "ws_bill_addr_sk",
+                        "ws_item_sk"
+                    ],
+                    "store_sales": [
+                        "ss_store_sk",
+                        "ss_cdemo_sk",
+                        "ss_customer_sk"
+                    ],
+                    "item": [
+                        "i_category_id",
+                        "i_manager_id",
+                        "i_item_sk",
+                        "i_category"
+                    ],
+                    "store": [
+                        "s_store_sk",
+                        "s_manager"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "customer",
+                        "columns": [
+                            "c_customer_sk"
+                        ]
+                    },
+                    {
+                        "table": "store",
+                        "columns": [
+                            "s_store_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_sales",
+                        "columns": [
+                            "ws_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_returns",
+                        "columns": [
+                            "wr_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT cc_name, wr_returning_cdemo_sk, cs_ship_addr_sk, i_current_price, cr_refunded_customer_sk, MIN(cr_returning_customer_sk), COUNT(cs_bill_customer_sk) FROM catalog_sales JOIN call_center ON cc_call_center_sk = cs_call_center_sk JOIN catalog_returns ON cr_call_center_sk = cc_call_center_sk JOIN item ON i_item_sk = cr_item_sk JOIN web_returns ON wr_item_sk = i_item_sk WHERE i_color = 'olive' AND cs_promo_sk > 299 GROUP BY cc_name, wr_returning_cdemo_sk, cs_ship_addr_sk, i_current_price, cr_refunded_customer_sk",
+                "tables_columns": {
+                    "catalog_returns": [
+                        "cr_returning_customer_sk",
+                        "cr_item_sk",
+                        "cr_call_center_sk",
+                        "cr_refunded_customer_sk"
+                    ],
+                    "web_returns": [
+                        "wr_returning_cdemo_sk",
+                        "wr_item_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_bill_customer_sk",
+                        "cs_ship_addr_sk",
+                        "cs_call_center_sk",
+                        "cs_promo_sk"
+                    ],
+                    "call_center": [
+                        "cc_call_center_sk",
+                        "cc_name"
+                    ],
+                    "item": [
+                        "i_current_price",
+                        "i_color",
+                        "i_item_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "web_returns",
+                        "columns": [
+                            "wr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_returns",
+                        "columns": [
+                            "cr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "call_center",
+                        "columns": [
+                            "cc_call_center_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT ws_net_paid_inc_tax, inv_warehouse_sk, i_rec_end_date, c_last_name FROM inventory JOIN item ON i_item_sk = inv_item_sk JOIN web_sales ON ws_item_sk = i_item_sk JOIN customer ON c_customer_sk = ws_ship_customer_sk WHERE c_birth_month = 6 AND c_last_name <= 'Guyton' AND i_product_name >= 'ablecallyantioughtought' AND ws_web_page_sk < 28 AND c_first_shipto_date_sk <> 2451456",
+                "tables_columns": {
+                    "customer": [
+                        "c_customer_sk",
+                        "c_birth_month",
+                        "c_last_name",
+                        "c_first_shipto_date_sk"
+                    ],
+                    "web_sales": [
+                        "ws_ship_customer_sk",
+                        "ws_net_paid",
+                        "ws_web_page_sk",
+                        "ws_item_sk",
+                        "ws_net_paid_inc_tax"
+                    ],
+                    "inventory": [
+                        "inv_warehouse_sk",
+                        "inv_item_sk"
+                    ],
+                    "item": [
+                        "i_rec_end_date",
+                        "i_item_sk",
+                        "i_product_name"
+                    ],
+                    "date_dim": [
+                        "d_date"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "web_sales",
+                        "columns": [
+                            "ws_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer",
+                        "columns": [
+                            "c_customer_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT c_customer_id, ss_ext_tax FROM customer, store_sales WHERE ss_promo_sk < 228 AND ss_list_price = 118.28 AND ss_ext_wholesale_cost >= 3616.5 AND ss_coupon_amt < 76.12 AND ss_wholesale_cost >= 14.07 AND ss_quantity < 91 ORDER BY c_customer_id DESC",
+                "tables_columns": {
+                    "store_sales": [
+                        "ss_quantity",
+                        "ss_ext_wholesale_cost",
+                        "ss_promo_sk",
+                        "ss_ext_tax",
+                        "ss_list_price",
+                        "ss_coupon_amt",
+                        "ss_wholesale_cost"
+                    ],
+                    "customer": [
+                        "c_customer_id"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT sm_carrier, ws_ship_hdemo_sk, cs_ext_sales_price, p_channel_tv FROM promotion JOIN catalog_sales ON cs_promo_sk = p_promo_sk JOIN ship_mode ON sm_ship_mode_sk = cs_ship_mode_sk JOIN web_sales ON ws_ship_mode_sk = sm_ship_mode_sk WHERE cs_warehouse_sk > 1 AND p_channel_demo <> 'N' AND ws_warehouse_sk > 4 ORDER BY sm_carrier ASC",
+                "tables_columns": {
+                    "catalog_sales": [
+                        "cs_ext_sales_price",
+                        "cs_promo_sk",
+                        "cs_warehouse_sk",
+                        "cs_ship_mode_sk"
+                    ],
+                    "web_sales": [
+                        "ws_ship_mode_sk",
+                        "ws_warehouse_sk",
+                        "ws_ship_hdemo_sk"
+                    ],
+                    "ship_mode": [
+                        "sm_ship_mode_sk",
+                        "sm_carrier"
+                    ],
+                    "promotion": [
+                        "p_channel_tv",
+                        "p_channel_demo",
+                        "p_promo_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "promotion",
+                        "columns": [
+                            "p_promo_sk"
+                        ]
+                    },
+                    {
+                        "table": "ship_mode",
+                        "columns": [
+                            "sm_ship_mode_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT ss_ext_sales_price, cr_return_amount, hd_vehicle_count FROM store_sales JOIN household_demographics ON hd_demo_sk = ss_hdemo_sk JOIN catalog_returns ON cr_returning_hdemo_sk = hd_demo_sk WHERE ss_ext_wholesale_cost <> 55.37 AND cr_returning_customer_sk > 79797 AND ss_sold_date_sk <> 2450936 ORDER BY ss_ext_sales_price ASC, hd_vehicle_count DESC",
+                "tables_columns": {
+                    "catalog_returns": [
+                        "cr_returning_hdemo_sk",
+                        "cr_returning_customer_sk",
+                        "cr_return_amount"
+                    ],
+                    "store_sales": [
+                        "ss_hdemo_sk",
+                        "ss_ext_sales_price",
+                        "ss_ext_wholesale_cost",
+                        "ss_sold_date_sk"
+                    ],
+                    "household_demographics": [
+                        "hd_vehicle_count",
+                        "hd_demo_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT wr_web_page_sk, s_suite_number, ss_addr_sk, ca_zip, hd_income_band_sk FROM store JOIN store_sales ON ss_store_sk = s_store_sk JOIN customer_address ON ca_address_sk = ss_addr_sk JOIN web_returns ON wr_returning_addr_sk = ca_address_sk JOIN household_demographics ON hd_demo_sk = wr_returning_hdemo_sk WHERE s_market_id <> 1 AND ss_net_profit <= -2.88 ORDER BY wr_web_page_sk DESC",
+                "tables_columns": {
+                    "web_returns": [
+                        "wr_returning_addr_sk",
+                        "wr_web_page_sk",
+                        "wr_returning_hdemo_sk"
+                    ],
+                    "household_demographics": [
+                        "hd_income_band_sk",
+                        "hd_demo_sk"
+                    ],
+                    "store": [
+                        "s_store_sk",
+                        "s_market_id",
+                        "s_suite_number"
+                    ],
+                    "customer_address": [
+                        "ca_address_sk",
+                        "ca_zip"
+                    ],
+                    "store_sales": [
+                        "ss_store_sk",
+                        "ss_addr_sk",
+                        "ss_net_profit"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "store",
+                        "columns": [
+                            "s_store_sk"
+                        ]
+                    },
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT cc_open_date_sk, d_qoy, w_city, inv_warehouse_sk, MAX(w_street_number), MAX(w_warehouse_id) FROM warehouse, inventory, date_dim, call_center WHERE w_street_name = 'Park 3rd' AND inv_quantity_on_hand <= 205 AND d_current_week < 'N' GROUP BY cc_open_date_sk, d_qoy, w_city, inv_warehouse_sk ORDER BY MAX(w_street_number) DESC, MAX(w_warehouse_id) ASC",
+                "tables_columns": {
+                    "inventory": [
+                        "inv_warehouse_sk",
+                        "inv_quantity_on_hand"
+                    ],
+                    "warehouse": [
+                        "w_warehouse_id",
+                        "w_street_number",
+                        "w_street_name",
+                        "w_city"
+                    ],
+                    "call_center": [
+                        "cc_open_date_sk"
+                    ],
+                    "date_dim": [
+                        "d_current_week",
+                        "d_qoy"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT w_warehouse_sq_ft, inv_quantity_on_hand FROM inventory JOIN warehouse ON w_warehouse_sk = inv_warehouse_sk WHERE w_warehouse_sq_ft <> 213141 AND w_zip >= '35709' AND w_street_name < 'Elm Ridge' AND w_street_type <> 'Ct.'",
+                "tables_columns": {
+                    "inventory": [
+                        "inv_warehouse_sk",
+                        "inv_quantity_on_hand"
+                    ],
+                    "warehouse": [
+                        "w_warehouse_sk",
+                        "w_street_type",
+                        "w_warehouse_sq_ft",
+                        "w_zip",
+                        "w_street_name"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT ss_item_sk, s_number_employees, d_same_day_lq, cs_catalog_page_sk, hd_demo_sk FROM household_demographics JOIN catalog_sales ON cs_ship_hdemo_sk = hd_demo_sk JOIN date_dim ON d_date_sk = cs_sold_date_sk JOIN store ON s_closed_date_sk = d_date_sk JOIN store_sales ON ss_store_sk = s_store_sk WHERE ss_ext_tax <= 447.17 AND cs_quantity >= 40 AND cs_ship_customer_sk > 97070 ORDER BY hd_demo_sk ASC, s_number_employees ASC",
+                "tables_columns": {
+                    "catalog_sales": [
+                        "cs_sold_date_sk",
+                        "cs_ship_customer_sk",
+                        "cs_catalog_page_sk",
+                        "cs_ship_hdemo_sk",
+                        "cs_quantity"
+                    ],
+                    "store": [
+                        "s_store_sk",
+                        "s_number_employees",
+                        "s_closed_date_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date",
+                        "d_same_day_lq"
+                    ],
+                    "store_sales": [
+                        "ss_store_sk",
+                        "ss_item_sk",
+                        "ss_ext_tax"
+                    ],
+                    "household_demographics": [
+                        "hd_demo_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "store_sales",
+                        "columns": [
+                            "ss_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "store",
+                        "columns": [
+                            "s_store_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT hd_income_band_sk, ws_net_paid_inc_tax, wr_return_tax, cs_ship_date_sk, cd_gender FROM web_sales JOIN customer_demographics ON cd_demo_sk = ws_ship_cdemo_sk JOIN web_returns ON wr_returning_cdemo_sk = cd_demo_sk JOIN household_demographics ON hd_demo_sk = wr_returning_hdemo_sk JOIN catalog_sales ON cs_ship_hdemo_sk = hd_demo_sk WHERE ws_web_site_sk <> 4 AND ws_ext_list_price <> 271.31 ORDER BY cd_gender DESC, wr_return_tax DESC, hd_income_band_sk ASC",
+                "tables_columns": {
+                    "web_returns": [
+                        "wr_returning_cdemo_sk",
+                        "wr_return_tax",
+                        "wr_returning_hdemo_sk"
+                    ],
+                    "web_sales": [
+                        "ws_web_site_sk",
+                        "ws_net_paid",
+                        "ws_ext_list_price",
+                        "ws_ship_cdemo_sk",
+                        "ws_net_paid_inc_tax"
+                    ],
+                    "household_demographics": [
+                        "hd_income_band_sk",
+                        "hd_demo_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_ship_hdemo_sk",
+                        "cs_ship_date_sk"
+                    ],
+                    "web_site": [
+                        "web_site_sk"
+                    ],
+                    "customer_demographics": [
+                        "cd_gender",
+                        "cd_demo_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "web_site",
+                        "columns": [
+                            "web_site_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_demographics",
+                        "columns": [
+                            "cd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT sr_addr_sk, i_item_id, hd_income_band_sk, ws_wholesale_cost, inv_warehouse_sk FROM inventory JOIN item ON i_item_sk = inv_item_sk JOIN web_sales ON ws_item_sk = i_item_sk JOIN household_demographics ON hd_demo_sk = ws_ship_hdemo_sk JOIN store_returns ON sr_hdemo_sk = hd_demo_sk WHERE sr_refunded_cash <= 719.18 AND hd_demo_sk = 3447 AND i_size <> 'small'",
+                "tables_columns": {
+                    "household_demographics": [
+                        "hd_income_band_sk",
+                        "hd_demo_sk"
+                    ],
+                    "web_sales": [
+                        "ws_wholesale_cost",
+                        "ws_item_sk",
+                        "ws_ship_hdemo_sk"
+                    ],
+                    "store_returns": [
+                        "sr_refunded_cash",
+                        "sr_hdemo_sk",
+                        "sr_addr_sk"
+                    ],
+                    "inventory": [
+                        "inv_warehouse_sk",
+                        "inv_item_sk"
+                    ],
+                    "item": [
+                        "i_item_sk",
+                        "i_size",
+                        "i_item_id"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_sales",
+                        "columns": [
+                            "ws_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT i_class_id, cr_refunded_addr_sk, ss_ticket_number, hd_vehicle_count FROM store_sales JOIN household_demographics ON hd_demo_sk = ss_hdemo_sk JOIN catalog_returns ON cr_returning_hdemo_sk = hd_demo_sk JOIN item ON i_item_sk = cr_item_sk WHERE ss_net_paid <= 867.88 AND i_manager_id < 16 AND cr_call_center_sk >= 2 ORDER BY hd_vehicle_count DESC, cr_refunded_addr_sk ASC, ss_ticket_number ASC, i_class_id ASC",
+                "tables_columns": {
+                    "catalog_returns": [
+                        "cr_returning_hdemo_sk",
+                        "cr_refunded_addr_sk",
+                        "cr_item_sk",
+                        "cr_call_center_sk"
+                    ],
+                    "household_demographics": [
+                        "hd_vehicle_count",
+                        "hd_demo_sk"
+                    ],
+                    "store_sales": [
+                        "ss_ticket_number",
+                        "ss_hdemo_sk",
+                        "ss_net_paid"
+                    ],
+                    "item": [
+                        "i_manager_id",
+                        "i_item_sk",
+                        "i_class_id",
+                        "i_class"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_returns",
+                        "columns": [
+                            "cr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT i_manufact, wr_refunded_cdemo_sk, inv_date_sk, w_state, t_shift, sr_return_tax FROM store_returns JOIN time_dim ON t_time_sk = sr_return_time_sk JOIN web_returns ON wr_returned_time_sk = t_time_sk JOIN item ON i_item_sk = wr_item_sk JOIN inventory ON inv_item_sk = i_item_sk JOIN warehouse ON w_warehouse_sk = inv_warehouse_sk WHERE wr_returning_hdemo_sk < 3519 AND wr_returning_addr_sk <= 5562",
+                "tables_columns": {
+                    "web_returns": [
+                        "wr_returning_hdemo_sk",
+                        "wr_returned_time_sk",
+                        "wr_returning_addr_sk",
+                        "wr_item_sk",
+                        "wr_refunded_cdemo_sk"
+                    ],
+                    "store_returns": [
+                        "sr_return_tax",
+                        "sr_return_time_sk"
+                    ],
+                    "inventory": [
+                        "inv_date_sk",
+                        "inv_warehouse_sk",
+                        "inv_item_sk"
+                    ],
+                    "warehouse": [
+                        "w_warehouse_sk",
+                        "w_state"
+                    ],
+                    "item": [
+                        "i_item_sk",
+                        "i_manufact"
+                    ],
+                    "time_dim": [
+                        "t_shift",
+                        "t_time",
+                        "t_time_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "time_dim",
+                        "columns": [
+                            "t_time_sk"
+                        ]
+                    },
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    },
+                    {
+                        "table": "inventory",
+                        "columns": [
+                            "inv_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_returns",
+                        "columns": [
+                            "wr_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT ws_ship_date_sk, web_street_name, sm_carrier FROM ship_mode, web_sales, web_site WHERE web_street_name > 'Cherry' AND web_mkt_id = 5 AND web_city >= 'Fairview' ORDER BY web_street_name DESC",
+                "tables_columns": {
+                    "web_site": [
+                        "web_street_name",
+                        "web_city",
+                        "web_mkt_id"
+                    ],
+                    "web_sales": [
+                        "ws_ship_date_sk"
+                    ],
+                    "ship_mode": [
+                        "sm_carrier"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT ss_quantity, c_email_address, cs_ext_wholesale_cost, s_hours, ca_suite_number, d_month_seq FROM store_sales JOIN store ON s_store_sk = ss_store_sk JOIN date_dim ON d_date_sk = s_closed_date_sk JOIN catalog_sales ON cs_sold_date_sk = d_date_sk JOIN customer_address ON ca_address_sk = cs_ship_addr_sk JOIN customer ON c_current_addr_sk = ca_address_sk WHERE cs_ship_addr_sk <= 22080 AND c_first_name <= 'Joyce'",
+                "tables_columns": {
+                    "catalog_sales": [
+                        "cs_sold_date_sk",
+                        "cs_ship_addr_sk",
+                        "cs_ext_wholesale_cost"
+                    ],
+                    "customer": [
+                        "c_email_address",
+                        "c_current_addr_sk",
+                        "c_first_name"
+                    ],
+                    "store": [
+                        "s_store_sk",
+                        "s_hours",
+                        "s_closed_date_sk"
+                    ],
+                    "customer_address": [
+                        "ca_address_sk",
+                        "ca_suite_number"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date",
+                        "d_month_seq"
+                    ],
+                    "store_sales": [
+                        "ss_store_sk",
+                        "ss_quantity"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "store",
+                        "columns": [
+                            "s_store_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT w_street_name, cr_net_loss, d_qoy, cs_net_paid_inc_tax, cp_catalog_page_id FROM date_dim JOIN catalog_sales ON cs_sold_date_sk = d_date_sk JOIN catalog_page ON cp_catalog_page_sk = cs_catalog_page_sk JOIN catalog_returns ON cr_catalog_page_sk = cp_catalog_page_sk JOIN warehouse ON w_warehouse_sk = cr_warehouse_sk WHERE cs_ext_wholesale_cost >= 671.52 AND cs_bill_addr_sk <> 30134 ORDER BY d_qoy ASC, cs_net_paid_inc_tax ASC, w_street_name ASC",
+                "tables_columns": {
+                    "catalog_sales": [
+                        "cs_net_paid_inc_tax",
+                        "cs_sold_date_sk",
+                        "cs_catalog_page_sk",
+                        "cs_net_paid",
+                        "cs_ext_wholesale_cost",
+                        "cs_bill_addr_sk"
+                    ],
+                    "catalog_page": [
+                        "cp_catalog_page_id",
+                        "cp_catalog_page_sk"
+                    ],
+                    "catalog_returns": [
+                        "cr_net_loss",
+                        "cr_warehouse_sk",
+                        "cr_catalog_page_sk"
+                    ],
+                    "warehouse": [
+                        "w_street_name",
+                        "w_warehouse_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_qoy",
+                        "d_date"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "catalog_page",
+                        "columns": [
+                            "cp_catalog_page_sk"
+                        ]
+                    },
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT i_class_id, ss_ext_tax, sr_customer_sk, r_reason_id, SUM(sr_return_amt_inc_tax), MAX(i_current_price) FROM store_sales JOIN item ON i_item_sk = ss_item_sk JOIN store_returns ON sr_item_sk = i_item_sk JOIN reason ON r_reason_sk = sr_reason_sk WHERE ss_promo_sk > 146 AND ss_sales_price < 3.72 AND sr_store_credit > 0.0 GROUP BY i_class_id, ss_ext_tax, sr_customer_sk, r_reason_id",
+                "tables_columns": {
+                    "store_returns": [
+                        "sr_item_sk",
+                        "sr_return_amt_inc_tax",
+                        "sr_customer_sk",
+                        "sr_reason_sk",
+                        "sr_return_amt",
+                        "sr_store_credit"
+                    ],
+                    "item": [
+                        "i_current_price",
+                        "i_item_sk",
+                        "i_class_id",
+                        "i_class"
+                    ],
+                    "store_sales": [
+                        "ss_item_sk",
+                        "ss_ext_tax",
+                        "ss_sales_price",
+                        "ss_promo_sk"
+                    ],
+                    "reason": [
+                        "r_reason_id",
+                        "r_reason_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "store_sales",
+                        "columns": [
+                            "ss_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "reason",
+                        "columns": [
+                            "r_reason_sk"
+                        ]
+                    },
+                    {
+                        "table": "store_returns",
+                        "columns": [
+                            "sr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT i_category_id, p_channel_event, sr_net_loss, ws_wholesale_cost, t_sub_shift FROM time_dim JOIN store_returns ON sr_return_time_sk = t_time_sk JOIN item ON i_item_sk = sr_item_sk JOIN web_sales ON ws_item_sk = i_item_sk JOIN promotion ON p_promo_sk = ws_promo_sk WHERE ws_item_sk <> 17842 AND t_hour <> 2 ORDER BY ws_wholesale_cost DESC, i_category_id DESC",
+                "tables_columns": {
+                    "store_returns": [
+                        "sr_item_sk",
+                        "sr_net_loss",
+                        "sr_return_time_sk"
+                    ],
+                    "web_sales": [
+                        "ws_wholesale_cost",
+                        "ws_promo_sk",
+                        "ws_item_sk"
+                    ],
+                    "promotion": [
+                        "p_channel_event",
+                        "p_promo_sk"
+                    ],
+                    "item": [
+                        "i_category",
+                        "i_item_sk",
+                        "i_category_id"
+                    ],
+                    "time_dim": [
+                        "t_hour",
+                        "t_time",
+                        "t_sub_shift",
+                        "t_time_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "time_dim",
+                        "columns": [
+                            "t_time_sk"
+                        ]
+                    },
+                    {
+                        "table": "promotion",
+                        "columns": [
+                            "p_promo_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_sales",
+                        "columns": [
+                            "ws_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "store_returns",
+                        "columns": [
+                            "sr_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT c_last_name, cs_sold_time_sk, w_warehouse_sq_ft, inv_item_sk FROM inventory JOIN warehouse ON w_warehouse_sk = inv_warehouse_sk JOIN catalog_sales ON cs_warehouse_sk = w_warehouse_sk JOIN customer ON c_customer_sk = cs_ship_customer_sk WHERE cs_sold_time_sk = 35576 AND cs_ship_mode_sk >= 14 AND c_current_hdemo_sk = 575 ORDER BY w_warehouse_sq_ft DESC, inv_item_sk ASC, c_last_name ASC, cs_sold_time_sk ASC",
+                "tables_columns": {
+                    "catalog_sales": [
+                        "cs_ship_mode_sk",
+                        "cs_warehouse_sk",
+                        "cs_ship_customer_sk",
+                        "cs_sold_time_sk"
+                    ],
+                    "customer": [
+                        "c_customer_sk",
+                        "c_last_name",
+                        "c_current_hdemo_sk"
+                    ],
+                    "warehouse": [
+                        "w_warehouse_sq_ft",
+                        "w_warehouse_sk"
+                    ],
+                    "inventory": [
+                        "inv_warehouse_sk",
+                        "inv_item_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer",
+                        "columns": [
+                            "c_customer_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT wr_account_credit, i_item_desc, inv_date_sk, hd_vehicle_count, ib_upper_bound FROM income_band JOIN household_demographics ON hd_income_band_sk = ib_income_band_sk JOIN web_returns ON wr_returning_hdemo_sk = hd_demo_sk JOIN item ON i_item_sk = wr_item_sk JOIN inventory ON inv_item_sk = i_item_sk WHERE i_brand_id < 9016010 AND i_brand > 'scholaramalgamalg #5' ORDER BY ib_upper_bound ASC, i_item_desc DESC, wr_account_credit ASC, inv_date_sk ASC",
+                "tables_columns": {
+                    "web_returns": [
+                        "wr_item_sk",
+                        "wr_account_credit",
+                        "wr_returning_hdemo_sk"
+                    ],
+                    "income_band": [
+                        "ib_income_band_sk",
+                        "ib_upper_bound"
+                    ],
+                    "household_demographics": [
+                        "hd_vehicle_count",
+                        "hd_income_band_sk",
+                        "hd_demo_sk"
+                    ],
+                    "item": [
+                        "i_brand",
+                        "i_item_sk",
+                        "i_item_desc",
+                        "i_brand_id"
+                    ],
+                    "inventory": [
+                        "inv_date_sk",
+                        "inv_item_sk"
+                    ]
+                },
+                "large_columns": {
+                    "item": [
+                        "i_item_desc"
+                    ]
+                },
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "inventory",
+                        "columns": [
+                            "inv_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_returns",
+                        "columns": [
+                            "wr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "income_band",
+                        "columns": [
+                            "ib_income_band_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT p_promo_name, w_city, inv_quantity_on_hand, d_quarter_seq, ws_ship_customer_sk FROM web_sales JOIN warehouse ON w_warehouse_sk = ws_warehouse_sk JOIN inventory ON inv_warehouse_sk = w_warehouse_sk JOIN date_dim ON d_date_sk = inv_date_sk JOIN promotion ON p_start_date_sk = d_date_sk WHERE ws_warehouse_sk < 4 AND p_cost > 1000.0 ORDER BY p_promo_name ASC",
+                "tables_columns": {
+                    "inventory": [
+                        "inv_date_sk",
+                        "inv_warehouse_sk",
+                        "inv_quantity_on_hand"
+                    ],
+                    "web_sales": [
+                        "ws_ship_customer_sk",
+                        "ws_warehouse_sk"
+                    ],
+                    "promotion": [
+                        "p_start_date_sk",
+                        "p_cost",
+                        "p_promo_name"
+                    ],
+                    "warehouse": [
+                        "w_warehouse_sk",
+                        "w_city"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_quarter_seq",
+                        "d_date"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    },
+                    {
+                        "table": "inventory",
+                        "columns": [
+                            "inv_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT c_salutation, ss_ticket_number, cs_ext_discount_amt, hd_demo_sk, cp_start_date_sk FROM household_demographics JOIN store_sales ON ss_hdemo_sk = hd_demo_sk JOIN customer ON c_customer_sk = ss_customer_sk JOIN catalog_sales ON cs_ship_customer_sk = c_customer_sk JOIN catalog_page ON cp_catalog_page_sk = cs_catalog_page_sk WHERE ss_ext_sales_price <= 3461.4 AND c_last_review_date_sk <= 2452500 ORDER BY cp_start_date_sk ASC",
+                "tables_columns": {
+                    "customer": [
+                        "c_customer_sk",
+                        "c_salutation",
+                        "c_last_review_date_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_ext_discount_amt",
+                        "cs_ship_customer_sk",
+                        "cs_catalog_page_sk"
+                    ],
+                    "catalog_page": [
+                        "cp_catalog_page_sk",
+                        "cp_start_date_sk"
+                    ],
+                    "store_sales": [
+                        "ss_customer_sk",
+                        "ss_ticket_number",
+                        "ss_hdemo_sk",
+                        "ss_ext_sales_price"
+                    ],
+                    "promotion": [
+                        "p_start_date_sk"
+                    ],
+                    "household_demographics": [
+                        "hd_demo_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "catalog_page",
+                        "columns": [
+                            "cp_catalog_page_sk"
+                        ]
+                    },
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer",
+                        "columns": [
+                            "c_customer_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT w_gmt_offset, cr_returning_addr_sk, i_item_sk, r_reason_desc, inv_quantity_on_hand FROM warehouse JOIN inventory ON inv_warehouse_sk = w_warehouse_sk JOIN item ON i_item_sk = inv_item_sk JOIN catalog_returns ON cr_item_sk = i_item_sk JOIN reason ON r_reason_sk = cr_reason_sk WHERE i_wholesale_cost <= 1.51 AND r_reason_desc <> 'No service location in my area' AND w_suite_number = 'Suite I'",
+                "tables_columns": {
+                    "inventory": [
+                        "inv_warehouse_sk",
+                        "inv_quantity_on_hand",
+                        "inv_item_sk"
+                    ],
+                    "catalog_returns": [
+                        "cr_reason_sk",
+                        "cr_item_sk",
+                        "cr_returning_addr_sk"
+                    ],
+                    "item": [
+                        "i_item_sk",
+                        "i_wholesale_cost"
+                    ],
+                    "warehouse": [
+                        "w_suite_number",
+                        "w_warehouse_sk",
+                        "w_gmt_offset"
+                    ],
+                    "reason": [
+                        "r_reason_desc",
+                        "r_reason_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_returns",
+                        "columns": [
+                            "cr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "reason",
+                        "columns": [
+                            "r_reason_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT wr_web_page_sk, cs_ext_wholesale_cost, c_birth_day, i_item_id, d_holiday, cd_marital_status FROM date_dim JOIN customer ON c_first_shipto_date_sk = d_date_sk JOIN catalog_sales ON cs_ship_customer_sk = c_customer_sk JOIN item ON i_item_sk = cs_item_sk JOIN web_returns ON wr_item_sk = i_item_sk JOIN customer_demographics ON cd_demo_sk = wr_returning_cdemo_sk WHERE c_first_sales_date_sk > 2449104 AND i_category_id >= 2 ORDER BY wr_web_page_sk ASC",
+                "tables_columns": {
+                    "customer": [
+                        "c_customer_sk",
+                        "c_first_sales_date_sk",
+                        "c_birth_day",
+                        "c_first_shipto_date_sk"
+                    ],
+                    "web_returns": [
+                        "wr_returning_cdemo_sk",
+                        "wr_item_sk",
+                        "wr_web_page_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_item_sk",
+                        "cs_ship_customer_sk",
+                        "cs_ext_wholesale_cost"
+                    ],
+                    "customer_demographics": [
+                        "cd_marital_status",
+                        "cd_demo_sk"
+                    ],
+                    "item": [
+                        "i_category_id",
+                        "i_item_sk",
+                        "i_item_id",
+                        "i_category"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date",
+                        "d_holiday"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_demographics",
+                        "columns": [
+                            "cd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer",
+                        "columns": [
+                            "c_customer_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_returns",
+                        "columns": [
+                            "wr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_sales",
+                        "columns": [
+                            "cs_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT cr_catalog_page_sk, inv_warehouse_sk, i_item_desc, r_reason_id FROM inventory JOIN item ON i_item_sk = inv_item_sk JOIN catalog_returns ON cr_item_sk = i_item_sk JOIN reason ON r_reason_sk = cr_reason_sk WHERE inv_warehouse_sk <> 2 AND cr_return_amount < 304.86 AND i_current_price < 9.97 ORDER BY i_item_desc ASC, r_reason_id ASC, cr_catalog_page_sk ASC, inv_warehouse_sk DESC",
+                "tables_columns": {
+                    "catalog_returns": [
+                        "cr_catalog_page_sk",
+                        "cr_reason_sk",
+                        "cr_item_sk",
+                        "cr_return_amount"
+                    ],
+                    "inventory": [
+                        "inv_warehouse_sk",
+                        "inv_item_sk"
+                    ],
+                    "item": [
+                        "i_current_price",
+                        "i_item_sk",
+                        "i_item_desc"
+                    ],
+                    "reason": [
+                        "r_reason_id",
+                        "r_reason_sk"
+                    ]
+                },
+                "large_columns": {
+                    "item": [
+                        "i_item_desc"
+                    ]
+                },
+                "exist_indexes": [
+                    {
+                        "table": "catalog_returns",
+                        "columns": [
+                            "cr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "reason",
+                        "columns": [
+                            "r_reason_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT web_street_name, ws_ext_wholesale_cost, wp_web_page_id, wr_refunded_cash FROM web_returns JOIN web_page ON wp_web_page_sk = wr_web_page_sk JOIN web_sales ON ws_web_page_sk = wp_web_page_sk JOIN web_site ON web_site_sk = ws_web_site_sk WHERE wr_return_tax <> 1.12 AND ws_ext_discount_amt >= 5435.43 AND wp_char_count = 4693 ORDER BY wp_web_page_id DESC, ws_ext_wholesale_cost DESC, web_street_name ASC",
+                "tables_columns": {
+                    "web_sales": [
+                        "ws_ext_wholesale_cost",
+                        "ws_web_site_sk",
+                        "ws_web_page_sk",
+                        "ws_ext_discount_amt"
+                    ],
+                    "web_returns": [
+                        "wr_refunded_cash",
+                        "wr_return_tax",
+                        "wr_web_page_sk"
+                    ],
+                    "web_site": [
+                        "web_street_name",
+                        "web_site_sk"
+                    ],
+                    "web_page": [
+                        "wp_web_page_id",
+                        "wp_web_page_sk",
+                        "wp_char_count"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "web_page",
+                        "columns": [
+                            "wp_web_page_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_site",
+                        "columns": [
+                            "web_site_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT p_channel_email, sr_fee, ws_list_price, ca_suite_number, s_closed_date_sk FROM promotion JOIN web_sales ON ws_promo_sk = p_promo_sk JOIN customer_address ON ca_address_sk = ws_ship_addr_sk JOIN store_returns ON sr_addr_sk = ca_address_sk JOIN store ON s_store_sk = sr_store_sk WHERE sr_item_sk < 16696 AND p_channel_email <= 'N' ORDER BY p_channel_email DESC, ca_suite_number ASC, ws_list_price ASC, sr_fee ASC",
+                "tables_columns": {
+                    "store": [
+                        "s_store_sk",
+                        "s_closed_date_sk"
+                    ],
+                    "customer_address": [
+                        "ca_address_sk",
+                        "ca_suite_number"
+                    ],
+                    "promotion": [
+                        "p_channel_email",
+                        "p_promo_sk"
+                    ],
+                    "web_sales": [
+                        "ws_promo_sk",
+                        "ws_list_price",
+                        "ws_ship_addr_sk"
+                    ],
+                    "store_returns": [
+                        "sr_fee",
+                        "sr_item_sk",
+                        "sr_addr_sk",
+                        "sr_store_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "promotion",
+                        "columns": [
+                            "p_promo_sk"
+                        ]
+                    },
+                    {
+                        "table": "store",
+                        "columns": [
+                            "s_store_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "store_returns",
+                        "columns": [
+                            "sr_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT sr_item_sk, p_purpose, i_rec_start_date, ss_ext_sales_price, hd_dep_count, COUNT(hd_dep_count) FROM promotion JOIN item ON i_item_sk = p_item_sk JOIN store_returns ON sr_item_sk = i_item_sk JOIN household_demographics ON hd_demo_sk = sr_hdemo_sk JOIN store_sales ON ss_hdemo_sk = hd_demo_sk WHERE sr_customer_sk <> 97031 AND ss_addr_sk < 33769 GROUP BY sr_item_sk, p_purpose, i_rec_start_date, ss_ext_sales_price, hd_dep_count",
+                "tables_columns": {
+                    "store_sales": [
+                        "ss_ext_sales_price",
+                        "ss_hdemo_sk",
+                        "ss_addr_sk"
+                    ],
+                    "item": [
+                        "i_rec_start_date",
+                        "i_item_sk"
+                    ],
+                    "store_returns": [
+                        "sr_customer_sk",
+                        "sr_item_sk",
+                        "sr_hdemo_sk"
+                    ],
+                    "household_demographics": [
+                        "hd_dep_count",
+                        "hd_demo_sk"
+                    ],
+                    "promotion": [
+                        "p_item_sk",
+                        "p_purpose"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "store_returns",
+                        "columns": [
+                            "sr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT cs_bill_cdemo_sk, d_quarter_name, i_manager_id, cd_marital_status, ss_item_sk, MIN(ss_ext_sales_price) FROM item JOIN catalog_sales ON cs_item_sk = i_item_sk JOIN customer_demographics ON cd_demo_sk = cs_ship_cdemo_sk JOIN store_sales ON ss_cdemo_sk = cd_demo_sk JOIN date_dim ON d_date_sk = ss_sold_date_sk WHERE i_rec_end_date <> '2000-10-26' AND d_fy_week_seq > 9035 GROUP BY cs_bill_cdemo_sk, d_quarter_name, i_manager_id, cd_marital_status, ss_item_sk",
+                "tables_columns": {
+                    "store_sales": [
+                        "ss_cdemo_sk",
+                        "ss_item_sk",
+                        "ss_sold_date_sk",
+                        "ss_ext_sales_price"
+                    ],
+                    "customer_demographics": [
+                        "cd_marital_status",
+                        "cd_demo_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_item_sk",
+                        "cs_bill_cdemo_sk",
+                        "cs_ship_cdemo_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date",
+                        "d_fy_week_seq",
+                        "d_quarter_name"
+                    ],
+                    "item": [
+                        "i_manager_id",
+                        "i_rec_end_date",
+                        "i_item_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "store_sales",
+                        "columns": [
+                            "ss_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_demographics",
+                        "columns": [
+                            "cd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_sales",
+                        "columns": [
+                            "cs_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT w_country, cr_returning_addr_sk, inv_warehouse_sk FROM inventory JOIN warehouse ON w_warehouse_sk = inv_warehouse_sk JOIN catalog_returns ON cr_warehouse_sk = w_warehouse_sk WHERE cr_warehouse_sk <> 3 AND cr_return_amount = 58.22 AND cr_return_amt_inc_tax <= 67.04 ORDER BY w_country ASC",
+                "tables_columns": {
+                    "catalog_returns": [
+                        "cr_return_amt_inc_tax",
+                        "cr_warehouse_sk",
+                        "cr_return_amount",
+                        "cr_returning_addr_sk"
+                    ],
+                    "inventory": [
+                        "inv_warehouse_sk"
+                    ],
+                    "warehouse": [
+                        "w_country",
+                        "w_warehouse_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT ss_wholesale_cost, c_customer_id, ca_zip, hd_buy_potential, cd_purchase_estimate FROM customer_demographics JOIN customer ON c_current_cdemo_sk = cd_demo_sk JOIN household_demographics ON hd_demo_sk = c_current_hdemo_sk JOIN store_sales ON ss_hdemo_sk = hd_demo_sk JOIN customer_address ON ca_address_sk = ss_addr_sk WHERE ss_ext_sales_price >= 801.29 AND c_salutation <> 'Dr.' AND ss_addr_sk <= 30226 ORDER BY c_customer_id ASC, hd_buy_potential DESC",
+                "tables_columns": {
+                    "customer_demographics": [
+                        "cd_purchase_estimate",
+                        "cd_demo_sk"
+                    ],
+                    "customer": [
+                        "c_current_cdemo_sk",
+                        "c_salutation",
+                        "c_customer_id",
+                        "c_current_hdemo_sk"
+                    ],
+                    "store_sales": [
+                        "ss_ext_sales_price",
+                        "ss_hdemo_sk",
+                        "ss_addr_sk",
+                        "ss_wholesale_cost"
+                    ],
+                    "household_demographics": [
+                        "hd_demo_sk",
+                        "hd_buy_potential"
+                    ],
+                    "customer_address": [
+                        "ca_address_sk",
+                        "ca_zip"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_demographics",
+                        "columns": [
+                            "cd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT s_gmt_offset, cs_sold_time_sk, ca_state, t_shift, ss_ext_list_price, MIN(ca_suite_number) FROM customer_address JOIN catalog_sales ON cs_ship_addr_sk = ca_address_sk JOIN time_dim ON t_time_sk = cs_sold_time_sk JOIN store_sales ON ss_sold_time_sk = t_time_sk JOIN store ON s_store_sk = ss_store_sk WHERE ss_customer_sk < 16874 AND s_division_id <> 1 GROUP BY s_gmt_offset, cs_sold_time_sk, ca_state, t_shift, ss_ext_list_price",
+                "tables_columns": {
+                    "store_sales": [
+                        "ss_customer_sk",
+                        "ss_sold_time_sk",
+                        "ss_ext_list_price",
+                        "ss_store_sk"
+                    ],
+                    "customer_address": [
+                        "ca_address_sk",
+                        "ca_suite_number",
+                        "ca_state"
+                    ],
+                    "catalog_sales": [
+                        "cs_ship_addr_sk",
+                        "cs_sold_time_sk"
+                    ],
+                    "store": [
+                        "s_gmt_offset",
+                        "s_store_sk",
+                        "s_division_id"
+                    ],
+                    "time_dim": [
+                        "t_shift",
+                        "t_time",
+                        "t_time_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "store",
+                        "columns": [
+                            "s_store_sk"
+                        ]
+                    },
+                    {
+                        "table": "time_dim",
+                        "columns": [
+                            "t_time_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT t_second, ws_net_paid, ss_ext_sales_price, p_response_target, wr_item_sk, cd_dep_count FROM web_sales JOIN promotion ON p_promo_sk = ws_promo_sk JOIN store_sales ON ss_promo_sk = p_promo_sk JOIN time_dim ON t_time_sk = ss_sold_time_sk JOIN web_returns ON wr_returned_time_sk = t_time_sk JOIN customer_demographics ON cd_demo_sk = wr_returning_cdemo_sk WHERE ss_quantity = 91 AND cd_dep_college_count = 3 ORDER BY ss_ext_sales_price ASC",
+                "tables_columns": {
+                    "web_returns": [
+                        "wr_returning_cdemo_sk",
+                        "wr_item_sk",
+                        "wr_returned_time_sk"
+                    ],
+                    "customer_demographics": [
+                        "cd_dep_count",
+                        "cd_dep_college_count",
+                        "cd_demo_sk"
+                    ],
+                    "store_sales": [
+                        "ss_quantity",
+                        "ss_sold_time_sk",
+                        "ss_ext_sales_price",
+                        "ss_promo_sk"
+                    ],
+                    "promotion": [
+                        "p_response_target",
+                        "p_promo_sk"
+                    ],
+                    "web_sales": [
+                        "ws_net_paid",
+                        "ws_promo_sk"
+                    ],
+                    "time_dim": [
+                        "t_time",
+                        "t_second",
+                        "t_time_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "web_returns",
+                        "columns": [
+                            "wr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "promotion",
+                        "columns": [
+                            "p_promo_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_demographics",
+                        "columns": [
+                            "cd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "time_dim",
+                        "columns": [
+                            "t_time_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT c_customer_id, cs_call_center_sk, i_rec_start_date, cr_returning_cdemo_sk, hd_demo_sk FROM customer JOIN household_demographics ON hd_demo_sk = c_current_hdemo_sk JOIN catalog_sales ON cs_ship_hdemo_sk = hd_demo_sk JOIN item ON i_item_sk = cs_item_sk JOIN catalog_returns ON cr_item_sk = i_item_sk WHERE cs_ship_date_sk <> 2452624 AND i_class_id < 8 ORDER BY i_rec_start_date ASC",
+                "tables_columns": {
+                    "catalog_returns": [
+                        "cr_returning_cdemo_sk",
+                        "cr_item_sk"
+                    ],
+                    "customer": [
+                        "c_customer_id",
+                        "c_current_hdemo_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_item_sk",
+                        "cs_call_center_sk",
+                        "cs_ship_hdemo_sk",
+                        "cs_ship_date_sk"
+                    ],
+                    "item": [
+                        "i_rec_start_date",
+                        "i_item_sk",
+                        "i_class_id",
+                        "i_class"
+                    ],
+                    "household_demographics": [
+                        "hd_demo_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_returns",
+                        "columns": [
+                            "cr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_sales",
+                        "columns": [
+                            "cs_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT ss_list_price, wr_refunded_cash, t_shift FROM web_returns JOIN time_dim ON t_time_sk = wr_returned_time_sk JOIN store_sales ON ss_sold_time_sk = t_time_sk WHERE ss_wholesale_cost <= 99.91 AND ss_ext_wholesale_cost <> 1982.8 AND wr_returned_time_sk >= 47852 ORDER BY wr_refunded_cash DESC, t_shift ASC",
+                "tables_columns": {
+                    "store_sales": [
+                        "ss_sold_time_sk",
+                        "ss_ext_wholesale_cost",
+                        "ss_list_price",
+                        "ss_wholesale_cost"
+                    ],
+                    "web_returns": [
+                        "wr_refunded_cash",
+                        "wr_returned_time_sk"
+                    ],
+                    "time_dim": [
+                        "t_shift",
+                        "t_time",
+                        "t_time_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "time_dim",
+                        "columns": [
+                            "t_time_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT ws_order_number, i_brand, t_sub_shift FROM item, web_sales, time_dim WHERE i_item_id = 'AAAAAAAAKCIDAAAA' AND ws_bill_hdemo_sk = 5567 AND i_brand <> 'namelessmaxi #6' ORDER BY i_brand ASC, ws_order_number ASC",
+                "tables_columns": {
+                    "web_sales": [
+                        "ws_bill_hdemo_sk",
+                        "ws_order_number"
+                    ],
+                    "time_dim": [
+                        "t_sub_shift"
+                    ],
+                    "item": [
+                        "i_brand",
+                        "i_item_id"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT p_promo_id, w_suite_number, ws_ship_customer_sk, i_rec_start_date, wp_customer_sk, inv_date_sk FROM web_page JOIN web_sales ON ws_web_page_sk = wp_web_page_sk JOIN warehouse ON w_warehouse_sk = ws_warehouse_sk JOIN inventory ON inv_warehouse_sk = w_warehouse_sk JOIN item ON i_item_sk = inv_item_sk JOIN promotion ON p_item_sk = i_item_sk WHERE ws_sales_price = 33.29 AND ws_coupon_amt <= 218.51 ORDER BY ws_ship_customer_sk ASC",
+                "tables_columns": {
+                    "web_sales": [
+                        "ws_coupon_amt",
+                        "ws_ship_customer_sk",
+                        "ws_warehouse_sk",
+                        "ws_sales_price",
+                        "ws_web_page_sk"
+                    ],
+                    "item": [
+                        "i_rec_start_date",
+                        "i_item_sk"
+                    ],
+                    "inventory": [
+                        "inv_date_sk",
+                        "inv_warehouse_sk",
+                        "inv_item_sk"
+                    ],
+                    "warehouse": [
+                        "w_suite_number",
+                        "w_warehouse_sk"
+                    ],
+                    "web_page": [
+                        "wp_customer_sk",
+                        "wp_web_page_sk"
+                    ],
+                    "promotion": [
+                        "p_item_sk",
+                        "p_promo_id"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "web_page",
+                        "columns": [
+                            "wp_web_page_sk"
+                        ]
+                    },
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    },
+                    {
+                        "table": "inventory",
+                        "columns": [
+                            "inv_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT d_fy_year, cr_call_center_sk, inv_quantity_on_hand, w_warehouse_sq_ft FROM catalog_returns JOIN date_dim ON d_date_sk = cr_returned_date_sk JOIN inventory ON inv_date_sk = d_date_sk JOIN warehouse ON w_warehouse_sk = inv_warehouse_sk WHERE w_county = 'Williamson County' AND d_moy < 7 AND d_fy_quarter_seq < 371",
+                "tables_columns": {
+                    "inventory": [
+                        "inv_date_sk",
+                        "inv_warehouse_sk",
+                        "inv_quantity_on_hand"
+                    ],
+                    "catalog_returns": [
+                        "cr_call_center_sk",
+                        "cr_returned_date_sk"
+                    ],
+                    "warehouse": [
+                        "w_warehouse_sq_ft",
+                        "w_county",
+                        "w_warehouse_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_fy_quarter_seq",
+                        "d_moy",
+                        "d_date",
+                        "d_fy_year"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "warehouse",
+                        "columns": [
+                            "w_warehouse_sk"
+                        ]
+                    },
+                    {
+                        "table": "inventory",
+                        "columns": [
+                            "inv_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT i_container, cr_net_loss, cs_bill_addr_sk, wr_refunded_cdemo_sk, ca_address_sk FROM catalog_returns JOIN item ON i_item_sk = cr_item_sk JOIN catalog_sales ON cs_item_sk = i_item_sk JOIN customer_address ON ca_address_sk = cs_ship_addr_sk JOIN web_returns ON wr_returning_addr_sk = ca_address_sk WHERE ca_address_sk < 27561 AND ca_city > 'Shiloh' ORDER BY i_container DESC, ca_address_sk ASC, cr_net_loss DESC",
+                "tables_columns": {
+                    "web_returns": [
+                        "wr_returning_addr_sk",
+                        "wr_refunded_cdemo_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_item_sk",
+                        "cs_ship_addr_sk",
+                        "cs_bill_addr_sk"
+                    ],
+                    "customer_address": [
+                        "ca_city",
+                        "ca_address_sk"
+                    ],
+                    "item": [
+                        "i_container",
+                        "i_item_sk"
+                    ],
+                    "catalog_returns": [
+                        "cr_net_loss",
+                        "cr_item_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_returns",
+                        "columns": [
+                            "cr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_sales",
+                        "columns": [
+                            "cs_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT cs_ship_addr_sk, cr_return_amt_inc_tax, wr_refunded_hdemo_sk, i_manufact_id, ca_city FROM catalog_sales JOIN customer_address ON ca_address_sk = cs_ship_addr_sk JOIN web_returns ON wr_returning_addr_sk = ca_address_sk JOIN item ON i_item_sk = wr_item_sk JOIN catalog_returns ON cr_item_sk = i_item_sk WHERE wr_refunded_addr_sk <> 29009 AND cs_sold_date_sk <> 2451479 ORDER BY cr_return_amt_inc_tax ASC, i_manufact_id DESC, wr_refunded_hdemo_sk DESC, ca_city ASC",
+                "tables_columns": {
+                    "catalog_returns": [
+                        "cr_return_amt_inc_tax",
+                        "cr_item_sk"
+                    ],
+                    "web_returns": [
+                        "wr_refunded_hdemo_sk",
+                        "wr_item_sk",
+                        "wr_returning_addr_sk",
+                        "wr_refunded_addr_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_sold_date_sk",
+                        "cs_ship_addr_sk"
+                    ],
+                    "customer_address": [
+                        "ca_city",
+                        "ca_address_sk"
+                    ],
+                    "item": [
+                        "i_manufact_id",
+                        "i_item_sk",
+                        "i_manufact"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "web_returns",
+                        "columns": [
+                            "wr_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "catalog_returns",
+                        "columns": [
+                            "cr_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT s_store_id, ss_ext_sales_price, cs_net_paid_inc_ship_tax, d_same_day_ly, hd_demo_sk, ib_upper_bound FROM income_band JOIN household_demographics ON hd_income_band_sk = ib_income_band_sk JOIN store_sales ON ss_hdemo_sk = hd_demo_sk JOIN store ON s_store_sk = ss_store_sk JOIN date_dim ON d_date_sk = s_closed_date_sk JOIN catalog_sales ON cs_sold_date_sk = d_date_sk WHERE ib_lower_bound <= 80001 AND s_division_id = 1",
+                "tables_columns": {
+                    "catalog_sales": [
+                        "cs_net_paid",
+                        "cs_net_paid_inc_ship_tax",
+                        "cs_net_paid_inc_ship",
+                        "cs_sold_date_sk"
+                    ],
+                    "store_sales": [
+                        "ss_store_sk",
+                        "ss_hdemo_sk",
+                        "ss_ext_sales_price"
+                    ],
+                    "income_band": [
+                        "ib_income_band_sk",
+                        "ib_upper_bound",
+                        "ib_lower_bound"
+                    ],
+                    "household_demographics": [
+                        "hd_income_band_sk",
+                        "hd_demo_sk"
+                    ],
+                    "store": [
+                        "s_store_sk",
+                        "s_division_id",
+                        "s_store_id",
+                        "s_closed_date_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_same_day_ly",
+                        "d_date"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "household_demographics",
+                        "columns": [
+                            "hd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "income_band",
+                        "columns": [
+                            "ib_income_band_sk"
+                        ]
+                    },
+                    {
+                        "table": "store",
+                        "columns": [
+                            "s_store_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT wr_net_loss, sr_refunded_cash, ss_sold_date_sk, i_item_id, ca_street_type, cd_dep_college_count FROM web_returns JOIN customer_address ON ca_address_sk = wr_returning_addr_sk JOIN store_returns ON sr_addr_sk = ca_address_sk JOIN item ON i_item_sk = sr_item_sk JOIN store_sales ON ss_item_sk = i_item_sk JOIN customer_demographics ON cd_demo_sk = ss_cdemo_sk WHERE cd_purchase_estimate <> 1500 AND sr_reversed_charge < 4744.85 ORDER BY i_item_id ASC",
+                "tables_columns": {
+                    "customer_demographics": [
+                        "cd_dep_college_count",
+                        "cd_purchase_estimate",
+                        "cd_demo_sk"
+                    ],
+                    "web_returns": [
+                        "wr_net_loss",
+                        "wr_returning_addr_sk"
+                    ],
+                    "store_returns": [
+                        "sr_refunded_cash",
+                        "sr_reversed_charge",
+                        "sr_addr_sk",
+                        "sr_item_sk"
+                    ],
+                    "store_sales": [
+                        "ss_cdemo_sk",
+                        "ss_item_sk",
+                        "ss_sold_date_sk"
+                    ],
+                    "customer_address": [
+                        "ca_street_type",
+                        "ca_address_sk"
+                    ],
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_date"
+                    ],
+                    "item": [
+                        "i_item_sk",
+                        "i_item_id"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "store_sales",
+                        "columns": [
+                            "ss_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_demographics",
+                        "columns": [
+                            "cd_demo_sk"
+                        ]
+                    },
+                    {
+                        "table": "customer_address",
+                        "columns": [
+                            "ca_address_sk"
+                        ]
+                    },
+                    {
+                        "table": "item",
+                        "columns": [
+                            "i_item_sk"
+                        ]
+                    },
+                    {
+                        "table": "store_returns",
+                        "columns": [
+                            "sr_item_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            },
+            {
+                "sql": "SELECT s_zip, d_fy_week_seq, cs_sold_date_sk, ss_ext_discount_amt FROM store_sales JOIN store ON s_store_sk = ss_store_sk JOIN date_dim ON d_date_sk = s_closed_date_sk JOIN catalog_sales ON cs_sold_date_sk = d_date_sk WHERE d_holiday <> 'Y' AND d_month_seq >= 1924 AND d_following_holiday >= 'N'",
+                "tables_columns": {
+                    "date_dim": [
+                        "d_date_sk",
+                        "d_month_seq",
+                        "d_fy_week_seq",
+                        "d_holiday",
+                        "d_date",
+                        "d_following_holiday"
+                    ],
+                    "store_sales": [
+                        "ss_store_sk",
+                        "ss_ext_discount_amt"
+                    ],
+                    "store": [
+                        "s_zip",
+                        "s_store_sk",
+                        "s_closed_date_sk"
+                    ],
+                    "catalog_sales": [
+                        "cs_sold_date_sk"
+                    ]
+                },
+                "large_columns": {},
+                "exist_indexes": [
+                    {
+                        "table": "date_dim",
+                        "columns": [
+                            "d_date_sk"
+                        ]
+                    },
+                    {
+                        "table": "store",
+                        "columns": [
+                            "s_store_sk"
+                        ]
+                    }
+                ],
+                "basic_cost_explain": 0,
+                "frequency": 1
+            }
+        ],
+        "tables_columns": {
+            "store": [
+                "s_zip",
+                "s_closed_date_sk",
+                "s_market_manager",
+                "s_division_id",
+                "s_store_sk",
+                "s_manager",
+                "s_market_id",
+                "s_street_number",
+                "s_store_id",
+                "s_suite_number",
+                "s_hours",
+                "s_gmt_offset",
+                "s_number_employees",
+                "s_floor_space"
+            ],
+            "store_sales": [
+                "ss_quantity",
+                "ss_sold_time_sk",
+                "ss_cdemo_sk",
+                "ss_hdemo_sk",
+                "ss_ext_wholesale_cost",
+                "ss_promo_sk",
+                "ss_customer_sk",
+                "ss_list_price",
+                "ss_ext_discount_amt",
+                "ss_store_sk",
+                "ss_ticket_number",
+                "ss_addr_sk",
+                "ss_sold_date_sk",
+                "ss_ext_list_price",
+                "ss_ext_sales_price",
+                "ss_ext_tax",
+                "ss_coupon_amt",
+                "ss_item_sk",
+                "ss_net_paid",
+                "ss_sales_price",
+                "ss_wholesale_cost",
+                "ss_net_profit"
+            ],
+            "inventory": [
+                "inv_date_sk",
+                "inv_warehouse_sk",
+                "inv_quantity_on_hand",
+                "inv_item_sk"
+            ],
+            "web_returns": [
+                "wr_refunded_cash",
+                "wr_returning_hdemo_sk",
+                "wr_returned_time_sk",
+                "wr_returning_addr_sk",
+                "wr_returned_date_sk",
+                "wr_refunded_addr_sk",
+                "wr_returning_customer_sk",
+                "wr_returning_cdemo_sk",
+                "wr_item_sk",
+                "wr_return_tax",
+                "wr_web_page_sk",
+                "wr_refunded_cdemo_sk",
+                "wr_account_credit",
+                "wr_refunded_hdemo_sk",
+                "wr_net_loss"
+            ],
+            "household_demographics": [
+                "hd_vehicle_count",
+                "hd_income_band_sk",
+                "hd_demo_sk",
+                "hd_dep_count",
+                "hd_buy_potential"
+            ],
+            "date_dim": [
+                "d_fy_week_seq",
+                "d_current_week",
+                "d_holiday",
+                "d_fy_quarter_seq",
+                "d_quarter_name",
+                "d_date",
+                "d_date_sk",
+                "d_same_day_ly",
+                "d_month_seq",
+                "d_qoy",
+                "d_quarter_seq",
+                "d_moy",
+                "d_same_day_lq",
+                "d_following_holiday",
+                "d_fy_year"
+            ],
+            "warehouse": [
+                "w_country",
+                "w_warehouse_sk",
+                "w_state",
+                "w_street_type",
+                "w_warehouse_sq_ft",
+                "w_city",
+                "w_gmt_offset",
+                "w_warehouse_id",
+                "w_street_number",
+                "w_county",
+                "w_suite_number",
+                "w_zip",
+                "w_street_name"
+            ],
+            "catalog_sales": [
+                "cs_bill_customer_sk",
+                "cs_sold_date_sk",
+                "cs_ship_customer_sk",
+                "cs_catalog_page_sk",
+                "cs_net_paid",
+                "cs_item_sk",
+                "cs_net_paid_inc_ship",
+                "cs_warehouse_sk",
+                "cs_ship_hdemo_sk",
+                "cs_bill_addr_sk",
+                "cs_ship_cdemo_sk",
+                "cs_wholesale_cost",
+                "cs_quantity",
+                "cs_sold_time_sk",
+                "cs_net_paid_inc_ship_tax",
+                "cs_call_center_sk",
+                "cs_ship_mode_sk",
+                "cs_ship_date_sk",
+                "cs_bill_cdemo_sk",
+                "cs_net_paid_inc_tax",
+                "cs_promo_sk",
+                "cs_ship_addr_sk",
+                "cs_ext_sales_price",
+                "cs_ext_wholesale_cost",
+                "cs_ext_discount_amt"
+            ],
+            "store_returns": [
+                "sr_return_amt_inc_tax",
+                "sr_return_tax",
+                "sr_return_time_sk",
+                "sr_refunded_cash",
+                "sr_return_amt",
+                "sr_reversed_charge",
+                "sr_store_credit",
+                "sr_item_sk",
+                "sr_hdemo_sk",
+                "sr_addr_sk",
+                "sr_customer_sk",
+                "sr_reason_sk",
+                "sr_return_quantity",
+                "sr_net_loss",
+                "sr_fee",
+                "sr_store_sk"
+            ],
+            "call_center": [
+                "cc_call_center_sk",
+                "cc_open_date_sk",
+                "cc_employees",
+                "cc_name",
+                "cc_mkt_class"
+            ],
+            "customer_address": [
+                "ca_city",
+                "ca_address_id",
+                "ca_address_sk",
+                "ca_zip",
+                "ca_state",
+                "ca_street_type",
+                "ca_suite_number"
+            ],
+            "web_sales": [
+                "ws_ship_mode_sk",
+                "ws_web_site_sk",
+                "ws_order_number",
+                "ws_coupon_amt",
+                "ws_net_paid",
+                "ws_ship_date_sk",
+                "ws_ship_cdemo_sk",
+                "ws_list_price",
+                "ws_sales_price",
+                "ws_web_page_sk",
+                "ws_wholesale_cost",
+                "ws_item_sk",
+                "ws_net_paid_inc_tax",
+                "ws_bill_hdemo_sk",
+                "ws_bill_addr_sk",
+                "ws_ship_customer_sk",
+                "ws_warehouse_sk",
+                "ws_ext_list_price",
+                "ws_promo_sk",
+                "ws_ship_hdemo_sk",
+                "ws_ship_addr_sk",
+                "ws_ext_wholesale_cost",
+                "ws_sold_time_sk",
+                "ws_ext_discount_amt"
+            ],
+            "ship_mode": [
+                "sm_ship_mode_sk",
+                "sm_ship_mode_id",
+                "sm_carrier"
+            ],
+            "customer": [
+                "c_last_name",
+                "c_first_name",
+                "c_current_cdemo_sk",
+                "c_birth_month",
+                "c_email_address",
+                "c_last_review_date_sk",
+                "c_current_addr_sk",
+                "c_customer_sk",
+                "c_salutation",
+                "c_birth_day",
+                "c_first_sales_date_sk",
+                "c_customer_id",
+                "c_current_hdemo_sk",
+                "c_first_shipto_date_sk"
+            ],
+            "item": [
+                "i_size",
+                "i_manufact_id",
+                "i_container",
+                "i_item_id",
+                "i_item_desc",
+                "i_brand_id",
+                "i_current_price",
+                "i_rec_start_date",
+                "i_category_id",
+                "i_item_sk",
+                "i_color",
+                "i_manager_id",
+                "i_class",
+                "i_manufact",
+                "i_wholesale_cost",
+                "i_brand",
+                "i_rec_end_date",
+                "i_class_id",
+                "i_category",
+                "i_product_name"
+            ],
+            "catalog_returns": [
+                "cr_warehouse_sk",
+                "cr_item_sk",
+                "cr_returning_cdemo_sk",
+                "cr_return_amount",
+                "cr_returning_hdemo_sk",
+                "cr_net_loss",
+                "cr_catalog_page_sk",
+                "cr_reason_sk",
+                "cr_return_amt_inc_tax",
+                "cr_refunded_customer_sk",
+                "cr_returned_date_sk",
+                "cr_returning_customer_sk",
+                "cr_refunded_addr_sk",
+                "cr_call_center_sk",
+                "cr_returning_addr_sk"
+            ],
+            "promotion": [
+                "p_start_date_sk",
+                "p_channel_demo",
+                "p_channel_event",
+                "p_promo_name",
+                "p_purpose",
+                "p_promo_id",
+                "p_channel_tv",
+                "p_response_target",
+                "p_item_sk",
+                "p_promo_sk",
+                "p_channel_email",
+                "p_cost"
+            ],
+            "web_site": [
+                "web_street_name",
+                "web_city",
+                "web_site_sk",
+                "web_mkt_id"
+            ],
+            "customer_demographics": [
+                "cd_marital_status",
+                "cd_dep_college_count",
+                "cd_gender",
+                "cd_purchase_estimate",
+                "cd_dep_count",
+                "cd_demo_sk"
+            ],
+            "time_dim": [
+                "t_hour",
+                "t_time_sk",
+                "t_shift",
+                "t_time",
+                "t_second",
+                "t_sub_shift"
+            ],
+            "catalog_page": [
+                "cp_catalog_page_id",
+                "cp_start_date_sk",
+                "cp_catalog_page_sk"
+            ],
+            "reason": [
+                "r_reason_desc",
+                "r_reason_sk",
+                "r_reason_id"
+            ],
+            "income_band": [
+                "ib_income_band_sk",
+                "ib_upper_bound",
+                "ib_lower_bound"
+            ],
+            "web_page": [
+                "wp_web_page_id",
+                "wp_web_page_sk",
+                "wp_customer_sk",
+                "wp_char_count"
+            ]
+        },
+        "large_columns": {
+            "item": [
+                "i_item_desc"
+            ]
+        },
+        "exist_indexes": [
+            {
+                "table": "web_page",
+                "columns": [
+                    "wp_web_page_sk"
+                ]
+            },
+            {
+                "table": "date_dim",
+                "columns": [
+                    "d_date_sk"
+                ]
+            },
+            {
+                "table": "time_dim",
+                "columns": [
+                    "t_time_sk"
+                ]
+            },
+            {
+                "table": "promotion",
+                "columns": [
+                    "p_promo_sk"
+                ]
+            },
+            {
+                "table": "customer_demographics",
+                "columns": [
+                    "cd_demo_sk"
+                ]
+            },
+            {
+                "table": "warehouse",
+                "columns": [
+                    "w_warehouse_sk"
+                ]
+            },
+            {
+                "table": "household_demographics",
+                "columns": [
+                    "hd_demo_sk"
+                ]
+            },
+            {
+                "table": "catalog_page",
+                "columns": [
+                    "cp_catalog_page_sk"
+                ]
+            },
+            {
+                "table": "inventory",
+                "columns": [
+                    "inv_date_sk"
+                ]
+            },
+            {
+                "table": "item",
+                "columns": [
+                    "i_item_sk"
+                ]
+            },
+            {
+                "table": "web_returns",
+                "columns": [
+                    "wr_item_sk"
+                ]
+            },
+            {
+                "table": "web_site",
+                "columns": [
+                    "web_site_sk"
+                ]
+            },
+            {
+                "table": "catalog_returns",
+                "columns": [
+                    "cr_item_sk"
+                ]
+            },
+            {
+                "table": "reason",
+                "columns": [
+                    "r_reason_sk"
+                ]
+            },
+            {
+                "table": "store_returns",
+                "columns": [
+                    "sr_item_sk"
+                ]
+            },
+            {
+                "table": "income_band",
+                "columns": [
+                    "ib_income_band_sk"
+                ]
+            },
+            {
+                "table": "ship_mode",
+                "columns": [
+                    "sm_ship_mode_sk"
+                ]
+            },
+            {
+                "table": "store_sales",
+                "columns": [
+                    "ss_item_sk"
+                ]
+            },
+            {
+                "table": "customer",
+                "columns": [
+                    "c_customer_sk"
+                ]
+            },
+            {
+                "table": "store",
+                "columns": [
+                    "s_store_sk"
+                ]
+            },
+            {
+                "table": "customer_address",
+                "columns": [
+                    "ca_address_sk"
+                ]
+            },
+            {
+                "table": "web_sales",
+                "columns": [
+                    "ws_item_sk"
+                ]
+            },
+            {
+                "table": "catalog_sales",
+                "columns": [
+                    "cs_item_sk"
+                ]
+            },
+            {
+                "table": "call_center",
+                "columns": [
+                    "cc_call_center_sk"
+                ]
+            }
+        ],
+        "basic_cost_explain": 0,
+        "labels": [
+            {
+                "table": "customer",
+                "columns": [
+                    "c_customer_id"
+                ]
+            },
+            {
+                "table": "web_site",
+                "columns": [
+                    "web_street_name"
+                ]
+            }
+        ]
+    }
+]

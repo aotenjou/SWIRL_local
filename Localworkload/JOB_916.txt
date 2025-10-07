@@ -1,1 +1,0 @@
-select title.md5sum, movie_info_idx.info, movie_info_idx.movie_id from movie_info_idx JOIN title ON title.id = movie_info_idx.movie_id JOIN kind_type ON kind_type.id = title.kind_id where title.season_nr <= 13 AND title.kind_id <= 1 AND title.kind_id = 2 AND title.md5sum = 'e48446153e7e52607f8b942f22f446db' order by movie_info_idx.info DESC, movie_info_idx.movie_id ASC;

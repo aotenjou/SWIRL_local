@@ -1,1 +1,0 @@
-select movie_companies.id, movie_companies.movie_id, count(movie_companies.company_type_id), sum(movie_companies.movie_id), max(company_type.kind) from company_type, movie_companies where company_type.kind < 'special effects companies' AND movie_companies.company_type_id >= 2 AND movie_companies.note = '(????) (USA) (VHS)' group by movie_companies.id, movie_companies.movie_id;

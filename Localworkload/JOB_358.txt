@@ -1,1 +1,0 @@
-select aka_title.phonetic_code, title.md5sum, title.phonetic_code, max(aka_title.phonetic_code) from movie_info JOIN title ON title.id = movie_info.movie_id JOIN aka_title ON aka_title.movie_id = title.id where aka_title.kind_id < 3 AND aka_title.id < 180596 AND movie_info.note = '(Street & House Scene)' group by title.phonetic_code, aka_title.phonetic_code, title.md5sum;

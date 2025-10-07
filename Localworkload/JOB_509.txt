@@ -1,1 +1,0 @@
-SELECT aka_name.name_pcode_nf, char_name.md5sum, cast_info.person_role_id, name.name_pcode_cf FROM aka_name JOIN name ON name.id = aka_name.person_id JOIN cast_info ON cast_info.person_id = name.id JOIN char_name ON char_name.id = cast_info.person_role_id WHERE char_name.id < 192019 AND char_name.md5sum = '14dd85ef76b585ef1d9ab1e690658351' AND char_name.imdb_index = 'D';

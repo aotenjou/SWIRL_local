@@ -1,1 +1,0 @@
-select title.episode_nr, movie_info.id, movie_link.linked_movie_id from movie_link JOIN title ON title.id = movie_link.movie_id JOIN movie_info ON movie_info.movie_id = title.id where title.md5sum <= '77e26dbd4ff08ece3be7fae4889464d5' AND title.kind_id >= 2 AND title.title >= 'The Redneck Yacht Club' AND title.phonetic_code < 'I243' AND movie_info.info_type_id = 50;

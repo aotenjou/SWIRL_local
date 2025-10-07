@@ -1,1 +1,0 @@
-SELECT movie_keyword.movie_id, keyword.keyword, AVG(keyword.id), MAX(keyword.phonetic_code) FROM keyword JOIN movie_keyword ON movie_keyword.keyword_id = keyword.id WHERE movie_keyword.id <= 1714743 AND keyword.keyword = 'idol-singer' AND keyword.phonetic_code <= 'P4352' GROUP BY movie_keyword.movie_id, keyword.keyword ORDER BY AVG(keyword.id) ASC, MAX(keyword.phonetic_code) ASC;

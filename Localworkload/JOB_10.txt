@@ -1,1 +1,0 @@
-SELECT char_name.name_pcode_nf, cast_info.role_id FROM char_name, cast_info WHERE char_name.surname_pcode < 'P252' AND cast_info.nr_order = 9 AND char_name.imdb_index < 'D' AND cast_info.role_id = 6 ORDER BY cast_info.role_id ASC;

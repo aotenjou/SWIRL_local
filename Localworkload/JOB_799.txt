@@ -1,1 +1,0 @@
-select title.episode_nr, movie_info.id, movie_link.linked_movie_id from movie_link JOIN title ON title.id = movie_link.movie_id JOIN movie_info ON movie_info.movie_id = title.id where title.phonetic_code <= 'H3162' AND title.kind_id >= 2 AND title.title >= 'Die Todeszeche' AND movie_info.info_type_id < 105 AND title.md5sum = '438afc197bf5adfc49019f0496a3797e';

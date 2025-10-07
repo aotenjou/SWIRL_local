@@ -1,1 +1,0 @@
-SELECT title.episode_nr, movie_info.id, movie_link.linked_movie_id FROM movie_link JOIN title ON title.id = movie_link.movie_id JOIN movie_info ON movie_info.movie_id = title.id WHERE title.md5sum <= 'ba830df41cf756fd345e2b9683690c19' AND title.kind_id >= 2 AND title.title >= 'Rahma' AND title.phonetic_code < 'I243' AND movie_info.info_type_id <> 43;

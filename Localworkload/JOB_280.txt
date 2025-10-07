@@ -1,1 +1,0 @@
-SELECT person_info.note, info_type.info FROM info_type, person_info WHERE person_info.person_id < 1981367 AND info_type.info <= 'death date' AND person_info.note = 'mcktusk@earlink.net' AND person_info.info = '22 May 1909';

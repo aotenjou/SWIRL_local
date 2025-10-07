@@ -1,1 +1,0 @@
-select title.imdb_index, title.md5sum, link_type.id, movie_link.id from movie_info JOIN title ON title.id = movie_info.movie_id JOIN movie_link ON movie_link.movie_id = title.id JOIN link_type ON link_type.id = movie_link.link_type_id where movie_info.movie_id = 2120953 AND title.id >= 1103840 AND title.production_year < 1970 order by title.imdb_index ASC;

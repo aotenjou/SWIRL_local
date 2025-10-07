@@ -1,1 +1,0 @@
-select aka_title.imdb_index, movie_companies.note, kind_type.kind, title.season_nr from movie_companies JOIN title ON title.id = movie_companies.movie_id JOIN kind_type ON kind_type.id = title.kind_id JOIN aka_title ON aka_title.kind_id = kind_type.id where aka_title.production_year <= 1998 AND kind_type.id = 7 AND aka_title.imdb_index >= 'X';

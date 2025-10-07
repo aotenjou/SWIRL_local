@@ -1,8 +1,8 @@
 {
-  "id": "CCS_large_scale",
+  "id": "CCS",
   "description": "CCS数据集索引选择实验",
   "gym_version": 1,
-  "timesteps": 100000,
+  "timesteps": 10000,
   "random_seed": 42,
   "parallel_environments": 16,
   "pickle_cost_estimation_caches": true,
@@ -40,7 +40,7 @@
     "benchmark": "CCS",
     "scale_factor": 1,
     "size": 100,
-    "varying_frequencies": true,
+    "varying_frequencies": false,
     "training_instances": 5000,
     "validation_testing": {
       "number_of_workloads": 5,
@@ -55,5 +55,7 @@
     "training": false,
     "validation_and_testing": [500, 1000, 1500, 2500, 3500, 5000, 6500, 8000, 10000]
   },
-  "column_filters": {}
+  "column_filters": {},
+  "ExternalWorkload": false,
+  "WorkloadPath": null
 } 

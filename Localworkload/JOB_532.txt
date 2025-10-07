@@ -1,1 +1,0 @@
-SELECT movie_info.info, info_type.id FROM movie_info, info_type WHERE movie_info.info_type_id <= 65 AND movie_info.note <> '(season 1)' AND info_type.info <= 'LD quality program' AND movie_info.info = 'Canada:24 July 2009' ORDER BY movie_info.info DESC;

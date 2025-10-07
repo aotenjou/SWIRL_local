@@ -1,1 +1,0 @@
-SELECT person_info.id, info_type.info FROM info_type, person_info WHERE person_info.id <= 2827669 AND info_type.info <= 'LD quality program' AND person_info.person_id < 2472041 AND info_type.id > 59;

@@ -1,1 +1,0 @@
-SELECT cast_info.movie_id, title.md5sum, complete_cast.movie_id, comp_cast_type.kind FROM comp_cast_type JOIN complete_cast ON complete_cast.status_id = comp_cast_type.id JOIN title ON title.id = complete_cast.movie_id JOIN cast_info ON cast_info.movie_id = title.id WHERE cast_info.person_role_id > 94341 AND title.series_years > '2005-2009' AND title.imdb_index <> 'II';

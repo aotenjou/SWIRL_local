@@ -1,1 +1,0 @@
-select movie_info.info, aka_title.title, movie_info.movie_id from movie_info JOIN title ON title.id = movie_info.movie_id JOIN aka_title ON aka_title.movie_id = title.id where title.season_nr < 13 AND title.md5sum = '94a7ef96e356bf404df375d3d184a246' AND aka_title.kind_id < 2 AND aka_title.id <= 234652 order by aka_title.title DESC, movie_info.info DESC;

@@ -1,1 +1,0 @@
-SELECT aka_title.id, movie_link.linked_movie_id, kind_type.kind, title.imdb_index FROM movie_link JOIN title ON title.id = movie_link.movie_id JOIN kind_type ON kind_type.id = title.kind_id JOIN aka_title ON aka_title.kind_id = kind_type.id WHERE title.episode_of_id > 838473 AND aka_title.note >= '(Canada: French title)' AND title.season_nr <> 3;

@@ -1,16 +1,16 @@
 {
-  "id": "BASEBALL_NewQuery100000timesteps",
+  "id": "BASEBALL_Workload_2",
   "description": "Baseball数据集索引选择实验",
   "gym_version": 1,
   "timesteps": 100000,
   "random_seed": 60,
-  "parallel_environments": 16,
+  "parallel_environments": 64,
   "pickle_cost_estimation_caches": true,
   "action_manager": "MultiColumnIndexActionManager",
   "observation_manager": "SingleColumnIndexObservationManager",
   "reward_calculator": "RelativeDifferenceRelativeToStorageReward",
-  "max_steps_per_episode": 200,
-  "validation_frequency": 1000,
+  "max_steps_per_episode": 400,
+  "validation_frequency": 2000,
   "filter_utilized_columns": true,
   "max_index_width": 3,
   "reenable_indexes": true,
@@ -40,10 +40,10 @@
     "benchmark": "BASEBALL",
     "scale_factor": 10,
     "size": 10,
-    "varying_frequencies": true,
+    "varying_frequencies": false,
     "training_instances": 5000,
     "validation_testing": {
-      "number_of_workloads": 5,
+      "number_of_workloads": 1000,
       "unknown_query_probabilities": [0.0]
     },
     "similar_workloads": false,
@@ -53,7 +53,9 @@
   "comparison_algorithms": ["db2advis"],
   "budgets": {
     "training": false,
-    "validation_and_testing": [500, 1000, 1500, 2500, 3500, 5000, 6500, 8000, 10000,12000,15000]
+    "validation_and_testing": [5000, 6500, 8000, 10000]
   },
-  "column_filters": {}
+  "column_filters": {},
+  "ExternalWorkload": false,
+  "WorkloadPath": null
 } 

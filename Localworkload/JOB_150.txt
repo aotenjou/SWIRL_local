@@ -1,1 +1,0 @@
-SELECT keyword.phonetic_code, movie_keyword.id FROM movie_keyword, keyword WHERE movie_keyword.id > 978617 AND keyword.id = 86959 AND keyword.keyword >= 'movie-reality' AND movie_keyword.movie_id < 2277677 AND keyword.phonetic_code >= 'N6253' ORDER BY keyword.phonetic_code DESC, movie_keyword.id DESC;

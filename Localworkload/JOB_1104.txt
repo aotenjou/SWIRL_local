@@ -1,1 +1,0 @@
-select role_type.id, cast_info.person_role_id, char_name.md5sum from role_type JOIN cast_info ON cast_info.role_id = role_type.id JOIN char_name ON char_name.id = cast_info.person_role_id where char_name.id < 1025837 AND role_type.id >= 9 AND cast_info.person_id = 33357 order by role_type.id DESC, cast_info.person_role_id ASC;

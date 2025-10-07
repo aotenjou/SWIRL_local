@@ -1,1 +1,0 @@
-select title.season_nr, aka_title.production_year, kind_type.id, movie_companies.note from movie_companies JOIN title ON title.id = movie_companies.movie_id JOIN kind_type ON kind_type.id = title.kind_id JOIN aka_title ON aka_title.kind_id = kind_type.id where kind_type.kind <= 'episode' AND aka_title.imdb_index = 'XI' AND aka_title.imdb_index >= 'XI';

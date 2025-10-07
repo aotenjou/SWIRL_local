@@ -1,1 +1,0 @@
-SELECT kind_type.id, movie_info_idx.movie_id, title.id, aka_title.imdb_index FROM movie_info_idx JOIN title ON title.id = movie_info_idx.movie_id JOIN kind_type ON kind_type.id = title.kind_id JOIN aka_title ON aka_title.kind_id = kind_type.id WHERE aka_title.note < '(USA) (series title)' AND aka_title.phonetic_code > 'R163' AND aka_title.title <= 'äÅÄÕÛËÉÎÁ ÄÕÄÏÞËÁ';

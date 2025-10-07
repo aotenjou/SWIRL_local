@@ -1,1 +1,0 @@
-SELECT company_name.id, movie_companies.company_type_id FROM company_name JOIN movie_companies ON movie_companies.company_id = company_name.id WHERE movie_companies.id <> 1459927 AND movie_companies.note <= '(2000) (worldwide) (theatrical)' AND company_name.md5sum < 'ef92325050247238a1e48f3b14a66de8' AND movie_companies.movie_id >= 1699103;

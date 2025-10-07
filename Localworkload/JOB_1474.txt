@@ -1,1 +1,0 @@
-SELECT movie_info_idx.movie_id, info_type.info FROM movie_info_idx, info_type WHERE info_type.id = 56 AND movie_info_idx.movie_id > 165233 AND info_type.info < 'death date' AND movie_info_idx.info >= '25';

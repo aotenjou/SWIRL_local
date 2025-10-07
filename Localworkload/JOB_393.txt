@@ -1,1 +1,0 @@
-SELECT title.episode_of_id FROM title WHERE title.imdb_index = 'II' AND title.md5sum <> 'b156f025fe2a0c1ed04cc9d24f889e4b' AND title.kind_id <> 1 AND title.production_year >= 1903 AND title.season_nr <> 3 AND title.title < '(2010-08-10)' ORDER BY title.episode_of_id DESC;

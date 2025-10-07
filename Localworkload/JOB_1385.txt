@@ -1,1 +1,0 @@
-SELECT company_name.name_pcode_nf, movie_companies.movie_id FROM movie_companies JOIN company_name ON company_name.id = movie_companies.company_id WHERE company_name.name_pcode_nf = 'A2161' AND company_name.md5sum >= '4b57650100fbf3b05391cd283aa4f00e' AND movie_companies.company_type_id <> 1 AND movie_companies.id <> 22787 ORDER BY movie_companies.movie_id ASC;

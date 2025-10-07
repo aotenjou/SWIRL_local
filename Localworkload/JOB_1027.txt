@@ -1,1 +1,0 @@
-SELECT title.imdb_index, movie_companies.note, kind_type.id FROM movie_companies, title, kind_type WHERE title.id = 1931226 AND movie_companies.company_id > 5197 AND movie_companies.id > 2089042 ORDER BY movie_companies.note DESC;

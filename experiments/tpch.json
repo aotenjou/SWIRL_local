@@ -1,5 +1,5 @@
 {
-  "id": "TPCH_smallFrequenciesNoVary",
+  "id": "TPCH",
   "description": "Just a TPCH Test Experiment",
   "gym_version": 1,
   "timesteps": 50000,
@@ -39,11 +39,11 @@
   "workload": {
     "benchmark": "TPCH",
     "scale_factor": 10,
-    "size": 15,
+    "size": 18,
     "varying_frequencies": false,
     "training_instances": 5000,
     "validation_testing": {
-      "number_of_workloads": 10,
+      "number_of_workloads": 500,
       "unknown_query_probabilities": [0.0]
     },
     "similar_workloads": false,
@@ -54,7 +54,7 @@
   "comparison_algorithms": ["db2advis"],
   "budgets": {
     "training": false,
-    "validation_and_testing": [500, 1000, 1500, 2500, 3500, 5000, 6500, 8000, 10000]
+    "validation_and_testing": [500]
   },
   "column_filters": {
     "TableNumRowsFilter": 10000

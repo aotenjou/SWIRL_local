@@ -1,1 +1,0 @@
-select complete_cast.movie_id, title.episode_nr, title.series_years, comp_cast_type.id from movie_keyword JOIN title ON title.id = movie_keyword.movie_id JOIN complete_cast ON complete_cast.movie_id = title.id JOIN comp_cast_type ON comp_cast_type.id = complete_cast.status_id where title.imdb_index >= 'II' AND comp_cast_type.kind > 'crew' AND movie_keyword.keyword_id <= 1681;

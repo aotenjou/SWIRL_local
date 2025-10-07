@@ -1,1 +1,0 @@
-SELECT cast_info.id, name.gender FROM name, cast_info WHERE name.id <= 2295724 AND cast_info.person_role_id <= 2356007 AND cast_info.movie_id = 2376241 AND name.name_pcode_cf = 'H6252' ORDER BY name.gender ASC, cast_info.id DESC;

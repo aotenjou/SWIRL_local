@@ -1,1 +1,0 @@
-select role_type.id, cast_info.person_role_id from role_type, cast_info where cast_info.person_id < 614983 AND cast_info.note = '(consulting producer)' AND cast_info.movie_id > 2123163 AND cast_info.note <= '(as James Lichtscheidl)';

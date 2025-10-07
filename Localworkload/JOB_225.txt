@@ -1,1 +1,0 @@
-SELECT movie_companies.id FROM movie_companies WHERE movie_companies.company_id >= 680 AND movie_companies.company_type_id < 2 AND movie_companies.note <= '(1979) (USA: Midwest) (theatrical) (dubbed)' AND movie_companies.id >= 1578710 ORDER BY movie_companies.id ASC;

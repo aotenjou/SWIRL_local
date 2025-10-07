@@ -1,1 +1,0 @@
-SELECT cast_info.person_role_id, name.name_pcode_cf FROM name JOIN cast_info ON cast_info.person_id = name.id WHERE name.id <> 3038459 AND cast_info.person_id < 380392 AND cast_info.person_role_id <= 2274448 AND cast_info.movie_id > 2456876;

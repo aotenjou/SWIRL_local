@@ -1,1 +1,0 @@
-select aka_title.imdb_index, kind_type.kind, aka_title.production_year, title.season_nr from movie_companies JOIN title ON title.id = movie_companies.movie_id JOIN kind_type ON kind_type.id = title.kind_id JOIN aka_title ON aka_title.kind_id = kind_type.id where aka_title.imdb_index <= 'XI' AND kind_type.id = 4 AND movie_companies.note >= '(2005) (USA) (TV) (re-runs)';

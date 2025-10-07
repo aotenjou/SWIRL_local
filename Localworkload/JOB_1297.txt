@@ -1,1 +1,0 @@
-SELECT movie_info.note, aka_title.note, title.production_year FROM aka_title JOIN title ON title.id = aka_title.movie_id JOIN movie_info ON movie_info.movie_id = title.id WHERE movie_info.info_type_id < 107 AND aka_title.kind_id < 2 AND title.episode_nr >= 54 ORDER BY aka_title.note DESC;

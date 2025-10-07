@@ -1,1 +1,0 @@
-SELECT cast_info.person_role_id, role_type.role FROM cast_info, role_type WHERE cast_info.id < 19395594 AND role_type.role > 'cinematographer' AND cast_info.movie_id <> 1136986 AND cast_info.note <= '(as Arianne Zuker)' AND role_type.id < 10;

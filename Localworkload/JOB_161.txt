@@ -1,1 +1,0 @@
-SELECT movie_info.info_type_id FROM movie_info WHERE movie_info.info >= 'Steven Hyde: Face it Forman, you''re not a cheater... a wise man once said "know thyself" and that man was Tater Nuts!' AND movie_info.id <> 13362484 AND movie_info.movie_id <> 2149739 AND movie_info.info_type_id <= 107 AND movie_info.note <> '(French Film Festival)' ORDER BY movie_info.info_type_id DESC;

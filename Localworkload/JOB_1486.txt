@@ -1,1 +1,0 @@
-SELECT company_type.kind, movie_companies.movie_id FROM company_type JOIN movie_companies ON movie_companies.company_type_id = company_type.id WHERE movie_companies.company_id <= 166 AND movie_companies.id > 1248194 AND company_type.id <= 4 AND movie_companies.note <> '(1958) (USA) (TV)' ORDER BY movie_companies.movie_id DESC, company_type.kind DESC;

@@ -1,1 +1,0 @@
-SELECT char_name.id, cast_info.role_id, role_type.id FROM char_name, cast_info, role_type WHERE char_name.imdb_index = 'II' AND cast_info.note > '(managing director: Temple Street Productions)' AND cast_info.nr_order = 20 AND char_name.surname_pcode <= 'D653' ORDER BY char_name.id ASC, role_type.id ASC;

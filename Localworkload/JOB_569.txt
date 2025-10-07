@@ -1,1 +1,0 @@
-SELECT movie_companies.movie_id, company_type.kind FROM movie_companies JOIN company_type ON company_type.id = movie_companies.company_type_id WHERE movie_companies.company_type_id >= 2 AND movie_companies.company_id < 65348 AND company_type.kind <> 'special effects companies' AND movie_companies.note < '(1958) (USA) (TV)' ORDER BY company_type.kind ASC;

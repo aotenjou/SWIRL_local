@@ -1,1 +1,0 @@
-SELECT person_info.info_type_id, name.name_pcode_nf FROM person_info JOIN name ON name.id = person_info.person_id WHERE name.imdb_index >= 'VII' AND name.surname_pcode >= 'F52' AND name.id >= 2295724 AND name.name >= 'Papazian, Marty';

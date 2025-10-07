@@ -1,1 +1,0 @@
-SELECT title.imdb_index, kind_type.kind FROM kind_type, title WHERE title.phonetic_code <> 'Z2521' AND title.title < 'Die Todeszeche' AND title.episode_nr > 237 AND kind_type.kind >= 'episode' ORDER BY kind_type.kind DESC;

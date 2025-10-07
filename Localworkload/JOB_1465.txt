@@ -1,1 +1,0 @@
-SELECT person_info.note, info_type.id FROM info_type, person_info WHERE person_info.person_id < 1249518 AND person_info.id >= 1276416 AND person_info.info_type_id >= 24 AND info_type.id <> 63 AND person_info.info < 'Has a little sister called Heather Quinn.' AND person_info.note >= 'MilleniumBabyGirl' ORDER BY person_info.note ASC;

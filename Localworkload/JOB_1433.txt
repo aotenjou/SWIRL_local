@@ -1,1 +1,0 @@
-SELECT title.kind_id, movie_keyword.movie_id FROM movie_keyword, title WHERE title.phonetic_code = 'I243' AND title.imdb_index > 'II' AND title.production_year <= 1977 AND title.title > '(2002-03-21)' AND title.series_years > '2005-2009';

@@ -1,1 +1,0 @@
-SELECT title.series_years, movie_keyword.keyword_id FROM title, movie_keyword WHERE title.imdb_index >= 'I' AND title.kind_id <> 7 AND title.season_nr >= 13 AND title.phonetic_code = 'H3162' AND title.series_years > '2005-2009';

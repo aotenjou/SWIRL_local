@@ -1,1 +1,0 @@
-SELECT company_type.id, company_name.id, movie_companies.note FROM company_type JOIN movie_companies ON movie_companies.company_type_id = company_type.id JOIN company_name ON company_name.id = movie_companies.company_id WHERE movie_companies.company_id <= 4808 AND company_name.id >= 159463 AND movie_companies.company_type_id >= 1 ORDER BY company_name.id ASC, company_type.id ASC;

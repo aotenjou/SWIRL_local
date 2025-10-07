@@ -1,1 +1,0 @@
-SELECT cast_info.person_role_id, name.name, char_name.imdb_index, MAX(name.imdb_index) FROM name JOIN cast_info ON cast_info.person_id = name.id JOIN char_name ON char_name.id = cast_info.person_role_id WHERE char_name.imdb_index > 'IV' AND name.gender < 'm' AND name.name_pcode_nf <> 'J524' GROUP BY cast_info.person_role_id, name.name, char_name.imdb_index;

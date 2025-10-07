@@ -1,1 +1,0 @@
-SELECT person_info.info_type_id, info_type.id FROM info_type JOIN person_info ON person_info.info_type_id = info_type.id WHERE person_info.person_id >= 4158151 AND person_info.id > 1575288 AND person_info.info_type_id = 29 AND info_type.id < 56 ORDER BY info_type.id DESC, person_info.info_type_id DESC;

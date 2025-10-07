@@ -1,1 +1,0 @@
-SELECT title.imdb_index, cast_info.role_id FROM cast_info, title WHERE title.md5sum = 'a4ac763a4f937c3a819617091f8bcfab' AND title.production_year <> 1947 AND title.id > 1733620 AND cast_info.movie_id = 1902832 ORDER BY title.imdb_index DESC, cast_info.role_id DESC;

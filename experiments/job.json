@@ -1,8 +1,8 @@
 {
-  "id": "JOB_unknown",
+  "id": "JOB",
   "description": "Just a JOB Test Experiment",
   "gym_version": 1,
-  "timesteps": 50000,
+  "timesteps": 70000,
   "random_seed": 60,
   "parallel_environments": 16,
   "pickle_cost_estimation_caches": true,
@@ -10,7 +10,7 @@
   "observation_manager": "SingleColumnIndexObservationManager",
   "reward_calculator": "RelativeDifferenceRelativeToStorageReward",
   "max_steps_per_episode": 200,
-  "validation_frequency": 1000,
+  "validation_frequency": 1120000,
   "filter_utilized_columns": true,
   "max_index_width": 3,
   "reenable_indexes": true,
@@ -39,12 +39,12 @@
   "workload": {
     "benchmark": "JOB",
     "scale_factor": 10,
-    "size": 10,
+    "size": 50,
     "varying_frequencies": false,
-    "training_instances": 10000,
+    "training_instances": 5000,
     "query_class_change_frequency": 0.1,
     "validation_testing": {
-      "number_of_workloads": 5,
+      "number_of_workloads": 5000,
       "unknown_query_probabilities": [0.1]
     },
     "similar_workloads": true,
@@ -54,11 +54,13 @@
   "comparison_algorithms": ["db2advis"],
   "budgets": {
     "training": false,
-    "validation_and_testing": [500, 1000, 1500, 2500, 3500, 5000, 6500, 8000, 10000]
+    "validation_and_testing": [500]
   },
   "column_filters": {
     "TableNumRowsFilter": 10000
   },
   "ExternalWorkload": false,
-  "WorkloadPath": null
+  "WorkloadPath": null,
+  "TestExternalWorkload":false,
+  "TestWorkloadPath": null
 }

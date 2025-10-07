@@ -1,1 +1,0 @@
-SELECT title.md5sum, movie_info.note, movie_keyword.keyword_id, keyword.keyword FROM movie_info JOIN title ON title.id = movie_info.movie_id JOIN movie_keyword ON movie_keyword.movie_id = title.id JOIN keyword ON keyword.id = movie_keyword.keyword_id WHERE title.season_nr <= 5 AND movie_keyword.movie_id >= 1130536 AND title.id <= 565537 ORDER BY movie_info.note DESC;

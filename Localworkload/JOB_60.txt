@@ -1,1 +1,0 @@
-SELECT name.name_pcode_nf, aka_name.surname_pcode FROM aka_name, name WHERE name.surname_pcode > 'G52' AND aka_name.md5sum > '71dd0debbfff908e88f5b88f0c5978f1' AND aka_name.imdb_index > 'I' AND name.md5sum < '87a7a4cb0e9c04063fc55106e9732c6f';

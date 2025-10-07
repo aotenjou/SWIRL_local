@@ -1,1 +1,0 @@
-SELECT cast_info.id, role_type.id, COUNT(role_type.id) FROM cast_info JOIN role_type ON role_type.id = cast_info.role_id WHERE cast_info.role_id > 9 AND cast_info.nr_order >= 5 AND cast_info.person_id = 3729444 GROUP BY cast_info.id, role_type.id HAVING COUNT(role_type.id) >= 10;

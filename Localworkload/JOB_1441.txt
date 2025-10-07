@@ -1,1 +1,0 @@
-select company_type.id, movie_companies.note, min(company_type.kind) from movie_companies, company_type where movie_companies.id > 1578710 AND movie_companies.movie_id > 1215660 AND movie_companies.movie_id >= 2466088 group by company_type.id, movie_companies.note having min(company_type.kind) >= 'production companies';

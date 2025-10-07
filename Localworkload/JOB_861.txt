@@ -1,1 +1,0 @@
-SELECT cast_info.note, char_name.id, role_type.id, MAX(char_name.id) FROM role_type, cast_info, char_name WHERE cast_info.id = 23578212 AND char_name.surname_pcode > 'G65' AND cast_info.nr_order >= 69 GROUP BY cast_info.note, char_name.id, role_type.id;

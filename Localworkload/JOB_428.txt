@@ -1,1 +1,0 @@
-SELECT cast_info.person_id, name.name, char_name.surname_pcode FROM char_name JOIN cast_info ON cast_info.person_role_id = char_name.id JOIN name ON name.id = cast_info.person_id WHERE name.gender <= 'f' AND name.id > 2068645 AND cast_info.person_id <> 3506837 AND name.surname_pcode = 'H' ORDER BY name.name DESC, char_name.surname_pcode ASC, cast_info.person_id ASC;

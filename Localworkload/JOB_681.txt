@@ -1,1 +1,0 @@
-SELECT cast_info.id, char_name.name FROM char_name, cast_info WHERE cast_info.movie_id < 649481 AND char_name.surname_pcode <> 'S5262' AND char_name.imdb_index <= 'D' AND char_name.id < 1250082;

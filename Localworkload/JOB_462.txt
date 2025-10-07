@@ -1,1 +1,0 @@
-select cast_info.note, role_type.id from role_type, cast_info where cast_info.person_id < 614983 AND cast_info.role_id = 6 AND cast_info.note > '(executive)' AND cast_info.movie_id <= 305028;

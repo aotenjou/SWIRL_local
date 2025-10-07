@@ -13,6 +13,37 @@ If you have any questions, feel free to contact the authors, e.g., Jan Kossmann 
 ```
 workload size对齐逻辑：外部输入的每个workload大小与实验配置中的workload size作比较：输入小于配置时，直接跳过；输入大于配置时，在输入中随机采样到配置值；输入等于配置时，正常进行。
 
+## Training and Testing Workload Decoupling
+
+新增功能：支持训练与测试使用不同的workload，实现真正的解耦测试。
+
+### 使用方法
+
+在配置文件中添加以下参数：
+
+```json
+{
+  "ExternalWorkload": true,
+  "WorkloadPath": "/path/to/training_workloads.json",
+  "TestExternalWorkload": true,
+  "TestWorkloadPath": "/path/to/test_workloads.json"
+}
+```
+
+### 功能特性
+
+- ✅ **独立workload加载**：训练和测试可以使用完全不同的workload文件
+- ✅ **向后兼容**：原有功能保持不变，新功能为可选
+- ✅ **配置验证**：自动检测无效配置并给出明确错误信息
+
+### 详细文档
+
+详细使用说明请参考：[TRAINING_TEST_DECOUPLING.md](TRAINING_TEST_DECOUPLING.md)
+
+### 示例配置
+
+参考示例配置文件：`experiments/test_decoupling_example.json`
+
 
 ## Setup
 

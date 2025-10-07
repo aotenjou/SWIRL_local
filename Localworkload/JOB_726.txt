@@ -1,1 +1,0 @@
-SELECT movie_companies.company_type_id, company_type.kind, AVG(movie_companies.movie_id) FROM company_type, movie_companies WHERE company_type.id >= 1 AND movie_companies.note <> '(????) (USA) (VHS)' AND movie_companies.company_id < 71236 GROUP BY movie_companies.company_type_id, company_type.kind ORDER BY AVG(movie_companies.movie_id) DESC;

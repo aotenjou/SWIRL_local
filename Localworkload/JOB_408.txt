@@ -1,1 +1,0 @@
-SELECT info_type.info, movie_info_idx.id FROM info_type JOIN movie_info_idx ON movie_info_idx.info_type_id = info_type.id WHERE movie_info_idx.movie_id <> 2104256 AND movie_info_idx.info_type_id >= 100 AND movie_info_idx.id > 388827 AND movie_info_idx.info >= '10' ORDER BY movie_info_idx.id ASC;

@@ -1,1 +1,0 @@
-select link_type.link, title.season_nr, movie_link.movie_id, avg(movie_link.id), max(movie_link.movie_id) from link_type, movie_link, title where title.imdb_index <= 'I' AND movie_link.id > 16299 AND title.production_year = 1947 group by link_type.link, title.season_nr, movie_link.movie_id order by movie_link.movie_id DESC;

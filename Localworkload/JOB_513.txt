@@ -1,1 +1,0 @@
-SELECT aka_name.name, person_info.person_id, name.imdb_index, info_type.info FROM info_type JOIN person_info ON person_info.info_type_id = info_type.id JOIN name ON name.id = person_info.person_id JOIN aka_name ON aka_name.person_id = name.id WHERE aka_name.imdb_index >= 'I' AND person_info.info > '22 May 1909' AND aka_name.id <= 738700;

@@ -1,1 +1,0 @@
-SELECT keyword.phonetic_code, title.title, movie_keyword.keyword_id, MIN(title.id) FROM keyword, movie_keyword, title WHERE title.episode_nr < 54 AND title.phonetic_code < 'S3523' AND keyword.phonetic_code = 'C4265' AND movie_keyword.id = 2638478 GROUP BY keyword.phonetic_code, title.title, movie_keyword.keyword_id;

@@ -1,1 +1,0 @@
-SELECT movie_keyword.id, keyword.phonetic_code, AVG(keyword.id) FROM keyword, movie_keyword WHERE movie_keyword.movie_id = 2082380 AND keyword.phonetic_code = 'C4265' AND keyword.id <> 5165 GROUP BY movie_keyword.id, keyword.phonetic_code ORDER BY AVG(keyword.id) ASC;

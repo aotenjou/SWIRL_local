@@ -1,1 +1,0 @@
-select company_type.kind, movie_companies.note, min(company_type.kind) from movie_companies, company_type where movie_companies.movie_id > 572224 AND company_type.id = 3 AND movie_companies.note >= '(????) (USA) (VHS)' group by company_type.kind, movie_companies.note having min(company_type.kind) >= 'production companies';

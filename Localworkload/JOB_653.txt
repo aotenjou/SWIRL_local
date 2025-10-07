@@ -1,1 +1,0 @@
-select title.md5sum, title.season_nr, kind_type.id from movie_info_idx JOIN title ON title.id = movie_info_idx.movie_id JOIN kind_type ON kind_type.id = title.kind_id where title.season_nr = 13 AND movie_info_idx.id <= 412529 AND title.kind_id <= 2 AND title.phonetic_code = 'D42' order by kind_type.id DESC, title.season_nr ASC;

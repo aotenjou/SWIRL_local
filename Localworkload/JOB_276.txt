@@ -1,1 +1,0 @@
-select movie_link.id, title.md5sum from movie_link, title where movie_link.link_type_id > 1 AND title.title < 'Chiquititas' AND title.md5sum = 'fdaa2163b540a7ceb52f48cdf4948239' AND title.series_years > '2009-????' AND movie_link.linked_movie_id > 1238808 AND title.imdb_index = 'I' AND title.phonetic_code > 'T6216';

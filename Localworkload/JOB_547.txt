@@ -1,1 +1,0 @@
-SELECT name.name_pcode_cf, aka_name.name, MIN(aka_name.md5sum) FROM aka_name, name WHERE name.id <> 2339042 AND aka_name.imdb_index <> 'III' AND aka_name.name <= 'Snow, Susan' AND name.name_pcode_nf = 'B6163' AND name.name_pcode_cf = 'S5634' GROUP BY name.name_pcode_cf, aka_name.name ORDER BY name.name_pcode_cf ASC;

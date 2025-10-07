@@ -84,6 +84,8 @@ class Experiment(object):
             filter_utilized_columns=self.config["filter_utilized_columns"],
             external_workload=self.config.get("ExternalWorkload", False),
             workload_path=self.config.get("WorkloadPath", None),
+            test_external_workload=self.config.get("TestExternalWorkload", False),
+            test_workload_path=self.config.get("TestWorkloadPath", None),
         )
         self._assign_budgets_to_workloads()
 
@@ -143,8 +145,8 @@ class Experiment(object):
         logging.info(f"当前workload_labels状态: test={len(self.workload_labels.get('test', {}))}, validation={len(self.workload_labels.get('validation', {}))}")
 
         # 保存testing workloads
-        if self.workload_generator.wl_testing:
-            logging.info(f"处理testing workloads: {len(self.workload_generator.wl_testing)} 组")
+        if self.workload_generator.wl_testing and self.workload_generator.wl_testing[0]:
+            logging.info(f"处理testing workloads: {len(self.workload_generator.wl_testing[0])} 个workloads")
 
             # 优先使用更新后的workload对象（包含labels），如果没有则使用原始对象
             if self.workload_labels.get("test"):
@@ -152,7 +154,7 @@ class Experiment(object):
                 testing_workloads = self._get_updated_workloads("test")
             else:
                 logging.info(f"使用原始testing workloads (无labels)")
-                testing_workloads = self.workload_generator.wl_testing
+                testing_workloads = [self.workload_generator.wl_testing[0]]  # 所有workload在一个列表中
 
             testing_data = self._serialize_workloads_to_json(testing_workloads)
             testing_file = f"{self.experiment_folder_path}/testing_workloads.json"
@@ -161,8 +163,8 @@ class Experiment(object):
             logging.info(f"✅ Testing workloads已保存到: {testing_file}")
 
         # 保存validation workloads
-        if self.workload_generator.wl_validation:
-            logging.info(f"处理validation workloads: {len(self.workload_generator.wl_validation)} 组")
+        if self.workload_generator.wl_validation and self.workload_generator.wl_validation[0]:
+            logging.info(f"处理validation workloads: {len(self.workload_generator.wl_validation[0])} 个workloads")
 
             # 优先使用更新后的workload对象（包含labels），如果没有则使用原始对象
             if self.workload_labels.get("validation"):
@@ -170,7 +172,7 @@ class Experiment(object):
                 validation_workloads = self._get_updated_workloads("validation")
             else:
                 logging.info(f"使用原始validation workloads (无labels)")
-                validation_workloads = self.workload_generator.wl_validation
+                validation_workloads = [self.workload_generator.wl_validation[0]]  # 所有workload在一个列表中
 
             validation_data = self._serialize_workloads_to_json(validation_workloads)
             validation_file = f"{self.experiment_folder_path}/validation_workloads.json"
@@ -188,42 +190,41 @@ class Experiment(object):
             logging.warning(f"{run_type} 不在workload_labels中，返回空列表")
             return []
 
-        # 获取原始workload结构
-        original_workloads = (self.workload_generator.wl_testing
-                            if run_type == "test"
-                            else self.workload_generator.wl_validation)
+        # 获取原始workload结构 - 现在所有workload都在一个列表中
+        original_workloads = (self.workload_generator.wl_testing[0]
+                            if run_type == "test" and self.workload_generator.wl_testing and self.workload_generator.wl_testing[0]
+                            else self.workload_generator.wl_validation[0]
+                            if run_type == "validation" and self.workload_generator.wl_validation and self.workload_generator.wl_validation[0]
+                            else [])
 
-        logging.info(f"原始 {run_type} workloads: {len(original_workloads)} 组")
+        logging.info(f"原始 {run_type} workloads: {len(original_workloads)} 个workloads")
 
         # 创建更新后的workload结构
         updated_workloads = []
-        total_original_workloads = 0
+        total_original_workloads = len(original_workloads)
         total_updated_workloads = 0
 
-        for i, workload_list in enumerate(original_workloads):
-            updated_workload_list = []
-            logging.info(f"处理原始组 {i}: {len(workload_list)} 个workloads")
+        for workload in original_workloads:
+            # 查找对应的更新后workload
+            updated_workload = self._find_updated_workload(workload, run_type)
+            if updated_workload:
+                updated_workloads.append(updated_workload)
+                total_updated_workloads += 1
+                logging.info(f"  ✅ 找到更新后的workload: {workload.description} (labels: {len(updated_workload.labels)})")
+            else:
+                # 如果找不到更新后的workload，使用原始workload
+                logging.warning(f"  ❌ 找不到更新后的workload: {workload.description}，使用原始workload")
+                updated_workloads.append(workload)
 
-            for workload in workload_list:
-                total_original_workloads += 1
-                # 查找对应的更新后workload
-                updated_workload = self._find_updated_workload(workload, run_type)
-                if updated_workload:
-                    updated_workload_list.append(updated_workload)
-                    total_updated_workloads += 1
-                    logging.info(f"  ✅ 找到更新后的workload: {workload.description} (labels: {len(updated_workload.labels)})")
-                else:
-                    # 如果找不到更新后的workload，使用原始workload
-                    logging.warning(f"  ❌ 找不到更新后的workload: {workload.description}，使用原始workload")
-                    updated_workload_list.append(workload)
-            updated_workloads.append(updated_workload_list)
+        # 返回包含所有workload的列表结构
+        result = [updated_workloads] if updated_workloads else []
 
         logging.info(f"✅ {run_type} workloads更新完成:")
         logging.info(f"   原始workloads总数: {total_original_workloads}")
         logging.info(f"   更新后workloads总数: {total_updated_workloads}")
-        logging.info(f"   更新覆盖率: {total_updated_workloads/total_original_workloads*100:.1f}%")
+        logging.info(f"   更新覆盖率: {total_updated_workloads/total_original_workloads*100:.1f}%" if total_original_workloads > 0 else "   更新覆盖率: 0%")
 
-        return updated_workloads
+        return result
 
     def _find_updated_workload(self, original_workload, run_type):
         """在workload_labels中查找对应的更新后workload"""
@@ -249,6 +250,9 @@ class Experiment(object):
             "workload_groups": []
         }
 
+        # 使用全局id计数器，确保id自增
+        global_workload_id = 0
+
         for i, workload_list in enumerate(workload_lists):
             group_data = {
                 "group_id": i,
@@ -256,15 +260,20 @@ class Experiment(object):
             }
 
             for workload in workload_list:
-                workload_data = self._serialize_single_workload(workload)
+                workload_data = self._serialize_single_workload(workload, global_workload_id)
                 group_data["workloads"].append(workload_data)
+                global_workload_id += 1
 
             serialized_data["workload_groups"].append(group_data)
 
         return serialized_data
 
-    def _serialize_single_workload(self, workload):
+    def _serialize_single_workload(self, workload, workload_id=None):
         """序列化单个Workload对象"""
+        # 如果没有提供workload_id，则使用workload的原始id
+        if workload_id is None:
+            workload_id = workload.id
+
         # 序列化queries
         queries_data = []
         for query in workload.queries:
@@ -296,7 +305,7 @@ class Experiment(object):
         # 构建完整的workload数据
         workload_data = {
             "db": workload.db,
-            "id": workload.id,
+            "id": workload_id,  # 使用传入的自增id
             "description": workload.description,
             "budget": workload.budget,
             "queries": queries_data,
@@ -314,8 +323,13 @@ class Experiment(object):
         self.model.env.norm_reward = False
         self.model.env.training = False
 
+        # 执行一次完整的测试（使用所有workload）
+        logging.info("开始执行训练后的完整测试...")
         self.test_fm = self.test_model(self.model)[0]
         self.vali_fm = self.validate_model(self.model)[0]
+        
+        # 评估训练数据并生成推荐索引
+        self.training_fm = self.evaluate_training_data(self.model)[0]
 
         # Load moving average model if it exists
         moving_average_model_path = f"{self.experiment_folder_path}/moving_average_model.zip"
@@ -783,45 +797,44 @@ class Experiment(object):
                 f.write("\n")
             f.write("Overall Test:\n")
 
-            def final_avg(values, probabilities):
-                val = 0
-                for res in values:
-                    val += res[1]
-                return val / probabilities
+            def final_avg(values):
+                if len(values) == 0:
+                    return float('nan')
+                return float(np.mean([res[1] for res in values]))
 
-            f.write(("        Final model:               " f"{final_avg(self.test_fm, probabilities):.2f}\n"))
+            f.write(("        Final model:               " f"{final_avg(self.test_fm):.2f}\n"))
             
             # Handle None values for moving average models
             if self.test_ma is not None:
-                f.write(("        Moving Average model:      " f"{final_avg(self.test_ma, probabilities):.2f}\n"))
+                f.write(("        Moving Average model:      " f"{final_avg(self.test_ma):.2f}\n"))
             else:
                 f.write("        Moving Average model:      N/A\n")
                 
             if len(self.multi_validation_wl) > 0:
                 if self.test_ma_mv is not None:
-                    f.write(("        Moving Average model (MV): " f"{final_avg(self.test_ma_mv, probabilities):.2f}\n"))
+                    f.write(("        Moving Average model (MV): " f"{final_avg(self.test_ma_mv):.2f}\n"))
                 else:
                     f.write("        Moving Average model (MV): N/A\n")
                     
             if self.test_ma_3 is not None:
-                f.write(("        Moving Average 3 model:    " f"{final_avg(self.test_ma_3, probabilities):.2f}\n"))
+                f.write(("        Moving Average 3 model:    " f"{final_avg(self.test_ma_3):.2f}\n"))
             else:
                 f.write("        Moving Average 3 model:    N/A\n")
                 
             if len(self.multi_validation_wl) > 0:
                 if self.test_ma_3_mv is not None:
-                    f.write(("        Moving Average 3 mod (MV): " f"{final_avg(self.test_ma_3_mv, probabilities):.2f}\n"))
+                    f.write(("        Moving Average 3 mod (MV): " f"{final_avg(self.test_ma_3_mv):.2f}\n"))
                 else:
                     f.write("        Moving Average 3 mod (MV): N/A\n")
                     
             if self.test_bm is not None:
-                f.write(("        Best mean reward model:    " f"{final_avg(self.test_bm, probabilities):.2f}\n"))
+                f.write(("        Best mean reward model:    " f"{final_avg(self.test_bm):.2f}\n"))
             else:
                 f.write("        Best mean reward model:    N/A\n")
                 
             if len(self.multi_validation_wl) > 0:
                 if self.test_bm_mv is not None:
-                    f.write(("        Best mean reward mod (MV): " f"{final_avg(self.test_bm_mv, probabilities):.2f}\n"))
+                    f.write(("        Best mean reward mod (MV): " f"{final_avg(self.test_bm_mv):.2f}\n"))
                 else:
                     f.write("        Best mean reward mod (MV): N/A\n")
             f.write(
@@ -869,39 +882,39 @@ class Experiment(object):
             
             f.write("\n")
             f.write("Overall Validation:\n")
-            f.write(("        Final model:               " f"{final_avg(self.vali_fm, probabilities):.2f}\n"))
+            f.write(("        Final model:               " f"{final_avg(self.vali_fm):.2f}\n"))
             
             # Handle None values for validation moving average models
             if self.vali_ma is not None:
-                f.write(("        Moving Average model:      " f"{final_avg(self.vali_ma, probabilities):.2f}\n"))
+                f.write(("        Moving Average model:      " f"{final_avg(self.vali_ma):.2f}\n"))
             else:
                 f.write("        Moving Average model:      N/A\n")
                 
             if len(self.multi_validation_wl) > 0:
                 if self.vali_ma_mv is not None:
-                    f.write(("        Moving Average model (MV): " f"{final_avg(self.vali_ma_mv, probabilities):.2f}\n"))
+                    f.write(("        Moving Average model (MV): " f"{final_avg(self.vali_ma_mv):.2f}\n"))
                 else:
                     f.write("        Moving Average model (MV): N/A\n")
                     
             if self.vali_ma_3 is not None:
-                f.write(("        Moving Average 3 model:    " f"{final_avg(self.vali_ma_3, probabilities):.2f}\n"))
+                f.write(("        Moving Average 3 model:    " f"{final_avg(self.vali_ma_3):.2f}\n"))
             else:
                 f.write("        Moving Average 3 model:    N/A\n")
                 
             if len(self.multi_validation_wl) > 0:
                 if self.vali_ma_3_mv is not None:
-                    f.write(("        Moving Average 3 mod (MV): " f"{final_avg(self.vali_ma_3_mv, probabilities):.2f}\n"))
+                    f.write(("        Moving Average 3 mod (MV): " f"{final_avg(self.vali_ma_3_mv):.2f}\n"))
                 else:
                     f.write("        Moving Average 3 mod (MV): N/A\n")
                     
             if self.vali_bm is not None:
-                f.write(("        Best mean reward model:    " f"{final_avg(self.vali_bm, probabilities):.2f}\n"))
+                f.write(("        Best mean reward model:    " f"{final_avg(self.vali_bm):.2f}\n"))
             else:
                 f.write("        Best mean reward model:    N/A\n")
                 
             if len(self.multi_validation_wl) > 0:
                 if self.vali_bm_mv is not None:
-                    f.write(("        Best mean reward mod (MV): " f"{final_avg(self.vali_bm_mv, probabilities):.2f}\n"))
+                    f.write(("        Best mean reward mod (MV): " f"{final_avg(self.vali_bm_mv):.2f}\n"))
                 else:
                     f.write("        Best mean reward mod (MV): N/A\n")
             f.write(
@@ -1093,39 +1106,78 @@ class Experiment(object):
     # todo: code duplication with validate_model
     def test_model(self, model):
         model_performances = []
-        for test_wl in self.workload_generator.wl_testing:
-            test_env = self.DummyVecEnv([self.make_env(0, EnvironmentType.TESTING, test_wl)])
-            test_env = self.VecNormalize(
-                test_env, norm_obs=True, norm_reward=False, gamma=self.config["rl_algorithm"]["gamma"], training=False
-            )
+        for test_wl_list in self.workload_generator.wl_testing:
+            if test_wl_list is None:
+                continue
+            # Process all workloads in the test list
+            for test_wl in test_wl_list:
+                test_env = self.DummyVecEnv([self.make_env(0, EnvironmentType.TESTING, [test_wl])])
+                test_env = self.VecNormalize(
+                    test_env, norm_obs=True, norm_reward=False, gamma=self.config["rl_algorithm"]["gamma"], training=False
+                )
 
-            if model != self.model:
-                model.set_env(self.model.env)
+                if model != self.model:
+                    model.set_env(self.model.env)
 
-            model_performance = self._evaluate_model(model, test_env, len(test_wl))
-            model_performances.append(model_performance)
+                model_performance = self._evaluate_model(model, test_env, 1)  # Single workload per evaluation
+                model_performances.append(model_performance)
 
         return model_performances, "test"
 
     def validate_model(self, model):
         model_performances = []
-        for validation_wl in self.workload_generator.wl_validation:
-            validation_env = self.DummyVecEnv([self.make_env(0, EnvironmentType.VALIDATION, validation_wl)])
-            validation_env = self.VecNormalize(
-                validation_env,
-                norm_obs=True,
-                norm_reward=False,
-                gamma=self.config["rl_algorithm"]["gamma"],
-                training=False,
-            )
+        for validation_wl_list in self.workload_generator.wl_validation:
+            if validation_wl_list is None:
+                continue
+            # Process all workloads in the validation list
+            for validation_wl in validation_wl_list:
+                validation_env = self.DummyVecEnv([self.make_env(0, EnvironmentType.VALIDATION, [validation_wl])])
+                validation_env = self.VecNormalize(
+                    validation_env,
+                    norm_obs=True,
+                    norm_reward=False,
+                    gamma=self.config["rl_algorithm"]["gamma"],
+                    training=False,
+                )
 
-            if model != self.model:
-                model.set_env(self.model.env)
+                if model != self.model:
+                    model.set_env(self.model.env)
 
-            model_performance = self._evaluate_model(model, validation_env, len(validation_wl))
-            model_performances.append(model_performance)
+                model_performance = self._evaluate_model(model, validation_env, 1)  # Single workload per evaluation
+                model_performances.append(model_performance)
 
         return model_performances, "validation"
+
+    def evaluate_training_data(self, model):
+        """评估训练数据并生成推荐索引，将训练数据当作测试集处理"""
+        model_performances = []
+        
+        # 获取训练数据
+        training_workloads = self.workload_generator.wl_training
+        logging.info(f"开始评估训练数据，共 {len(training_workloads)} 个workloads")
+        
+        # 设置标志位，表示当前正在将训练数据当作测试集处理
+        self._is_training_as_test = True
+        
+        try:
+            for training_wl in training_workloads:
+                # 创建测试环境来处理训练数据，每个workload单独处理
+                training_env = self.DummyVecEnv([self.make_env(0, EnvironmentType.TESTING, [training_wl])])
+                training_env = self.VecNormalize(
+                    training_env, norm_obs=True, norm_reward=False, gamma=self.config["rl_algorithm"]["gamma"], training=False
+                )
+
+                if model != self.model:
+                    model.set_env(self.model.env)
+
+                model_performance = self._evaluate_model(model, training_env, 1)  # Single workload per evaluation
+                model_performances.append(model_performance)
+        finally:
+            # 清除标志位
+            self._is_training_as_test = False
+
+        logging.info(f"完成训练数据评估，共处理 {len(model_performances)} 个workloads")
+        return model_performances, "training_as_test"
 
     import time
 
@@ -1163,6 +1215,12 @@ class Experiment(object):
         if not hasattr(self, "swirl_times"):
             self.swirl_times = {"test": [], "validation": []}
         self.swirl_times[run_type].append(swirl_selection_time)
+        
+        # 特殊处理：如果当前是训练数据被当作测试集处理，需要将索引推荐保存为测试集格式
+        if hasattr(self, '_is_training_as_test') and self._is_training_as_test:
+            logging.info("检测到训练数据被当作测试集处理，将索引推荐保存为测试集格式")
+            # 将训练数据的索引推荐也保存到test类型的workload_labels中
+            self._collect_index_labels_for_training_as_test(episode_performances, evaluation_env)
 
         return episode_performances, mean_performance, perfs
     def _output_index_selection_info(self, episode_performances, evaluation_env):
@@ -1322,6 +1380,59 @@ class Experiment(object):
         logging.info(f"✅ 完成收集 {run_type} 的workload labels，共处理 {len(episode_performances)} 个episodes")
         logging.info(f"   {run_type} workload_labels 中现在有 {len(self.workload_labels[run_type])} 个条目")
 
+    def _collect_index_labels_for_training_as_test(self, episode_performances, evaluation_env):
+        """收集训练数据的推荐索引，并将其保存为测试集格式"""
+        run_type = "test"  # 将训练数据的索引推荐保存为测试集格式
+
+        print(f"🔍 DEBUG: 开始收集训练数据作为测试集的workload labels，共 {len(episode_performances)} 个episodes")
+        logging.info(f"开始收集训练数据作为测试集的workload labels，共 {len(episode_performances)} 个episodes")
+
+        for i, episode_perf in enumerate(episode_performances):
+            workload = episode_perf["evaluated_workload"]
+
+            # 调试：检查episode_perf结构
+            logging.info(f"训练数据Episode {i}: 检查数据结构")
+            logging.info(f"  - episode_perf keys: {list(episode_perf.keys())}")
+            logging.info(f"  - workload description: {workload.description}")
+            logging.info(f"  - workload id: {getattr(workload, 'id', 'N/A')}")
+            logging.info(f"  - workload db: {getattr(workload, 'db', 'N/A')}")
+
+            # 检查indexes字段是否存在
+            if "indexes" in episode_perf:
+                recommended_indexes = set(episode_perf["indexes"])
+                print(f"🔍 DEBUG: 训练数据Episode {i} 发现 {len(recommended_indexes)} 个推荐索引")
+                logging.info(f"  - 发现 {len(recommended_indexes)} 个推荐索引")
+
+                # 显示前几个索引
+                for j, idx in enumerate(list(recommended_indexes)[:3]):
+                    logging.info(f"    索引 {j+1}: {idx}")
+                if len(recommended_indexes) > 3:
+                    logging.info(f"    ... 还有 {len(recommended_indexes) - 3} 个索引")
+            else:
+                recommended_indexes = set()
+                logging.warning(f"  - ❌ episode_perf中没有'indexes'字段！")
+                logging.warning(f"    可用的字段: {list(episode_perf.keys())}")
+
+            # 将索引添加到workload的labels中
+            workload.labels = recommended_indexes
+            logging.info(f"  - 已将 {len(recommended_indexes)} 个索引添加到workload.labels")
+
+            # 存储到workload_labels字典中，使用特殊的key标识这是训练数据
+            workload_key = f"training_as_test_{workload.description}_{i}"
+            self.workload_labels[run_type][workload_key] = {
+                "workload": workload,
+                "recommended_indexes": recommended_indexes,
+                "cost_improvement": float(episode_perf["achieved_cost"])
+            }
+
+            print(f"🔍 DEBUG: 训练数据Episode {i} 完成 - workload: {workload.description}, labels: {len(workload.labels)}, key: {workload_key}")
+            logging.info(f"训练数据Episode {i} 完成 - workload: {workload.description}, labels: {len(workload.labels)}, key: {workload_key}")
+
+        print(f"🔍 DEBUG: ✅ 完成收集训练数据作为测试集的workload labels，共处理 {len(episode_performances)} 个episodes")
+        print(f"🔍 DEBUG:    测试集workload_labels 中现在有 {len(self.workload_labels[run_type])} 个条目")
+        logging.info(f"✅ 完成收集训练数据作为测试集的workload labels，共处理 {len(episode_performances)} 个episodes")
+        logging.info(f"   测试集workload_labels 中现在有 {len(self.workload_labels[run_type])} 个条目")
+
     def make_env(self, env_id, environment_type=EnvironmentType.TRAINING, workloads_in=None):
         def _init():
             action_manager_class = getattr(
@@ -1359,13 +1470,14 @@ class Experiment(object):
             reward_calculator = reward_calculator_class()
 
             if environment_type == EnvironmentType.TRAINING:
+                # Use all training workloads for training
                 workloads = self.workload_generator.wl_training if workloads_in is None else workloads_in
             elif environment_type == EnvironmentType.TESTING:
-                # Selecting the hardest workload by default
-                workloads = self.workload_generator.wl_testing[-1] if workloads_in is None else workloads_in
+                # Use all testing workloads for testing
+                workloads = self.workload_generator.wl_testing[0] if workloads_in is None else workloads_in
             elif environment_type == EnvironmentType.VALIDATION:
-                # Selecting the hardest workload by default
-                workloads = self.workload_generator.wl_validation[-1] if workloads_in is None else workloads_in
+                # Use all validation workloads for validation
+                workloads = self.workload_generator.wl_validation[0] if workloads_in is None else workloads_in
             else:
                 raise ValueError
 
@@ -1422,40 +1534,63 @@ class Experiment(object):
             raise ValueError("There are only versions 2 and 3 of StableBaselines.")
 
     def _create_workload_files_with_labels(self):
-        """创建包含推荐索引labels的workload文件"""
+        """创建包含推荐索引labels的workload文件，格式与job.1500.1000w.5-15q.workload.labeled.json一致"""
         import json
         from datetime import datetime
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
+        # 获取现有索引（在方法开始时获取一次即可）
+        existing_indexes = self._get_existing_indexes()
+        logging.info(f"获取到 {len(existing_indexes)} 个现有索引")
+
         # 处理validation workloads
         if self.workload_labels["validation"]:
             validation_output = []
+            validation_workload_id = 0  # 自增id计数器
             for workload_key, data in self.workload_labels["validation"].items():
                 workload = data["workload"]
                 recommended_indexes = data["recommended_indexes"]
 
-                # 创建包含labels的workload数据结构
+                # 获取workload级别的tables_columns
+                workload_tables_columns = self._get_workload_tables_columns(workload)
+
+                # 计算workload级别的总cost
+                total_workload_cost = 0.0
+                queries_data = []
+
+                for query in workload.queries:
+                    # 获取查询的basic_cost_explain
+                    basic_cost = self._get_query_cost(query.text)
+                    total_workload_cost += basic_cost
+
+                    query_data = {
+                        "sql": query.text,
+                        "tables_columns": self._extract_tables_columns(query),
+                        "large_columns": {},  # 参考格式中为空对象
+                        "exist_indexes": existing_indexes,  # 使用获取的现有索引
+                        "basic_cost_explain": basic_cost,
+                        "frequency": int(query.frequency)
+                    }
+                    queries_data.append(query_data)
+
+                # 创建符合参考格式的workload数据结构
                 workload_data = {
                     "db": workload.db if workload.db is not None else 'unknown',
-                    "id": workload.id if workload.id is not None else 0,
-                    "description": workload.description,
-                    "queries": [
-                        {
-                            "sql": query.text,
-                            "frequency": int(query.frequency),
-                            "tables_columns": self._extract_tables_columns(query)
-                        } for query in workload.queries
-                    ],
+                    "id": validation_workload_id,  # 使用自增id
+                    "queries": queries_data,
+                    "tables_columns": workload_tables_columns,
+                    "exist_indexes": existing_indexes,
+                    "basic_cost_explain": total_workload_cost,
                     "labels": [
                         {
                             "table": index.table().name,
                             "columns": [col.name for col in index.columns]
                         } for index in recommended_indexes
-                    ],
-                    "cost_improvement": data["cost_improvement"]
+                    ]
                 }
                 validation_output.append(workload_data)
+                validation_workload_id += 1  # id自增
 
             # 保存validation workload文件
             validation_file = f"{self.experiment_folder_path}/validation_workloads_with_labels_{timestamp}.json"
@@ -1466,31 +1601,50 @@ class Experiment(object):
         # 处理test workloads
         if self.workload_labels["test"]:
             test_output = []
+            test_workload_id = 0  # 自增id计数器
             for workload_key, data in self.workload_labels["test"].items():
                 workload = data["workload"]
                 recommended_indexes = data["recommended_indexes"]
 
-                # 创建包含labels的workload数据结构
+                # 获取workload级别的tables_columns
+                workload_tables_columns = self._get_workload_tables_columns(workload)
+
+                # 计算workload级别的总cost
+                total_workload_cost = 0.0
+                queries_data = []
+
+                for query in workload.queries:
+                    # 获取查询的basic_cost_explain
+                    basic_cost = self._get_query_cost(query.text)
+                    total_workload_cost += basic_cost
+
+                    query_data = {
+                        "sql": query.text,
+                        "tables_columns": self._extract_tables_columns(query),
+                        "large_columns": {},  # 参考格式中为空对象
+                        "exist_indexes": existing_indexes,  # 使用获取的现有索引
+                        "basic_cost_explain": basic_cost,
+                        "frequency": int(query.frequency)
+                    }
+                    queries_data.append(query_data)
+
+                # 创建符合参考格式的workload数据结构
                 workload_data = {
                     "db": workload.db if workload.db is not None else 'unknown',
-                    "id": workload.id if workload.id is not None else 0,
-                    "description": workload.description,
-                    "queries": [
-                        {
-                            "sql": query.text,
-                            "frequency": int(query.frequency),
-                            "tables_columns": self._extract_tables_columns(query)
-                        } for query in workload.queries
-                    ],
+                    "id": test_workload_id,  # 使用自增id
+                    "queries": queries_data,
+                    "tables_columns": workload_tables_columns,
+                    "exist_indexes": existing_indexes,
+                    "basic_cost_explain": total_workload_cost,
                     "labels": [
                         {
                             "table": index.table().name,
                             "columns": [col.name for col in index.columns]
                         } for index in recommended_indexes
-                    ],
-                    "cost_improvement": data["cost_improvement"]
+                    ]
                 }
                 test_output.append(workload_data)
+                test_workload_id += 1  # id自增
 
             # 保存test workload文件
             test_file = f"{self.experiment_folder_path}/test_workloads_with_labels_{timestamp}.json"
@@ -1509,3 +1663,73 @@ class Experiment(object):
             if column_name not in tables_columns[table_name]:
                 tables_columns[table_name].append(column_name)
         return tables_columns
+
+    def _get_existing_indexes(self):
+        """获取数据库中现有的索引"""
+        db_host = os.getenv('DATABASE_HOST', 'localhost')
+        db_port = os.getenv('DATABASE_PORT', '54321')
+        connector = PostgresDatabaseConnector(self.schema.database_name, autocommit=True, host=db_host, port=db_port)
+
+        try:
+            # 查询现有索引
+            stmt = "select tablename, indexname, indexdef from pg_indexes where schemaname='public'"
+            indexes = connector.exec_fetch(stmt, one=False)
+
+            existing_indexes = []
+            for index_row in indexes:
+                table_name, index_name, index_def = index_row
+
+                # 解析索引定义，提取列名
+                # 例如：CREATE INDEX idx_name ON table_name (col1, col2)
+                import re
+                match = re.search(r'\((.*?)\)', index_def)
+                if match:
+                    columns_str = match.group(1)
+                    # 分割列名，支持复合索引
+                    columns = [col.strip().strip('"') for col in columns_str.split(',')]
+
+                    existing_indexes.append({
+                        "table": table_name,
+                        "columns": columns
+                    })
+
+            return existing_indexes
+        finally:
+            connector.close()
+
+    def _get_query_cost(self, query_text):
+        """通过EXPLAIN获取查询的cost"""
+        db_host = os.getenv('DATABASE_HOST', 'localhost')
+        db_port = os.getenv('DATABASE_PORT', '54321')
+        connector = PostgresDatabaseConnector(self.schema.database_name, autocommit=True, host=db_host, port=db_port)
+
+        try:
+            # 使用EXPLAIN获取查询计划
+            explain_query = f"EXPLAIN (FORMAT JSON) {query_text}"
+            result = connector.exec_fetch(explain_query, one=True)
+
+            if result and result[0]:
+                plan = result[0][0]["Plan"]
+                total_cost = plan.get("Total Cost", 0.0)
+                return float(total_cost)
+            else:
+                logging.warning(f"无法获取查询cost: {query_text[:100]}...")
+                return 0.0
+        except Exception as e:
+            logging.warning(f"获取查询cost失败: {e}, query: {query_text[:100]}...")
+            return 0.0
+        finally:
+            connector.close()
+
+    def _get_workload_tables_columns(self, workload):
+        """获取workload级别的tables_columns"""
+        all_tables_columns = {}
+        for query in workload.queries:
+            query_tables_columns = self._extract_tables_columns(query)
+            for table, columns in query_tables_columns.items():
+                if table not in all_tables_columns:
+                    all_tables_columns[table] = []
+                for column in columns:
+                    if column not in all_tables_columns[table]:
+                        all_tables_columns[table].append(column)
+        return all_tables_columns

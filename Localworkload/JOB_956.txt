@@ -1,1 +1,0 @@
-SELECT movie_keyword.movie_id, title.series_years, cast_info.note FROM cast_info JOIN title ON title.id = cast_info.movie_id JOIN movie_keyword ON movie_keyword.movie_id = title.id WHERE cast_info.person_role_id <> 2359209 AND cast_info.id <= 19039497 AND cast_info.role_id = 9 ORDER BY cast_info.note DESC;

@@ -1,1 +1,0 @@
-select aka_name.md5sum, name.name_pcode_cf from aka_name, name where aka_name.id < 596870 AND aka_name.imdb_index >= 'III' AND name.name_pcode_cf < 'T6565' AND aka_name.name_pcode_cf >= 'G3623' order by aka_name.md5sum ASC, name.name_pcode_cf DESC;

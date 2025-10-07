@@ -60,9 +60,14 @@ class TableGenerator:
             
             # 分割列定义
             columns = table_content.split(",\n")
+            skip_prefixes = ("primary key", "foreign key", "constraint", "unique", "check")
             for column in columns:
                 column = column.strip()
-                if not column or column.startswith("primary key"):
+                if not column:
+                    continue
+
+                lowered = column.lower()
+                if lowered.startswith(skip_prefixes):
                     continue
                 # 提取列名（第一个空格前的部分）
                 name = column.split(" ", 1)[0].strip()

@@ -1,1 +1,0 @@
-SELECT keyword.phonetic_code, movie_keyword.movie_id FROM keyword JOIN movie_keyword ON movie_keyword.keyword_id = keyword.id WHERE keyword.keyword <= 'fiber-optic-scope' AND movie_keyword.keyword_id < 85898 AND movie_keyword.id < 3762742 AND movie_keyword.movie_id <> 1333923 ORDER BY movie_keyword.movie_id DESC;

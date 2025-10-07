@@ -60,5 +60,5 @@
     "TableNumRowsFilter": 10000
   },
   "ExternalWorkload": true,
-  "WorkloadPath": "/home/baiyutao/SWIRL/job.1500.1000w.5-15q.workload.json"
+  "WorkloadPath": "/home/baiyutao/SWIRL/dsb_swirl_format.json"
 }

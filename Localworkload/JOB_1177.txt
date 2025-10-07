@@ -1,1 +1,0 @@
-select movie_keyword.movie_id, keyword.id from keyword, movie_keyword where keyword.phonetic_code = 'P4352' AND keyword.id = 22473 AND movie_keyword.movie_id >= 2217549 AND movie_keyword.id > 735536 AND keyword.phonetic_code < 'P4352' order by movie_keyword.movie_id DESC, keyword.id DESC;

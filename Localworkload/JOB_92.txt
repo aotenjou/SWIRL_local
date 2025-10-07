@@ -1,1 +1,0 @@
-SELECT complete_cast.subject_id, title.phonetic_code, movie_companies.id FROM movie_companies JOIN title ON title.id = movie_companies.movie_id JOIN complete_cast ON complete_cast.movie_id = title.id WHERE title.title <= '(2000-05-02)' AND title.kind_id <= 2 AND title.production_year = 1986 AND movie_companies.movie_id < 2387843;

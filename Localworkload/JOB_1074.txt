@@ -1,1 +1,0 @@
-SELECT movie_keyword.id, keyword.phonetic_code, AVG(movie_keyword.movie_id) FROM keyword JOIN movie_keyword ON movie_keyword.keyword_id = keyword.id WHERE movie_keyword.id <> 675935 AND keyword.id >= 104859 AND movie_keyword.keyword_id > 266 GROUP BY movie_keyword.id, keyword.phonetic_code HAVING AVG(movie_keyword.movie_id) <= 1762381 ORDER BY AVG(movie_keyword.movie_id) DESC;

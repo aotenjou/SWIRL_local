@@ -1,1 +1,0 @@
-SELECT char_name.md5sum, cast_info.note FROM cast_info JOIN char_name ON char_name.id = cast_info.person_role_id WHERE cast_info.role_id = 9 AND char_name.id > 2222938 AND cast_info.id > 11624221 AND cast_info.person_id <= 393366;

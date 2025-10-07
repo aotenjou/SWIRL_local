@@ -1,1 +1,0 @@
-SELECT movie_info.info, info_type.id FROM info_type JOIN movie_info ON movie_info.info_type_id = info_type.id WHERE movie_info.movie_id > 1555091 AND info_type.info >= 'LD quality program' AND movie_info.info > 'PFM:35 mm' AND movie_info.info_type_id >= 50;

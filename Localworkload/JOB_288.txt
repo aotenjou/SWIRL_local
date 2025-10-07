@@ -1,1 +1,0 @@
-SELECT cast_info.person_role_id, person_info.info, name.id, role_type.id FROM person_info JOIN name ON name.id = person_info.person_id JOIN cast_info ON cast_info.person_id = name.id JOIN role_type ON role_type.id = cast_info.role_id WHERE role_type.role >= 'director' AND person_info.person_id <= 2435116 AND role_type.id <= 9 ORDER BY name.id ASC;

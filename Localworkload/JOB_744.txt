@@ -1,1 +1,0 @@
-select complete_cast.movie_id, title.season_nr, comp_cast_type.id, title.md5sum from movie_keyword JOIN title ON title.id = movie_keyword.movie_id JOIN complete_cast ON complete_cast.movie_id = title.id JOIN comp_cast_type ON comp_cast_type.id = complete_cast.status_id where complete_cast.id > 78320 AND title.id > 1931226 AND title.episode_nr <= 29;

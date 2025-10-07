@@ -1,1 +1,0 @@
-SELECT cast_info.person_id, title.episode_nr, complete_cast.subject_id FROM complete_cast JOIN title ON title.id = complete_cast.movie_id JOIN cast_info ON cast_info.movie_id = title.id WHERE complete_cast.id <> 13834 AND title.series_years <= '2005-2009' AND cast_info.person_id <= 2395323 ORDER BY cast_info.person_id DESC;

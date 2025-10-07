@@ -1,5 +1,5 @@
 {
-  "id": "AIRLINE_mid",
+  "id": "AIRLINE",
   "description": "Airline数据集索引选择实验",
   "gym_version": 1,
   "timesteps": 20000,
@@ -55,5 +55,7 @@
     "training": false,
     "validation_and_testing": [500, 1000, 1500, 2500, 3500, 5000, 6500, 8000, 10000]
   },
-  "column_filters": {}
+  "column_filters": {},
+  "ExternalWorkload": false,
+  "WorkloadPath": null
 } 

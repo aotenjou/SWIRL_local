@@ -1,5 +1,5 @@
 {
-  "id": "ACCIDENTS_Test_Experiment",
+  "id": "ACCIDENTS",
   "description": "Accidents数据集索引选择实验",
   "gym_version": 1,
   "timesteps": 20000,
@@ -57,5 +57,7 @@
   },
   "column_filters": {
     "TableNumRowsFilter": 10000
-  }
+  },
+  "ExternalWorkload": false,
+  "WorkloadPath": null  
 }

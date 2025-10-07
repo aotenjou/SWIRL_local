@@ -1,1 +1,0 @@
-SELECT title.episode_nr, complete_cast.subject_id FROM title JOIN complete_cast ON complete_cast.movie_id = title.id WHERE complete_cast.id <> 13834 AND title.imdb_index <= 'I' AND title.production_year <= 1947 AND complete_cast.subject_id <= 1 ORDER BY title.episode_nr ASC;

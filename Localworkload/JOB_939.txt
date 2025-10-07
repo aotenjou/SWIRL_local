@@ -1,1 +1,0 @@
-SELECT movie_info.info, aka_title.title, title.episode_nr, kind_type.kind FROM movie_info JOIN title ON title.id = movie_info.movie_id JOIN aka_title ON aka_title.movie_id = title.id JOIN kind_type ON kind_type.id = aka_title.kind_id WHERE title.phonetic_code >= 'R2161' AND aka_title.kind_id = 3 AND aka_title.md5sum <> '287a542d59292bc94ae054f698091218';

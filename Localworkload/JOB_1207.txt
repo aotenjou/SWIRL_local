@@ -1,1 +1,0 @@
-select title.kind_id, title.episode_nr, movie_info.id from movie_link JOIN title ON title.id = movie_link.movie_id JOIN movie_info ON movie_info.movie_id = title.id where title.md5sum <= '4cde064e298247ed97cfbe03bb39e3fc' AND title.phonetic_code >= 'I243' AND title.title >= 'Not Tonight Tweety Pie' AND movie_info.info_type_id < 50 AND movie_link.linked_movie_id = 1330291;

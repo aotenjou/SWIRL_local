@@ -24,7 +24,7 @@ QUERY_PATH = "query_files"
 class WorkloadGenerator(object):
     def __init__(
         self, config, workload_columns, random_seed, database_name, experiment_id=None, filter_utilized_columns=None,
-        external_workload=False, workload_path=None
+        external_workload=False, workload_path=None, test_external_workload=False, test_workload_path=None
     ):
         # assert config["benchmark"] in [
         #     "TPCH",
@@ -47,11 +47,31 @@ class WorkloadGenerator(object):
         self.external_workload = external_workload
         self.workload_path = workload_path
 
+        # Check if using external workload for testing
+        self.test_external_workload = test_external_workload
+        self.test_workload_path = test_workload_path
+
+        validation_instances = config["validation_testing"]["number_of_workloads"]
+        test_instances = config["validation_testing"]["number_of_workloads"]
+
         if self.external_workload:
             logging.info(f"Using external workload from: {self.workload_path}")
-            self._load_external_workload()
-            # Set number_of_query_classes for external workloads
-            self.number_of_query_classes = self._set_number_of_query_classes()
+            training_groups, training_query_data = self._load_external_workload_file(self.workload_path, role="train")
+
+            test_groups, test_query_data = [], []
+            if self.test_external_workload and self.test_workload_path:
+                logging.info(f"Using separate external workload for testing from: {self.test_workload_path}")
+                test_groups, test_query_data = self._load_external_workload_file(self.test_workload_path, role="test")
+
+            self._initialize_external_workloads(
+                config=config,
+                validation_instances=validation_instances,
+                test_instances=test_instances,
+                training_groups=training_groups,
+                training_query_data=training_query_data,
+                test_groups=test_groups,
+                test_query_data=test_query_data,
+            )
         else:
             self.benchmark = config["benchmark"]
             self.number_of_query_classes = self._set_number_of_query_classes() # a class is a set of queries with the same structure
@@ -64,16 +84,7 @@ class WorkloadGenerator(object):
             self.available_query_classes = self.query_classes - self.excluded_query_classes # all classes except user specified classes
 
             self.globally_indexable_columns = self._select_indexable_columns(self.filter_utilized_columns) # select columns that are used and can be indexed
-
-        validation_instances = config["validation_testing"]["number_of_workloads"]
-        test_instances = config["validation_testing"]["number_of_workloads"]
-        self.wl_validation = []
-        self.wl_testing = []
-
-        if self.external_workload:
-            # Use external workloads
-            self._setup_external_workloads(config, validation_instances, test_instances)
-        else:
+        if not self.external_workload:
             if config["similar_workloads"] and config["unknown_queries"] == 0:
                 # Todo: this branch can probably be removed
                 assert self.varying_frequencies, "Similar workloads can only be created with varying frequencies."
@@ -171,71 +182,290 @@ class WorkloadGenerator(object):
             logging.critical(f"Sample training workloads: {self.rnd.sample(self.wl_training, 10)}")
         logging.info("Finished generating workloads.")
 
-    def _setup_external_workloads(self, config, validation_instances, test_instances):
-        """Setup workloads using external file"""
-        if not self.external_workloads:
-            raise ValueError("No external workloads loaded")
+    def _initialize_external_workloads(
+        self,
+        config,
+        validation_instances,
+        test_instances,
+        training_groups,
+        training_query_data,
+        test_groups,
+        test_query_data,
+    ):
+        """Unify training and testing external workloads and prepare workload partitions."""
 
-        # Shuffle external workloads to randomize
-        shuffled_workloads = self.external_workloads.copy()
-        self.rnd.shuffle(shuffled_workloads)
+        self.training_external_workload_raw = training_groups
+        self.test_external_workload_raw = test_groups
+        self.training_external_query_data = training_query_data
+        self.test_external_query_data = test_query_data
 
-        # Apply size filtering if specified in config
-        target_size = config.get("size", 0)
-        if target_size > 0:
-            logging.info(f"Filtering external workloads to match target size: {target_size} queries per workload")
-            original_total_queries = sum(len(wl.queries) for wl in shuffled_workloads)
-            shuffled_workloads = self._filter_external_workloads_by_size(shuffled_workloads, target_size)
-            filtered_total_queries = sum(len(wl.queries) for wl in shuffled_workloads)
-            logging.info(f"Workload filtering completed - Original total queries: {original_total_queries}, Filtered total queries: {filtered_total_queries}")
+        self._build_global_query_catalog(training_query_data, test_query_data)
 
-        # Split workloads for training, validation, and testing
-        total_workloads = len(shuffled_workloads)
-        training_count = min(config["training_instances"], total_workloads // 2)
-        validation_count = min(validation_instances, (total_workloads - training_count) // 2)
-        test_count = min(test_instances, total_workloads - training_count - validation_count)
+        # External workloads always derive observation spaces from union catalog
+        self.benchmark = "EXTERNAL"
+        self.excluded_query_classes = set()
+        self.varying_frequencies = True
 
-        # Ensure we have at least some workloads
-        if training_count == 0:
-            training_count = max(1, total_workloads // 3)
-        if validation_count == 0:
-            validation_count = max(1, (total_workloads - training_count) // 2)
-        if test_count == 0:
-            test_count = max(1, total_workloads - training_count - validation_count)
+        self.globally_indexable_columns = self._select_indexable_columns(self.filter_utilized_columns)
 
-        # Split the workloads
-        self.wl_training = shuffled_workloads[:training_count]
-        remaining = shuffled_workloads[training_count:]
+        self.wl_validation = [[]]
+        self.wl_testing = [[]]
 
-        self.wl_validation = [remaining[:validation_count]] if validation_count > 0 else [None]
-        remaining = remaining[validation_count:] if validation_count > 0 else remaining
+        training_workloads = self._convert_grouped_workloads(training_groups, source_label="external_train")
 
-        self.wl_testing = [remaining[:test_count]] if test_count > 0 else [None]
+        if not training_workloads:
+            raise ValueError(
+                "External training workload file did not contain any workload groups."
+            )
 
-        logging.info(f"External workloads setup - Training: {len(self.wl_training)}, Validation: {len(self.wl_validation[0]) if self.wl_validation[0] else 0}, Testing: {len(self.wl_testing[0]) if self.wl_testing[0] else 0}")
+        if test_groups:
+            test_workloads = self._convert_grouped_workloads(test_groups, source_label="external_test")
+            validation_subset = self._limit_workloads(test_workloads, validation_instances)
+            testing_subset = self._limit_workloads(test_workloads, test_instances)
 
-    def _filter_external_workloads_by_size(self, workloads, target_size):
-        """Filter external workloads to match target size by selecting queries"""
-        if target_size <= 0:
-            return workloads
+            if not validation_subset:
+                validation_subset = list(test_workloads)
+            if not testing_subset:
+                testing_subset = list(test_workloads)
 
-        filtered_workloads = []
-        for workload in workloads:
-            if len(workload.queries) <= target_size:
-                # If workload has fewer or equal queries than target, use as is
-                filtered_workloads.append(workload)
-            else:
-                # If workload has more queries than target, randomly select queries
-                selected_queries = self.rnd.sample(workload.queries, target_size)
-                # Create new workload with selected queries
-                filtered_workload = Workload(selected_queries, description=f"{workload.description} (filtered to {target_size} queries)", db=getattr(workload, 'db', None), id=getattr(workload, 'id', None))
-                filtered_workloads.append(filtered_workload)
+            self.wl_training = training_workloads
+            self.wl_validation[0] = validation_subset
+            self.wl_testing[0] = [self._clone_workload(workload) for workload in testing_subset]
 
-        return filtered_workloads
+            logging.info(
+                "Prepared external workloads - Training groups: %d, Validation queries: %d, Testing queries: %d",
+                len(self.wl_training),
+                len(self.wl_validation[0]),
+                len(self.wl_testing[0]),
+            )
+        else:
+            logging.warning(
+                "No separate test workload provided; using training workload file for validation/testing split."
+            )
+            total = len(training_workloads)
+            v_n = min(validation_instances, total)
+            t_n = min(test_instances, max(0, total - v_n))
+
+            validation_subset = training_workloads[:v_n]
+            testing_subset = training_workloads[v_n:v_n + t_n]
+            training_subset = training_workloads[v_n + t_n:]
+
+            self.wl_training = training_subset if training_subset else training_workloads
+            self.wl_validation[0] = validation_subset if validation_subset else []
+            self.wl_testing[0] = [self._clone_workload(workload) for workload in testing_subset] if testing_subset else []
+
+            logging.info(
+                "External workloads fallback split - Training: %d, Validation: %d, Testing: %d",
+                len(self.wl_training),
+                len(self.wl_validation[0]),
+                len(self.wl_testing[0]),
+            )
+
+    def _convert_grouped_workloads(self, grouped_workloads, source_label):
+        converted = []
+        for wl_idx, wl_item in enumerate(grouped_workloads or []):
+            queries = []
+            for query_data in wl_item.get("queries", []):
+                try:
+                    query = self._build_query_from_external(query_data)
+                except Exception as exc:
+                    logging.error(
+                        "Failed to convert query from %s workload at group %d: %s",
+                        source_label,
+                        wl_idx,
+                        exc,
+                    )
+                    continue
+
+                assert len(query.columns) > 0, f"Query columns should have length > 0: {query.text}"
+                queries.append(query)
+
+            if not queries:
+                logging.warning(
+                    "Skipping empty workload group %d from %s workload file.", wl_idx, source_label
+                )
+                continue
+
+            description = wl_item.get("description", f"{source_label}_group_{wl_idx}")
+            converted.append(Workload(queries, description=description, db=self.database_name))
+
+        return converted
+
+    @staticmethod
+    def _limit_workloads(workloads, limit):
+        if limit is None or limit <= 0:
+            return list(workloads)
+        return list(workloads[: limit]) if len(workloads) > limit else list(workloads)
+
+    @staticmethod
+    def _clone_workload(workload):
+        cloned_queries = []
+        for query in workload.queries:
+            cloned_queries.append(
+                Query(
+                    query.nr,
+                    query.text,
+                    columns=list(query.columns),
+                    frequency=query.frequency,
+                )
+            )
+        clone = Workload(cloned_queries, description=workload.description, db=workload.db)
+        clone.budget = workload.budget
+        return clone
+
+    def _build_query_from_external(self, query_data):
+        sql_text = query_data["sql"]
+        frequency = query_data.get("frequency", 1)
+        tables_columns = query_data.get("tables_columns", {}) or {}
+
+        signature = self._query_signature(sql_text, tables_columns)
+        global_id = self._global_query_signature_to_id.get(signature)
+        if global_id is None:
+            # Register unseen query on-the-fly to maintain mapping consistency
+            global_id = self._register_additional_query(sql_text, tables_columns)
+
+        query_columns = self._columns_from_annotation(tables_columns)
+        query = Query(global_id, sql_text, columns=query_columns, frequency=frequency)
+        self._store_indexable_columns(query)
+        return query
+
+    def _columns_from_annotation(self, tables_columns):
+        resolved_columns = []
+        for table_name, column_names in tables_columns.items():
+            for col_name in column_names:
+                for wc in self.workload_columns:
+                    if wc.table.name.lower() == str(table_name).lower() and wc.name.lower() == str(col_name).lower():
+                        resolved_columns.append(wc)
+                        break
+        return resolved_columns
+
+    def _build_global_query_catalog(self, training_query_data, test_query_data):
+        self.external_query_data = []
+        self._global_query_signature_to_id = {}
+
+        all_query_records = []
+        if training_query_data:
+            all_query_records.extend(training_query_data)
+        if test_query_data:
+            all_query_records.extend(test_query_data)
+
+        for record in all_query_records:
+            sql_text = record["sql"]
+            tables_columns = record.get("tables_columns", {}) or {}
+            signature = self._query_signature(sql_text, tables_columns)
+
+            if signature not in self._global_query_signature_to_id:
+                global_id = len(self.external_query_data) + 1
+                self._global_query_signature_to_id[signature] = global_id
+                self.external_query_data.append(
+                    {
+                        "query_id": global_id,
+                        "sql": sql_text,
+                        "frequency": record.get("frequency", 1),
+                        "tables_columns": tables_columns,
+                    }
+                )
+            record["global_id"] = self._global_query_signature_to_id[signature]
+
+        self.number_of_query_classes = len(self.external_query_data)
+        self.query_classes = set(range(1, self.number_of_query_classes + 1))
+        self.available_query_classes = self.query_classes.copy()
+
+        if self.number_of_query_classes == 0:
+            raise ValueError("No queries found across training/test external workloads.")
+
+        self.query_texts = [[query_data["sql"]] for query_data in self.external_query_data]
+
+    def _register_additional_query(self, sql_text, tables_columns):
+        signature = self._query_signature(sql_text, tables_columns)
+        if signature in self._global_query_signature_to_id:
+            return self._global_query_signature_to_id[signature]
+
+        global_id = len(self.external_query_data) + 1
+        self._global_query_signature_to_id[signature] = global_id
+        self.external_query_data.append(
+            {
+                "query_id": global_id,
+                "sql": sql_text,
+                "frequency": 1,
+                "tables_columns": tables_columns,
+            }
+        )
+        self.number_of_query_classes = len(self.external_query_data)
+        self.query_classes = set(range(1, self.number_of_query_classes + 1))
+        self.available_query_classes = self.query_classes.copy()
+        self.query_texts = [[query_data["sql"]] for query_data in self.external_query_data]
+        return global_id
+
+    @staticmethod
+    def _query_signature(sql_text, tables_columns):
+        normalized_sql = " ".join(str(sql_text).split())
+        normalized_columns = tuple(
+            sorted(
+                (
+                    str(table_name).lower(),
+                    tuple(sorted(str(column_name).lower() for column_name in column_names)),
+                )
+                for table_name, column_names in (tables_columns or {}).items()
+            )
+        )
+        return normalized_sql, normalized_columns
+
+    def _load_external_workload_file(self, workload_path, role):
+        """Load and normalize an external workload JSON file."""
+        try:
+            with open(workload_path, 'r', encoding='utf-8') as f:
+                workload_data = json.load(f)
+        except FileNotFoundError:
+            raise FileNotFoundError(f"External workload file not found: {workload_path}")
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON format in workload file {workload_path}: {e}")
+
+        normalized_groups = self._normalize_external_workload_structure(workload_data)
+
+        query_data = []
+        for wl_item in normalized_groups:
+            for query in wl_item.get("queries", []):
+                if "sql" not in query:
+                    continue
+                query_data.append(
+                    {
+                        "sql": query["sql"],
+                        "frequency": query.get("frequency", 1),
+                        "tables_columns": query.get("tables_columns", {}),
+                        "source_role": role,
+                    }
+                )
+
+        logging.info(
+            "Loaded %d query definitions across %d workload groups from %s",
+            len(query_data),
+            len(normalized_groups),
+            workload_path,
+        )
+
+        return normalized_groups, query_data
+
+    @staticmethod
+    def _normalize_external_workload_structure(workload_data):
+        if isinstance(workload_data, list):
+            return workload_data
+
+        if isinstance(workload_data, dict):
+            if isinstance(workload_data.get("workloads"), list):
+                return workload_data["workloads"]
+            if isinstance(workload_data.get("workload_groups"), list):
+                flattened = []
+                for group in workload_data["workload_groups"]:
+                    flattened.extend(group.get("workloads", []))
+                return flattened
+
+        logging.warning("Unrecognized external workload JSON shape; expected list or structured dictionary.")
+        return []
 
     def _set_number_of_query_classes(self):
         if self.external_workload:
-            return len(self.external_workloads)
+            return len(self.external_query_data)
         else:
             if self.benchmark == "TPCH":
                 return 22
@@ -246,9 +476,13 @@ class WorkloadGenerator(object):
             elif self.benchmark == "BASKETBALL":
                 return 48
             elif self.benchmark == "BASEBALL":
-                return 50
+                return 499
             elif self.benchmark == "CHEMBL":
                 return 37
+            elif self.benchmark == "DSB":
+                return 53
+            elif self.benchmark == "MIX3":
+                return 120
             else:
                 # raise ValueError("Unsupported Benchmark type provided, only TPCH, TPCDS, and JOB supported.")
                 return 500
@@ -381,9 +615,29 @@ class WorkloadGenerator(object):
             queries = []
 
             for query_class, frequency in zip(query_classes, query_class_frequencies):
-                query_text = self.rnd.choice(self.query_texts[query_class - 1])
+                # For external workloads (both training and test), use the stored query data
+                if (self.external_workload or self.test_external_workload) and hasattr(self, 'external_query_data'):
+                    # Use the actual query data from external file
+                    query_data = self.external_query_data[query_class - 1]
+                    query_text = query_data['sql']
+                    tables_columns = query_data.get('tables_columns', {})
 
-                query = Query(query_class, query_text, frequency=frequency)
+                    # Create columns from tables_columns information in external workload
+                    query_columns = []
+                    for table_name, column_names in tables_columns.items():
+                        for col_name in column_names:
+                            # Find the corresponding column object from workload_columns
+                            for wc in self.workload_columns:
+                                if wc.table.name.lower() == table_name.lower() and wc.name.lower() == col_name.lower():
+                                    query_columns.append(wc)
+                                    break
+
+                    # Use the frequency from the tuple (generated by internal logic) instead of external frequency
+                    query = Query(query_class, query_text, columns=query_columns, frequency=frequency)
+                else:
+                    # For internal query classes, use the original logic
+                    query_text = self.rnd.choice(self.query_texts[query_class - 1])
+                    query = Query(query_class, query_text, frequency=frequency)
 
                 self._store_indexable_columns(query)
                 assert len(query.columns) > 0, f"Query columns should have length > 0: {query.text}"
@@ -544,7 +798,7 @@ class WorkloadGenerator(object):
         return output_columns
 
     def _load_external_workload(self):
-        """Load workload from external JSON file"""
+        """Load workload from external JSON file and convert to internal query class format"""
         try:
             with open(self.workload_path, 'r', encoding='utf-8') as f:
                 workload_data = json.load(f)
@@ -553,97 +807,120 @@ class WorkloadGenerator(object):
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON format in workload file: {e}")
 
-        # Process workload data and create Workload objects
-        self.external_workloads = []
-        for wl_item in workload_data:
-            queries = []
-            query_id = 1
-            for query_data in wl_item["queries"]:
-                # Create Query object
-                query = Query(
-                    query_id,
-                    query_text=query_data["sql"],
-                    frequency=query_data.get("frequency", 1)
-                )
+        # Preserve raw grouped workloads (support list or {'workloads': [...]})
+        if isinstance(workload_data, dict) and 'workloads' in workload_data and isinstance(workload_data['workloads'], list):
+            self.external_workload_raw = workload_data['workloads']
+        elif isinstance(workload_data, list):
+            self.external_workload_raw = workload_data
+        else:
+            logging.warning("Unrecognized external workload JSON shape; expected list or {'workloads': [...]}.")
+            self.external_workload_raw = []
+
+        # Extract all unique SQL queries and their frequencies from external workloads
+        self.external_query_data = []
+        query_id = 1
+
+        # Iterate over normalized raw groups to support both list and {'workloads': [...]} shapes
+        for wl_item in self.external_workload_raw:
+            for query_data in wl_item.get("queries", []):
+                sql_text = query_data["sql"]
+                frequency = query_data.get("frequency", 1)
+                tables_columns = query_data.get("tables_columns", {})
+
+                # Store query data for later processing
+                self.external_query_data.append({
+                    'query_id': query_id,
+                    'sql': sql_text,
+                    'frequency': frequency,
+                    'tables_columns': tables_columns
+                })
                 query_id += 1
-                # Process columns for the query
-                self._process_query_columns(query, query_data.get("tables_columns", {}))
 
-                queries.append(query)
+        logging.info(f"Loaded {len(self.external_query_data)} queries from external file")
 
-            # Create Workload object
-            workload = Workload(queries, description=f"External workload ID: {wl_item['id']}", db=wl_item.get('db'), id=wl_item['id'])
-            self.external_workloads.append(workload)
-
-        logging.info(f"Loaded {len(self.external_workloads)} workloads from external file")
-
-        # Initialize required attributes for external workloads
+        # Initialize required attributes for external workloads (similar to internal query classes)
         self.benchmark = "EXTERNAL"
-        self.query_classes = set(range(len(self.external_workloads)))
+        self.number_of_query_classes = len(self.external_query_data)
+        self.query_classes = set(range(1, self.number_of_query_classes + 1))
         self.available_query_classes = self.query_classes.copy()
         self.excluded_query_classes = set()
         self.varying_frequencies = True
-        self.query_texts = [[wl.queries[0].text] for wl in self.external_workloads]
+        
+        # Create query_texts in the same format as internal query classes
+        # Each query class contains only one query (the external query)
+        self.query_texts = [[query_data['sql']] for query_data in self.external_query_data]
 
-        # Set up globally indexable columns
-        self.globally_indexable_columns = self._select_indexable_columns_from_external(self.filter_utilized_columns)
+        # Set up globally indexable columns (will be processed later like internal queries)
+        self.globally_indexable_columns = self._select_indexable_columns(self.filter_utilized_columns)
 
-    def _process_query_columns(self, query, tables_columns):
-        """Process tables_columns data and set query.columns"""
-        for table_name, column_names in tables_columns.items():
-            for column_name in column_names:
-                # Find matching column in workload_columns
-                for wc in self.workload_columns:
-                    if wc.table.name == table_name and wc.name == column_name:
-                        query.columns.append(wc)
-                        break
+    def _load_test_external_workload(self):
+        """Load test workload from external JSON file and convert to internal query class format"""
+        try:
+            with open(self.test_workload_path, 'r', encoding='utf-8') as f:
+                workload_data = json.load(f)
+        except FileNotFoundError:
+            raise FileNotFoundError(f"Test external workload file not found: {self.test_workload_path}")
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON format in test workload file: {e}")
 
-    def _select_indexable_columns_from_external(self, only_utilized_indexes=False):
-        """Select indexable columns from external workloads"""
-        if not self.external_workloads:
-            return []
+        # Preserve raw grouped test workloads (support list or {'workloads': [...]})
+        if isinstance(workload_data, dict) and 'workloads' in workload_data and isinstance(workload_data['workloads'], list):
+            self.test_external_workload_raw = workload_data['workloads']
+        elif isinstance(workload_data, list):
+            self.test_external_workload_raw = workload_data
+        else:
+            logging.warning("Unrecognized test external workload JSON shape; expected list or {'workloads': [...]}.")
+            self.test_external_workload_raw = []
 
-        # Collect all unique columns from external workloads
-        all_columns = set()
-        for workload in self.external_workloads:
-            for query in workload.queries:
-                all_columns.update(query.columns)
+        # Extract all unique SQL queries and their frequencies from test external workloads
+        self.test_external_query_data = []
+        query_id = 1
 
-        if only_utilized_indexes:
-            # For external workloads, we cannot easily determine utilized indexes
-            # without database connection, so we return all columns
-            logging.warning("Cannot determine utilized indexes for external workloads, using all columns")
-            return list(all_columns)
+        # Iterate over normalized raw groups to support both list and {'workloads': [...]} shapes
+        for wl_item in self.test_external_workload_raw:
+            for query_data in wl_item.get("queries", []):
+                sql_text = query_data["sql"]
+                frequency = query_data.get("frequency", 1)
+                tables_columns = query_data.get("tables_columns", {})
 
-        # Assign global column IDs
-        selected_columns = []
-        global_column_id = 0
-        for column in sorted(all_columns):
-            column.global_column_id = global_column_id
-            global_column_id += 1
-            selected_columns.append(column)
+                # Store query data for later processing
+                self.test_external_query_data.append({
+                    'query_id': query_id,
+                    'sql': sql_text,
+                    'frequency': frequency,
+                    'tables_columns': tables_columns
+                })
+                query_id += 1
 
-        return selected_columns
+        logging.info(f"Loaded {len(self.test_external_query_data)} test queries from external file")
+
+
 
     def _select_indexable_columns(self, only_utilized_indexes=False):
-        available_query_classes = tuple(self.available_query_classes)
-        query_class_frequencies = tuple([1 for frequency in range(len(available_query_classes))])
+        schema_columns = list(self.workload_columns)
+        logging.info(
+            "Selecting indexable columns from schema definitions%s."
+            % (" with utilization filtering" if only_utilized_indexes else "")
+        )
 
-        logging.info(f"Selecting indexable columns on {len(available_query_classes)} query classes.")
-
-        workload = self._workloads_from_tuples([(available_query_classes, query_class_frequencies)])[0]
-
-        indexable_columns = workload.indexable_columns()
         if only_utilized_indexes:
-            indexable_columns = self._only_utilized_indexes(indexable_columns)
+            indexable_columns = self._only_utilized_indexes(schema_columns)
+        else:
+            indexable_columns = schema_columns
+
+        indexable_column_set = set(indexable_columns)
         selected_columns = []
 
+        for column in schema_columns:
+            column.global_column_id = None
+
         global_column_id = 0
-        for column in self.workload_columns:
-            if column in indexable_columns:
+        for column in schema_columns:
+            if column in indexable_column_set:
                 column.global_column_id = global_column_id
                 global_column_id += 1
-
                 selected_columns.append(column)
+
+        logging.info(f"Selected {len(selected_columns)} schema columns as indexable candidates.")
 
         return selected_columns

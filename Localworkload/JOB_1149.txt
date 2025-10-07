@@ -1,1 +1,0 @@
-SELECT movie_info.note, info_type.id FROM movie_info JOIN info_type ON info_type.id = movie_info.info_type_id WHERE info_type.id > 59 AND movie_info.info_type_id < 105 AND movie_info.id >= 3605634 AND info_type.info > 'death date';

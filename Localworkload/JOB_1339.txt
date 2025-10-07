@@ -1,1 +1,0 @@
-SELECT aka_name.md5sum, name.name_pcode_nf FROM name, aka_name WHERE name.imdb_index <= 'VII' AND aka_name.id = 779615 AND aka_name.imdb_index <= 'I' AND name.gender <> 'm' AND name.id >= 1826335 AND aka_name.name_pcode_nf <= 'K24' AND name.name_pcode_cf <> 'A256';

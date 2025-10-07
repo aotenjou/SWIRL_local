@@ -1,1 +1,0 @@
-SELECT title.md5sum, movie_keyword.id, keyword.id FROM keyword JOIN movie_keyword ON movie_keyword.keyword_id = keyword.id JOIN title ON title.id = movie_keyword.movie_id WHERE title.phonetic_code = 'M212' AND title.season_nr = 5 AND title.episode_nr >= 237 ORDER BY keyword.id DESC, movie_keyword.id DESC;

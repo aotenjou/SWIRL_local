@@ -1,1 +1,0 @@
-SELECT aka_title.movie_id, movie_info_idx.id, title.phonetic_code FROM aka_title JOIN title ON title.id = aka_title.movie_id JOIN movie_info_idx ON movie_info_idx.movie_id = title.id WHERE title.episode_of_id <> 576415 AND movie_info_idx.info_type_id < 101 AND title.kind_id < 2 AND title.imdb_index = 'I';

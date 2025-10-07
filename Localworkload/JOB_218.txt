@@ -1,1 +1,0 @@
-SELECT movie_info.info, info_type.id, MIN(info_type.id) FROM info_type, movie_info WHERE info_type.id = 8 AND movie_info.info < 'USA:23 November 2012' AND info_type.info < 'agent address' AND movie_info.movie_id >= 1096702 GROUP BY movie_info.info, info_type.id HAVING MIN(info_type.id) <> 62 ORDER BY MIN(info_type.id) DESC;

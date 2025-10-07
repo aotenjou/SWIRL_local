@@ -1,1 +1,0 @@
-select title.title, title.md5sum from movie_link, title where title.title >= 'The Redneck Yacht Club' AND title.season_nr < 3 AND title.md5sum = 'e043157ee7b99e4bcc2fdf290a332164' AND title.series_years > '2005-2009' AND movie_link.linked_movie_id > 1394139 AND title.imdb_index = 'I' AND title.phonetic_code > 'T6216';

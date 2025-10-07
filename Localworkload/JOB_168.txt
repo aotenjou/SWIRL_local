@@ -1,1 +1,0 @@
-select movie_link.id, title.kind_id from movie_link, title where movie_link.movie_id > 110015 AND title.title = 'Neprikayannyy' AND title.production_year = 1977 AND title.series_years > '2005-2009' AND movie_link.linked_movie_id > 1394139 AND title.imdb_index = 'I' AND title.phonetic_code > 'T6216';

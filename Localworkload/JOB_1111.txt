@@ -1,1 +1,0 @@
-SELECT cast_info.id, char_name.id FROM cast_info JOIN char_name ON char_name.id = cast_info.person_role_id WHERE char_name.name >= 'Jacques Clouseau' AND char_name.name_pcode_nf >= 'G6532' AND char_name.id <= 278861 AND char_name.imdb_index < 'IV' ORDER BY char_name.id DESC, cast_info.id ASC;

@@ -1,1 +1,0 @@
-select aka_name.id, name.gender from aka_name, name where name.name = 'Kennedy, Rose' AND aka_name.surname_pcode >= 'M2' AND name.name_pcode_cf < 'T6565' AND aka_name.name_pcode_cf >= 'F6254' order by aka_name.id ASC, name.gender DESC;

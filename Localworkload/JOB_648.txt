@@ -1,1 +1,0 @@
-SELECT cast_info.person_role_id FROM cast_info WHERE cast_info.nr_order <> 111 AND cast_info.note >= '(executive)' AND cast_info.role_id < 9 AND cast_info.person_role_id > 2282928 ORDER BY cast_info.person_role_id ASC;

@@ -1,1 +1,0 @@
-SELECT movie_info.movie_id, info_type.id, COUNT(movie_info.id) FROM info_type, movie_info WHERE movie_info.info <= '50' AND movie_info.movie_id < 41076 AND info_type.id > 8 GROUP BY movie_info.movie_id, info_type.id HAVING COUNT(movie_info.id) = 8600835;

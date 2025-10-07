@@ -1,1 +1,0 @@
-SELECT title.episode_nr, kind_type.id, complete_cast.status_id FROM kind_type, title, complete_cast WHERE title.imdb_index = 'II' AND title.md5sum <= '05b0479cac0b762d64a8fbab8106e2e3' AND title.episode_of_id >= 576415 ORDER BY kind_type.id DESC;

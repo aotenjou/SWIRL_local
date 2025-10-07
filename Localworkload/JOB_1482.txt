@@ -1,1 +1,0 @@
-SELECT title.season_nr, complete_cast.movie_id, comp_cast_type.kind, kind_type.kind FROM comp_cast_type, complete_cast, title, kind_type WHERE title.md5sum = '6feeed89f6a89b5e9c266b5394c332be' AND complete_cast.status_id <> 3 AND title.title <= 'Pericolo di vita' ORDER BY kind_type.kind ASC, complete_cast.movie_id DESC, title.season_nr DESC, comp_cast_type.kind ASC;

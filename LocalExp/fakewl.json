@@ -1,0 +1,76 @@
+[
+  {
+      "db": "dsb",
+      "id": 0,
+      "sqls_hash": "dce604edf7fc49a9322e53b868d391de",
+      "queries": [
+          {
+              "sql": "select min(c_customer_id),     min(sr_ticket_number),     min(sr_item_sk)  from customer      ,customer_address      ,customer_demographics      ,household_demographics      ,income_band      ,store_returns  where ca_city         =  'Bridgeport'    and c_current_addr_sk = ca_address_sk    and ib_lower_bound   >=  7 * 10000    and ib_upper_bound   <=  7 * 10000 + 50000    and ib_income_band_sk = hd_income_band_sk    and cd_demo_sk = c_current_cdemo_sk    and hd_demo_sk = c_current_hdemo_sk    and sr_cdemo_sk = cd_demo_sk",
+              "tables_columns": {
+                  "customer": [
+                      "c_customer_id",
+                      "c_current_cdemo_sk",
+                      "c_current_addr_sk",
+                      "c_current_hdemo_sk"
+                  ],
+                  "income_band": [
+                      "ib_lower_bound",
+                      "ib_upper_bound",
+                      "ib_income_band_sk"
+                  ],
+                  "household_demographics": [
+                      "hd_demo_sk",
+                      "hd_income_band_sk"
+                  ],
+                  "store_returns": [
+                      "sr_ticket_number",
+                      "sr_cdemo_sk",
+                      "sr_item_sk"
+                  ],
+                  "customer_address": [
+                      "ca_city",
+                      "ca_address_sk"
+                  ],
+                  "customer_demographics": [
+                      "cd_demo_sk"
+                  ]
+              },
+              "large_columns": {},
+              "exist_indexes": [
+                  {
+                      "table": "store_returns",
+                      "columns": [
+                          "sr_item_sk"
+                      ]
+                  },
+                  {
+                      "table": "income_band",
+                      "columns": [
+                          "ib_income_band_sk"
+                      ]
+                  },
+                  {
+                      "table": "customer_address",
+                      "columns": [
+                          "ca_address_sk"
+                      ]
+                  },
+                  {
+                      "table": "household_demographics",
+                      "columns": [
+                          "hd_demo_sk"
+                      ]
+                  },
+                  {
+                      "table": "customer_demographics",
+                      "columns": [
+                          "cd_demo_sk"
+                      ]
+                  }
+              ],
+              "basic_cost_explain": 21915.84,
+              "frequency": 1
+          }
+      ]
+  }
+]

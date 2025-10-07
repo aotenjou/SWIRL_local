@@ -1,1 +1,0 @@
-SELECT movie_info.id, info_type.info, AVG(info_type.id) FROM movie_info, info_type WHERE movie_info.note <= '(1984-1998)' AND movie_info.info >= 'Denmark:21 January 2004' AND movie_info.id < 2084038 GROUP BY movie_info.id, info_type.info HAVING AVG(info_type.id) = 59 ORDER BY AVG(info_type.id) ASC;

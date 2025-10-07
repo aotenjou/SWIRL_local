@@ -1,1 +1,0 @@
-select name.gender, name.name_pcode_cf from aka_name, name where name.name = 'Kan, Wai-Yan' AND aka_name.surname_pcode >= 'L2' AND aka_name.id < 596870 AND aka_name.name_pcode_cf >= 'L5353' order by name.gender ASC, name.name_pcode_cf DESC;

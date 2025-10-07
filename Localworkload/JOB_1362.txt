@@ -1,1 +1,0 @@
-select movie_companies.note, movie_companies.movie_id, min(company_type.id) from movie_companies, company_type where movie_companies.note > '(1958) (USA) (TV)' AND company_type.kind = 'special effects companies' AND company_type.kind >= 'special effects companies' group by movie_companies.movie_id, movie_companies.note having min(company_type.id) >= 1;

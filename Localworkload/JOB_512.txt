@@ -1,1 +1,0 @@
-SELECT aka_title.movie_id, title.imdb_index, kind_type.kind FROM kind_type JOIN title ON title.kind_id = kind_type.id JOIN aka_title ON aka_title.movie_id = title.id WHERE title.imdb_index <> 'I' AND aka_title.movie_id >= 2279421 AND aka_title.production_year > 1998 ORDER BY aka_title.movie_id DESC, kind_type.kind ASC, title.imdb_index DESC;

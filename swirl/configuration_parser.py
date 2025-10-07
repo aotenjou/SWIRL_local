@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 
 
 class ConfigurationParser(object):
@@ -28,6 +29,12 @@ class ConfigurationParser(object):
             "ExternalWorkload",
             "WorkloadPath",
         ]
+        
+        # 可选的配置参数
+        self.OPTIONAL_CONFIGURATION_OPTIONS = [
+            "TestExternalWorkload",
+            "TestWorkloadPath",
+        ]
 
         self.REQUIRED_CONFIGURATION_OPTIONS_FURTHER = {
             "workload": [
@@ -55,14 +62,16 @@ class ConfigurationParser(object):
             self._determine_missing_configuration_options(required_options, self.config[key].keys())
 
         # Check if the json file has unknown configuration options
+        all_known_options = self.REQUIRED_CONFIGURATION_OPTIONS_FIRST_LEVEL + self.OPTIONAL_CONFIGURATION_OPTIONS
         self._determine_missing_configuration_options(
-            self.config.keys(), self.REQUIRED_CONFIGURATION_OPTIONS_FIRST_LEVEL, crash_on_fail=False
+            self.config.keys(), all_known_options, crash_on_fail=False
         )
 
         self._translate_budgets()
         self._translate_column_filters()
         self._translate_workload_options()
         self._translate_model_architecture()
+        self._resolve_workload_paths()
 
         self._check_dependencies()
 
@@ -103,6 +112,29 @@ class ConfigurationParser(object):
 
         if "WorkloadPath" not in self.config:
             self.config["WorkloadPath"] = None
+            
+        # 添加测试时独立workload的配置参数
+        if "TestExternalWorkload" not in self.config:
+            self.config["TestExternalWorkload"] = False
+
+        if "TestWorkloadPath" not in self.config:
+            self.config["TestWorkloadPath"] = None
+
+    def _resolve_workload_paths(self):
+        """Resolve configured workload paths to absolute paths and expose for debugging."""
+        resolved = {"train": None, "test": None}
+
+        if self.config.get("ExternalWorkload") and self.config.get("WorkloadPath"):
+            resolved_path = os.path.abspath(os.path.expanduser(self.config["WorkloadPath"]))
+            self.config["WorkloadPath"] = resolved_path
+            resolved["train"] = resolved_path
+
+        if self.config.get("TestExternalWorkload") and self.config.get("TestWorkloadPath"):
+            resolved_path = os.path.abspath(os.path.expanduser(self.config["TestWorkloadPath"]))
+            self.config["TestWorkloadPath"] = resolved_path
+            resolved["test"] = resolved_path
+
+        self.config["resolved_workloads"] = resolved
 
     def _check_dependencies(self):
         if self.config["rl_algorithm"]["algorithm"] == "DQN":
@@ -147,9 +179,18 @@ class ConfigurationParser(object):
             ), "If indexes should be reenabled, the max_index_width must be > 1 to have effect"
 
         if self.config["ExternalWorkload"] is True:
-            assert (
-                self.config["WorkloadPath"] is not None
-            ), "WorkloadPath must be specified when ExternalWorkload is enabled"
-            assert (
-                self.config["WorkloadPath"].endswith('.json')
-            ), "WorkloadPath must point to a JSON file"
+            if self.config["WorkloadPath"] is None:
+                raise ValueError("WorkloadPath must be specified when ExternalWorkload is enabled")
+            if not self.config["WorkloadPath"].endswith('.json'):
+                raise ValueError("WorkloadPath must point to a JSON file")
+            if not os.path.isfile(self.config["WorkloadPath"]):
+                raise FileNotFoundError(f"External workload file not found: {self.config['WorkloadPath']}")
+            
+        # 添加测试时独立workload的依赖检查
+        if self.config["TestExternalWorkload"] is True:
+            if self.config["TestWorkloadPath"] is None:
+                raise ValueError("TestWorkloadPath must be specified when TestExternalWorkload is enabled")
+            if not self.config["TestWorkloadPath"].endswith('.json'):
+                raise ValueError("TestWorkloadPath must point to a JSON file")
+            if not os.path.isfile(self.config["TestWorkloadPath"]):
+                raise FileNotFoundError(f"Test workload file not found: {self.config['TestWorkloadPath']}")
